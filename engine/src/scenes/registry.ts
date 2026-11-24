@@ -6,6 +6,7 @@ import {CardsScene} from './CardsScene';
 import {FlapScene} from './FlapScene';
 import {MediaScene} from './MediaScene';
 import {KpiScene} from './KpiScene';
+import {World3DScene} from '../three/World3DScene';
 
 // Sahne türü -> bileşen. Yeni sahne türü eklemek için buraya kaydedin.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,4 +18,5 @@ export const SCENES: Record<string, React.FC<any>> = {
 	flap: FlapScene,
 	media: MediaScene,
 	kpi: KpiScene,
+	world3d: World3DScene, // Three.js 3D motoru (engine/src/three)
 };
