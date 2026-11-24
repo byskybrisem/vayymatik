@@ -1,0 +1,1603 @@
+{
+  "id": "zirve",
+  "output_name": "Zirve_VAYYMATIK_Demo",
+  "language": "tr",
+  "duration": 8.0,
+  "voice": {
+    "lead_in": 0.35,
+    "tail": 0.5,
+    "length_scale": 1.1
+  },
+  "foreign_words": [],
+  "lines": [
+    {
+      "id": "karar",
+      "text": "Her büyük {g:servet} bir {kararla} başlar.",
+      "pause_after": 1.05
+    },
+    {
+      "id": "soru",
+      "text": "Peki, sen {sıfırdan} ne kadar {g:yükselebilirsin}?"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "oda",
+      "type": "world3d",
+      "start": "@start",
+      "note": "Karanlık oda → duvarlar devrilir, platform şehrin üstüne yükselir (3D, tek plan)",
+      "props": {
+        "stage": {
+          "bg": "#04060b",
+          "exposure": 1.05
+        },
+        "fog": {
+          "color": [
+            {
+              "t": 0,
+              "v": "#04060b"
+            },
+            {
+              "t": 2.4,
+              "v": "#04060b"
+            },
+            {
+              "t": 4.6,
+              "v": "#2a2a3e"
+            }
+          ],
+          "near": [
+            {
+              "t": 0,
+              "v": 30
+            },
+            {
+              "t": 4.6,
+              "v": 90
+            }
+          ],
+          "far": [
+            {
+              "t": 0,
+              "v": 240
+            },
+            {
+              "t": 4.6,
+              "v": 520
+            }
+          ]
+        },
+        "grade": {
+          "saturate": 1.1,
+          "contrast": 1.08,
+          "leak": "rgba(255,170,80,0.55)",
+          "leakOpacity": [
+            {
+              "t": 0,
+              "v": 0
+            },
+            {
+              "t": 2.6,
+              "v": 0
+            },
+            {
+              "t": 4.4,
+              "v": 0.45
+            }
+          ],
+          "flash": [
+            {
+              "t": "@karar.word:kararla",
+              "v": 0
+            },
+            {
+              "t": "@karar.word:kararla+0.05",
+              "v": 0.18,
+              "e": "out"
+            },
+            {
+              "t": "@karar.word:kararla+0.4",
+              "v": 0
+            }
+          ]
+        },
+        "camera": {
+          "ease": "linear",
+          "shake": 0.01,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                0.8,
+                1.52,
+                2.35
+              ],
+              "target": [
+                0,
+                1.15,
+                -0.4
+              ],
+              "fov": 32
+            },
+            {
+              "t": 1.9,
+              "pos": [
+                0.5,
+                1.45,
+                1.5
+              ],
+              "target": [
+                0,
+                1.25,
+                -0.5
+              ],
+              "fov": 30
+            },
+            {
+              "t": 2.55,
+              "pos": [
+                1.55,
+                1.55,
+                0.85
+              ],
+              "target": [
+                0,
+                1.35,
+                -0.6
+              ],
+              "fov": 32
+            },
+            {
+              "t": 3.15,
+              "pos": [
+                2.35,
+                1.75,
+                -1.6
+              ],
+              "target": [
+                0,
+                1.45,
+                -0.6
+              ],
+              "fov": 34
+            },
+            {
+              "t": 3.75,
+              "pos": [
+                0.55,
+                1.65,
+                -2.75
+              ],
+              "target": [
+                0,
+                1.55,
+                -0.6
+              ],
+              "fov": 34
+            },
+            {
+              "t": 4.45,
+              "pos": [
+                0.25,
+                2.2,
+                -3.9
+              ],
+              "target": [
+                0,
+                1.5,
+                -0.6
+              ],
+              "fov": 36
+            },
+            {
+              "t": 5.2,
+              "pos": [
+                -0.7,
+                3.4,
+                -6.3
+              ],
+              "target": [
+                0,
+                1.3,
+                -0.4
+              ],
+              "fov": 40
+            }
+          ]
+        },
+        "lights": [
+          {
+            "type": "ambient",
+            "color": "#3a4a6a",
+            "intensity": [
+              {
+                "t": 0,
+                "v": 0.2
+              },
+              {
+                "t": 2.4,
+                "v": 0.2
+              },
+              {
+                "t": 4.0,
+                "v": 0.4
+              }
+            ]
+          },
+          {
+            "type": "hemi",
+            "color": "#ffd2a0",
+            "ground": "#1a2030",
+            "intensity": [
+              {
+                "t": 0,
+                "v": 0
+              },
+              {
+                "t": 2.5,
+                "v": 0
+              },
+              {
+                "t": 4.0,
+                "v": 1.3
+              }
+            ]
+          },
+          {
+            "type": "spot",
+            "color": "#ffb066",
+            "pos": [
+              -0.4,
+              1.18,
+              -0.12
+            ],
+            "target": [
+              0.05,
+              0.76,
+              0.0
+            ],
+            "intensity": [
+              {
+                "t": 0,
+                "v": 9
+              },
+              {
+                "t": "@karar.word:kararla",
+                "v": 9
+              },
+              {
+                "t": "@karar.word:kararla+0.15",
+                "v": 14
+              },
+              {
+                "t": 3.2,
+                "v": 3
+              }
+            ],
+            "angle": 0.85,
+            "penumbra": 0.75,
+            "decay": 2,
+            "castShadow": true,
+            "mapSize": 1024,
+            "flicker": 0.06
+          },
+          {
+            "type": "dir",
+            "color": "#86a8ff",
+            "pos": [
+              3,
+              6,
+              -10
+            ],
+            "target": [
+              0,
+              0.6,
+              0
+            ],
+            "intensity": [
+              {
+                "t": 0,
+                "v": 1.6
+              },
+              {
+                "t": 2.4,
+                "v": 1.6
+              },
+              {
+                "t": 4.0,
+                "v": 3.2
+              }
+            ],
+            "castShadow": true,
+            "shadowSize": 5,
+            "mapSize": 2048
+          },
+          {
+            "type": "point",
+            "color": "#E8112D",
+            "pos": [
+              -1.6,
+              1.9,
+              1.2
+            ],
+            "intensity": [
+              {
+                "t": 0,
+                "v": 0
+              },
+              {
+                "t": 1.5,
+                "v": 0
+              },
+              {
+                "t": 2.2,
+                "v": 2.2
+              },
+              {
+                "t": 4.0,
+                "v": 4
+              }
+            ],
+            "distance": 6,
+            "decay": 2
+          },
+          {
+            "type": "point",
+            "color": "#5a8cff",
+            "pos": [
+              0.3,
+              1.0,
+              -0.25
+            ],
+            "intensity": [
+              {
+                "t": 0,
+                "v": 0.7
+              },
+              {
+                "t": 2.6,
+                "v": 0.0
+              }
+            ],
+            "distance": 2,
+            "decay": 2
+          },
+          {
+            "type": "point",
+            "color": "#ffb070",
+            "pos": [
+              0.05,
+              1.0,
+              0.25
+            ],
+            "intensity": [
+              {
+                "t": 0,
+                "v": 1.3
+              },
+              {
+                "t": 2.6,
+                "v": 1.3
+              },
+              {
+                "t": 3.4,
+                "v": 0.3
+              }
+            ],
+            "distance": 2.2,
+            "decay": 2
+          },
+          {
+            "type": "point",
+            "color": "#ffd9a8",
+            "pos": [
+              0.4,
+              2.1,
+              -2.6
+            ],
+            "intensity": [
+              {
+                "t": 0,
+                "v": 0
+              },
+              {
+                "t": 2.9,
+                "v": 0
+              },
+              {
+                "t": 3.6,
+                "v": 3.0
+              }
+            ],
+            "distance": 4,
+            "decay": 2
+          }
+        ],
+        "objects": [
+          {
+            "kind": "sky",
+            "top": "#0a1838",
+            "horizon": "#ff8a3d",
+            "bottom": "#1a1420",
+            "sun": "#ffcf8a",
+            "sunDir": [
+              0.3,
+              0.06,
+              -1
+            ],
+            "sunSize": 1.2,
+            "stars": 0.6,
+            "opacity": [
+              {
+                "t": 0,
+                "v": 0
+              },
+              {
+                "t": 2.3,
+                "v": 0
+              },
+              {
+                "t": 3.7,
+                "v": 1
+              }
+            ]
+          },
+          {
+            "kind": "city",
+            "seed": 7,
+            "radius": 11,
+            "cell": 26,
+            "maxHeight": 110,
+            "lit": 0.36,
+            "traffic": 160,
+            "baseY": [
+              {
+                "t": 0,
+                "v": 0
+              },
+              {
+                "t": 2.6,
+                "v": 0
+              },
+              {
+                "t": 5.2,
+                "v": -95,
+                "e": "inOut"
+              }
+            ],
+            "cap": 85
+          },
+          {
+            "kind": "room",
+            "w": 7,
+            "d": 6,
+            "h": 3.2,
+            "open": [
+              {
+                "t": 0,
+                "v": 0
+              },
+              {
+                "t": 2.25,
+                "v": 0
+              },
+              {
+                "t": 3.25,
+                "v": 1,
+                "e": "linear"
+              }
+            ]
+          },
+          {
+            "kind": "desk",
+            "pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "kind": "chair",
+            "pos": [
+              0,
+              0,
+              -0.78
+            ],
+            "show": {
+              "to": 2.75,
+              "out": 0.4,
+              "outFx": "sink",
+              "dist": 0.8
+            }
+          },
+          {
+            "kind": "lamp",
+            "pos": [
+              -0.62,
+              0.76,
+              -0.05
+            ],
+            "rot": [
+              0,
+              0.3,
+              0
+            ],
+            "on": [
+              {
+                "t": 0,
+                "v": 1
+              },
+              {
+                "t": 3.2,
+                "v": 0.4
+              }
+            ]
+          },
+          {
+            "kind": "lightCone",
+            "pos": [
+              -0.38,
+              1.17,
+              -0.11
+            ],
+            "rot": [
+              0,
+              0,
+              -0.42
+            ],
+            "len": 0.62,
+            "radius": 0.36,
+            "opacity": [
+              {
+                "t": 0,
+                "v": 0.07
+              },
+              {
+                "t": 2.6,
+                "v": 0.07
+              },
+              {
+                "t": 3.3,
+                "v": 0
+              }
+            ]
+          },
+          {
+            "kind": "laptop",
+            "pos": [
+              0.42,
+              0.76,
+              -0.08
+            ],
+            "rot": [
+              0,
+              3.0,
+              0
+            ],
+            "open": 1.9
+          },
+          {
+            "kind": "group",
+            "id": "notes",
+            "pos": [
+              -0.05,
+              0.762,
+              0.08
+            ],
+            "children": [
+              {
+                "kind": "banknote",
+                "pos": [
+                  0,
+                  0,
+                  0
+                ],
+                "rot": [
+                  0,
+                  0.2,
+                  0
+                ]
+              },
+              {
+                "kind": "banknote",
+                "pos": [
+                  0.09,
+                  0.0015,
+                  0.05
+                ],
+                "rot": [
+                  0,
+                  -0.35,
+                  0
+                ]
+              },
+              {
+                "kind": "banknote",
+                "pos": [
+                  -0.11,
+                  0.0008,
+                  0.03
+                ],
+                "rot": [
+                  0,
+                  0.75,
+                  0
+                ]
+              },
+              {
+                "kind": "banknote",
+                "pos": [
+                  0.02,
+                  0.003,
+                  -0.04
+                ],
+                "rot": [
+                  0,
+                  1.4,
+                  0
+                ]
+              },
+              {
+                "kind": "cash",
+                "count": 10,
+                "pos": [
+                  0.22,
+                  0,
+                  -0.02
+                ],
+                "rot": [
+                  0,
+                  -0.5,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "coins",
+            "pos": [
+              0.55,
+              0.76,
+              0.18
+            ],
+            "count": 22,
+            "grow": [
+              {
+                "t": 2.4,
+                "v": 0
+              },
+              {
+                "t": 3.5,
+                "v": 1,
+                "e": "out"
+              }
+            ]
+          },
+          {
+            "kind": "coins",
+            "pos": [
+              0.63,
+              0.76,
+              0.08
+            ],
+            "count": 30,
+            "seed": 8,
+            "grow": [
+              {
+                "t": 2.6,
+                "v": 0
+              },
+              {
+                "t": 3.8,
+                "v": 1,
+                "e": "out"
+              }
+            ]
+          },
+          {
+            "kind": "coins",
+            "pos": [
+              0.48,
+              0.76,
+              0.05
+            ],
+            "count": 14,
+            "seed": 9,
+            "grow": [
+              {
+                "t": 2.8,
+                "v": 0
+              },
+              {
+                "t": 3.7,
+                "v": 1,
+                "e": "out"
+              }
+            ]
+          },
+          {
+            "kind": "goldPile",
+            "rows": 3,
+            "pos": [
+              1.55,
+              0,
+              1.0
+            ],
+            "rot": [
+              0,
+              -0.6,
+              0
+            ],
+            "scale": 1.6,
+            "show": {
+              "from": 2.9,
+              "dur": 0.45,
+              "in": "pop"
+            }
+          },
+          {
+            "kind": "goldPile",
+            "rows": 4,
+            "pos": [
+              -1.75,
+              0,
+              0.55
+            ],
+            "rot": [
+              0,
+              0.5,
+              0
+            ],
+            "scale": 1.6,
+            "show": {
+              "from": 3.1,
+              "dur": 0.45,
+              "in": "pop"
+            }
+          },
+          {
+            "kind": "goldPile",
+            "rows": 2,
+            "pos": [
+              1.2,
+              0,
+              -2.2
+            ],
+            "rot": [
+              0,
+              0.2,
+              0
+            ],
+            "scale": 1.6,
+            "show": {
+              "from": 3.3,
+              "dur": 0.45,
+              "in": "pop"
+            }
+          },
+          {
+            "kind": "chart",
+            "pos": [
+              2.0,
+              0,
+              -1.4
+            ],
+            "rot": [
+              0,
+              -0.9,
+              0
+            ],
+            "scale": 0.9,
+            "grow": [
+              {
+                "t": 2.7,
+                "v": 0
+              },
+              {
+                "t": 4.5,
+                "v": 1,
+                "e": "inOut"
+              }
+            ],
+            "show": {
+              "from": 2.6,
+              "dur": 0.3,
+              "in": "grow"
+            }
+          },
+          {
+            "kind": "car",
+            "color": "#E8112D",
+            "pos": [
+              -2.3,
+              0,
+              -2.0
+            ],
+            "rot": [
+              0,
+              0.75,
+              0
+            ],
+            "scale": 0.62,
+            "lights": [
+              {
+                "t": 3.5,
+                "v": 0
+              },
+              {
+                "t": 3.8,
+                "v": 1,
+                "e": "out"
+              }
+            ],
+            "show": {
+              "from": 3.25,
+              "dur": 0.55,
+              "in": "rise",
+              "dist": 1.6
+            }
+          },
+          {
+            "kind": "moneySwirl",
+            "count": 90,
+            "from": 2.35,
+            "dur": 3.0,
+            "radius": [
+              0.7,
+              3.0
+            ],
+            "height": 5,
+            "turns": 1.3
+          },
+          {
+            "kind": "dust",
+            "pos": [
+              -0.2,
+              0.75,
+              0
+            ],
+            "size": [
+              1.6,
+              1.2,
+              1.4
+            ],
+            "count": 140,
+            "scale": 0.02,
+            "opacity": [
+              {
+                "t": 0,
+                "v": 0.85
+              },
+              {
+                "t": 2.6,
+                "v": 0.85
+              },
+              {
+                "t": 3.3,
+                "v": 0
+              }
+            ]
+          },
+          {
+            "kind": "dust",
+            "pos": [
+              0,
+              0,
+              -0.5
+            ],
+            "size": [
+              12,
+              7,
+              12
+            ],
+            "count": 260,
+            "scale": 0.07,
+            "color": "#ffd36b",
+            "rise": 0.6,
+            "seed": 33,
+            "opacity": [
+              {
+                "t": 0,
+                "v": 0
+              },
+              {
+                "t": 2.6,
+                "v": 0
+              },
+              {
+                "t": 4.0,
+                "v": 0.9
+              }
+            ]
+          },
+          {
+            "kind": "character",
+            "pos": [
+              0,
+              0,
+              -0.66
+            ],
+            "rot": [
+              {
+                "t": 0,
+                "v": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "t": 2.95,
+                "v": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "t": 3.6,
+                "v": [
+                  0,
+                  3.14159,
+                  0
+                ],
+                "e": "inOut"
+              }
+            ],
+            "seed": 3,
+            "outfit": {
+              "suit": "#1C2B4A",
+              "tie": "#E8112D"
+            },
+            "talkFromLine": "soru",
+            "pose": [
+              {
+                "t": 0,
+                "v": "sit"
+              },
+              {
+                "t": 1.05,
+                "v": "sitRaise",
+                "dur": 0.3
+              },
+              {
+                "t": "@karar.word:kararla",
+                "v": "sitUp",
+                "dur": 0.1,
+                "e": "in"
+              },
+              {
+                "t": 2.55,
+                "v": "stand",
+                "dur": 0.55
+              },
+              {
+                "t": "@soru.start",
+                "v": "talkOpen",
+                "dur": 0.35
+              },
+              {
+                "t": "@soru.word:sen-0.1",
+                "v": "point",
+                "dur": 0.22
+              },
+              {
+                "t": "@soru.word:sıfırdan+0.25",
+                "v": "open",
+                "dur": 0.6
+              }
+            ],
+            "expr": [
+              {
+                "t": 0,
+                "v": "tired"
+              },
+              {
+                "t": 0.9,
+                "v": "focused"
+              },
+              {
+                "t": "@karar.word:kararla",
+                "v": "determined",
+                "dur": 0.15
+              },
+              {
+                "t": 3.3,
+                "v": "confident"
+              },
+              {
+                "t": "@soru.word:sıfırdan+0.2",
+                "v": "smile"
+              }
+            ],
+            "look": [
+              {
+                "t": 0,
+                "v": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "t": 1.0,
+                "v": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "t": 1.4,
+                "v": [
+                  -0.25,
+                  0,
+                  0
+                ]
+              },
+              {
+                "t": 2.4,
+                "v": [
+                  -0.1,
+                  0,
+                  0
+                ]
+              },
+              {
+                "t": 3.6,
+                "v": [
+                  -0.12,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "zirve",
+      "type": "world3d",
+      "start": "@soru.word:yükselebilirsin-0.12",
+      "transition": {
+        "type": "zoom",
+        "dur": 0.35
+      },
+      "note": "Final: gün doğumunda şehir silüeti, karakter kulenin zirvesinde, vinç çekimi",
+      "props": {
+        "stage": {
+          "bg": "#0a1022",
+          "exposure": 1.0
+        },
+        "fog": {
+          "color": "#7a5560",
+          "near": 80,
+          "far": 600
+        },
+        "grade": {
+          "saturate": 1.12,
+          "contrast": 1.08,
+          "leak": "rgba(255,170,80,0.6)",
+          "leakOpacity": 0.28
+        },
+        "camera": {
+          "ease": "cine",
+          "shake": 0.02,
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                1.3,
+                1.35,
+                3.7
+              ],
+              "target": [
+                0,
+                1.5,
+                -3
+              ],
+              "fov": 40
+            },
+            {
+              "t": 1.3,
+              "pos": [
+                3.0,
+                2.8,
+                7.5
+              ],
+              "target": [
+                0,
+                0.2,
+                -20
+              ],
+              "fov": 42
+            },
+            {
+              "t": 3.0,
+              "pos": [
+                1.5,
+                6.0,
+                13.0
+              ],
+              "target": [
+                0,
+                -5,
+                -40
+              ],
+              "fov": 46
+            }
+          ]
+        },
+        "lights": [
+          {
+            "type": "ambient",
+            "color": "#4a4a6a",
+            "intensity": 0.35
+          },
+          {
+            "type": "hemi",
+            "color": "#ffcf9a",
+            "ground": "#1a2030",
+            "intensity": 1.2
+          },
+          {
+            "type": "dir",
+            "color": "#ffc27a",
+            "pos": [
+              2,
+              6,
+              -12
+            ],
+            "target": [
+              0,
+              0.6,
+              0
+            ],
+            "intensity": 3.4,
+            "castShadow": true,
+            "shadowSize": 6,
+            "mapSize": 2048
+          },
+          {
+            "type": "point",
+            "color": "#E8112D",
+            "pos": [
+              -1.5,
+              2.0,
+              1.6
+            ],
+            "intensity": 4,
+            "distance": 7,
+            "decay": 2
+          },
+          {
+            "type": "point",
+            "color": "#ffd9a0",
+            "pos": [
+              0.8,
+              2.2,
+              -1.8
+            ],
+            "intensity": 3,
+            "distance": 5,
+            "decay": 2
+          },
+          {
+            "type": "point",
+            "color": "#ffcf9a",
+            "pos": [
+              1.5,
+              2.6,
+              3.0
+            ],
+            "intensity": 3.5,
+            "distance": 7,
+            "decay": 2
+          }
+        ],
+        "objects": [
+          {
+            "kind": "sky",
+            "top": "#0d1f48",
+            "horizon": "#ff9a48",
+            "bottom": "#1a1420",
+            "sun": "#ffd08a",
+            "sunDir": [
+              0.12,
+              0.05,
+              -1
+            ],
+            "sunSize": 1.4,
+            "stars": 0.25
+          },
+          {
+            "kind": "city",
+            "seed": 7,
+            "radius": 11,
+            "cell": 26,
+            "maxHeight": 110,
+            "lit": 0.36,
+            "traffic": 160,
+            "baseY": -95,
+            "cap": 85
+          },
+          {
+            "kind": "room",
+            "w": 7,
+            "d": 6,
+            "h": 3.2,
+            "open": 1
+          },
+          {
+            "kind": "desk",
+            "pos": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "kind": "coins",
+            "pos": [
+              0.55,
+              0.76,
+              0.18
+            ],
+            "count": 22
+          },
+          {
+            "kind": "coins",
+            "pos": [
+              0.63,
+              0.76,
+              0.08
+            ],
+            "count": 30,
+            "seed": 8
+          },
+          {
+            "kind": "goldPile",
+            "rows": 3,
+            "pos": [
+              1.55,
+              0,
+              1.0
+            ],
+            "rot": [
+              0,
+              -0.6,
+              0
+            ],
+            "scale": 1.6
+          },
+          {
+            "kind": "goldPile",
+            "rows": 4,
+            "pos": [
+              -1.75,
+              0,
+              0.55
+            ],
+            "rot": [
+              0,
+              0.5,
+              0
+            ],
+            "scale": 1.6
+          },
+          {
+            "kind": "goldPile",
+            "rows": 2,
+            "pos": [
+              1.2,
+              0,
+              -2.2
+            ],
+            "rot": [
+              0,
+              0.2,
+              0
+            ],
+            "scale": 1.6
+          },
+          {
+            "kind": "chart",
+            "pos": [
+              2.0,
+              0,
+              -1.4
+            ],
+            "rot": [
+              0,
+              -0.9,
+              0
+            ],
+            "scale": 0.9
+          },
+          {
+            "kind": "car",
+            "color": "#E8112D",
+            "pos": [
+              -2.3,
+              0,
+              -2.0
+            ],
+            "rot": [
+              0,
+              0.75,
+              0
+            ],
+            "scale": 0.62
+          },
+          {
+            "kind": "moneySwirl",
+            "count": 90,
+            "from": -2.5,
+            "dur": 5.5,
+            "radius": [
+              0.7,
+              3.4
+            ],
+            "height": 6,
+            "turns": 1.3
+          },
+          {
+            "kind": "dust",
+            "pos": [
+              0,
+              0,
+              -1
+            ],
+            "size": [
+              16,
+              9,
+              16
+            ],
+            "count": 300,
+            "scale": 0.08,
+            "color": "#ffd36b",
+            "rise": 0.6,
+            "seed": 34,
+            "opacity": 0.9
+          },
+          {
+            "kind": "glow",
+            "pos": [
+              9,
+              6,
+              -70
+            ],
+            "size": 18,
+            "color": "#ffb45a",
+            "opacity": 0.35
+          },
+          {
+            "kind": "character",
+            "pos": [
+              0,
+              0,
+              -0.66
+            ],
+            "rot": [
+              0,
+              3.14159,
+              0
+            ],
+            "seed": 3,
+            "outfit": {
+              "suit": "#1C2B4A",
+              "tie": "#E8112D"
+            },
+            "pose": [
+              {
+                "t": 0,
+                "v": "open"
+              },
+              {
+                "t": 1.0,
+                "v": "triumph",
+                "dur": 0.6
+              }
+            ],
+            "expr": "smile",
+            "look": [
+              {
+                "t": 0,
+                "v": [
+                  -0.1,
+                  0,
+                  0
+                ]
+              },
+              {
+                "t": 1.2,
+                "v": [
+                  -0.3,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "titles": [
+          {
+            "text": "Sıfırdan zirveye",
+            "kicker": "VAYYMATİK",
+            "from": 1.2,
+            "dur": 1.85,
+            "kind": "rise",
+            "y": 430,
+            "size": 128,
+            "color": "gold",
+            "plate": false
+          }
+        ]
+      }
+    }
+  ],
+  "disclaimers": [],
+  "music": {
+    "style": "rise",
+    "bpm": 120,
+    "seed": 11,
+    "sections": {
+      "dark": "@start",
+      "build": 2.3,
+      "peak": "@soru.word:yükselebilirsin-0.12",
+      "end": "@end"
+    },
+    "hits": [
+      {
+        "at": "@karar.word:kararla",
+        "kind": "boom"
+      }
+    ],
+    "risers": [
+      {
+        "to": "@soru.word:yükselebilirsin-0.12",
+        "dur": 1.6
+      }
+    ]
+  },
+  "sfx": [
+    {
+      "type": "heartbeat",
+      "at": 0.15,
+      "gain": -4
+    },
+    {
+      "type": "heartbeat",
+      "at": 1.0,
+      "gain": -6
+    },
+    {
+      "type": "impact",
+      "at": "@karar.word:kararla",
+      "gain": -3
+    },
+    {
+      "type": "whoosh",
+      "at": 2.3,
+      "dur": 0.9,
+      "gain": -5
+    },
+    {
+      "type": "impact",
+      "at": 3.0,
+      "size": 0.6,
+      "gain": -9
+    },
+    {
+      "type": "cash",
+      "at": 2.5,
+      "gain": -6
+    },
+    {
+      "type": "ticks",
+      "at": 2.5,
+      "dur": 1.2,
+      "gain": -12
+    },
+    {
+      "type": "wind",
+      "at": 2.8,
+      "dur": 3.2,
+      "curve": [
+        [
+          0,
+          0.2
+        ],
+        [
+          1.6,
+          0.8
+        ],
+        [
+          2.4,
+          0.9
+        ],
+        [
+          3.2,
+          0.3
+        ]
+      ],
+      "gain": -8
+    },
+    {
+      "type": "pop",
+      "at": 3.25,
+      "gain": -10
+    },
+    {
+      "type": "whoosh",
+      "at": "@soru.word:yükselebilirsin-0.45",
+      "dur": 0.6,
+      "gain": -3
+    },
+    {
+      "type": "impact",
+      "at": "@soru.word:yükselebilirsin-0.12",
+      "size": 1.3,
+      "gain": -2
+    },
+    {
+      "type": "wind",
+      "at": "@soru.word:yükselebilirsin",
+      "dur": 2.8,
+      "curve": [
+        [
+          0,
+          0.5
+        ],
+        [
+          2.8,
+          0.2
+        ]
+      ],
+      "gain": -12
+    }
+  ],
+  "metadata": {
+    "title": "Sıfırdan Zirveye — VAYYMATİK 3D Motor Demosu",
+    "title_alternatives": [
+      "Her Büyük Servet Bir Kararla Başlar",
+      "Sen Sıfırdan Ne Kadar Yükselebilirsin?"
+    ],
+    "description": [
+      "Her büyük servet bir kararla başlar. Peki, sen sıfırdan ne kadar yükselebilirsin?",
+      "",
+      "VAYYMATİK 3D video motoru ile üretilmiş 8 saniyelik demo. Tüm 3D sahneler, karakter, müzik ve efektler özgündür.",
+      "",
+      "🔔 Para, girişim ve finans hikâyeleri için VAYYMATİK'i takip et."
+    ],
+    "hashtags": [
+      "#VAYYMATİK",
+      "#Finans",
+      "#Girişim",
+      "#Motivasyon",
+      "#Shorts"
+    ],
+    "thumbnail": {
+      "scene": "zirve",
+      "frame": 75,
+      "kicker": "VAYYMATİK",
+      "lines": [
+        {
+          "text": "Sıfırdan"
+        },
+        {
+          "text": "zirveye",
+          "color": "gold"
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "assets_credits": [
+    "3D sahneler, karakter, nesneler, şehir ve dokular: VAYYMATİK motorunda koddan üretilmiş özgün içerik (Three.js, MIT).",
+    "Seslendirme: Piper TTS (MIT/GPL-3.0 yazılım), tr_TR-fahrettin-medium ses modeli (CC0 veri seti).",
+    "Müzik ve ses efektleri: VAYYMATİK üretim hattında prosedürel olarak sentezlenmiş özgün içerik.",
+    "Yazı tipleri: Anton, Montserrat (SIL Open Font License)."
+  ]
+}
