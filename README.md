@@ -96,6 +96,13 @@ Sayılar otomatik okunur (`1987'de` → "bin dokuz yüz seksen yedide", `12,2` �
 **Zaman referansları:** `@satır.start`, `@satır.end`, `@satır.word:önek`, `@satır.word:önek>end`, `@satır.w3`, `@end`, `@start` (+/− saniye eklenebilir).
 Sahne `props` içindeki `t/from/to/dur/at/start/end` sayıları sahne başına göre **saniyedir**; motor bunları kareye çevirir. Böylece tüm kurgu seslendirmeye kilitlenir: metin değişince sahneler kendiliğinden yeniden hizalanır.
 
+### 3D motor — `world3d` (Remotion + Three.js)
+
+`engine/src/three/`: JSON'dan sinematik low-poly 3D sahneler — eklemli karakter (poz, yürüyüş, el jestleri, yüz ifadeleri,
+dudak senkronu), oda/ofis ve prosedürel şehir, para/altın/otomobil/bina nesneleri, anahtar kareli sinematik kamera,
+dinamik ışık ve gölgeler, 3D finans grafiği, parçacıklar. Ayrıntı ve şema: [`engine/src/three/README.md`](engine/src/three/README.md).
+Örnek: `topics/zirve/topic.json` → `python3 -m vayy build zirve` (8 sn, 1080×1920, 30 fps).
+
 ### Sahne türleri (`engine/src/scenes`)
 
 | Tür | Kullanım |
@@ -107,6 +114,7 @@ Sahne `props` içindeki `t/from/to/dur/at/start/end` sayıları sahne başına g
 | `flap` | Bölmeli (split-flap) tabela |
 | `media` | Ekran duvarı (perspektifli geri çekilme) |
 | `kpi` | Finans sayaçları, büyüme rozetleri, yıllık çubuk grafikler |
+| `world3d` | Three.js 3D sahne (karakter, şehir, oda, nesneler, kamera, ışık) — JSON ile |
 
 Başlık türleri: `slam`, `rise`, `type`, `stamp`, `count` (sayı animasyonu), `words` (seslendirmeye kelime kelime senkron).
 Geçişler: `cut`, `fade`, `blur`, `zoom`, `whip`, `flash`, `glitch`.

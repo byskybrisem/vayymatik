@@ -1,5 +1,14 @@
 # PROGRESS — VAYYMATİK Shorts üretim merkezi
 
+## [2026-11-24] 3D video motoru (branch `claude/vayymatik-3d-video-engine-4yfwk6`, temel: friendly-mayer)
+- [x] `engine/src/three/` (Remotion + Three.js r181, R3F 9.4, @remotion/three 4.0.540): Stage3D, CameraRig, LightRig, Character (+rig),
+      props (masa/sandalye/lamba/laptop/banknot/deste/para/altın/otomobil), Room, City (+Tower), Sky, parçacıklar, GrowthChart3D, World3DScene
+- [x] Python: `duration` (sabit süre), `talkFromLine` (dudak senkronu), `music.style: "rise"`, QA süre kontrolü konuya göre
+- [x] Thumbnail: `metadata.thumbnail.scene/frame` ile herhangi bir sahneden kapak
+- [x] `topics/zirve/topic.json` — 8 sn demo "Sıfırdan zirveye"; render ≈ 1,6 sn/kare (4 çekirdek, GPU'suz)
+- Sonraki fikirler: fabrika ortamı, yürüme sahnesi, uzun video için sahne şablonları (env/Factory.tsx, POSES'a yeni jestler)
+
+
 > Bağlam sıkıştırılırsa buradan devam et. Tamamlananları tekrarlama.
 
 ## Görev
