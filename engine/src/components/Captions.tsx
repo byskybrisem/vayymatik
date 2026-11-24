@@ -75,7 +75,7 @@ export const Captions: React.FC<{pages: CaptionPage[]}> = ({pages}) => {
 				isolation: 'isolate',
 			}}
 		>
-			<div style={{position: 'absolute', inset: '-46px -70px', background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.46) 0%, rgba(0,0,0,0.22) 45%, rgba(0,0,0,0) 72%)', zIndex: -2, filter: 'blur(6px)'}} />
+			<div style={{position: 'absolute', inset: '-46px -70px', background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0) 72%)', zIndex: -2, filter: 'blur(6px)'}} />
 			{page.words.map((w, i) => (
 				<Word key={i} w={w} pageFrom={page.from} />
 			))}

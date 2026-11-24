@@ -1,5 +1,13 @@
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
-import {cancelRender, continueRender, delayRender} from 'remotion';
+import {cancelRender, continueRender, delayRender, getInputProps} from 'remotion';
+
+const LITE = (() => {
+	try {
+		return Boolean((getInputProps() as {lite?: boolean}).lite);
+	} catch {
+		return false;
+	}
+})();
 
 export type Uniforms = Record<string, number | number[]>;
 export type TexSpec = {name: string; src: string; repeatX?: boolean; mipmap?: boolean};
@@ -63,6 +71,10 @@ export const GLCanvas: React.FC<{
 
 	useEffect(() => {
 		let cancelled = false;
+		if (LITE) {
+			continueRender(handle);
+			return;
+		}
 		(async () => {
 			try {
 				const canvas = canvasRef.current!;

@@ -80,7 +80,7 @@
     },
     {
       "id": "numbers",
-      "text": "Sonuç? {g:2025'te} yaklaşık {g:14 milyar kutu}, {g:12,2 milyar avro} ciro.",
+      "text": "Sonuç? {g:2025'te} {g:12,2 milyar avro} ciro, yaklaşık {g:14 milyar kutu}.",
       "pause_after": 0.45
     },
     {
@@ -670,9 +670,9 @@
         "clouds": 0.55,
         "cloudOct": 6,
         "detail": 0.5,
-        "haze": 0.45,
+        "haze": 0.4,
         "stars": 0.6,
-        "exposure": 1.15,
+        "exposure": 0.95,
         "sat": 1.12,
         "detailTex": "$detail.newmexico",
         "keys": [
@@ -680,7 +680,7 @@
             "t": 0,
             "lat": 33.0,
             "lon": -104.0,
-            "alt": 2200,
+            "alt": 2600,
             "heading": 0,
             "pitch": 90,
             "fov": 48,
@@ -823,8 +823,8 @@
           }
         ],
         "sunFollow": [
-          -8,
-          30
+          -22,
+          40
         ]
       },
       "note": "New Mexico'ya iniş, kapsül POV, 38.969 m sayaç; ardından dünya geneli canlı izleme noktaları ve 8.000.000+ sayaç"
@@ -842,21 +842,12 @@
         "header": "Red Bull · 2025",
         "kpis": [
           {
-            "label": "Satılan kutu",
-            "value": 13.969,
-            "decimals": 3,
-            "unit": "milyar",
-            "at": "@numbers.word:2025",
-            "dur": 1.1,
-            "delta": "%10,2 (2024'e göre)"
-          },
-          {
             "label": "Grup cirosu",
             "value": 12.196,
             "decimals": 3,
             "unit": "milyar €",
             "at": "@numbers.word:12",
-            "dur": 0.9,
+            "dur": 1.0,
             "delta": "%8,6",
             "bars": [
               {
@@ -871,6 +862,15 @@
               }
             ],
             "note": "Ciro (gelir) — net kâr değildir."
+          },
+          {
+            "label": "Satılan kutu",
+            "value": 13.969,
+            "decimals": 3,
+            "unit": "milyar",
+            "at": "@numbers.word:14",
+            "dur": 1.0,
+            "delta": "%10,2 (2024'e göre)"
           }
         ],
         "footer": {
@@ -1393,24 +1393,24 @@
     },
     {
       "type": "ticks",
-      "at": "@numbers.word:2025",
+      "at": "@numbers.word:12",
       "dur": 1.1,
       "gain": -9
     },
     {
       "type": "cash",
-      "at": "@numbers.word:2025+1.15",
+      "at": "@numbers.word:12+1.0",
       "gain": -10
     },
     {
       "type": "ticks",
-      "at": "@numbers.word:12",
+      "at": "@numbers.word:14",
       "dur": 0.9,
       "gain": -9
     },
     {
       "type": "cash",
-      "at": "@numbers.word:12+0.95",
+      "at": "@numbers.word:14+1.0",
       "gain": -9
     },
     {
@@ -1459,7 +1459,10 @@
       "📊 2025: 13,969 milyar kutu · 12,196 milyar € grup cirosu (ciro = gelir, net kâr değildir).",
       "📺 Stratos yayını zirvede YouTube'da 8 milyondan fazla eş zamanlı canlı yayın akışına ulaştı.",
       "",
-      "Kaynaklar: Red Bull şirket profili (redbull.com), YouTube Resmi Blog (2012), Wikipedia (Red Bull, Red Bull Racing, Red Bull Stratos). Tam liste: Sources.md",
+      "Kaynaklar:",
+      "• Red Bull şirket profili: https://www.redbull.com/int-en/energydrink/company-profile",
+      "• YouTube Resmî Blog (Stratos, 2012): https://blog.youtube/news-and-events/mission-complete-red-bull-stratos-lands/",
+      "• Wikipedia: Red Bull, Red Bull Racing, Red Bull Stratos, Krating Daeng",
       "Görseller: NASA Blue Marble (kamu malı) ve özgün canlandırmalar; temsili sahneler videoda etiketlenmiştir. Müzik ve efektler VAYYMATİK için özgün olarak üretilmiştir.",
       "",
       "Bu video Red Bull ile bağlantılı değildir; bağımsız bir eğitim/analiz içeriğidir.",

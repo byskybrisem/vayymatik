@@ -1,0 +1,299 @@
+{
+  "video": "RedBull_VAYYMATIK_Shorts.mp4",
+  "generated_at": "2026-11-24T17:48:38Z",
+  "overall_pass": true,
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "critical_failed": []
+  },
+  "specs": {
+    "duration_s": 51.4,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "video_bitrate_kbps": 7458,
+    "size_mb": 50.1
+  },
+  "checks": [
+    {
+      "check": "Çözünürlük 1080×1920 (9:16)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "check": "Süre 45–55 sn",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "seconds": 51.4
+      }
+    },
+    {
+      "check": "FPS 30 veya 60",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "fps": 30.0
+      }
+    },
+    {
+      "check": "Video codec H.264 yuv420p",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "codec": "h264",
+        "pix_fmt": "yuv420p",
+        "profile": "High"
+      }
+    },
+    {
+      "check": "Ses akışı AAC 48 kHz stereo",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "codec": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    },
+    {
+      "check": "faststart (moov başta)",
+      "pass": true,
+      "critical": false,
+      "detail": {}
+    },
+    {
+      "check": "Baştan sona tam çözme (oynatılabilirlik)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "errors": ""
+      }
+    },
+    {
+      "check": "Siyah kare yok",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "black_segments": []
+      }
+    },
+    {
+      "check": "Donmuş görüntü yok (>1,2 sn)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "freezes": []
+      }
+    },
+    {
+      "check": "Statik slayt değil (her 1 sn'de hareket)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "mean_frame_diff": 12.13,
+        "min_1s_window": 1.06,
+        "windows_below_0.6": 0,
+        "windows": 51
+      }
+    },
+    {
+      "check": "Anlamlı görsel değişim aralığı ≤ 4 sn (zaman çizelgesi)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "max_gap_s": 3.0,
+        "events": 60
+      }
+    },
+    {
+      "check": "Ölçülen sahne kesmeleri (ffmpeg scene>0.18)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "cuts": 21,
+        "max_gap_s": 10.17
+      }
+    },
+    {
+      "check": "Loudness −14 LUFS ±1",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "integrated_lufs": -14.0,
+        "lra_lu": 1.5,
+        "true_peak_dbfs": -2.2
+      }
+    },
+    {
+      "check": "Gerçek tepe ≤ −1,0 dBTP",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "true_peak_dbtp": -2.2
+      }
+    },
+    {
+      "check": "Müzik konuşmanın en az 8 dB altında",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "music_under_voice_db": 11.4
+      }
+    },
+    {
+      "check": "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "script_tokens": 125,
+        "asr_tokens": 124,
+        "matched_tokens": 112,
+        "match_ratio": 0.9,
+        "wer": 0.104,
+        "sync_pairs": 112,
+        "offset_median_ms": 12.5,
+        "offset_abs_median_ms": 47.0,
+        "offset_abs_p90_ms": 255.8
+      }
+    },
+    {
+      "check": "Seslendirme anlaşılırlığı (ASR WER ≤ %25, kuru ses)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "wer": 0.104,
+        "match_ratio": 0.9
+      }
+    },
+    {
+      "check": "Müzik altında anlaşılırlık (ASR WER, final miks)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "wer_mix": 0.152,
+        "wer_dry": 0.104
+      }
+    },
+    {
+      "check": "Satır başı zamanları ses enerjisiyle uyumlu (≤ 100 ms)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "max_abs_ms": 87.0,
+        "median_abs_ms": 31.0,
+        "lines": 15
+      }
+    },
+    {
+      "check": "Altyazı sayfaları kelime zamanlarını kapsıyor",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "words": 98,
+        "outside": 0
+      }
+    },
+    {
+      "check": "Taşan/güvenli alan dışı metin yok (yerleşmiş karelerde)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "frames_checked": 514,
+        "issues": 0,
+        "frames": [],
+        "examples": []
+      }
+    },
+    {
+      "check": "Tekrar izleme döngüsü (ilk/son kare benzerliği)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "mean_abs_diff": 0.75
+      }
+    }
+  ],
+  "facts": [
+    {
+      "claim": "2025: 13,969 milyar kutu (+%10,2); grup cirosu 11,227 → 12,196 milyar € (+%8,6); 1 Nisan 1987 Avusturya lansmanı; 1984–1987 formül ve pazarlama çalışması",
+      "source": "https://www.redbull.com/int-en/energydrink/company-profile",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Stratos yayını zirvede 8 milyondan fazla eş zamanlı canlı yayın akışı (\"more than 8 million concurrent livestreams\")",
+      "source": "https://blog.youtube/news-and-events/mission-complete-red-bull-stratos-lands/",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Krating Daeng 1976'da Tayland'da, Chaleo Yoovidhya tarafından; kırsal işçiler / kamyon şoförleri",
+      "source": "https://en.wikipedia.org/wiki/Krating_Daeng",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Mateschitz 1982'de Blendax için Tayland'a gitti; 1984'te Chaleo ile Red Bull GmbH; içecek Batı damak tadına göre uyarlandı (gazlandırma)",
+      "source": "https://en.wikipedia.org/wiki/Red_Bull",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Red Bull Jaguar Racing'i 15.11.2004'te satın aldı, 2005'te Red Bull Racing olarak yarıştı; 6 takımlar (2010–13, 2022–23) ve 8 pilotlar (2010–13, 2021–24) şampiyonluğu",
+      "source": "https://en.wikipedia.org/wiki/Red_Bull_Racing",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Red Bull Salzburg 2005, New York Red Bulls 2006, RB Leipzig 19.05.2009, Red Bull Bragantino 2020",
+      "source": "https://en.wikipedia.org/wiki/RB_Leipzig",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Flugtag ilk kez 1992 Viyana; Air Race ilk sezon 2003; Cliff Diving World Series 2009; Rampage 2001",
+      "source": "https://en.wikipedia.org/wiki/Red_Bull_Flugtag",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Red Bull Media House: Red Bull TV, ServusTV, The Red Bulletin, Terra Mater, Red Bull Records",
+      "source": "https://en.wikipedia.org/wiki/Red_Bull_GmbH",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Stratos 14 Ekim 2012, New Mexico; 38.969 m çıkış irtifası; 1.357,64 km/sa (Mach 1,25)",
+      "source": "https://en.wikipedia.org/wiki/Red_Bull_Stratos",
+      "accessed": "2026-11-24",
+      "status": "doğrulandı"
+    }
+  ],
+  "frame_samples_s": [
+    1.43,
+    4.28,
+    7.14,
+    9.99,
+    12.85,
+    15.71,
+    18.56,
+    21.42,
+    24.27,
+    27.13,
+    29.98,
+    32.84,
+    35.69,
+    38.55,
+    41.41,
+    44.26,
+    47.12,
+    49.97
+  ],
+  "qa_seconds": 420.2
+}

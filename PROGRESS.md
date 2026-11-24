@@ -26,8 +26,17 @@ Branch: `claude/friendly-mayer-5ninr0`. PR açılacak. MP4 git'e girmez (Actions
 - [x] Sahneler: earth, road (F1/otoyol), title (kutu/TV), cards, flap, media, kpi + Thumbnail kompozisyonu + Audit (taşma denetimi)
 - [x] topics/redbull/topic.json, brand/brand.json
 - [x] README, requirements.txt, scripts/setup.sh, .github/workflows/render.yml, .gitignore
-- [ ] Render #2 sürüyor (build/redbull/build_run2.log) → QA → düzeltme → yeniden render
-- [ ] commit, push, PR, MP4'ü kullanıcıya gönder
+- [x] İlk push (4 commit) + yerel commit 3cd26c5 (QA/deliver/thumbnail/müzik dinamiği/CI düzeltme) — push bekliyor
+- [x] Render #2 tamam; QA: 21/23 (taşma denetimi yanlış pozitif, ASR p90 eşiği, son kare okuma hatası) → düzeltildi
+- [x] Düzeltmeler: küresel flaş katmanı (altyazı plakası lekesi), başlık sığdırma payı, gren 0.055, CRF 18 + 16M tavan, Stratos pozlama/güneş, 'numbers' satırı 'kutu' ile bitiyor (ASR 'ciro'yu zayıf duydu), KPI sırası
+- [x] Render #3 tamam: 51,4 sn, 50 MB, QA 22/22 GEÇTİ (deliverables/redbull/Video-QA.json)
+- [ ] commit/push → Actions → PR → MP4 SendUserFile
+- [ ] push → Actions (run 45444503895 pillow pini yüzünden düştü; düzeltildi) → PR → MP4'ü SendUserFile ile gönder
+
+## Notlar
+- CI: requirements pillow==13.0.0 (yerel 13.0.0.post1 PyPI'da yok). Actions checkout@v5, setup-python@v6, setup-node@v5.
+- ASR: faster-whisper PyAV sürüm uyumsuzluğu → ses numpy ile 16 kHz yüklenip veriliyor. QA modeli 'medium'.
+- Kapak: Thumbnail kompozisyonu (kapsül POV + "NEDEN 39 KM'DEN ATLATTI?" + "12 MİLYAR € CİRO").
 
 ## Performans notu
 Dünya sahnesi ~0,9 sn/kare (GLCanvas scale 0.75, cloudOct 6, atmosfer 8 örnek). Tam video ≈ 25–30 dk (4 çekirdek).

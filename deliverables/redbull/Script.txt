@@ -1,0 +1,68 @@
+Red Bull Neden Bir İnsanı Uzayın Sınırından Atlattı? 🪂
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 51.4 sn
+
+SENARYO (zaman kodlu, seslendirme ile birebir)
+============================================================
+[00:00.22 – 00:04.56]  Bir enerji içeceği şirketi, neden bir insanı uzayın sınırından Dünya'ya atlatır?
+      sahne: hook_earth — Stratosfer kapsül POV (39 km, balıkgözü), kapıdan çıkış ve düşüş; kamera kesintisiz Tayland'a uçar (temsili canlandırma, NASA dokusu)
+      okunuş (TTS): Bir enerji içeceği şirketi, neden bir insanı uzayın sınırından Dünyaya atlatır?
+[00:04.98 – 00:06.35]  Hikâye Tayland'da başlıyor.
+      sahne: hook_earth — Stratosfer kapsül POV (39 km, balıkgözü), kapıdan çıkış ve düşüş; kamera kesintisiz Tayland'a uçar (temsili canlandırma, NASA dokusu)
+      okunuş (TTS): Hikâye Taylandda başlıyor.
+[00:06.60 – 00:09.70]  Kamyon şoförleri ve işçiler için bir tonik: Krating Daeng.
+      sahne: tonic_road — Gece otoyolu, kamyon ışıkları; KRATING DAENG başlığı (temsili)
+      okunuş (TTS): Kamyon şoförleri ve işçiler için bir tonik: Krating Deng.
+[00:09.95 – 00:12.97]  1982'de Dietrich Mateschitz onu keşfetti.
+      sahne: route_earth — 3B küre: Bangkok → Salzburg büyük çember rotası, Avusturya vurgusu
+      okunuş (TTS): bin dokuz yüz seksen ikide Ditrih Mateşits onu keşfetti.
+[00:13.22 – 00:17.44]  Tarifi Batı'ya uyarladı, 1987'de Avusturya'da satışa sundu.
+      sahne: route_earth — 3B küre: Bangkok → Salzburg büyük çember rotası, Avusturya vurgusu
+      okunuş (TTS): Tarifi Batıya uyarladı, bin dokuz yüz seksen yedide Avusturyada satışa sundu.
+[00:17.74 – 00:19.44]  Ama klasik reklamın ötesine geçti.
+      sahne: pivot_tv — Tüplü TV'de 'REKLAM' — ekran kırılır: reklamın ötesi
+[00:19.59 – 00:22.76]  Ekstrem sporlar, kendi etkinlikleri, kendi yıldızları.
+      sahne: sports_cards — Flugtag 1992 · Cliff Diving 2009 · Air Race 2003 · Rampage 2001 kartları (özgün siluetler)
+[00:22.96 – 00:26.91]  2005'te kendi Formula 1 takımını kurdu, şampiyonluklar kazandı.
+      sahne: f1_road — F1 start ışıkları → lights out → gece pistinde hızlanma; 6 + 8 şampiyonluk
+      okunuş (TTS): iki bin beşte kendi Formula bir takımını kurdu, şampiyonluklar kazandı.
+[00:27.11 – 00:29.86]  Futbolda Salzburg'dan Leipzig'e kulüplerin sahibi oldu.
+      sahne: football_flap — Bölmeli tabela: Salzburg 2005, New York 2006, Leipzig 2009, Bragantino 2020
+      okunuş (TTS): Futbolda Salzburgdan Laypzige kulüplerin sahibi oldu.
+[00:30.06 – 00:31.89]  Hatta kendi medya şirketini kurdu.
+      sahne: media_wall — Ekran duvarı: Red Bull Media House kanalları
+[00:32.34 – 00:36.08]  Ve 2012'de bir adamı, 39 kilometreden atlattı.
+      sahne: stratos_earth — New Mexico'ya iniş, kapsül POV, 38.969 m sayaç; ardından dünya geneli canlı izleme noktaları ve 8.000.000+ sayaç
+      okunuş (TTS): Ve iki bin on ikide bir adamı, otuz dokuz kilometreden atlattı.
+[00:36.33 – 00:40.36]  Zirvede, YouTube'da 8 milyondan fazla eş zamanlı canlı yayın izlendi.
+      sahne: stratos_earth — New Mexico'ya iniş, kapsül POV, 38.969 m sayaç; ardından dünya geneli canlı izleme noktaları ve 8.000.000+ sayaç
+      okunuş (TTS): Zirvede, Yutubda sekiz milyondan fazla eş zamanlı canlı yayın izlendi.
+[00:40.71 – 00:45.68]  Sonuç? 2025'te 12,2 milyar avro ciro, yaklaşık 14 milyar kutu.
+      sahne: numbers_kpi — Finans: 13,969 milyar kutu (+%10,2), 12,196 milyar € ciro (+%8,6), 2024–2025 çubukları; ciro ≠ net kâr
+      okunuş (TTS): Sonuç? iki bin yirmi beşte on iki virgül iki milyar avro ciro, yaklaşık on dört milyar kutu.
+[00:46.13 – 00:48.05]  Red Bull sadece bir içecek satmadı.
+      sahne: final_can — Kutu, kırmızı ışık huzmeleri
+      okunuş (TTS): Red Bul sadece bir içecek satmadı.
+[00:48.30 – 00:50.64]  İnsanların izlemek istediği bir dünya kurdu.
+      sahne: final_earth — Uzaydan Dünya; final cümlesi kelime kelime; kamera kapsüle döner — ilk kareyle döngü
+
+SAHNE LİSTESİ
+============================================================
+00:00.00 – 00:06.80  hook_earth      [earth]  geçiş: cut  Stratosfer kapsül POV (39 km, balıkgözü), kapıdan çıkış ve düşüş; kamera kesintisiz Tayland'a uçar (temsili canlandırma, NASA dokusu)
+00:06.50 – 00:10.10  tonic_road      [road]  geçiş: zoom  Gece otoyolu, kamyon ışıkları; KRATING DAENG başlığı (temsili)
+00:09.83 – 00:15.03  route_earth     [earth]  geçiş: whip  3B küre: Bangkok → Salzburg büyük çember rotası, Avusturya vurgusu
+00:14.77 – 00:17.83  launch_can      [title]  geçiş: flash  1 NİSAN 1987 tarih vurgusu + logosuz metalik kutu (temsili ürün)
+00:17.63 – 00:19.70  pivot_tv        [title]  geçiş: glitch  Tüplü TV'de 'REKLAM' — ekran kırılır: reklamın ötesi
+00:19.50 – 00:23.07  sports_cards    [cards]  geçiş: whip  Flugtag 1992 · Cliff Diving 2009 · Air Race 2003 · Rampage 2001 kartları (özgün siluetler)
+00:22.87 – 00:27.20  f1_road         [road]  geçiş: flash  F1 start ışıkları → lights out → gece pistinde hızlanma; 6 + 8 şampiyonluk
+00:27.00 – 00:30.23  football_flap   [flap]  geçiş: whip  Bölmeli tabela: Salzburg 2005, New York 2006, Leipzig 2009, Bragantino 2020
+00:29.97 – 00:32.43  media_wall      [media]  geçiş: zoom  Ekran duvarı: Red Bull Media House kanalları
+00:32.13 – 00:40.87  stratos_earth   [earth]  geçiş: flash  New Mexico'ya iniş, kapsül POV, 38.969 m sayaç; ardından dünya geneli canlı izleme noktaları ve 8.000.000+ sayaç
+00:40.60 – 00:46.23  numbers_kpi     [kpi]  geçiş: zoom  Finans: 13,969 milyar kutu (+%10,2), 12,196 milyar € ciro (+%8,6), 2024–2025 çubukları; ciro ≠ net kâr
+00:45.93 – 00:48.43  final_can       [title]  geçiş: blur  Kutu, kırmızı ışık huzmeleri
+00:48.13 – 00:51.40  final_earth     [earth]  geçiş: fade  Uzaydan Dünya; final cümlesi kelime kelime; kamera kapsüle döner — ilk kareyle döngü
+
+SES
+============================================================
+Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
+Müzik: özgün prosedürel kompozisyon · 120 BPM · Re minör
+Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -2.13, "voice_lufs": -16.0, "music_under_voice_db": 11.4}

@@ -5,7 +5,7 @@ import {FONTS, useBrand} from '../lib/theme';
 import {trUpper} from '../lib/tr';
 
 // Film greni + vinyet: tüm sahnelerin üstünde, sinematik doku.
-export const GlobalFX: React.FC<{grain?: number; vignette?: number}> = ({grain = 0.1, vignette = 0.55}) => {
+export const GlobalFX: React.FC<{grain?: number; vignette?: number}> = ({grain = 0.055, vignette = 0.55}) => {
 	const frame = useCurrentFrame();
 	const ox = Math.floor(hash(frame) * 256);
 	const oy = Math.floor(hash(frame + 99) * 256);

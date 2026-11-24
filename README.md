@@ -127,6 +127,7 @@ Model grafiğine fonem süresi çıkışı eklenir ve gürültü düğümleri to
 Tam çözme, çözünürlük/süre/fps/codec, siyah kare, donma, hareket profili (statik slayt tespiti), görsel değişim aralığı (≤ 4 sn),
 EBU R128 loudness ve gerçek tepe, müzik/ses farkı, **ASR (faster-whisper) ile altyazı–ses senkronu ve anlaşılırlık**, her karede güvenli alan/taşma denetimi,
 ilk–son kare döngü benzerliği, kaynaklı bilgi listesi. Kare örnekleri: `build/<konu>/qa_frames.png`.
+Taşma denetimi `engine/audit.mjs` ile WebGL çizilmeden her 3. kare taranarak yapılır (≈5 dk); metin düğümlerinin gerçek kutuları güvenli alanla karşılaştırılır.
 
 ## GitHub Actions
 

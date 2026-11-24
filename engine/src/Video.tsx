@@ -7,6 +7,7 @@ import {SceneWrap} from './components/SceneWrap';
 import {Captions} from './components/Captions';
 import {Disclaimers, GlobalFX, Watermark} from './components/Overlays';
 import {Audit} from './components/Audit';
+import {FlashLayer} from './components/FlashLayer';
 import './lib/fonts';
 import {registerForeignWords} from './lib/tr';
 
@@ -32,8 +33,9 @@ export const Short: React.FC<ShortProps> = ({timeline, audit}) => {
 				<Watermark />
 				<Disclaimers items={timeline.disclaimer} />
 				<Captions pages={timeline.captions} />
+				<FlashLayer scenes={timeline.scenes} />
 				{timeline.audioSrc ? <Audio src={staticFile(timeline.audioSrc)} /> : null}
-				{audit !== false ? <Audit /> : null}
+				{audit !== false ? <Audit scenes={timeline.scenes} /> : null}
 			</AbsoluteFill>
 		</BrandCtx.Provider>
 	);

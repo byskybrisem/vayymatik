@@ -74,11 +74,17 @@ export const KpiScene: React.FC<{kpis: Kpi[]; header?: string; footer?: {text: s
 					{trUpper(header)}
 				</div>
 			) : null}
-			{kpis.map((k, i) => (
-				<KpiBlock key={i} k={k} y={360 + i * 380} />
-			))}
+			{(() => {
+				// blok yükseklikleri içeriğe göre: çubuk grafik ve not satırı yer kaplar
+				let y = 360;
+				return kpis.map((k, i) => {
+					const el = <KpiBlock key={i} k={k} y={y} />;
+					y += 250 + (k.bars ? 125 : 0) + (k.note ? 36 : 0) + 34;
+					return el;
+				});
+			})()}
 			{footer && frame >= footer.at ? (
-				<div style={{position: 'absolute', left: 90, right: 150, top: 1060, fontFamily: FONTS.ui, fontWeight: 700, fontSize: 30, color: b.colors.silver, opacity: interpolate(frame - footer.at, [0, 8], [0, 1], {extrapolateRight: 'clamp'})}}>
+				<div style={{position: 'absolute', left: 90, right: 150, top: 1085, fontFamily: FONTS.ui, fontWeight: 700, fontSize: 30, color: b.colors.silver, opacity: interpolate(frame - footer.at, [0, 8], [0, 1], {extrapolateRight: 'clamp'})}}>
 					{footer.text}
 				</div>
 			) : null}

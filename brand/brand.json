@@ -11,9 +11,22 @@
     "white": "#FFFFFF",
     "ink": "#05070D"
   },
-  "safe": {"top": 250, "bottom": 520, "left": 80, "right": 150},
-  "captions": {"centerY": 1235, "maxWidth": 800, "fontSize": 76, "uppercase": true},
-  "watermark": {"text": "VAYYMATİK", "show": true},
+  "safe": {
+    "top": 250,
+    "bottom": 520,
+    "left": 80,
+    "right": 150
+  },
+  "captions": {
+    "centerY": 1235,
+    "maxWidth": 800,
+    "fontSize": 76,
+    "uppercase": true
+  },
+  "watermark": {
+    "text": "VAYYMATİK",
+    "show": true
+  },
   "voice": {
     "model": "tr_TR-fahrettin-medium",
     "length_scale": 1.0,
@@ -22,6 +35,19 @@
     "gap": 0.25,
     "seed": 1987
   },
-  "mix": {"voice_lufs": -16.0, "music_lufs": -21.5, "sfx_lufs": -23.0, "duck_db": 10.0, "target_lufs": -14.0, "ceiling_db": -2.0},
-  "render": {"fps": 30, "width": 1080, "height": 1920, "crf": 16, "preset": "slow"}
+  "mix": {
+    "voice_lufs": -16.0,
+    "music_lufs": -21.5,
+    "sfx_lufs": -23.0,
+    "duck_db": 10.0,
+    "target_lufs": -14.0,
+    "ceiling_db": -2.0
+  },
+  "render": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "crf": 18,
+    "preset": "slow"
+  }
 }

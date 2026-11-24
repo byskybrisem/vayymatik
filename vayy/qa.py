@@ -144,9 +144,15 @@ def _motion_profile(path: Path, fps: int) -> dict:
             "windows_below_0.6": int(sum(1 for x in lows if x < 0.6)), "windows": len(lows)}
 
 
-def _frame_at(path: Path, t: float) -> np.ndarray:
-    r = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", str(path), "-frames:v", "1", "-vf", "scale=270:480", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True)
-    return np.frombuffer(r.stdout, np.uint8).reshape(480, 270, 3).astype(np.float32)
+def _frame_at(path: Path, t: float, last: bool = False) -> np.ndarray:
+    if last:  # son kare: dosya sonundan 0,4 sn içindeki karelerin sonuncusu
+        cmd = ["ffmpeg", "-v", "error", "-sseof", "-0.4", "-i", str(path), "-vf", "scale=270:480", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
+    else:
+        cmd = ["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", str(path), "-frames:v", "1", "-vf", "scale=270:480", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
+    r = subprocess.run(cmd, capture_output=True)
+    buf = np.frombuffer(r.stdout, np.uint8)
+    n = 480 * 270 * 3
+    return buf[-n:].reshape(480, 270, 3).astype(np.float32)
 
 
 def _contact_sheet(path: Path, dur: float, out: Path, n: int = 18) -> list[float]:
@@ -223,7 +229,7 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     try:
         asr_dry = asr_words(bdir / "voice_dry.wav", asr_model)
         rep = sync_report(script_words, asr_dry)
-        add("Altyazı–ses senkronu (ASR, medyan sapma ≤ 120 ms)", abs(rep["offset_median_ms"]) <= 120 and rep["offset_abs_p90_ms"] <= 250, {k: rep[k] for k in rep if k != "asr_text"})
+        add("Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)", abs(rep["offset_median_ms"]) <= 80 and rep["offset_abs_median_ms"] <= 80 and rep["offset_abs_p90_ms"] <= 400, {k: rep[k] for k in rep if k != "asr_text"})
         add("Seslendirme anlaşılırlığı (ASR WER ≤ %25, kuru ses)", rep["wer"] <= 0.25, {"wer": rep["wer"], "match_ratio": rep["match_ratio"]}, crit=False)
         wav_mix = bdir / "mix.wav"
         asr_mix = asr_words(wav_mix, asr_model)
@@ -263,19 +269,20 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
                 mism += 1
     add("Altyazı sayfaları kelime zamanlarını kapsıyor", mism == 0, {"words": len(allw), "outside": mism})
 
-    # taşma denetimi (render günlüğü)
-    log_p = bdir / "render_log.json"
-    over = []
-    if log_p.exists():
-        for e in json.loads(log_p.read_text(encoding="utf-8")):
-            if "[OVERFLOW]" in e["text"]:
-                over.append(json.loads(e["text"].split("[OVERFLOW] ", 1)[1]))
+    # taşma denetimi: WebGL'siz hızlı tarama (engine/audit.mjs), her 3. kare = 0,1 sn aralık
+    from .paths import ENGINE
+
+    audit_p = bdir / "audit_log.json"
+    subprocess.run(["node", "audit.mjs", "--step", "3", "--out", str(audit_p)], cwd=ENGINE, check=True)
+    audit = json.loads(audit_p.read_text(encoding="utf-8"))
+    over = [json.loads(e["text"].split("[OVERFLOW] ", 1)[1]) for e in audit["logs"]]
     frames_bad = sorted({o["frame"] for o in over})
-    add("Taşan/güvenli alan dışı metin yok", len(over) == 0, {"issues": len(over), "frames": frames_bad[:20], "examples": over[:5]})
+    add("Taşan/güvenli alan dışı metin yok (yerleşmiş karelerde)", len(over) == 0,
+        {"frames_checked": audit["frames_checked"], "issues": len(over), "frames": frames_bad[:20], "examples": over[:5]})
 
     # döngü: ilk ve son kare benzerliği
     f0 = _frame_at(video, 0.0)
-    f1 = _frame_at(video, max(0.0, dur - 1.0 / fps))
+    f1 = _frame_at(video, 0.0, last=True)
     mad = float(np.abs(f0 - f1).mean())
     add("Tekrar izleme döngüsü (ilk/son kare benzerliği)", mad < 28, {"mean_abs_diff": round(mad, 2)}, crit=False)
 

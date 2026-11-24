@@ -119,4 +119,19 @@ def visual_events(scenes: list[dict], fps: int) -> list[float]:
         keys = s["props"].get("keys", [])
         for k in keys[1:]:
             ev.add((s["from"] + k["t"]) / fps)
-    return sorted(ev)
+        pr = s["props"]
+        for coll, key in (("kpis", "at"), ("cards", "at"), ("rows", "at"), ("labels", "from")):
+            for it in pr.get(coll, []) or []:
+                if isinstance(it, dict) and isinstance(it.get(key), (int, float)):
+                    ev.add((s["from"] + it[key]) / fps)
+        if isinstance(pr.get("lights"), dict):
+            ev.add((s["from"] + pr["lights"]["out"]) / fps)
+            for t in pr["lights"].get("on", []):
+                ev.add((s["from"] + t) / fps)
+        for one in ("route", "dots", "live", "pullback", "can", "tv", "footer"):
+            it = pr.get(one)
+            if isinstance(it, dict):
+                for key in ("start", "from", "at", "breakAt"):
+                    if isinstance(it.get(key), (int, float)):
+                        ev.add((s["from"] + it[key]) / fps)
+    return sorted(e for e in ev if e >= 0)

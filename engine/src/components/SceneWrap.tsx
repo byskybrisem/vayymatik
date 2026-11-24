@@ -32,7 +32,7 @@ export const SceneWrap: React.FC<{spec: SceneSpec; children: React.ReactNode}> =
 			break;
 		}
 		case 'flash':
-			overlay = <AbsoluteFill style={{background: '#fff', opacity: interpolate(frame, [0, tr.dur], [0.95, 0], {extrapolateRight: 'clamp'})}} />;
+			// beyaz flaş Video.tsx'te altyazıların üstünde çizilir (FlashLayer)
 			break;
 		case 'glitch': {
 			const j = (1 - p) * 40;

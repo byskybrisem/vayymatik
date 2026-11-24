@@ -51,7 +51,7 @@ const Title: React.FC<{t: TitleSpec}> = ({t}) => {
 	let size = t.size ?? 150;
 	try {
 		const fit = fitText({text: longest, withinWidth: maxW, fontFamily, fontWeight: String(fontWeight)}).fontSize;
-		size = Math.min(size, fit);
+		size = Math.min(size, fit * 0.95); // harf aralığı ve gölge payı
 	} catch {
 		size = Math.min(size, maxW / Math.max(4, longest.length * 0.52));
 	}
