@@ -194,7 +194,12 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     dur = float(info["format"]["duration"])
     num, den = map(int, v["r_frame_rate"].split("/"))
     add("Çözünürlük 1080×1920 (9:16)", v["width"] == 1080 and v["height"] == 1920, {"width": v["width"], "height": v["height"]})
-    add("Süre 45–55 sn", 45 <= dur <= 55, {"seconds": round(dur, 3)})
+    if topic.get("duration"):  # sabit süreli video (ör. 8 sn demo): ±1 kare
+        want = float(topic["duration"])
+        add(f"Süre {want:g} sn (±1 kare)", abs(dur - want) <= 1 / 30 + 1e-3, {"seconds": round(dur, 3)})
+    else:
+        lo, hi = topic.get("qa", {}).get("duration_range", [45, 55])
+        add(f"Süre {lo}–{hi} sn", lo <= dur <= hi, {"seconds": round(dur, 3)})
     add("FPS 30 veya 60", round(num / den, 3) in (30.0, 60.0), {"fps": round(num / den, 3)})
     add("Video codec H.264 yuv420p", v["codec_name"] == "h264" and v.get("pix_fmt") == "yuv420p", {"codec": v["codec_name"], "pix_fmt": v.get("pix_fmt"), "profile": v.get("profile")})
     add("Ses akışı AAC 48 kHz stereo", bool(a) and a["codec_name"] == "aac" and a["sample_rate"] == "48000" and a["channels"] == 2,

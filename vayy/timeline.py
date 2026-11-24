@@ -134,4 +134,18 @@ def visual_events(scenes: list[dict], fps: int) -> list[float]:
                 for key in ("start", "from", "at", "breakAt"):
                     if isinstance(it.get(key), (int, float)):
                         ev.add((s["from"] + it[key]) / fps)
+        # world3d: kamera anahtar kareleri, nesne girişleri, karakter poz değişimleri
+        for k in (pr.get("camera") or {}).get("keys", []) if isinstance(pr.get("camera"), dict) else []:
+            if isinstance(k.get("t"), (int, float)):
+                ev.add((s["from"] + k["t"]) / fps)
+        for o in pr.get("objects", []) or []:
+            if not isinstance(o, dict):
+                continue
+            sh = o.get("show")
+            if isinstance(sh, dict) and isinstance(sh.get("from"), (int, float)):
+                ev.add((s["from"] + sh["from"]) / fps)
+            if isinstance(o.get("pose"), list):
+                for k in o["pose"]:
+                    if isinstance(k, dict) and isinstance(k.get("t"), (int, float)):
+                        ev.add((s["from"] + k["t"]) / fps)
     return sorted(e for e in ev if e >= 0)

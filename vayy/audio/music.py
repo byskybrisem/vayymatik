@@ -294,6 +294,63 @@ class Music:
         # bölüm dinamiği: anlatının yükselişini izleyen kazanç eğrisi (dB)
         self.arc = [(S["hook"], -1.5), (S["origin"], -4.0), (S["rise"], -2.0), (S["drive"], 0.0), (S["break"], -3.0), (S["climax"], 1.0), (S["resolve"], -3.0), (S["end"], -3.0)]
 
+    def arrange_rise(self, sections: dict[str, float], hits: list[tuple[float, str]], risers: list[tuple[float, float]]):
+        """Kısa sinematik yükseliş (6–15 sn reklam/demo): sections = {'dark', 'build', 'peak', 'end'}.
+        dark: dron + kalp atışı + seyrek piyano · build: nabız bas, tomlar, yükselen ped · peak: braam + koro + taiko."""
+        S = sections
+        B, b = self.bar, self.beat
+        a, e = S["dark"], S["build"]
+        self.sub(a, e - a + 0.4, 26, -5)
+        self.pad(a, e - a + 0.3, [50, 57, 62], -8, bright=600, attack=0.5)
+        for tt in np.arange(a + 0.1, e - 0.2, 1.0):
+            self.kick(tt, -11)
+            self.kick(tt + 0.27, -16)
+        for i, tt in enumerate(np.arange(a + 0.35, e - 0.3, b * 1.5)):
+            self.pluck(tt, PENTA[[0, 3, 2, 4][i % 4]] - 12, -9, decay=0.9, pan_=-0.25 if i % 2 else 0.25)
+        self.reverse_swell(e, min(1.4, e - a), 62, -6)
+
+        a, e = S["build"], S["peak"]
+        for tt in self.grid(a, e, b / 2):
+            root, _ = self.chord_at(tt - a)
+            k = (tt - a) / max(1e-3, e - a)
+            self.pulse(tt, b / 2 * 0.9, root + 12, -9 + 3 * k, cutoff=500 + 2200 * k)
+        for i, tt in enumerate(self.grid(a, e, b)):
+            self.tom(tt, -9 + 5 * (tt - a) / max(1e-3, e - a), pitch=1.0 if i % 2 == 0 else 1.25)
+        for tt in self.grid(a + (e - a) / 2, e, b / 4):
+            self.hat(tt, -14)
+        prog_ = [CHORDS[0], CHORDS[1]]
+        seg = (e - a) / len(prog_)
+        for i, (root, notes) in enumerate(prog_):
+            self.pad(a + i * seg, seg + 0.2, notes, -6, bright=1200 + 900 * i, attack=0.3)
+            self.sub(a + i * seg, seg, root, -7)
+        self.choir(a + seg, seg, [n + 12 for n in prog_[1][1][:3]], -10)
+
+        a, e = S["peak"], S["end"]
+        root, notes = CHORDS[2]  # F majör: aydınlık çözülüş
+        self.braam(a, 29, -4, dur=min(3.2, e - a + 0.5))
+        self.kick(a, -1, big=True)
+        self.choir(a, e - a, [n + 12 for n in notes[:3]], -6)
+        self.pad(a, e - a + 0.5, notes + [notes[0] + 12], -4, bright=2600, attack=0.15)
+        self.sub(a, e - a, root, -6)
+        drum_end = a + (e - a) * 0.62
+        for i, tt in enumerate(self.grid(a + b, drum_end, b)):
+            self.kick(tt, -6, big=i % 2 == 0)
+            self.tom(tt + b / 2, -10, pitch=1.3)
+        for i, tt in enumerate(self.grid(a + b / 2, e - 0.4, b)):
+            self.bell(tt, [72, 77, 81, 84, 81][i % 5], -11)
+
+        for t, kind in hits:
+            if kind == "impact":
+                self.impact(t, -3)
+            elif kind == "braam":
+                self.braam(t, 26, -4)
+            elif kind == "boom":
+                self.kick(t, -1, big=True)
+                self.tom(t, -4, pitch=0.8)
+        for t_end, dur in risers:
+            self.riser(t_end, dur, -6)
+        self.arc = [(S["dark"], -3.0), (S["build"], -2.0), (S["peak"], 1.0), (S["end"] - 0.6, 0.0), (S["end"], -2.0)]
+
     def mix(self) -> np.ndarray:
         g = {"drums": 0.0, "bass": -1.0, "pads": 0.0, "keys": -1.0, "fx": 0.0, "lead": 0.0}
         out = sum(self.stems[k] * 10 ** (g[k] / 20) for k in self.stems)
@@ -315,7 +372,8 @@ class Music:
         return out[: n_of(self.total)].astype(np.float32)
 
 
-def compose(total: float, sections: dict[str, float], hits, risers, bpm=120.0, seed=7) -> np.ndarray:
+def compose(total: float, sections: dict[str, float], hits, risers, bpm=120.0, seed=7, style: str = "story") -> np.ndarray:
+    """style: 'story' (8 bölümlü anlatı, 30–60 sn) · 'rise' (kısa sinematik yükseliş: dark/build/peak/end)."""
     m = Music(total, bpm=bpm, seed=seed)
-    m.arrange(sections, hits, risers)
+    (m.arrange_rise if style == "rise" else m.arrange)(sections, hits, risers)
     return m.mix()

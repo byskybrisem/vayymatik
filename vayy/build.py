@@ -74,6 +74,21 @@ def _inject_words(scenes_src: list[dict], lines_by_id: dict, res: Resolver):
             t["words"] = words  # mutlak saniye; aşağıda karelere çevrilir
 
 
+def _inject_talk(obj, lines_by_id: dict, scene_start: float):
+    """3D karakter dudak senkronu: {"talkFromLine": "satır"} -> talk: [{from,to}] (sahneye göre sn).
+    Kelime aralıkları Piper fonem sürelerinden gelir; motor bunları ağız hareketine çevirir."""
+    if isinstance(obj, dict):
+        lid = obj.pop("talkFromLine", None)
+        if lid:
+            la = lines_by_id[lid]
+            obj["talk"] = [{"from": round(la.start + w["start"] - scene_start, 3), "to": round(la.start + w["end"] - scene_start, 3)} for w in la.words]
+        for v in obj.values():
+            _inject_talk(v, lines_by_id, scene_start)
+    elif isinstance(obj, list):
+        for v in obj:
+            _inject_talk(v, lines_by_id, scene_start)
+
+
 def build(topic_id: str, render: bool = True, stills: list[int] | None = None, concurrency: int = 4, crf: int | None = None) -> dict:
     t_start = time.time()
     topic, brand = load_topic(topic_id)
@@ -87,6 +102,10 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     lines = synth_lines(topic, bdir / "voice", log=log)
     speech_end = layout(lines, topic["voice"].get("lead_in", 0.25))
     total = round(speech_end + topic["voice"].get("tail", 0.8), 3)
+    if topic.get("duration"):  # sabit süreli videolar (ör. 8 sn demo / reklam)
+        if speech_end > topic["duration"]:
+            raise ValueError(f"Seslendirme ({speech_end:.2f} sn) sabit süreyi ({topic['duration']} sn) aşıyor")
+        total = float(topic["duration"])
     total = round(np.ceil(total * fps) / fps, 4)
     res = Resolver(lines, total)
     lines_by_id = {l.id: l for l in lines}
@@ -99,6 +118,7 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     for s in scenes_src:
         st = res.abs(s["start"])
         _abs_durations(s.get("props", {}), res, st)
+        _inject_talk(s.get("props", {}), lines_by_id, st)
         # words[].at mutlak saniye -> sahneye göre kare
         for t in s.get("props", {}).get("titles", []):
             if "words" in t:
@@ -129,7 +149,7 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     sections = {k: res.abs(v) for k, v in m["sections"].items()}
     hits = [(res.abs(h["at"]), h["kind"]) for h in m.get("hits", [])]
     risers = [(res.abs(r["to"]), r["dur"]) for r in m.get("risers", [])]
-    music = compose(total, sections, hits, risers, bpm=m.get("bpm", 120), seed=m.get("seed", 7))
+    music = compose(total, sections, hits, risers, bpm=m.get("bpm", 120), seed=m.get("seed", 7), style=m.get("style", "story"))
 
     # 4) Efektler
     log("4/8 Ses efektleri")
