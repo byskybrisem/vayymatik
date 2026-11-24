@@ -1,0 +1,12 @@
+[
+{"id":"hook","text":"Bir {lastik} şirketi, neden dünyanın en iyi {restoranlarını} seçiyor?","pause_after":0.35},
+{"id":"y1900","text":"1900'de Fransa'da yalnızca birkaç bin {otomobil} vardı."},
+{"id":"prob","text":"{Michelin|Mişlen} lastik satıyordu. Ama kimse {yola çıkmazsa}, lastik aşınmazdı."},
+{"id":"guide","text":"Çözüm: {ücretsiz} bir rehber. Harita, tamirci, benzin, otel."},
+{"id":"free","text":"İlk baskı {35 bin} adet."},
+{"id":"paid","text":"1920'de ücretli oldu. Asıl hamle, {1926'da} geldi."},
+{"id":"star","text":"Restoranlara {yıldız} vermeye başladılar.","pause_after":0.25},
+{"id":"three","text":"1931'de üç yıldız: sırf o yemek için {yola çıkmaya} değer."},
+{"id":"loop","text":"Her yıldız bir {yolculuk}. Her yolculuk, biraz daha aşınan {lastik}.","pause_after":0.3},
+{"id":"final","text":"{Michelin|Mişlen} yemek değil, {yol} satıyordu. Lastik satmak için, önce insanları {sofraya} gönderdi."}
+]

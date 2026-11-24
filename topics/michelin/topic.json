@@ -1,0 +1,3462 @@
+{
+ "id": "michelin",
+ "output_name": "Michelin_VAYYMATIK_Shorts",
+ "language": "tr",
+ "voice": {
+  "lead_in": 0.2,
+  "tail": 0.8,
+  "length_scale": 0.93
+ },
+ "foreign_words": [
+  "Michelin"
+ ],
+ "lines": [
+  {
+   "id": "hook",
+   "text": "Bir {lastik} şirketi, neden dünyanın en iyi {restoranlarını} seçiyor?",
+   "pause_after": 0.35
+  },
+  {
+   "id": "y1900",
+   "text": "1900'de Fransa'da yalnızca birkaç bin {otomobil} vardı."
+  },
+  {
+   "id": "prob",
+   "text": "{Michelin|Mişlen} lastik satıyordu. Ama kimse {yola çıkmazsa}, lastik aşınmazdı."
+  },
+  {
+   "id": "guide",
+   "text": "Çözüm: {ücretsiz} bir rehber. Harita, tamirci, benzin, otel."
+  },
+  {
+   "id": "free",
+   "text": "İlk baskı {35 bin} adet."
+  },
+  {
+   "id": "paid",
+   "text": "1920'de ücretli oldu. Asıl hamle, {1926'da} geldi."
+  },
+  {
+   "id": "star",
+   "text": "Restoranlara {yıldız} vermeye başladılar.",
+   "pause_after": 0.25
+  },
+  {
+   "id": "three",
+   "text": "1931'de üç yıldız: sırf o yemek için {yola çıkmaya} değer."
+  },
+  {
+   "id": "loop",
+   "text": "Her yıldız bir {yolculuk}. Her yolculuk, biraz daha aşınan {lastik}.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "final",
+   "text": "{Michelin|Mişlen} yemek değil, {yol} satıyordu. Lastik satmak için, önce insanları {sofraya} gönderdi."
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "world3d",
+   "start": "@start",
+   "props": {
+    "stage": {
+     "bg": "#07050a",
+     "exposure": 1.05
+    },
+    "fog": {
+     "color": "#07050a",
+     "near": 6,
+     "far": 22
+    },
+    "grade": {
+     "saturate": 1.12,
+     "contrast": 1.1,
+     "leak": "rgba(255,170,80,0.5)",
+     "leakOpacity": 0.35
+    },
+    "camera": {
+     "ease": "cine",
+     "shake": 0.012,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        2.6,
+        2.0,
+        8.4
+       ],
+       "target": [
+        0,
+        0.8,
+        0
+       ],
+       "fov": 30
+      },
+      {
+       "t": 1.6,
+       "pos": [
+        1.4,
+        1.7,
+        6.8
+       ],
+       "target": [
+        0,
+        0.85,
+        0
+       ],
+       "fov": 30
+      },
+      {
+       "t": 3.6,
+       "pos": [
+        0.3,
+        1.5,
+        5.2
+       ],
+       "target": [
+        0,
+        0.9,
+        0
+       ],
+       "fov": 30
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#4a3a5a",
+      "intensity": 0.35
+     },
+     {
+      "type": "hemi",
+      "color": "#ffd2a0",
+      "intensity": 0.25,
+      "ground": "#120a10"
+     },
+     {
+      "type": "spot",
+      "color": "#ffd9a0",
+      "intensity": 16,
+      "pos": [
+       0.6,
+       3.4,
+       1.2
+      ],
+      "target": [
+       0,
+       0.9,
+       0
+      ],
+      "angle": 0.5,
+      "penumbra": 0.7,
+      "decay": 1.6,
+      "castShadow": true,
+      "mapSize": 1024
+     },
+     {
+      "type": "point",
+      "color": "#ff9a50",
+      "intensity": 2.2,
+      "pos": [
+       0.7,
+       1.2,
+       0.4
+      ],
+      "distance": 4,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#8aa8ff",
+      "intensity": 9,
+      "pos": [
+       -1.6,
+       2.2,
+       -1.4
+      ],
+      "distance": 8,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ffd0a0",
+      "intensity": 5,
+      "pos": [
+       1.4,
+       2.2,
+       -1.4
+      ],
+      "distance": 8,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "slab",
+      "size": [
+       14,
+       0.1,
+       14
+      ],
+      "color": "#150c0f",
+      "rough": 0.6,
+      "pos": [
+       0,
+       -0.05,
+       0
+      ]
+     },
+     {
+      "kind": "dinnerTable",
+      "pos": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       0,
+       1.2,
+       0
+      ],
+      "scale": 0.7,
+      "rot": [
+       0,
+       0,
+       0
+      ],
+      "show": {
+       "from": 0,
+       "dur": 0.5,
+       "in": "drop",
+       "dist": 1.6
+      }
+     },
+     {
+      "kind": "dust",
+      "count": 120,
+      "size": [
+       5,
+       3,
+       5
+      ],
+      "pos": [
+       0,
+       1.4,
+       0
+      ],
+      "opacity": 0.5
+     }
+    ],
+    "titles": [
+     {
+      "text": "LASTİK ŞİRKETİ",
+      "from": 0.35,
+      "dur": 1.5,
+      "kind": "rise",
+      "y": 420,
+      "size": 96,
+      "color": "gold",
+      "plate": false,
+      "sub": "neden en iyi restoranlar?",
+      "kicker": "MICHELIN"
+     }
+    ]
+   }
+  },
+  {
+   "id": "road1900",
+   "type": "world3d",
+   "start": "@y1900.start-0.1",
+   "transition": {
+    "type": "whip",
+    "dur": 0.3
+   },
+   "props": {
+    "stage": {
+     "bg": "#c9884a",
+     "exposure": 1.05
+    },
+    "fog": {
+     "color": "#d9a066",
+     "near": 18,
+     "far": 95
+    },
+    "grade": {
+     "saturate": 1.15,
+     "contrast": 1.08,
+     "leak": "rgba(255,190,110,0.6)",
+     "leakOpacity": 0.4
+    },
+    "camera": {
+     "ease": "cine",
+     "shake": 0.008,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        8,
+        1.6,
+        -9
+       ],
+       "target": [
+        0,
+        0.2,
+        -13
+       ],
+       "fov": 34
+      },
+      {
+       "t": 1.7,
+       "pos": [
+        7.5,
+        1.5,
+        8
+       ],
+       "target": [
+        0,
+        0.2,
+        6
+       ],
+       "fov": 34
+      },
+      {
+       "t": 3.5,
+       "pos": [
+        -7,
+        2.0,
+        17
+       ],
+       "target": [
+        0,
+        0.4,
+        23
+       ],
+       "fov": 38
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#a07a60",
+      "intensity": 0.5
+     },
+     {
+      "type": "hemi",
+      "color": "#ffd7a8",
+      "intensity": 0.8,
+      "ground": "#3a3220"
+     },
+     {
+      "type": "dir",
+      "color": "#ffb870",
+      "intensity": 3.2,
+      "pos": [
+       14,
+       6,
+       -4
+      ],
+      "target": [
+       0,
+       0,
+       5
+      ],
+      "castShadow": true,
+      "shadowSize": 16,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ff9a50",
+      "intensity": 1.0,
+      "pos": [
+       0,
+       3,
+       10
+      ],
+      "distance": 14,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "sky",
+      "top": "#5a6a9a",
+      "horizon": "#ffb066",
+      "bottom": "#6a4a3a",
+      "sun": "#ffe0a0",
+      "sunDir": [
+       -0.5,
+       0.08,
+       0.7
+      ],
+      "sunSize": 1.6,
+      "stars": 0
+     },
+     {
+      "kind": "countryRoad",
+      "length": 160,
+      "seed": 4,
+      "pos": [
+       0,
+       0,
+       10
+      ],
+      "trees": 44
+     },
+     {
+      "kind": "oldCar",
+      "color": "#7a1420",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         0.2,
+         0,
+         -14
+        ]
+       },
+       {
+        "t": 3.5,
+        "v": [
+         0.2,
+         0,
+         24
+        ]
+       }
+      ],
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.5,
+        "v": 70
+       }
+      ]
+     },
+     {
+      "kind": "dust",
+      "count": 90,
+      "size": [
+       8,
+       3,
+       40
+      ],
+      "pos": [
+       0,
+       1.2,
+       8
+      ],
+      "opacity": 0.35,
+      "color": "#ffd9a0"
+     }
+    ],
+    "titles": [
+     {
+      "text": "1900 · FRANSA",
+      "from": 0.3,
+      "dur": 2.6,
+      "kind": "rise",
+      "y": 420,
+      "size": 104,
+      "color": "gold",
+      "plate": false,
+      "sub": "yollarda birkaç bin otomobil"
+     }
+    ]
+   }
+  },
+  {
+   "id": "stock",
+   "type": "world3d",
+   "start": "@prob.start-0.1",
+   "transition": {
+    "type": "blur",
+    "dur": 0.35
+   },
+   "props": {
+    "stage": {
+     "bg": "#241a20",
+     "exposure": 1.05
+    },
+    "fog": {
+     "color": "#2a2230",
+     "near": 10,
+     "far": 60
+    },
+    "grade": {
+     "saturate": 1.1,
+     "contrast": 1.1,
+     "leak": "rgba(255,160,80,0.45)",
+     "leakOpacity": 0.35
+    },
+    "camera": {
+     "ease": "cine",
+     "shake": 0.01,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        1.5,
+        2.2,
+        5.5
+       ],
+       "target": [
+        -1.6,
+        0.7,
+        -1.8
+       ],
+       "fov": 34
+      },
+      {
+       "t": 2.0,
+       "pos": [
+        -0.2,
+        1.7,
+        3.8
+       ],
+       "target": [
+        -2.0,
+        0.6,
+        -1.6
+       ],
+       "fov": 32
+      },
+      {
+       "t": 2.6,
+       "pos": [
+        0.8,
+        1.6,
+        3.0
+       ],
+       "target": [
+        2.2,
+        0.4,
+        -6
+       ],
+       "fov": 34
+      },
+      {
+       "t": 4.1,
+       "pos": [
+        1.5,
+        1.5,
+        1.0
+       ],
+       "target": [
+        2.0,
+        0.6,
+        -14
+       ],
+       "fov": 40
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#8a7a9a",
+      "intensity": 0.9
+     },
+     {
+      "type": "hemi",
+      "color": "#ffd2a0",
+      "intensity": 0.9,
+      "ground": "#2a2028"
+     },
+     {
+      "type": "spot",
+      "color": "#ffcf90",
+      "intensity": 14,
+      "pos": [
+       -2.6,
+       5,
+       2.4
+      ],
+      "target": [
+       -2,
+       0.4,
+       -1.8
+      ],
+      "angle": 0.6,
+      "penumbra": 0.7,
+      "decay": 1.5,
+      "castShadow": true,
+      "mapSize": 1024
+     },
+     {
+      "type": "dir",
+      "color": "#7a9aff",
+      "intensity": 1.2,
+      "pos": [
+       6,
+       4,
+       6
+      ],
+      "target": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "point",
+      "color": "#ffb070",
+      "intensity": 6,
+      "pos": [
+       -1.0,
+       1.6,
+       1.0
+      ],
+      "distance": 7,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "sky",
+      "top": "#14182e",
+      "horizon": "#c87a4a",
+      "bottom": "#201820",
+      "sun": "#ffb070",
+      "sunDir": [
+       0.4,
+       0.04,
+       -1
+      ],
+      "sunSize": 1.0,
+      "stars": 0.5
+     },
+     {
+      "kind": "countryRoad",
+      "length": 160,
+      "seed": 9,
+      "ground": "#3a4026",
+      "road": "#6a5a42",
+      "pos": [
+       2.2,
+       0,
+       -20
+      ],
+      "trees": 30
+     },
+     {
+      "kind": "oldCar",
+      "color": "#2a3a5a",
+      "pos": [
+       2.2,
+       0,
+       -10
+      ],
+      "rot": [
+       0,
+       0.1,
+       0
+      ],
+      "lights": 0.6
+     },
+     {
+      "kind": "dust",
+      "count": 100,
+      "size": [
+       8,
+       3,
+       10
+      ],
+      "pos": [
+       -1,
+       1.2,
+       -1
+      ],
+      "opacity": 0.4
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -2.2,
+       0.2,
+       -1
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.0
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -2.2,
+       0.42000000000000004,
+       -1
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.4
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -2.2,
+       0.64,
+       -1
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.8
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -2.2,
+       0.8600000000000001,
+       -1
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       1.2000000000000002
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -2.2,
+       1.08,
+       -1
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       1.6
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -1.2,
+       0.2,
+       -1.8
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.0
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -1.2,
+       0.42000000000000004,
+       -1.8
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.4
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -1.2,
+       0.64,
+       -1.8
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.8
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -1.2,
+       0.8600000000000001,
+       -1.8
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       1.2000000000000002
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -3.0,
+       0.2,
+       -2.4
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.0
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -3.0,
+       0.42000000000000004,
+       -2.4
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.4
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -3.0,
+       0.64,
+       -2.4
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       0.8
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -3.0,
+       0.8600000000000001,
+       -2.4
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       1.2000000000000002
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       -3.0,
+       1.08,
+       -2.4
+      ],
+      "scale": 0.55,
+      "rot": [
+       1.5708,
+       0,
+       1.6
+      ]
+     }
+    ],
+    "titles": [
+     {
+      "text": "YOL YOKSA",
+      "from": 0.3,
+      "dur": 1.9,
+      "kind": "rise",
+      "y": 420,
+      "size": 104,
+      "color": "white",
+      "plate": false,
+      "sub": "lastik de aşınmaz",
+      "subColor": "gold"
+     }
+    ]
+   }
+  },
+  {
+   "id": "guide",
+   "type": "world3d",
+   "start": "@guide.start-0.1",
+   "transition": {
+    "type": "zoom",
+    "dur": 0.3
+   },
+   "props": {
+    "stage": {
+     "bg": "#0a0a12",
+     "exposure": 1.05
+    },
+    "fog": {
+     "color": "#0a0a12",
+     "near": 8,
+     "far": 26
+    },
+    "grade": {
+     "saturate": 1.1,
+     "contrast": 1.1,
+     "leak": "rgba(255,190,100,0.5)",
+     "leakOpacity": 0.35
+    },
+    "camera": {
+     "ease": "cine",
+     "shake": 0.01,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        0.4,
+        4.4,
+        3.4
+       ],
+       "target": [
+        0,
+        0.2,
+        0.2
+       ],
+       "fov": 34
+      },
+      {
+       "t": 1.9,
+       "pos": [
+        0.5,
+        3.4,
+        2.4
+       ],
+       "target": [
+        0,
+        0.4,
+        0.1
+       ],
+       "fov": 34
+      },
+      {
+       "t": 3.6,
+       "pos": [
+        0.8,
+        6.0,
+        3.6
+       ],
+       "target": [
+        0,
+        0,
+        -1.6
+       ],
+       "fov": 40
+      },
+      {
+       "t": 4.6,
+       "pos": [
+        0.4,
+        8.2,
+        3.6
+       ],
+       "target": [
+        0,
+        0,
+        -2.0
+       ],
+       "fov": 42
+      },
+      {
+       "t": 6.1,
+       "pos": [
+        -1.5,
+        9.0,
+        4.0
+       ],
+       "target": [
+        0,
+        0,
+        -2.0
+       ],
+       "fov": 44
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#5a5a7a",
+      "intensity": 0.5
+     },
+     {
+      "type": "hemi",
+      "color": "#ffd2a0",
+      "intensity": 0.4,
+      "ground": "#101018"
+     },
+     {
+      "type": "spot",
+      "color": "#ffd9a0",
+      "intensity": 20,
+      "pos": [
+       0.4,
+       4.5,
+       1.2
+      ],
+      "target": [
+       0,
+       0.8,
+       -0.6
+      ],
+      "angle": 0.8,
+      "penumbra": 0.7,
+      "decay": 1.5,
+      "castShadow": true,
+      "mapSize": 1024
+     },
+     {
+      "type": "dir",
+      "color": "#8aa8ff",
+      "intensity": 0.9,
+      "pos": [
+       -4,
+       5,
+       4
+      ],
+      "target": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "type": "point",
+      "color": "#ff9a50",
+      "intensity": 1.2,
+      "pos": [
+       -1,
+       1.6,
+       1
+      ],
+      "distance": 6,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "slab",
+      "size": [
+       20,
+       0.1,
+       20
+      ],
+      "color": "#2a2a3a",
+      "pos": [
+       0,
+       -0.05,
+       0
+      ]
+     },
+     {
+      "kind": "desk",
+      "w": 1.9,
+      "d": 1.3,
+      "pos": [
+       0,
+       0,
+       0
+      ]
+     },
+     {
+      "kind": "slab",
+      "size": [
+       1.6,
+       0.02,
+       1.1
+      ],
+      "color": "#d9c9a0",
+      "rough": 0.95,
+      "pos": [
+       0,
+       0.77,
+       0.0
+      ]
+     },
+     {
+      "kind": "slab",
+      "size": [
+       1.4,
+       0.012,
+       0.04
+      ],
+      "color": "#9a3a2a",
+      "pos": [
+       0,
+       0.785,
+       0.0
+      ],
+      "rot": [
+       0,
+       0.35,
+       0
+      ]
+     },
+     {
+      "kind": "slab",
+      "size": [
+       1.0,
+       0.012,
+       0.04
+      ],
+      "color": "#9a3a2a",
+      "pos": [
+       -0.1,
+       0.785,
+       0.1
+      ],
+      "rot": [
+       0,
+       -0.6,
+       0
+      ]
+     },
+     {
+      "kind": "guideBook",
+      "pos": [
+       -0.55,
+       0.78,
+       0.0
+      ],
+      "scale": 0.8,
+      "open": [
+       {
+        "t": "@guide.word:rehber-0.5",
+        "v": 0
+       },
+       {
+        "t": "@guide.word:rehber+0.4",
+        "v": 1
+       }
+      ],
+      "show": {
+       "from": 0.0,
+       "dur": 0.5,
+       "in": "rise",
+       "dist": 0.5
+      }
+     },
+     {
+      "kind": "pin",
+      "pos": [
+       -0.3,
+       0.79,
+       0.2
+      ],
+      "scale": 1.2,
+      "color": "#E8112D",
+      "show": {
+       "from": "@guide.word:harita",
+       "dur": 0.3,
+       "in": "pop"
+      }
+     },
+     {
+      "kind": "pin",
+      "pos": [
+       0.3,
+       0.79,
+       -0.25
+      ],
+      "scale": 1.2,
+      "color": "#2a8cff",
+      "show": {
+       "from": "@guide.word:tamirci",
+       "dur": 0.3,
+       "in": "pop"
+      }
+     },
+     {
+      "kind": "pin",
+      "pos": [
+       0.5,
+       0.79,
+       0.25
+      ],
+      "scale": 1.2,
+      "color": "#ffc83d",
+      "show": {
+       "from": "@guide.word:benzin",
+       "dur": 0.3,
+       "in": "pop"
+      }
+     },
+     {
+      "kind": "pin",
+      "pos": [
+       0.0,
+       0.79,
+       -0.05
+      ],
+      "scale": 1.2,
+      "color": "#2fbf6b",
+      "show": {
+       "from": "@guide.word:otel",
+       "dur": 0.3,
+       "in": "pop"
+      }
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -1.2,
+       0.02,
+       -2.0
+      ],
+      "show": {
+       "from": "@free.start+0.05",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -1.2,
+       0.02,
+       -2.6999999999999997
+      ],
+      "show": {
+       "from": "@free.start+0.10",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -1.2,
+       0.02,
+       -3.4
+      ],
+      "show": {
+       "from": "@free.start+0.14",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -1.2,
+       0.02,
+       -4.1000000000000005
+      ],
+      "show": {
+       "from": "@free.start+0.18",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -0.6,
+       0.02,
+       -2.0
+      ],
+      "show": {
+       "from": "@free.start+0.23",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -0.6,
+       0.02,
+       -2.6999999999999997
+      ],
+      "show": {
+       "from": "@free.start+0.27",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -0.6,
+       0.02,
+       -3.4
+      ],
+      "show": {
+       "from": "@free.start+0.32",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -0.6,
+       0.02,
+       -4.1000000000000005
+      ],
+      "show": {
+       "from": "@free.start+0.36",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0.02,
+       -2.0
+      ],
+      "show": {
+       "from": "@free.start+0.41",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0.02,
+       -2.6999999999999997
+      ],
+      "show": {
+       "from": "@free.start+0.45",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0.02,
+       -3.4
+      ],
+      "show": {
+       "from": "@free.start+0.50",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0.02,
+       -4.1000000000000005
+      ],
+      "show": {
+       "from": "@free.start+0.55",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0.6,
+       0.02,
+       -2.0
+      ],
+      "show": {
+       "from": "@free.start+0.59",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0.6,
+       0.02,
+       -2.6999999999999997
+      ],
+      "show": {
+       "from": "@free.start+0.64",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0.6,
+       0.02,
+       -3.4
+      ],
+      "show": {
+       "from": "@free.start+0.68",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0.6,
+       0.02,
+       -4.1000000000000005
+      ],
+      "show": {
+       "from": "@free.start+0.72",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       1.2,
+       0.02,
+       -2.0
+      ],
+      "show": {
+       "from": "@free.start+0.77",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       1.2,
+       0.02,
+       -2.6999999999999997
+      ],
+      "show": {
+       "from": "@free.start+0.82",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       1.2,
+       0.02,
+       -3.4
+      ],
+      "show": {
+       "from": "@free.start+0.86",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       1.2,
+       0.02,
+       -4.1000000000000005
+      ],
+      "show": {
+       "from": "@free.start+0.91",
+       "dur": 0.3,
+       "in": "pop"
+      },
+      "children": [
+       {
+        "kind": "guideBook",
+        "pos": [
+         -0.25,
+         0,
+         0
+        ],
+        "open": 0
+       }
+      ]
+     },
+     {
+      "kind": "dust",
+      "count": 100,
+      "size": [
+       5,
+       3,
+       5
+      ],
+      "pos": [
+       0,
+       1.5,
+       0
+      ],
+      "opacity": 0.45
+     }
+    ],
+    "titles": [
+     {
+      "text": "ÜCRETSİZ REHBER",
+      "from": 0.3,
+      "dur": 2.9,
+      "kind": "rise",
+      "y": 420,
+      "size": 92,
+      "color": "gold",
+      "plate": false,
+      "sub": "harita · tamirci · benzin · otel",
+      "kicker": "1900"
+     },
+     {
+      "text": "35.000",
+      "from": 4.3,
+      "dur": 1.7,
+      "kind": "count",
+      "y": 400,
+      "size": 140,
+      "color": "gold",
+      "plate": false,
+      "count": {
+       "v0": 0,
+       "v1": 35000,
+       "dur": 0.9
+      },
+      "sub": "adet · ilk baskı"
+     }
+    ]
+   }
+  },
+  {
+   "id": "paid",
+   "type": "world3d",
+   "start": "@paid.start-0.1",
+   "transition": {
+    "type": "flash",
+    "dur": 0.25
+   },
+   "props": {
+    "stage": {
+     "bg": "#0b0a12",
+     "exposure": 1.05
+    },
+    "fog": {
+     "color": "#0b0a12",
+     "near": 6,
+     "far": 20
+    },
+    "grade": {
+     "saturate": 1.12,
+     "contrast": 1.12,
+     "leak": "rgba(255,200,90,0.6)",
+     "leakOpacity": 0.4
+    },
+    "camera": {
+     "ease": "cine",
+     "shake": 0.01,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        1.4,
+        2.4,
+        5.8
+       ],
+       "target": [
+        0,
+        0.2,
+        0
+       ],
+       "fov": 28
+      },
+      {
+       "t": 2.5,
+       "pos": [
+        -0.8,
+        1.9,
+        4.4
+       ],
+       "target": [
+        0,
+        0.3,
+        0
+       ],
+       "fov": 28
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#5a5070",
+      "intensity": 0.5
+     },
+     {
+      "type": "hemi",
+      "color": "#ffd2a0",
+      "intensity": 0.3,
+      "ground": "#101018"
+     },
+     {
+      "type": "spot",
+      "color": "#ffd9a0",
+      "intensity": 18,
+      "pos": [
+       0.3,
+       4,
+       1.2
+      ],
+      "target": [
+       0,
+       0.8,
+       0
+      ],
+      "angle": 0.55,
+      "penumbra": 0.7,
+      "decay": 1.5,
+      "castShadow": true,
+      "mapSize": 1024
+     },
+     {
+      "type": "point",
+      "color": "#ffb040",
+      "intensity": 1.5,
+      "pos": [
+       0,
+       1.3,
+       0.8
+      ],
+      "distance": 4,
+      "decay": 2
+     },
+     {
+      "type": "dir",
+      "color": "#8aa8ff",
+      "intensity": 0.8,
+      "pos": [
+       -4,
+       5,
+       3
+      ],
+      "target": [
+       0,
+       0,
+       0
+      ]
+     }
+    ],
+    "objects": [
+     {
+      "kind": "slab",
+      "size": [
+       12,
+       0.1,
+       12
+      ],
+      "color": "#2a2a3a",
+      "pos": [
+       0,
+       -0.05,
+       0
+      ]
+     },
+     {
+      "kind": "podium",
+      "r": 1.4,
+      "color": "#3a3a4a"
+     },
+     {
+      "kind": "guideBook",
+      "pos": [
+       -0.25,
+       0.08,
+       0
+      ],
+      "scale": 1.1,
+      "open": 0,
+      "rot": [
+       0,
+       0.3,
+       0
+      ]
+     },
+     {
+      "kind": "coin",
+      "pos": [
+       -0.27,
+       2.4,
+       -0.1
+      ],
+      "rot": [
+       1.4,
+       0,
+       0
+      ],
+      "scale": 3.0,
+      "show": {
+       "from": 0.15,
+       "dur": 0.4,
+       "in": "drop",
+       "dist": 2.0
+      }
+     },
+     {
+      "kind": "coin",
+      "pos": [
+       -0.09,
+       2.4,
+       0.0
+      ],
+      "rot": [
+       1.4,
+       0,
+       0
+      ],
+      "scale": 3.0,
+      "show": {
+       "from": 0.25,
+       "dur": 0.4,
+       "in": "drop",
+       "dist": 2.0
+      }
+     },
+     {
+      "kind": "coin",
+      "pos": [
+       0.09,
+       2.4,
+       0.1
+      ],
+      "rot": [
+       1.4,
+       0,
+       0
+      ],
+      "scale": 3.0,
+      "show": {
+       "from": 0.35,
+       "dur": 0.4,
+       "in": "drop",
+       "dist": 2.0
+      }
+     },
+     {
+      "kind": "coin",
+      "pos": [
+       0.27,
+       2.4,
+       -0.1
+      ],
+      "rot": [
+       1.4,
+       0,
+       0
+      ],
+      "scale": 3.0,
+      "show": {
+       "from": 0.45000000000000007,
+       "dur": 0.4,
+       "in": "drop",
+       "dist": 2.0
+      }
+     },
+     {
+      "kind": "coin",
+      "pos": [
+       -0.27,
+       2.6999999999999997,
+       0.0
+      ],
+      "rot": [
+       1.4,
+       0,
+       0
+      ],
+      "scale": 3.0,
+      "show": {
+       "from": 0.55,
+       "dur": 0.4,
+       "in": "drop",
+       "dist": 2.0
+      }
+     },
+     {
+      "kind": "coin",
+      "pos": [
+       -0.09,
+       2.6999999999999997,
+       0.1
+      ],
+      "rot": [
+       1.4,
+       0,
+       0
+      ],
+      "scale": 3.0,
+      "show": {
+       "from": 0.65,
+       "dur": 0.4,
+       "in": "drop",
+       "dist": 2.0
+      }
+     },
+     {
+      "kind": "coin",
+      "pos": [
+       0.09,
+       2.6999999999999997,
+       -0.1
+      ],
+      "rot": [
+       1.4,
+       0,
+       0
+      ],
+      "scale": 3.0,
+      "show": {
+       "from": 0.7500000000000001,
+       "dur": 0.4,
+       "in": "drop",
+       "dist": 2.0
+      }
+     },
+     {
+      "kind": "goldPile",
+      "pos": [
+       0.9,
+       0.08,
+       -0.2
+      ],
+      "show": {
+       "from": 1.0,
+       "dur": 0.5,
+       "in": "rise",
+       "dist": 0.4
+      }
+     },
+     {
+      "kind": "dust",
+      "count": 80,
+      "size": [
+       3,
+       2.5,
+       3
+      ],
+      "pos": [
+       0,
+       1.2,
+       0
+      ],
+      "opacity": 0.5,
+      "color": "#ffd27a"
+     }
+    ],
+    "titles": [
+     {
+      "text": "1920 · ÜCRETLİ",
+      "from": 0.2,
+      "dur": 2.2,
+      "kind": "rise",
+      "y": 420,
+      "size": 100,
+      "color": "gold",
+      "plate": false,
+      "sub": "rehber artık satılıyor"
+     }
+    ]
+   }
+  },
+  {
+   "id": "night",
+   "type": "world3d",
+   "start": "@paid.word:hamle-0.05",
+   "transition": {
+    "type": "fade",
+    "dur": 0.5
+   },
+   "props": {
+    "stage": {
+     "bg": "#050812",
+     "exposure": 1.0
+    },
+    "fog": {
+     "color": "#0a1022",
+     "near": 14,
+     "far": 70
+    },
+    "grade": {
+     "saturate": 1.15,
+     "contrast": 1.1,
+     "leak": "rgba(255,170,70,0.5)",
+     "leakOpacity": 0.3
+    },
+    "camera": {
+     "ease": "cine",
+     "shake": 0.01,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        16,
+        2.0,
+        8
+       ],
+       "target": [
+        0,
+        1.0,
+        -8
+       ],
+       "fov": 36
+      },
+      {
+       "t": 2.6,
+       "pos": [
+        8,
+        2.6,
+        5
+       ],
+       "target": [
+        0,
+        1.4,
+        -8
+       ],
+       "fov": 38
+      },
+      {
+       "t": 3.4,
+       "pos": [
+        3.5,
+        3.4,
+        6
+       ],
+       "target": [
+        0,
+        2.2,
+        -8
+       ],
+       "fov": 42
+      },
+      {
+       "t": 4.6,
+       "pos": [
+        1,
+        3.8,
+        7
+       ],
+       "target": [
+        0,
+        3.0,
+        -8
+       ],
+       "fov": 46
+      },
+      {
+       "t": 6.3,
+       "pos": [
+        -7,
+        3.0,
+        6
+       ],
+       "target": [
+        0,
+        3.6,
+        -8
+       ],
+       "fov": 46
+      },
+      {
+       "t": 8.6,
+       "pos": [
+        -14,
+        2.2,
+        10
+       ],
+       "target": [
+        2,
+        1.6,
+        -6
+       ],
+       "fov": 42
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#2a3a6a",
+      "intensity": 0.6
+     },
+     {
+      "type": "hemi",
+      "color": "#8aa0ff",
+      "intensity": 0.5,
+      "ground": "#10101a"
+     },
+     {
+      "type": "dir",
+      "color": "#7a9aff",
+      "intensity": 1.0,
+      "pos": [
+       -6,
+       10,
+       6
+      ],
+      "target": [
+       0,
+       0,
+       -6
+      ],
+      "castShadow": true,
+      "shadowSize": 12,
+      "mapSize": 1024
+     },
+     {
+      "type": "spot",
+      "color": "#ffc070",
+      "intensity": 14,
+      "pos": [
+       0,
+       3.6,
+       -3
+      ],
+      "target": [
+       0,
+       0.5,
+       -7
+      ],
+      "angle": 0.9,
+      "penumbra": 0.8,
+      "decay": 1.5
+     },
+     {
+      "type": "point",
+      "color": "#ffa040",
+      "intensity": 2.0,
+      "pos": [
+       0,
+       1.4,
+       -4
+      ],
+      "distance": 9,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ffd070",
+      "intensity": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 2.8,
+        "v": 0
+       },
+       {
+        "t": 3.2,
+        "v": 6
+       }
+      ],
+      "pos": [
+       0,
+       6.2,
+       -5
+      ],
+      "distance": 14,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "sky",
+      "top": "#03060f",
+      "horizon": "#1a2a5a",
+      "bottom": "#0a0e1a",
+      "sun": "#ffb070",
+      "sunDir": [
+       0,
+       -0.2,
+       -1
+      ],
+      "sunSize": 0.2,
+      "stars": 1.0
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0,
+       0
+      ],
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "children": [
+       {
+        "kind": "countryRoad",
+        "length": 160,
+        "seed": 6,
+        "ground": "#1a2018",
+        "road": "#3a3630",
+        "trees": 40
+       }
+      ]
+     },
+     {
+      "kind": "restaurant",
+      "pos": [
+       0,
+       0,
+       -8
+      ],
+      "w": 6.4,
+      "scale": 0.8
+     },
+     {
+      "kind": "oldCar",
+      "color": "#7a1420",
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -30,
+         0,
+         0.3
+        ]
+       },
+       {
+        "t": 4.4,
+        "v": [
+         -3.2,
+         0,
+         0.3
+        ]
+       },
+       {
+        "t": 5.4,
+        "v": [
+         -3.2,
+         0,
+         0.3
+        ]
+       }
+      ],
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 4.4,
+        "v": 60
+       }
+      ],
+      "lights": 1
+     },
+     {
+      "kind": "oldCar",
+      "color": "#2a4a3a",
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "pos": [
+       {
+        "t": 5.6,
+        "v": [
+         -12,
+         0,
+         -0.3
+        ]
+       },
+       {
+        "t": 8.7,
+        "v": [
+         22,
+         0,
+         -0.3
+        ]
+       }
+      ],
+      "spin": [
+       {
+        "t": 5.6,
+        "v": 0
+       },
+       {
+        "t": 8.7,
+        "v": 50
+       }
+      ],
+      "lights": 1,
+      "show": {
+       "from": 5.6,
+       "dur": 1
+      }
+     },
+     {
+      "kind": "glow",
+      "pos": [
+       0,
+       5.1,
+       -6.3
+      ],
+      "size": 6,
+      "color": "#ffb040",
+      "opacity": [
+       {
+        "t": 2.9,
+        "v": 0
+       },
+       {
+        "t": 3.1999999999999997,
+        "v": 0.85
+       }
+      ]
+     },
+     {
+      "kind": "star",
+      "pos": [
+       0,
+       5.2,
+       -7
+      ],
+      "size": 1.4,
+      "show": {
+       "from": "@star.word:yıldız",
+       "dur": 0.5,
+       "in": "spin"
+      }
+     },
+     {
+      "kind": "star",
+      "pos": [
+       -1.5,
+       5.0,
+       -7
+      ],
+      "size": 1.4,
+      "show": {
+       "from": "@three.word:üç",
+       "dur": 0.5,
+       "in": "spin"
+      }
+     },
+     {
+      "kind": "star",
+      "pos": [
+       1.5,
+       5.0,
+       -7
+      ],
+      "size": 1.4,
+      "show": {
+       "from": "@three.word:üç+0.35",
+       "dur": 0.5,
+       "in": "spin"
+      }
+     },
+     {
+      "kind": "dust",
+      "count": 80,
+      "size": [
+       10,
+       4,
+       10
+      ],
+      "pos": [
+       0,
+       2,
+       -3
+      ],
+      "opacity": 0.3,
+      "color": "#bcd0ff"
+     }
+    ],
+    "titles": [
+     {
+      "text": "1926",
+      "from": 0.4,
+      "dur": 2.6,
+      "kind": "rise",
+      "y": 400,
+      "size": 150,
+      "color": "gold",
+      "plate": false,
+      "sub": "ilk restoran yıldızı"
+     },
+     {
+      "text": "★ ★ ★",
+      "from": "@three.word:üç-0.05",
+      "dur": 2.8,
+      "kind": "stamp",
+      "y": 400,
+      "size": 170,
+      "color": "gold",
+      "plate": false,
+      "sub": "yola çıkmaya değer",
+      "subColor": "white"
+     }
+    ]
+   }
+  },
+  {
+   "id": "trips",
+   "type": "world3d",
+   "start": "@loop.start-0.1",
+   "transition": {
+    "type": "whip",
+    "dur": 0.3
+   },
+   "props": {
+    "stage": {
+     "bg": "#c9784a",
+     "exposure": 1.05
+    },
+    "fog": {
+     "color": "#d98a58",
+     "near": 16,
+     "far": 85
+    },
+    "grade": {
+     "saturate": 1.18,
+     "contrast": 1.1,
+     "leak": "rgba(255,170,90,0.6)",
+     "leakOpacity": 0.4
+    },
+    "camera": {
+     "ease": "cine",
+     "shake": 0.01,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -4.2,
+        1.0,
+        8
+       ],
+       "target": [
+        -3.2,
+        0.5,
+        1.2
+       ],
+       "fov": 32
+      },
+      {
+       "t": 3.9,
+       "pos": [
+        3.8,
+        1.1,
+        8
+       ],
+       "target": [
+        4.8,
+        0.5,
+        1.2
+       ],
+       "fov": 32
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#a07a60",
+      "intensity": 0.5
+     },
+     {
+      "type": "hemi",
+      "color": "#ffd7a8",
+      "intensity": 0.8,
+      "ground": "#3a3220"
+     },
+     {
+      "type": "dir",
+      "color": "#ffb878",
+      "intensity": 3.6,
+      "pos": [
+       -8,
+       7,
+       14
+      ],
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "castShadow": true,
+      "shadowSize": 14,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ff9a50",
+      "intensity": 0.8,
+      "pos": [
+       0,
+       3,
+       4
+      ],
+      "distance": 14,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "sky",
+      "top": "#4a4a8a",
+      "horizon": "#ff9a4a",
+      "bottom": "#5a3a30",
+      "sun": "#ffd090",
+      "sunDir": [
+       0.8,
+       0.05,
+       -0.6
+      ],
+      "sunSize": 1.8,
+      "stars": 0
+     },
+     {
+      "kind": "group",
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "children": [
+       {
+        "kind": "countryRoad",
+        "length": 160,
+        "seed": 12,
+        "trees": 44
+       }
+      ]
+     },
+     {
+      "kind": "tire",
+      "scale": 0.62,
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -3,
+         0.44,
+         1.2
+        ]
+       },
+       {
+        "t": 3.9,
+        "v": [
+         5,
+         0.44,
+         1.2
+        ]
+       }
+      ],
+      "rot": [
+       0,
+       0,
+       0
+      ],
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.9,
+        "v": -40
+       }
+      ],
+      "show": {
+       "from": 0,
+       "dur": 0.3
+      }
+     },
+     {
+      "kind": "oldCar",
+      "color": "#7a1420",
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -24,
+         0,
+         -0.9
+        ]
+       },
+       {
+        "t": 3.8,
+        "v": [
+         10,
+         0,
+         -0.9
+        ]
+       }
+      ],
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.8,
+        "v": 70
+       }
+      ]
+     },
+     {
+      "kind": "oldCar",
+      "color": "#e0b030",
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -30,
+         0,
+         0.9
+        ]
+       },
+       {
+        "t": 3.8,
+        "v": [
+         4,
+         0,
+         0.9
+        ]
+       }
+      ],
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.8,
+        "v": 70
+       }
+      ]
+     },
+     {
+      "kind": "oldCar",
+      "color": "#2a4a6a",
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -37,
+         0,
+         -0.9
+        ]
+       },
+       {
+        "t": 3.8,
+        "v": [
+         -3,
+         0,
+         -0.9
+        ]
+       }
+      ],
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.8,
+        "v": 70
+       }
+      ]
+     },
+     {
+      "kind": "dust",
+      "count": 100,
+      "size": [
+       30,
+       2.5,
+       6
+      ],
+      "pos": [
+       0,
+       1,
+       0
+      ],
+      "opacity": 0.4,
+      "color": "#ffd9a0"
+     }
+    ],
+    "titles": [
+     {
+      "text": "HER YILDIZ",
+      "from": 0.2,
+      "dur": 1.6,
+      "kind": "rise",
+      "y": 420,
+      "size": 110,
+      "color": "gold",
+      "plate": false,
+      "sub": "bir yolculuk"
+     },
+     {
+      "text": "AŞINAN LASTİK",
+      "from": 2.0,
+      "dur": 1.6,
+      "kind": "rise",
+      "y": 420,
+      "size": 100,
+      "color": "white",
+      "plate": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "final",
+   "type": "world3d",
+   "start": "@final.start-0.15",
+   "transition": {
+    "type": "blur",
+    "dur": 0.4
+   },
+   "props": {
+    "stage": {
+     "bg": "#050508",
+     "exposure": 1.0
+    },
+    "fog": {
+     "color": "#050508",
+     "near": 6,
+     "far": 24
+    },
+    "grade": {
+     "saturate": 1.12,
+     "contrast": 1.12,
+     "leak": "rgba(255,180,80,0.55)",
+     "leakOpacity": 0.4,
+     "flash": [
+      {
+       "t": "@final.word:yol",
+       "v": 0
+      },
+      {
+       "t": "@final.word:yol+0.05",
+       "v": 0.14
+      },
+      {
+       "t": "@final.word:yol+0.35",
+       "v": 0
+      }
+     ]
+    },
+    "camera": {
+     "ease": "cine",
+     "shake": 0.008,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        1.8,
+        1.2,
+        7.0
+       ],
+       "target": [
+        0,
+        0.55,
+        2
+       ],
+       "fov": 32
+      },
+      {
+       "t": 2.6,
+       "pos": [
+        0.6,
+        1.2,
+        6.2
+       ],
+       "target": [
+        0,
+        0.5,
+        2
+       ],
+       "fov": 32
+      },
+      {
+       "t": 4.4,
+       "pos": [
+        0,
+        2.4,
+        5.0
+       ],
+       "target": [
+        0,
+        0.3,
+        -1.2
+       ],
+       "fov": 38
+      },
+      {
+       "t": 6.1,
+       "pos": [
+        0,
+        3.2,
+        3.2
+       ],
+       "target": [
+        0,
+        0.5,
+        -1.5
+       ],
+       "fov": 38
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#4a4a7a",
+      "intensity": 0.45
+     },
+     {
+      "type": "hemi",
+      "color": "#ffd2a0",
+      "intensity": 0.3,
+      "ground": "#08080c"
+     },
+     {
+      "type": "spot",
+      "color": "#ffd9a0",
+      "intensity": 18,
+      "pos": [
+       0.5,
+       4.4,
+       3.2
+      ],
+      "target": [
+       0,
+       0.9,
+       2
+      ],
+      "angle": 0.55,
+      "penumbra": 0.7,
+      "decay": 1.5,
+      "castShadow": true,
+      "mapSize": 1024
+     },
+     {
+      "type": "spot",
+      "color": "#ffcf90",
+      "intensity": [
+       {
+        "t": 0,
+        "v": 2
+       },
+       {
+        "t": 4,
+        "v": 12
+       }
+      ],
+      "pos": [
+       0.3,
+       4.5,
+       0.2
+      ],
+      "target": [
+       0,
+       0.9,
+       -1.5
+      ],
+      "angle": 0.6,
+      "penumbra": 0.7,
+      "decay": 1.5
+     },
+     {
+      "type": "point",
+      "color": "#ffb040",
+      "intensity": 1.6,
+      "pos": [
+       0,
+       1.8,
+       0.6
+      ],
+      "distance": 6,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "slab",
+      "size": [
+       16,
+       0.1,
+       16
+      ],
+      "color": "#12101a",
+      "rough": 0.5,
+      "pos": [
+       0,
+       -0.05,
+       0
+      ]
+     },
+     {
+      "kind": "podium",
+      "r": 1.0,
+      "pos": [
+       0,
+       0,
+       2
+      ]
+     },
+     {
+      "kind": "tire",
+      "pos": [
+       0,
+       0.95,
+       2
+      ],
+      "scale": 0.9,
+      "spin": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 6.4,
+        "v": -5
+       }
+      ],
+      "star": [
+       {
+        "t": "@final.word:yol-0.05",
+        "v": 0
+       },
+       {
+        "t": "@final.word:yol+0.4",
+        "v": 0.5
+       }
+      ]
+     },
+     {
+      "kind": "glow",
+      "pos": [
+       0,
+       0.95,
+       1.6
+      ],
+      "size": 3,
+      "color": "#ffb040",
+      "opacity": [
+       {
+        "t": "@final.word:yol",
+        "v": 0
+       },
+       {
+        "t": "@final.word:yol+0.5",
+        "v": 0.45
+       }
+      ]
+     },
+     {
+      "kind": "dinnerTable",
+      "pos": [
+       0,
+       0,
+       -1.5
+      ]
+     },
+     {
+      "kind": "star",
+      "pos": [
+       0,
+       1.6,
+       -1.5
+      ],
+      "size": 0.6,
+      "show": {
+       "from": "@final.word:sofraya",
+       "dur": 0.5,
+       "in": "spin"
+      }
+     },
+     {
+      "kind": "glow",
+      "pos": [
+       0,
+       1.6,
+       -1.2
+      ],
+      "size": 3.5,
+      "color": "#ffb040",
+      "opacity": [
+       {
+        "t": "@final.word:sofraya",
+        "v": 0
+       },
+       {
+        "t": "@final.word:sofraya+0.5",
+        "v": 0.8
+       }
+      ]
+     },
+     {
+      "kind": "dust",
+      "count": 100,
+      "size": [
+       5,
+       3,
+       8
+      ],
+      "pos": [
+       0,
+       1.5,
+       0
+      ],
+      "opacity": 0.45
+     }
+    ],
+    "titles": [
+     {
+      "text": "YEMEK DEĞİL,",
+      "from": 0.9,
+      "dur": 1.9,
+      "kind": "rise",
+      "y": 420,
+      "size": 104,
+      "color": "white",
+      "plate": false,
+      "kicker": "MICHELIN"
+     },
+     {
+      "text": "YOL SATTI.",
+      "from": "@final.word:yol",
+      "dur": 5.0,
+      "kind": "rise",
+      "y": 420,
+      "size": 150,
+      "color": "gold",
+      "plate": false
+     }
+    ]
+   }
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Temsili canlandırma",
+   "start": "@start",
+   "end": "@end"
+  }
+ ],
+ "music": {
+  "style": "story",
+  "bpm": 104,
+  "seed": 5,
+  "sections": {
+   "hook": "@start",
+   "origin": "@y1900.start-0.25",
+   "rise": "@guide.start-0.1",
+   "drive": "@star.start-0.1",
+   "break": "@loop.start-0.1",
+   "climax": "@final.start-0.15",
+   "resolve": "@final.word:önce",
+   "end": "@end"
+  },
+  "hits": [
+   {
+    "at": "@start",
+    "kind": "impact"
+   },
+   {
+    "at": "@star.word:yıldız",
+    "kind": "impact"
+   },
+   {
+    "at": "@final.word:yol",
+    "kind": "boom"
+   }
+  ],
+  "risers": [
+   {
+    "to": "@star.word:yıldız",
+    "dur": 1.2
+   },
+   {
+    "to": "@final.word:yol",
+    "dur": 1.2
+   }
+  ]
+ },
+ "sfx": [
+  {
+   "type": "heartbeat",
+   "at": 0.1,
+   "gain": -3
+  },
+  {
+   "type": "whoosh",
+   "at": "@y1900.start-0.4",
+   "dur": 0.6,
+   "gain": -4
+  },
+  {
+   "type": "engine",
+   "at": "@y1900.start-0.1",
+   "dur": 3.4,
+   "rpm0": 1500,
+   "rpm1": 2000,
+   "gain": -12
+  },
+  {
+   "type": "wind",
+   "at": "@y1900.start-0.1",
+   "dur": 3.4,
+   "gain": -14
+  },
+  {
+   "type": "whoosh",
+   "at": "@prob.start-0.35",
+   "dur": 0.6,
+   "up": false,
+   "gain": -5
+  },
+  {
+   "type": "engine_idle",
+   "at": "@prob.start",
+   "dur": 2.4,
+   "gain": -16
+  },
+  {
+   "type": "whoosh",
+   "at": "@guide.start-0.3",
+   "dur": 0.5,
+   "gain": -4
+  },
+  {
+   "type": "pop",
+   "at": "@guide.word:harita",
+   "gain": -7
+  },
+  {
+   "type": "pop",
+   "at": "@guide.word:tamirci",
+   "gain": -7,
+   "pitch": 1.15
+  },
+  {
+   "type": "pop",
+   "at": "@guide.word:benzin",
+   "gain": -7,
+   "pitch": 1.3
+  },
+  {
+   "type": "pop",
+   "at": "@guide.word:otel",
+   "gain": -7,
+   "pitch": 1.45
+  },
+  {
+   "type": "ticks",
+   "at": "@free.start",
+   "dur": 1.0,
+   "gain": -9
+  },
+  {
+   "type": "impact",
+   "at": "@free.word:adet",
+   "size": 0.6,
+   "gain": -6
+  },
+  {
+   "type": "cash",
+   "at": "@paid.start",
+   "gain": -9
+  },
+  {
+   "type": "cash",
+   "at": "@paid.start+0.6",
+   "gain": -9
+  },
+  {
+   "type": "whoosh",
+   "at": "@paid.word:hamle-0.4",
+   "dur": 0.6,
+   "gain": -5
+  },
+  {
+   "type": "wind",
+   "at": "@paid.word:hamle",
+   "dur": 8.5,
+   "gain": -16
+  },
+  {
+   "type": "engine",
+   "at": "@paid.word:hamle",
+   "dur": 4.0,
+   "rpm0": 1300,
+   "rpm1": 1000,
+   "gain": -14
+  },
+  {
+   "type": "riser",
+   "at": "@star.start",
+   "dur": 1.0,
+   "gain": -12
+  },
+  {
+   "type": "light",
+   "at": "@star.word:yıldız",
+   "gain": -3
+  },
+  {
+   "type": "impact",
+   "at": "@star.word:yıldız",
+   "size": 0.6,
+   "gain": -5
+  },
+  {
+   "type": "light",
+   "at": "@three.word:üç",
+   "gain": -4
+  },
+  {
+   "type": "light",
+   "at": "@three.word:üç+0.35",
+   "gain": -4
+  },
+  {
+   "type": "impact",
+   "at": "@three.word:üç+0.35",
+   "size": 0.8,
+   "gain": -4
+  },
+  {
+   "type": "engine",
+   "at": "@three.word:yola",
+   "dur": 2.2,
+   "rpm0": 1200,
+   "rpm1": 2000,
+   "gain": -14
+  },
+  {
+   "type": "whoosh",
+   "at": "@loop.start-0.35",
+   "dur": 0.5,
+   "gain": -4
+  },
+  {
+   "type": "engine",
+   "at": "@loop.start",
+   "dur": 3.6,
+   "rpm0": 1500,
+   "rpm1": 2200,
+   "gain": -13
+  },
+  {
+   "type": "whoosh",
+   "at": "@final.start-0.4",
+   "dur": 0.8,
+   "up": false,
+   "gain": -6
+  },
+  {
+   "type": "impact",
+   "at": "@final.word:yol",
+   "size": 1.0,
+   "gain": -3
+  },
+  {
+   "type": "light",
+   "at": "@final.word:yol+0.1",
+   "gain": -5
+  },
+  {
+   "type": "light",
+   "at": "@final.word:sofraya",
+   "gain": -4
+  },
+  {
+   "type": "wind",
+   "at": "@end-1.4",
+   "dur": 1.4,
+   "curve": [
+    [
+     0,
+     0.0
+    ],
+    [
+     1.4,
+     0.35
+    ]
+   ],
+   "gain": -6
+  }
+ ],
+ "metadata": {
+  "title": "Bir Lastik Şirketi Neden Dünyanın En İyi Restoranlarını Seçiyor? ⭐",
+  "description": [
+   "Michelin lastik satmak için neden yemek rehberi çıkardı? 1900'den 1931'e kısa hikâye.",
+   "",
+   "Kaynak: Michelin Guide resmî tarihçe (guide.michelin.com), Wikipedia: Michelin Guide.",
+   "Temsili canlandırmadır; Michelin ile bağlantılı değildir."
+  ],
+  "hashtags": [
+   "#Michelin",
+   "#Pazarlama",
+   "#Marka",
+   "#Shorts",
+   "#VAYYMATİK"
+  ]
+ },
+ "sources": [
+  {
+   "claim": "1900'de ücretsiz ilk rehber, ~35.000 adet; 1920'de ücretli; 1926'da restoranlara yıldız; 1931'de üç yıldız hiyerarşisi",
+   "title": "Michelin Guide — history (guide.michelin.com) / Wikipedia: Michelin Guide",
+   "url": "https://en.wikipedia.org/wiki/Michelin_Guide",
+   "accessed": "2026-11-24"
+  }
+ ],
+ "assets_credits": [
+  "3D sahneler: VAYYMATİK motorunda koddan üretilmiş özgün içerik (Three.js, MIT).",
+  "Seslendirme: Piper TTS, tr_TR-fahrettin-medium (CC0).",
+  "Müzik ve ses efektleri: prosedürel, özgün."
+ ]
+}

@@ -6,6 +6,7 @@ import {Room} from './env/Room';
 import {City, Tower} from './env/City';
 import {Sky} from './env/Sky';
 import {Dust, LightCone, MoneySwirl} from './fx/Particles';
+import {CountryRoad, DinnerTable, GuideBook, OldCar, Pin, Podium, Restaurant, Slab, Star, Tire} from './objects/michelin';
 import {GrowthChart3D} from './charts/GrowthChart3D';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,4 +32,14 @@ export const OBJECTS: Record<string, React.FC<any>> = {
 	moneySwirl: MoneySwirl,
 	lightCone: LightCone,
 	chart: GrowthChart3D,
+	tire: Tire,
+	star: Star,
+	oldCar: OldCar,
+	guideBook: GuideBook,
+	pin: Pin,
+	dinnerTable: DinnerTable,
+	restaurant: Restaurant,
+	countryRoad: CountryRoad,
+	podium: Podium,
+	slab: Slab,
 };
