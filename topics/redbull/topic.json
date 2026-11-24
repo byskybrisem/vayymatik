@@ -1,0 +1,1556 @@
+{
+  "id": "redbull",
+  "output_name": "RedBull_VAYYMATIK_Shorts",
+  "language": "tr",
+  "voice": {
+    "lead_in": 0.22,
+    "tail": 0.75
+  },
+  "geo": {
+    "highlight_a": "THA",
+    "highlight_b": "AUT"
+  },
+  "detail_textures": {
+    "newmexico": {
+      "src": "shared/detail_newmexico.jpg",
+      "bounds": [
+        41,
+        26,
+        -114,
+        -96
+      ]
+    }
+  },
+  "lines": [
+    {
+      "id": "hook",
+      "text": "Bir enerji içeceği şirketi, neden bir insanı {uzayın sınırından} {Dünya'ya} atlatır?",
+      "pause_after": 0.42
+    },
+    {
+      "id": "origin",
+      "text": "Hikâye {Tayland'da} başlıyor."
+    },
+    {
+      "id": "tonic",
+      "text": "{w:Kamyon şoförleri} ve {w:işçiler} için bir tonik: {Krating Daeng|Krating Deng}."
+    },
+    {
+      "id": "discover",
+      "text": "{g:1982'de} {Dietrich Mateschitz|Ditrih Mateşits} onu keşfetti."
+    },
+    {
+      "id": "launch",
+      "text": "Tarifi {Batı'ya} uyarladı, {g:1987'de} {Avusturya'da} satışa sundu.",
+      "pause_after": 0.3
+    },
+    {
+      "id": "pivot",
+      "text": "Ama {klasik reklamın} ötesine geçti.",
+      "pause_after": 0.15
+    },
+    {
+      "id": "sports",
+      "text": "{Ekstrem sporlar}, kendi etkinlikleri, kendi yıldızları.",
+      "pause_after": 0.2
+    },
+    {
+      "id": "f1",
+      "text": "{g:2005'te} kendi {Formula 1|Formula bir} takımını kurdu, {şampiyonluklar} kazandı.",
+      "pause_after": 0.2
+    },
+    {
+      "id": "football",
+      "text": "Futbolda {Salzburg'dan} {Leipzig'e|Laypzig'e} kulüplerin sahibi oldu.",
+      "pause_after": 0.2
+    },
+    {
+      "id": "media",
+      "text": "Hatta kendi {medya şirketini} kurdu.",
+      "pause_after": 0.45
+    },
+    {
+      "id": "stratos",
+      "text": "Ve {g:2012'de} bir adamı, {g:39 kilometreden} atlattı."
+    },
+    {
+      "id": "live",
+      "text": "Zirvede, {YouTube'da|Yutubda} {g:8 milyondan fazla} eş zamanlı canlı yayın izlendi.",
+      "pause_after": 0.35
+    },
+    {
+      "id": "numbers",
+      "text": "Sonuç? {g:2025'te} yaklaşık {g:14 milyar kutu}, {g:12,2 milyar avro} ciro.",
+      "pause_after": 0.45
+    },
+    {
+      "id": "final1",
+      "text": "{Red Bull|Red Bul} sadece bir içecek satmadı."
+    },
+    {
+      "id": "final2",
+      "text": "İnsanların {izlemek istediği} bir {dünya} kurdu.",
+      "captions": false
+    }
+  ],
+  "scenes": [
+    {
+      "id": "hook_earth",
+      "type": "earth",
+      "start": "@start",
+      "end": "@tonic.start-0.1",
+      "props": {
+        "clouds": 0.55,
+        "cloudOct": 6,
+        "detail": 0.5,
+        "haze": 0.45,
+        "stars": 0.5,
+        "exposure": 1.15,
+        "sat": 1.12,
+        "detailTex": "$detail.newmexico",
+        "keys": [
+          {
+            "t": 0,
+            "lat": 33.4,
+            "lon": -104.5,
+            "alt": 39,
+            "heading": 75,
+            "pitch": 12,
+            "roll": -2,
+            "fov": 100,
+            "fisheye": 0.85
+          },
+          {
+            "t": "@hook.word:insanı",
+            "pitch": 15,
+            "roll": 0,
+            "fov": 96,
+            "e": "linear"
+          },
+          {
+            "t": "@hook.word:atlatır",
+            "pitch": 28,
+            "fov": 104,
+            "roll": 4,
+            "e": "inOut"
+          },
+          {
+            "t": "@hook.end+0.3",
+            "pitch": 72,
+            "alt": 37,
+            "fov": 92,
+            "fisheye": 0.6,
+            "roll": 14,
+            "e": "in"
+          },
+          {
+            "t": "@origin.start+0.15",
+            "lat": 24,
+            "lon": 150,
+            "alt": 9500,
+            "heading": 0,
+            "pitch": 90,
+            "roll": 0,
+            "fov": 50,
+            "fisheye": 0,
+            "e": "inOut"
+          },
+          {
+            "t": "@origin.end+0.1",
+            "lat": 14.6,
+            "lon": 101.2,
+            "alt": 3500,
+            "fov": 48,
+            "e": "out"
+          }
+        ],
+        "capsule": [
+          {
+            "t": 0,
+            "v": 1
+          },
+          {
+            "t": "@hook.word:insanı",
+            "v": 1
+          },
+          {
+            "t": "@hook.word:atlatır",
+            "v": 0
+          }
+        ],
+        "shake": [
+          {
+            "t": 0,
+            "v": 0.12
+          },
+          {
+            "t": "@hook.word:atlatır",
+            "v": 0.3
+          },
+          {
+            "t": "@hook.end+0.3",
+            "v": 1.3
+          },
+          {
+            "t": "@origin.start+0.1",
+            "v": 0
+          }
+        ],
+        "hlA": {
+          "from": "@origin.word:Tayland"
+        },
+        "borders": [
+          {
+            "t": "@origin.start",
+            "v": 0
+          },
+          {
+            "t": "@origin.word:Tayland",
+            "v": 0.7
+          }
+        ],
+        "labels": [
+          {
+            "text": "Tayland",
+            "sub": "1976",
+            "lat": 15.2,
+            "lon": 100.9,
+            "from": "@origin.word:Tayland+0.12"
+          }
+        ],
+        "sunFollow": [
+          -8,
+          30
+        ],
+        "titles": [
+          {
+            "text": "Neden?",
+            "kicker": "Red Bull Stratos · 2012",
+            "from": 0,
+            "dur": "@hook.word:insanı",
+            "kind": "slam",
+            "y": 470,
+            "size": 190,
+            "color": "red"
+          }
+        ]
+      },
+      "note": "Stratosfer kapsül POV (39 km, balıkgözü), kapıdan çıkış ve düşüş; kamera kesintisiz Tayland'a uçar (temsili canlandırma, NASA dokusu)"
+    },
+    {
+      "id": "tonic_road",
+      "type": "road",
+      "start": "@tonic.start-0.1",
+      "end": "@discover.start-0.12",
+      "transition": {
+        "type": "zoom",
+        "dur": 0.3
+      },
+      "props": {
+        "variant": "highway",
+        "traffic": 1,
+        "speed": [
+          {
+            "t": 0,
+            "v": 22
+          }
+        ],
+        "curve": [
+          {
+            "t": 0,
+            "v": -0.5
+          },
+          {
+            "t": 3,
+            "v": 0.4
+          }
+        ],
+        "titles": [
+          {
+            "text": "Krating Daeng",
+            "kicker": "Tayland · 1976",
+            "sub": "Chaleo Yoovidhya'nın toniği",
+            "from": "@tonic.word:Krating-0.05",
+            "dur": 1.6,
+            "kind": "slam",
+            "y": 560,
+            "size": 150,
+            "metallic": true
+          }
+        ],
+        "beats": [
+          "@tonic.word:işçiler"
+        ]
+      },
+      "note": "Gece otoyolu, kamyon ışıkları; KRATING DAENG başlığı (temsili)"
+    },
+    {
+      "id": "route_earth",
+      "type": "earth",
+      "start": "@discover.start-0.12",
+      "end": "@launch.word:1987-0.1",
+      "transition": {
+        "type": "whip",
+        "dur": 0.25,
+        "dir": "left"
+      },
+      "props": {
+        "clouds": 0.4,
+        "stars": 0.7,
+        "exposure": 1.2,
+        "sat": 1.1,
+        "keys": [
+          {
+            "t": 0,
+            "lat": 14.6,
+            "lon": 101.2,
+            "alt": 3500,
+            "heading": 0,
+            "pitch": 90,
+            "fov": 48,
+            "fisheye": 0
+          },
+          {
+            "t": "@discover.end",
+            "lat": 33,
+            "lon": 62,
+            "alt": 7800,
+            "e": "inOut"
+          },
+          {
+            "t": "@launch.word:Batı>end",
+            "lat": 47.2,
+            "lon": 13.6,
+            "alt": 2300,
+            "fov": 46,
+            "e": "out"
+          }
+        ],
+        "hlA": {
+          "from": -1,
+          "to": "@launch.start"
+        },
+        "hlB": {
+          "from": "@launch.word:Batı"
+        },
+        "borders": [
+          {
+            "t": 0,
+            "v": 0.65
+          }
+        ],
+        "route": {
+          "from": [
+            13.75,
+            100.5
+          ],
+          "to": [
+            47.8,
+            13.04
+          ],
+          "start": "@discover.word:Dietrich",
+          "dur": 1.7,
+          "arcKm": 1100
+        },
+        "titles": [
+          {
+            "text": "Dietrich Mateschitz",
+            "kicker": "1982 · Tayland gezisi",
+            "sub": "Avusturyalı pazarlamacı",
+            "from": "@discover.word:Dietrich-0.05",
+            "dur": 2.2,
+            "kind": "rise",
+            "y": 470,
+            "size": 104,
+            "plate": true
+          }
+        ],
+        "labels": [
+          {
+            "text": "Avusturya",
+            "sub": "Fuschl am See",
+            "lat": 47.6,
+            "lon": 13.4,
+            "from": "@launch.word:Batı"
+          }
+        ],
+        "sunFollow": [
+          8,
+          35
+        ]
+      },
+      "note": "3B küre: Bangkok → Salzburg büyük çember rotası, Avusturya vurgusu"
+    },
+    {
+      "id": "launch_can",
+      "type": "title",
+      "start": "@launch.word:1987-0.1",
+      "end": "@pivot.start-0.1",
+      "transition": {
+        "type": "flash",
+        "dur": 0.25
+      },
+      "props": {
+        "bg": "navy",
+        "can": {
+          "from": 0,
+          "y": 900,
+          "scale": 1.0
+        },
+        "titles": [
+          {
+            "text": "1 Nisan 1987",
+            "kicker": "Avusturya'da ilk satış",
+            "from": 0.02,
+            "dur": 2.4,
+            "kind": "slam",
+            "y": 430,
+            "size": 150,
+            "color": "gold"
+          }
+        ]
+      },
+      "note": "1 NİSAN 1987 tarih vurgusu + logosuz metalik kutu (temsili ürün)"
+    },
+    {
+      "id": "pivot_tv",
+      "type": "title",
+      "start": "@pivot.start-0.1",
+      "end": "@sports.start-0.08",
+      "transition": {
+        "type": "glitch",
+        "dur": 0.2
+      },
+      "props": {
+        "bg": "steel",
+        "tv": {
+          "from": 0,
+          "breakAt": "@pivot.word:ötesine",
+          "text": "Reklam",
+          "sub": "Klasik pazarlama"
+        },
+        "titles": [
+          {
+            "text": "Reklamın ötesi",
+            "from": "@pivot.word:ötesine+0.12",
+            "dur": 0.9,
+            "kind": "slam",
+            "y": 700,
+            "size": 150,
+            "color": "red"
+          }
+        ]
+      },
+      "note": "Tüplü TV'de 'REKLAM' — ekran kırılır: reklamın ötesi"
+    },
+    {
+      "id": "sports_cards",
+      "type": "cards",
+      "start": "@sports.start-0.08",
+      "end": "@f1.start-0.1",
+      "transition": {
+        "type": "whip",
+        "dur": 0.2,
+        "dir": "right"
+      },
+      "props": {
+        "label": "Red Bull etkinliği",
+        "cards": [
+          {
+            "title": "Flugtag",
+            "year": "1992",
+            "place": "İlk kez Viyana'da",
+            "env": "sky",
+            "at": 0
+          },
+          {
+            "title": "Cliff Diving",
+            "year": "2009",
+            "place": "Dünya serisi",
+            "env": "cliff",
+            "at": "@sports.word:sporlar"
+          },
+          {
+            "title": "Air Race",
+            "year": "2003",
+            "place": "Hava yarışı",
+            "env": "air",
+            "at": "@sports.word:etkinlikleri-0.1"
+          },
+          {
+            "title": "Rampage",
+            "year": "2001",
+            "place": "Utah, ABD",
+            "env": "desert",
+            "at": "@sports.word:yıldızları-0.25"
+          }
+        ],
+        "beats": [
+          "@sports.word:sporlar",
+          "@sports.word:etkinlikleri-0.1",
+          "@sports.word:yıldızları-0.25"
+        ]
+      },
+      "note": "Flugtag 1992 · Cliff Diving 2009 · Air Race 2003 · Rampage 2001 kartları (özgün siluetler)"
+    },
+    {
+      "id": "f1_road",
+      "type": "road",
+      "start": "@f1.start-0.1",
+      "end": "@football.start-0.1",
+      "transition": {
+        "type": "flash",
+        "dur": 0.2
+      },
+      "props": {
+        "variant": "f1",
+        "lights": {
+          "on": [
+            0.12,
+            "@f1.start+0.38",
+            "@f1.start+0.66",
+            "@f1.start+0.94",
+            "@f1.start+1.22"
+          ],
+          "out": "@f1.word:takımını"
+        },
+        "speed": [
+          {
+            "t": 0,
+            "v": 0
+          },
+          {
+            "t": "@f1.word:takımını",
+            "v": 0
+          },
+          {
+            "t": "@f1.word:takımını+0.9",
+            "v": 88,
+            "e": "in"
+          }
+        ],
+        "curve": [
+          {
+            "t": 0,
+            "v": 0.2
+          },
+          {
+            "t": "@f1.word:şampiyonluklar",
+            "v": -0.8
+          }
+        ],
+        "speedLines": [
+          {
+            "t": 0,
+            "v": 0
+          },
+          {
+            "t": "@f1.word:takımını+0.4",
+            "v": 0
+          },
+          {
+            "t": "@f1.word:takımını+1.0",
+            "v": 1
+          }
+        ],
+        "shake": 0.006,
+        "titles": [
+          {
+            "text": "Red Bull Racing",
+            "kicker": "2005 · Formula 1",
+            "from": "@f1.word:takımını",
+            "dur": 1.0,
+            "kind": "slam",
+            "y": 470,
+            "size": 130,
+            "metallic": true
+          },
+          {
+            "text": "6 + 8",
+            "kicker": "Dünya şampiyonluğu",
+            "sub": "6 takımlar · 8 pilotlar (2010–2024)",
+            "from": "@f1.word:şampiyonluklar-0.1",
+            "dur": 1.6,
+            "kind": "slam",
+            "y": 500,
+            "size": 170,
+            "color": "gold"
+          }
+        ]
+      },
+      "note": "F1 start ışıkları → lights out → gece pistinde hızlanma; 6 + 8 şampiyonluk"
+    },
+    {
+      "id": "football_flap",
+      "type": "flap",
+      "start": "@football.start-0.1",
+      "end": "@media.start-0.1",
+      "transition": {
+        "type": "whip",
+        "dur": 0.2,
+        "dir": "up"
+      },
+      "props": {
+        "title": "Red Bull futbol kulüpleri",
+        "rows": [
+          {
+            "left": "Salzburg",
+            "right": "2005",
+            "at": 0.05
+          },
+          {
+            "left": "New York",
+            "right": "2006",
+            "at": 0.45
+          },
+          {
+            "left": "Leipzig",
+            "right": "2009",
+            "at": "@football.word:Leipzig"
+          },
+          {
+            "left": "Bragantino",
+            "right": "2020",
+            "at": "@football.word:Leipzig+0.4"
+          }
+        ],
+        "beats": [
+          "@football.word:Leipzig"
+        ]
+      },
+      "note": "Bölmeli tabela: Salzburg 2005, New York 2006, Leipzig 2009, Bragantino 2020"
+    },
+    {
+      "id": "media_wall",
+      "type": "media",
+      "start": "@media.start-0.1",
+      "end": "@stratos.start-0.2",
+      "transition": {
+        "type": "zoom",
+        "dur": 0.25
+      },
+      "props": {
+        "labels": [
+          "Red Bull TV",
+          "The Red Bulletin",
+          "ServusTV",
+          "Red Bull Records",
+          "Terra Mater",
+          "Belgesel",
+          "Canlı yayın"
+        ],
+        "pullback": {
+          "from": 0,
+          "dur": 1.3
+        },
+        "titles": [
+          {
+            "text": "Red Bull Media House",
+            "kicker": "Kendi medya şirketi",
+            "from": "@media.word:medya",
+            "dur": 1.6,
+            "kind": "rise",
+            "y": 430,
+            "size": 92
+          }
+        ]
+      },
+      "note": "Ekran duvarı: Red Bull Media House kanalları"
+    },
+    {
+      "id": "stratos_earth",
+      "type": "earth",
+      "start": "@stratos.start-0.2",
+      "end": "@numbers.start-0.1",
+      "transition": {
+        "type": "flash",
+        "dur": 0.3
+      },
+      "props": {
+        "clouds": 0.55,
+        "cloudOct": 6,
+        "detail": 0.5,
+        "haze": 0.45,
+        "stars": 0.6,
+        "exposure": 1.15,
+        "sat": 1.12,
+        "detailTex": "$detail.newmexico",
+        "keys": [
+          {
+            "t": 0,
+            "lat": 33.0,
+            "lon": -104.0,
+            "alt": 2200,
+            "heading": 0,
+            "pitch": 90,
+            "fov": 48,
+            "fisheye": 0
+          },
+          {
+            "t": "@stratos.word:bir",
+            "lat": 33.4,
+            "lon": -104.5,
+            "alt": 160,
+            "heading": 75,
+            "pitch": 55,
+            "fov": 70,
+            "fisheye": 0.4,
+            "e": "inOut"
+          },
+          {
+            "t": "@stratos.word:39",
+            "alt": 39,
+            "pitch": 12,
+            "fov": 100,
+            "fisheye": 0.85,
+            "e": "out"
+          },
+          {
+            "t": "@stratos.word:atlattı",
+            "pitch": 22,
+            "e": "linear"
+          },
+          {
+            "t": "@stratos.end+0.2",
+            "pitch": 80,
+            "alt": 36,
+            "fov": 90,
+            "fisheye": 0.6,
+            "roll": 12,
+            "e": "in"
+          },
+          {
+            "t": "@live.start+0.1",
+            "lat": 30,
+            "lon": -40,
+            "alt": 12500,
+            "heading": 0,
+            "pitch": 90,
+            "roll": 0,
+            "fov": 50,
+            "fisheye": 0,
+            "e": "inOut"
+          },
+          {
+            "t": "@live.end",
+            "lat": 32,
+            "lon": 5,
+            "alt": 13500,
+            "e": "linear"
+          }
+        ],
+        "capsule": [
+          {
+            "t": "@stratos.word:39-0.25",
+            "v": 0
+          },
+          {
+            "t": "@stratos.word:39",
+            "v": 1
+          },
+          {
+            "t": "@stratos.word:atlattı",
+            "v": 1
+          },
+          {
+            "t": "@stratos.word:atlattı+0.25",
+            "v": 0
+          }
+        ],
+        "shake": [
+          {
+            "t": 0,
+            "v": 0
+          },
+          {
+            "t": "@stratos.word:atlattı",
+            "v": 0.3
+          },
+          {
+            "t": "@stratos.end+0.2",
+            "v": 1.4
+          },
+          {
+            "t": "@live.start",
+            "v": 0
+          }
+        ],
+        "dots": {
+          "from": "@live.start+0.2",
+          "dur": 2.6,
+          "density": 0.22
+        },
+        "live": {
+          "from": "@live.start+0.1",
+          "text": "Canlı yayın · YouTube"
+        },
+        "titles": [
+          {
+            "text": "38.969 m",
+            "kicker": "Red Bull Stratos · 14 Ekim 2012",
+            "sub": "Felix Baumgartner · atlama irtifası",
+            "from": "@stratos.word:39-0.1",
+            "dur": 1.9,
+            "kind": "rise",
+            "y": 440,
+            "size": 140,
+            "color": "gold",
+            "count": {
+              "v0": 0,
+              "v1": 38969,
+              "decimals": 0,
+              "suffix": " M",
+              "dur": 0.9
+            }
+          },
+          {
+            "text": "8.000.000+",
+            "kicker": "Zirvede",
+            "sub": "Eş zamanlı canlı yayın akışı",
+            "from": "@live.word:8-0.05",
+            "dur": 2.4,
+            "kind": "rise",
+            "y": 650,
+            "size": 150,
+            "color": "gold",
+            "count": {
+              "v0": 0,
+              "v1": 8000000,
+              "decimals": 0,
+              "suffix": "+",
+              "dur": 1.0
+            }
+          }
+        ],
+        "sunFollow": [
+          -8,
+          30
+        ]
+      },
+      "note": "New Mexico'ya iniş, kapsül POV, 38.969 m sayaç; ardından dünya geneli canlı izleme noktaları ve 8.000.000+ sayaç"
+    },
+    {
+      "id": "numbers_kpi",
+      "type": "kpi",
+      "start": "@numbers.start-0.1",
+      "end": "@final1.start-0.2",
+      "transition": {
+        "type": "zoom",
+        "dur": 0.25
+      },
+      "props": {
+        "header": "Red Bull · 2025",
+        "kpis": [
+          {
+            "label": "Satılan kutu",
+            "value": 13.969,
+            "decimals": 3,
+            "unit": "milyar",
+            "at": "@numbers.word:2025",
+            "dur": 1.1,
+            "delta": "%10,2 (2024'e göre)"
+          },
+          {
+            "label": "Grup cirosu",
+            "value": 12.196,
+            "decimals": 3,
+            "unit": "milyar €",
+            "at": "@numbers.word:12",
+            "dur": 0.9,
+            "delta": "%8,6",
+            "bars": [
+              {
+                "label": "2024",
+                "value": 11.227,
+                "display": "11,227"
+              },
+              {
+                "label": "2025",
+                "value": 12.196,
+                "display": "12,196"
+              }
+            ],
+            "note": "Ciro (gelir) — net kâr değildir."
+          }
+        ],
+        "footer": {
+          "text": "≈ saniyede 443 kutu (2025 ortalaması)",
+          "at": "@numbers.end+0.05"
+        }
+      },
+      "note": "Finans: 13,969 milyar kutu (+%10,2), 12,196 milyar € ciro (+%8,6), 2024–2025 çubukları; ciro ≠ net kâr"
+    },
+    {
+      "id": "final_can",
+      "type": "title",
+      "start": "@final1.start-0.2",
+      "end": "@final2.start-0.15",
+      "transition": {
+        "type": "blur",
+        "dur": 0.3
+      },
+      "props": {
+        "bg": "red",
+        "can": {
+          "from": 0,
+          "y": 820,
+          "scale": 0.95
+        },
+        "zoom": [
+          {
+            "t": 0,
+            "v": 1.0
+          },
+          {
+            "t": "@final2.start",
+            "v": 1.12
+          }
+        ]
+      },
+      "note": "Kutu, kırmızı ışık huzmeleri"
+    },
+    {
+      "id": "final_earth",
+      "type": "earth",
+      "start": "@final2.start-0.15",
+      "end": "@end",
+      "transition": {
+        "type": "fade",
+        "dur": 0.3
+      },
+      "props": {
+        "clouds": 0.55,
+        "cloudOct": 6,
+        "detail": 0.5,
+        "haze": 0.45,
+        "stars": 0.7,
+        "exposure": 1.15,
+        "sat": 1.12,
+        "detailTex": "$detail.newmexico",
+        "keys": [
+          {
+            "t": 0,
+            "lat": 20,
+            "lon": -60,
+            "alt": 26000,
+            "heading": 0,
+            "pitch": 90,
+            "fov": 46,
+            "fisheye": 0
+          },
+          {
+            "t": "@final2.end",
+            "lat": 31,
+            "lon": -95,
+            "alt": 9000,
+            "e": "inOut"
+          },
+          {
+            "t": "@end-0.45",
+            "lat": 33.4,
+            "lon": -104.5,
+            "alt": 39,
+            "heading": 75,
+            "pitch": 12,
+            "roll": -2,
+            "fov": 100,
+            "fisheye": 0.85,
+            "e": "inOut"
+          },
+          {
+            "t": "@end",
+            "e": "linear"
+          }
+        ],
+        "capsule": [
+          {
+            "t": "@end-0.5",
+            "v": 0
+          },
+          {
+            "t": "@end-0.05",
+            "v": 1
+          }
+        ],
+        "titles": [
+          {
+            "text": "",
+            "from": "@final2.start-0.05",
+            "dur": "@end-0.6",
+            "kind": "words",
+            "y": 720,
+            "size": 118,
+            "wordsFromLine": "final2"
+          }
+        ],
+        "sunFollow": [
+          -8,
+          30
+        ]
+      },
+      "note": "Uzaydan Dünya; final cümlesi kelime kelime; kamera kapsüle döner — ilk kareyle döngü"
+    }
+  ],
+  "disclaimers": [
+    {
+      "text": "Temsili canlandırma",
+      "start": "@start",
+      "end": "@origin.start"
+    },
+    {
+      "text": "Temsili görüntü",
+      "start": "@tonic.start",
+      "end": "@discover.start-0.12"
+    },
+    {
+      "text": "Temsili ürün görseli",
+      "start": "@launch.word:1987",
+      "end": "@pivot.start-0.1"
+    },
+    {
+      "text": "Temsili canlandırma",
+      "start": "@sports.start",
+      "end": "@football.start-0.1"
+    },
+    {
+      "text": "Temsili canlandırma",
+      "start": "@stratos.word:bir",
+      "end": "@live.start"
+    },
+    {
+      "text": "Temsili gösterim",
+      "start": "@live.start+0.2",
+      "end": "@numbers.start-0.1"
+    },
+    {
+      "text": "Temsili ürün görseli",
+      "start": "@final1.start",
+      "end": "@final2.start-0.15"
+    }
+  ],
+  "music": {
+    "bpm": 120,
+    "seed": 7,
+    "sections": {
+      "hook": "@start",
+      "origin": "@origin.start-0.25",
+      "rise": "@pivot.start-0.1",
+      "drive": "@f1.word:takımını",
+      "break": "@media.end+0.05",
+      "climax": "@stratos.start-0.05",
+      "resolve": "@final1.start-0.25",
+      "end": "@end"
+    },
+    "hits": [
+      {
+        "at": "@start",
+        "kind": "impact"
+      },
+      {
+        "at": "@f1.word:takımını",
+        "kind": "impact"
+      },
+      {
+        "at": "@stratos.word:atlattı",
+        "kind": "braam"
+      },
+      {
+        "at": "@numbers.word:2025",
+        "kind": "boom"
+      }
+    ],
+    "risers": [
+      {
+        "to": "@f1.word:takımını",
+        "dur": 1.5
+      },
+      {
+        "to": "@stratos.start-0.05",
+        "dur": 0.9
+      },
+      {
+        "to": "@final1.start-0.25",
+        "dur": 1.1
+      }
+    ]
+  },
+  "sfx": [
+    {
+      "type": "wind",
+      "at": "@start",
+      "dur": 5.4,
+      "curve": [
+        [
+          0,
+          0.35
+        ],
+        [
+          2.5,
+          0.45
+        ],
+        [
+          4.0,
+          0.9
+        ],
+        [
+          5.4,
+          0.3
+        ]
+      ],
+      "gain": -3
+    },
+    {
+      "type": "heartbeat",
+      "at": 0.05,
+      "gain": -2
+    },
+    {
+      "type": "heartbeat",
+      "at": 1.05,
+      "gain": -5
+    },
+    {
+      "type": "static",
+      "at": 0.3,
+      "dur": 0.5,
+      "gain": -10
+    },
+    {
+      "type": "whoosh",
+      "at": "@hook.end+0.15",
+      "dur": 0.9,
+      "up": false,
+      "gain": -1
+    },
+    {
+      "type": "whoosh",
+      "at": "@origin.start-0.05",
+      "dur": 1.0,
+      "up": true,
+      "gain": -3
+    },
+    {
+      "type": "pop",
+      "at": "@origin.word:Tayland+0.12",
+      "gain": -6
+    },
+    {
+      "type": "whoosh",
+      "at": "@tonic.start-0.35",
+      "dur": 0.6,
+      "gain": -4
+    },
+    {
+      "type": "engine",
+      "at": "@tonic.start",
+      "dur": 3.0,
+      "rpm0": 1700,
+      "rpm1": 2100,
+      "gain": -14
+    },
+    {
+      "type": "impact",
+      "at": "@tonic.word:Krating-0.05",
+      "size": 0.6,
+      "gain": -7
+    },
+    {
+      "type": "whoosh",
+      "at": "@discover.start-0.35",
+      "dur": 0.6,
+      "up": false,
+      "gain": -4
+    },
+    {
+      "type": "pop",
+      "at": "@discover.word:Dietrich",
+      "gain": -7
+    },
+    {
+      "type": "riser",
+      "at": "@discover.word:Dietrich",
+      "dur": 1.6,
+      "gain": -12
+    },
+    {
+      "type": "pop",
+      "at": "@launch.word:Batı",
+      "gain": -7,
+      "pitch": 1.3
+    },
+    {
+      "type": "impact",
+      "at": "@launch.word:1987-0.05",
+      "size": 0.8,
+      "gain": -4
+    },
+    {
+      "type": "shutter",
+      "at": "@launch.word:1987+0.05",
+      "gain": -8
+    },
+    {
+      "type": "tv",
+      "at": "@pivot.start-0.1",
+      "dur": 0.9,
+      "gain": -8
+    },
+    {
+      "type": "glitch",
+      "at": "@pivot.word:ötesine-0.1",
+      "gain": -6
+    },
+    {
+      "type": "impact",
+      "at": "@pivot.word:ötesine",
+      "size": 0.7,
+      "gain": -4
+    },
+    {
+      "type": "whoosh",
+      "at": "@sports.start-0.25",
+      "dur": 0.5,
+      "gain": -4
+    },
+    {
+      "type": "whoosh",
+      "at": "@sports.word:sporlar-0.25",
+      "dur": 0.45,
+      "up": false,
+      "gain": -6
+    },
+    {
+      "type": "whoosh",
+      "at": "@sports.word:etkinlikleri-0.35",
+      "dur": 0.45,
+      "gain": -6
+    },
+    {
+      "type": "whoosh",
+      "at": "@sports.word:yıldızları-0.5",
+      "dur": 0.45,
+      "up": false,
+      "gain": -6
+    },
+    {
+      "type": "light",
+      "at": "@f1.start+0.02",
+      "gain": -3
+    },
+    {
+      "type": "light",
+      "at": "@f1.start+0.38",
+      "gain": -3
+    },
+    {
+      "type": "light",
+      "at": "@f1.start+0.66",
+      "gain": -3
+    },
+    {
+      "type": "light",
+      "at": "@f1.start+0.94",
+      "gain": -3
+    },
+    {
+      "type": "light",
+      "at": "@f1.start+1.22",
+      "gain": -3
+    },
+    {
+      "type": "engine_idle",
+      "at": "@f1.start-0.1",
+      "dur": 1.9,
+      "gain": -14
+    },
+    {
+      "type": "engine",
+      "at": "@f1.word:takımını-0.1",
+      "dur": 2.6,
+      "gain": -5
+    },
+    {
+      "type": "whoosh",
+      "at": "@football.start-0.3",
+      "dur": 0.5,
+      "gain": -5
+    },
+    {
+      "type": "crowd",
+      "at": "@football.start-0.1",
+      "dur": 3.0,
+      "gain": -9
+    },
+    {
+      "type": "flaps",
+      "at": "@football.start",
+      "count": 10,
+      "gain": -6
+    },
+    {
+      "type": "flaps",
+      "at": "@football.start+0.45",
+      "count": 10,
+      "gain": -7
+    },
+    {
+      "type": "flaps",
+      "at": "@football.word:Leipzig",
+      "count": 9,
+      "gain": -7
+    },
+    {
+      "type": "flaps",
+      "at": "@football.word:Leipzig+0.4",
+      "count": 11,
+      "gain": -7
+    },
+    {
+      "type": "static",
+      "at": "@media.start-0.1",
+      "dur": 0.4,
+      "gain": -10
+    },
+    {
+      "type": "whoosh",
+      "at": "@media.start-0.15",
+      "dur": 1.2,
+      "up": false,
+      "gain": -5
+    },
+    {
+      "type": "pop",
+      "at": "@media.word:medya",
+      "gain": -7
+    },
+    {
+      "type": "whoosh",
+      "at": "@stratos.start-0.3",
+      "dur": 1.0,
+      "up": false,
+      "gain": -3
+    },
+    {
+      "type": "wind",
+      "at": "@stratos.word:bir",
+      "dur": 3.4,
+      "curve": [
+        [
+          0,
+          0.2
+        ],
+        [
+          1.2,
+          0.5
+        ],
+        [
+          2.3,
+          1.0
+        ],
+        [
+          3.4,
+          0.25
+        ]
+      ],
+      "gain": -3
+    },
+    {
+      "type": "ticks",
+      "at": "@stratos.word:39-0.1",
+      "dur": 0.9,
+      "gain": -9
+    },
+    {
+      "type": "impact",
+      "at": "@stratos.word:atlattı",
+      "size": 1.0,
+      "gain": -3
+    },
+    {
+      "type": "whoosh",
+      "at": "@live.start-0.1",
+      "dur": 1.0,
+      "up": true,
+      "gain": -4
+    },
+    {
+      "type": "pop",
+      "at": "@live.start+0.1",
+      "gain": -6,
+      "pitch": 1.4
+    },
+    {
+      "type": "ticks",
+      "at": "@live.word:8-0.05",
+      "dur": 1.0,
+      "gain": -9
+    },
+    {
+      "type": "whoosh",
+      "at": "@numbers.start-0.35",
+      "dur": 0.5,
+      "gain": -5
+    },
+    {
+      "type": "ticks",
+      "at": "@numbers.word:2025",
+      "dur": 1.1,
+      "gain": -9
+    },
+    {
+      "type": "cash",
+      "at": "@numbers.word:2025+1.15",
+      "gain": -10
+    },
+    {
+      "type": "ticks",
+      "at": "@numbers.word:12",
+      "dur": 0.9,
+      "gain": -9
+    },
+    {
+      "type": "cash",
+      "at": "@numbers.word:12+0.95",
+      "gain": -9
+    },
+    {
+      "type": "whoosh",
+      "at": "@final1.start-0.4",
+      "dur": 0.8,
+      "up": false,
+      "gain": -6
+    },
+    {
+      "type": "whoosh",
+      "at": "@final2.start-0.3",
+      "dur": 1.0,
+      "up": true,
+      "gain": -6
+    },
+    {
+      "type": "wind",
+      "at": "@end-1.6",
+      "dur": 1.6,
+      "curve": [
+        [
+          0,
+          0.0
+        ],
+        [
+          1.6,
+          0.35
+        ]
+      ],
+      "gain": -3
+    }
+  ],
+  "metadata": {
+    "title": "Red Bull Neden Bir İnsanı Uzaydan Atlattı? 🪂 Milyarlık Pazarlama Dehası",
+    "title_alternatives": [
+      "Red Bull İçecek Değil, Dünya Satıyor 🚀",
+      "Bir Enerji İçeceği Neden 39 Km'den Adam Atlatır?",
+      "Red Bull'un 12 Milyar Avroluk Pazarlama Sırrı"
+    ],
+    "description": [
+      "Bir enerji içeceği şirketi neden bir insanı uzayın sınırından Dünya'ya atlatır? 🪂",
+      "",
+      "Tayland'daki Krating Daeng'den 1 Nisan 1987'deki Avusturya lansmanına; Formula 1, futbol kulüpleri, ekstrem sporlar ve 2012'deki Red Bull Stratos atlayışına… Red Bull'un klasik reklamın ötesine geçen pazarlama stratejisini 50 saniyede anlattık.",
+      "",
+      "📊 2025: 13,969 milyar kutu · 12,196 milyar € grup cirosu (ciro = gelir, net kâr değildir).",
+      "📺 Stratos yayını zirvede YouTube'da 8 milyondan fazla eş zamanlı canlı yayın akışına ulaştı.",
+      "",
+      "Kaynaklar: Red Bull şirket profili (redbull.com), YouTube Resmi Blog (2012), Wikipedia (Red Bull, Red Bull Racing, Red Bull Stratos). Tam liste: Sources.md",
+      "Görseller: NASA Blue Marble (kamu malı) ve özgün canlandırmalar; temsili sahneler videoda etiketlenmiştir. Müzik ve efektler VAYYMATİK için özgün olarak üretilmiştir.",
+      "",
+      "Bu video Red Bull ile bağlantılı değildir; bağımsız bir eğitim/analiz içeriğidir.",
+      "",
+      "🔔 Markaların gizli stratejileri için VAYYMATİK'i takip et."
+    ],
+    "hashtags": [
+      "#RedBull",
+      "#Pazarlama",
+      "#Marka",
+      "#Finans",
+      "#İşDünyası",
+      "#RedBullStratos",
+      "#Formula1",
+      "#Girişimcilik",
+      "#Shorts",
+      "#VAYYMATİK"
+    ],
+    "thumbnail": {
+      "kicker": "Red Bull",
+      "line1": "39 km'den",
+      "line2": "neden?",
+      "badge": "Milyarlık pazarlama dehası"
+    }
+  },
+  "sources": [
+    {
+      "claim": "2025: 13,969 milyar kutu (+%10,2); grup cirosu 11,227 → 12,196 milyar € (+%8,6); 1 Nisan 1987 Avusturya lansmanı; 1984–1987 formül ve pazarlama çalışması",
+      "title": "Red Bull — Company Profile",
+      "url": "https://www.redbull.com/int-en/energydrink/company-profile",
+      "accessed": "2026-11-24"
+    },
+    {
+      "claim": "Stratos yayını zirvede 8 milyondan fazla eş zamanlı canlı yayın akışı (\"more than 8 million concurrent livestreams\")",
+      "title": "YouTube Official Blog — Mission complete: Red Bull Stratos lands safely (14.10.2012)",
+      "url": "https://blog.youtube/news-and-events/mission-complete-red-bull-stratos-lands/",
+      "accessed": "2026-11-24"
+    },
+    {
+      "claim": "Krating Daeng 1976'da Tayland'da, Chaleo Yoovidhya tarafından; kırsal işçiler / kamyon şoförleri",
+      "title": "Wikipedia — Krating Daeng",
+      "url": "https://en.wikipedia.org/wiki/Krating_Daeng",
+      "accessed": "2026-11-24"
+    },
+    {
+      "claim": "Mateschitz 1982'de Blendax için Tayland'a gitti; 1984'te Chaleo ile Red Bull GmbH; içecek Batı damak tadına göre uyarlandı (gazlandırma)",
+      "title": "Wikipedia — Red Bull; Dietrich Mateschitz",
+      "url": "https://en.wikipedia.org/wiki/Red_Bull",
+      "accessed": "2026-11-24"
+    },
+    {
+      "claim": "Red Bull Jaguar Racing'i 15.11.2004'te satın aldı, 2005'te Red Bull Racing olarak yarıştı; 6 takımlar (2010–13, 2022–23) ve 8 pilotlar (2010–13, 2021–24) şampiyonluğu",
+      "title": "Wikipedia — Red Bull Racing",
+      "url": "https://en.wikipedia.org/wiki/Red_Bull_Racing",
+      "accessed": "2026-11-24"
+    },
+    {
+      "claim": "Red Bull Salzburg 2005, New York Red Bulls 2006, RB Leipzig 19.05.2009, Red Bull Bragantino 2020",
+      "title": "Wikipedia — FC Red Bull Salzburg; New York Red Bulls; RB Leipzig; Red Bull Bragantino",
+      "url": "https://en.wikipedia.org/wiki/RB_Leipzig",
+      "accessed": "2026-11-24"
+    },
+    {
+      "claim": "Flugtag ilk kez 1992 Viyana; Air Race ilk sezon 2003; Cliff Diving World Series 2009; Rampage 2001",
+      "title": "Wikipedia — Red Bull Flugtag; Red Bull Air Race World Championship; Red Bull Cliff Diving World Series; Red Bull Rampage",
+      "url": "https://en.wikipedia.org/wiki/Red_Bull_Flugtag",
+      "accessed": "2026-11-24"
+    },
+    {
+      "claim": "Red Bull Media House: Red Bull TV, ServusTV, The Red Bulletin, Terra Mater, Red Bull Records",
+      "title": "Wikipedia — Red Bull GmbH (Media outlets)",
+      "url": "https://en.wikipedia.org/wiki/Red_Bull_GmbH",
+      "accessed": "2026-11-24"
+    },
+    {
+      "claim": "Stratos 14 Ekim 2012, New Mexico; 38.969 m çıkış irtifası; 1.357,64 km/sa (Mach 1,25)",
+      "title": "Wikipedia — Red Bull Stratos; Felix Baumgartner",
+      "url": "https://en.wikipedia.org/wiki/Red_Bull_Stratos",
+      "accessed": "2026-11-24"
+    }
+  ],
+  "assets_credits": [
+    "NASA Earth Observatory — Blue Marble Next Generation w/ Topography and Bathymetry (Temmuz 2004), kamu malı. https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/",
+    "Natural Earth 1:50m Admin 0 Countries, kamu malı. https://www.naturalearthdata.com/",
+    "Seslendirme: Piper TTS, tr_TR-fahrettin-medium (CC0 veri seti, NabuCasa voice-datasets).",
+    "Müzik ve ses efektleri: VAYYMATİK üretim hattında prosedürel olarak sentezlenmiş özgün içerik.",
+    "Yazı tipleri: Anton, Montserrat, Inter, JetBrains Mono (SIL Open Font License)."
+  ],
+  "foreign_words": [
+    "Chaleo",
+    "Yoovidhya",
+    "Fuschl"
+  ]
+}
