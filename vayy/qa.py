@@ -33,8 +33,16 @@ def _norm_words(text: str) -> list[str]:
 def asr_words(wav: Path, model_size: str = "small") -> list[dict]:
     from faster_whisper import WhisperModel
 
+    import soundfile as sf
+    from scipy.signal import resample_poly
+
+    x, sr = sf.read(str(wav), dtype="float32", always_2d=True)
+    x = x.mean(axis=1)
+    from math import gcd
+    g = gcd(16000, sr)
+    x = resample_poly(x, 16000 // g, sr // g).astype(np.float32)  # PyAV'a bağımlı olmadan 16 kHz mono
     model = WhisperModel(model_size, device="cpu", compute_type="int8", cpu_threads=4)
-    segs, _ = model.transcribe(str(wav), language="tr", word_timestamps=True, beam_size=5, vad_filter=False,
+    segs, _ = model.transcribe(x, language="tr", word_timestamps=True, beam_size=5, vad_filter=False,
                                condition_on_previous_text=False)
     out = []
     for s in segs:
@@ -59,6 +67,8 @@ def sync_report(script_words: list[dict], asr: list[dict]) -> dict:
     offsets = []
     seen = set()
     for blk in sm.get_matching_blocks():
+        if blk.size < 2:  # tek kelimelik (olası yanlış) eşleşmeleri senkron ölçümüne katma
+            continue
         for k in range(blk.size):
             si, aj = s_idx[blk.a + k], a_idx[blk.b + k]
             if (si, aj) in seen:
@@ -73,7 +83,8 @@ def sync_report(script_words: list[dict], asr: list[dict]) -> dict:
         "asr_tokens": len(a_tok),
         "matched_tokens": int(sum(b.size for b in sm.get_matching_blocks())),
         "match_ratio": round(sm.ratio(), 3),
-        "wer": round(wer, 3),
+        "wer": round(float(wer), 3),
+        "sync_pairs": len(offsets),
         "offset_median_ms": round(float(np.nanmedian(off)) * 1000, 1),
         "offset_abs_median_ms": round(float(np.nanmedian(np.abs(off))) * 1000, 1),
         "offset_abs_p90_ms": round(float(np.nanpercentile(np.abs(off), 90)) * 1000, 1),
@@ -155,7 +166,7 @@ def _contact_sheet(path: Path, dur: float, out: Path, n: int = 18) -> list[float
     return ts
 
 
-def run_qa(topic_id: str, asr_model: str = "small") -> bool:
+def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     from .build import load_topic
 
     t0 = time.time()
@@ -221,6 +232,26 @@ def run_qa(topic_id: str, asr_model: str = "small") -> bool:
         (bdir / "asr_transcript.txt").write_text(rep["asr_text"] + "\n\n[MIX]\n" + rep_mix["asr_text"], encoding="utf-8")
     except Exception as e:  # ASR modeli indirilemezse
         add("Altyazı–ses senkronu (ASR)", False, {"error": str(e)[:200]}, crit=False)
+
+    # satır başlangıçları ile ses enerjisi başlangıcı (fonem sürelerinden gelen zamanların doğrulaması)
+    import soundfile as sf
+
+    vx, vsr = sf.read(str(bdir / "voice_dry.wav"), dtype="float32")
+    hop = int(vsr * 0.005)
+    rms = np.sqrt(np.convolve(vx ** 2, np.ones(hop * 2) / (hop * 2), mode="same"))[::hop]
+    thr = 10 ** (-30 / 20)
+    onset_err = []
+    prev_end = 0.0
+    for ln in meta["lines"]:
+        i0 = int(max(prev_end + 0.03, ln["start"] - 0.25) / 0.005)
+        seg = rms[i0: i0 + int(0.8 / 0.005)]
+        idx = np.argmax(seg > thr) if np.any(seg > thr) else None
+        if idx is not None:
+            onset_err.append(round((i0 + idx) * 0.005 - ln["start"], 3))
+        prev_end = ln["end"]
+    oe = np.abs(np.array(onset_err))
+    add("Satır başı zamanları ses enerjisiyle uyumlu (≤ 100 ms)", bool(len(oe)) and float(oe.max()) <= 0.10,
+        {"max_abs_ms": round(float(oe.max()) * 1000, 1) if len(oe) else None, "median_abs_ms": round(float(np.median(oe)) * 1000, 1) if len(oe) else None, "lines": len(oe)})
 
     # altyazı kelime zamanları = TTS fonem süreleri (yapısal senkron)
     tl = json.loads((bdir / "timeline.json").read_text(encoding="utf-8"))

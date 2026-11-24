@@ -189,6 +189,16 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     subprocess.run(cmd, cwd=ENGINE, check=True)
 
     # 8) Mux
+    out["video"] = str(mux(topic_id))
+    log(f"Video: {out['video']} · toplam {time.time() - t_start:.0f} sn")
+    return out
+
+
+def mux(topic_id: str) -> Path:
+    """Görüntü akışını kopyalayarak sesi ekler (ses değişince yalnızca bu adım tekrarlanır)."""
+    topic, _ = load_topic(topic_id)
+    bdir, ddir = build_dir(topic_id), deliver_dir(topic_id)
+    raw = bdir / "video_noaudio.mp4"
     log("8/8 Mux (AAC 320k, faststart)")
     final = ddir / f"{topic['output_name']}.mp4"
     subprocess.run([
@@ -197,6 +207,4 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         "-shortest", "-movflags", "+faststart", "-metadata", "title=" + topic["metadata"]["title"],
         "-metadata", "artist=VAYYMATİK", str(final),
     ], check=True)
-    out["video"] = str(final)
-    log(f"Video: {final} · toplam {time.time() - t_start:.0f} sn")
-    return out
+    return final

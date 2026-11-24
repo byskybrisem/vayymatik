@@ -6,7 +6,7 @@ numpy==2.5.3
 scipy==1.18.1
 soundfile==0.14.0
 pyloudnorm==0.2.0
-pillow==13.0.0.post1
+pillow==13.0.0
 pyshp==3.1.9
 # QA: ASR ile altyazı-ses senkron ve anlaşılırlık kontrolü
 faster-whisper==1.2.1

@@ -2,6 +2,7 @@
 
   build <konu>        Ses + müzik + render + QA + teslim dosyaları (tek komut)
   audio <konu>        Yalnızca ses/zaman çizelgesi (render yok)
+  remux <konu>        Sesi yeniden üret, mevcut görüntüyle birleştir (görüntü yeniden render edilmez)
   stills <konu> 0,90  Seçili kareleri PNG olarak üret
   qa <konu>           Var olan MP4 için kalite kontrol
   deliver <konu>      Metin teslimleri + kapak görseli
@@ -14,7 +15,7 @@ import sys
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="vayy", description="VAYYMATİK Shorts üretim hattı")
-    ap.add_argument("command", choices=["build", "audio", "stills", "qa", "deliver"])
+    ap.add_argument("command", choices=["build", "audio", "remux", "stills", "qa", "deliver"])
     ap.add_argument("topic")
     ap.add_argument("frames", nargs="?", default="")
     ap.add_argument("--concurrency", type=int, default=4)
@@ -26,6 +27,10 @@ def main(argv: list[str] | None = None) -> int:
 
     if a.command == "audio":
         b.build(a.topic, render=False)
+        return 0
+    if a.command == "remux":
+        b.build(a.topic, render=False)
+        b.mux(a.topic)
         return 0
     if a.command == "stills":
         frames = [int(x) for x in a.frames.split(",") if x.strip()] or [0]

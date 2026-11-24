@@ -72,7 +72,7 @@ class Music:
     def shaker(self, t, gain=0.0):
         n = n_of(0.08)
         env = np.sin(np.linspace(0, np.pi, n)) ** 3
-        x = dsp.bp(dsp.noise(n, int(t * 997) % 1013), 5000, 11000) * env * 0.18
+        x = dsp.bp(dsp.noise(n, int(t * 997) % 1013), 6000, 9500) * env * 0.11
         dsp.place(self.stems["drums"], dsp.pan(x, -0.3), t, gain)
 
     def tom(self, t, gain=0.0, pitch=1.0):
@@ -211,8 +211,8 @@ class Music:
             root, notes = self.chord_at(tt)
             self.pad(tt, min(B * 2, e - tt), notes, -4, bright=1100)
             self.sub(tt, min(B * 2, e - tt), root, -6)
-        for tt in self.grid(a, e, b / 4):
-            self.shaker(tt, -8 if int(round(tt / (b / 4))) % 2 else -4)
+        for tt in self.grid(a, e, b / 2):
+            self.shaker(tt, -14 if int(round(tt / (b / 2))) % 2 else -10)
         for tt in self.grid(a, e, b * 2):
             self.kick(tt, -8)
 
@@ -241,7 +241,7 @@ class Music:
             root, _ = self.chord_at(tt)
             self.pulse(tt, b / 4 * 0.85, root + 12, -8, cutoff=1500)
         for tt in self.grid(a, e, b / 2):
-            self.hat(tt, -9, open_=(int(round(tt / (b / 2))) % 4 == 3))
+            self.hat(tt, -12, open_=(int(round(tt / (b / 2))) % 4 == 3))
         for tt in self.grid(a, e, B * 2):
             root, notes = self.chord_at(tt)
             self.pad(tt, min(B * 2, e - tt), notes + [notes[-1] + 12], -5, bright=2200)
@@ -291,10 +291,25 @@ class Music:
                 self.tom(t, -4, pitch=0.8)
         for t_end, dur in risers:
             self.riser(t_end, dur, -6)
+        # bölüm dinamiği: anlatının yükselişini izleyen kazanç eğrisi (dB)
+        self.arc = [(S["hook"], -1.5), (S["origin"], -4.0), (S["rise"], -2.0), (S["drive"], 0.0), (S["break"], -3.0), (S["climax"], 1.0), (S["resolve"], -3.0), (S["end"], -3.0)]
 
     def mix(self) -> np.ndarray:
         g = {"drums": 0.0, "bass": -1.0, "pads": 0.0, "keys": -1.0, "fx": 0.0, "lead": 0.0}
         out = sum(self.stems[k] * 10 ** (g[k] / 20) for k in self.stems)
+        arc = getattr(self, "arc", None)
+        if arc:
+            tt = np.arange(len(out)) / SR
+            ts = [a for a, _ in arc]
+            gs = [b for _, b in arc]
+            # bölüm geçişlerinde 0,4 sn yumuşak kazanç değişimi
+            pts_t, pts_g = [], []
+            for i, (t0, g0) in enumerate(arc):
+                if i:
+                    pts_t.append(max(t0 - 0.4, pts_t[-1] + 1e-3)); pts_g.append(pts_g[-1])
+                pts_t.append(t0 if not i else max(t0, pts_t[-1] + 1e-3)); pts_g.append(g0)
+            gain_db = np.interp(tt, pts_t, pts_g)
+            out = out * (10 ** (gain_db / 20))[:, None]
         out = dsp.compress(out, thr_db=-14, ratio=2.5, attack=0.01, release=0.2, makeup_db=2)
         out = dsp.hp(out, 28, 2)
         return out[: n_of(self.total)].astype(np.float32)

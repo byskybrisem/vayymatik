@@ -1445,10 +1445,10 @@
     }
   ],
   "metadata": {
-    "title": "Red Bull Neden Bir İnsanı Uzaydan Atlattı? 🪂 Milyarlık Pazarlama Dehası",
+    "title": "Red Bull Neden Bir İnsanı Uzayın Sınırından Atlattı? 🪂",
     "title_alternatives": [
       "Red Bull İçecek Değil, Dünya Satıyor 🚀",
-      "Bir Enerji İçeceği Neden 39 Km'den Adam Atlatır?",
+      "Bir Enerji İçeceği Neden 39 Km'den İnsan Atlatır?",
       "Red Bull'un 12 Milyar Avroluk Pazarlama Sırrı"
     ],
     "description": [
@@ -1480,9 +1480,20 @@
     ],
     "thumbnail": {
       "kicker": "Red Bull",
-      "line1": "39 km'den",
-      "line2": "neden?",
-      "badge": "Milyarlık pazarlama dehası"
+      "lines": [
+        {
+          "text": "Neden"
+        },
+        {
+          "text": "39 km'den",
+          "color": "gold"
+        },
+        {
+          "text": "atlattı?"
+        }
+      ],
+      "badge": "12 milyar € ciro",
+      "pitch": 6
     }
   },
   "sources": [
