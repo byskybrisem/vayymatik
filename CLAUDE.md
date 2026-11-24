@@ -39,3 +39,8 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 - Ayrıntılı ajan rehberi: `AGENTS.md`. Mimari/komutlar: `README.md`. Durum: `PROGRESS.md`.
 - Hızlı görsel kontrol: `python3 -m vayy stills <konu> 0,60,120` → `build/<konu>/stills/` (tam render'dan önce).
 - MP4/WAV/build çıktıları git'e girmez (`.gitignore`). Gizli anahtar yok; ücretli API kullanma.
+
+## Video skill'leri — otomatik kullanım
+- Kullanıcı video istediğinde konuya göre ilgili proje skill'lerini kendin çağır; slash komutu veya ayrıca izin isteme: `shorts-script-to-scenes` (senaryo/konu), `three-scene-builder` (3D), `remotion-video-creation` (Remotion kodu/animasyon), `render-qa` (render/teslim).
+- Skill aracı yoksa ilgili `.claude/skills/<ad>/SKILL.md` dosyasını oku. Yalnız gereken skill ve referansları yükle; mevcut JSON motorunu tercih et, gereksiz paket/ajan/ücretli API kullanma.
+- Referans videonun metnini/karakterini kopyalama. Render ve QA gerçek çıktılarla doğrulanmadan tamamlandı deme.
