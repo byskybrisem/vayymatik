@@ -1,0 +1,20 @@
+Sıfırdan Zirveye — VAYYMATİK 3D Motor Demosu
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 8.0 sn
+
+SENARYO (zaman kodlu, seslendirme ile birebir)
+============================================================
+[00:00.35 – 00:02.29]  Her büyük servet bir kararla başlar.
+      sahne: oda — Karanlık oda → duvarlar devrilir, platform şehrin üstüne yükselir (3D, tek plan)
+[00:03.34 – 00:05.73]  Peki, sen sıfırdan ne kadar yükselebilirsin?
+      sahne: oda — Karanlık oda → duvarlar devrilir, platform şehrin üstüne yükselir (3D, tek plan)
+
+SAHNE LİSTESİ
+============================================================
+00:00.00 – 00:05.17  oda             [world3d]  geçiş: cut  Karanlık oda → duvarlar devrilir, platform şehrin üstüne yükselir (3D, tek plan)
+00:04.83 – 00:08.00  zirve           [world3d]  geçiş: zoom  Final: gün doğumunda şehir silüeti, karakter kulenin zirvesinde, vinç çekimi
+
+SES
+============================================================
+Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.1 · noise 0.667 · noise_w 0.8
+Müzik: özgün prosedürel kompozisyon · 120 BPM · Re minör
+Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.96, "voice_lufs": -16.0, "music_under_voice_db": 11.4}

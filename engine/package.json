@@ -1,0 +1,39 @@
+{
+  "name": "vayymatik-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VAYYMATİK Shorts render motoru (Remotion + WebGL)",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "node render.mjs",
+    "still": "node still.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/anton": "5.2.7",
+    "@fontsource/inter": "5.2.8",
+    "@fontsource/jetbrains-mono": "5.2.8",
+    "@fontsource/montserrat": "5.2.8",
+    "@react-three/fiber": "9.4.0",
+    "@remotion/bundler": "4.0.540",
+    "@remotion/cli": "4.0.540",
+    "@remotion/layout-utils": "4.0.540",
+    "@remotion/noise": "4.0.540",
+    "@remotion/renderer": "4.0.540",
+    "@remotion/three": "4.0.540",
+    "d3-geo": "3.1.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.540",
+    "three": "0.181.2",
+    "topojson-client": "3.1.0"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "3.1.0",
+    "@types/react": "19.2.18",
+    "@types/three": "0.181.0",
+    "@types/topojson-client": "3.1.5",
+    "typescript": "5.9.3"
+  }
+}

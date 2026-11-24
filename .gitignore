@@ -1,0 +1,15 @@
+# Büyük/üretilen dosyalar git'e girmez
+node_modules/
+engine/node_modules/
+engine/public/current/
+engine/public/shared/earth_bmng_5400.jpg
+engine/public/shared/detail_newmexico.jpg
+engine/out/
+build/
+.cache/
+deliverables/**/*.mp4
+deliverables/**/*.mov
+deliverables/**/*.wav
+__pycache__/
+*.pyc
+.DS_Store

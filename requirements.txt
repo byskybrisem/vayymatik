@@ -1,0 +1,12 @@
+# VAYYMATİK üretim hattı (Python 3.11+)
+piper-tts==1.3.0
+onnxruntime==1.29.0
+onnx==1.23.2
+numpy==2.5.3
+scipy==1.18.1
+soundfile==0.14.0
+pyloudnorm==0.2.0
+pillow==13.0.0
+pyshp==3.1.9
+# QA: ASR ile altyazı-ses senkron ve anlaşılırlık kontrolü
+faster-whisper==1.2.1

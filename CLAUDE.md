@@ -31,3 +31,11 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 
 ## Git
 - Commit'ler küçük ve açıklayıcı; istenmeden PR açma.
+
+## Proje hafızası — motoru SIFIRDAN YAZMA
+- Üretim hattı hazır: `python3 -m vayy build <konu>` (Piper ses → müzik/SFX → Remotion render → mux → QA → teslim).
+- Konu = `topics/<konu>/topic.json`. Yeni video = yeni JSON; kod gerekmez. Örnekler: `zirve` (8 sn 3D demo), `redbull` (52 sn 2D/WebGL).
+- 3D motor: `engine/src/three/` (sahne türü `world3d`), belge: `engine/src/three/README.md`. Diğer sahne türleri: `engine/src/scenes/registry.ts`.
+- Ayrıntılı ajan rehberi: `AGENTS.md`. Mimari/komutlar: `README.md`. Durum: `PROGRESS.md`.
+- Hızlı görsel kontrol: `python3 -m vayy stills <konu> 0,60,120` → `build/<konu>/stills/` (tam render'dan önce).
+- MP4/WAV/build çıktıları git'e girmez (`.gitignore`). Gizli anahtar yok; ücretli API kullanma.
