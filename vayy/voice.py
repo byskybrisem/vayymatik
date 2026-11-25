@@ -46,8 +46,56 @@ def _resample(x: np.ndarray, sr: int) -> np.ndarray:
     return resample_poly(x, SR_OUT // g, sr // g).astype(np.float32)
 
 
+def _external_line(path: Path, spoken: list[str], window: float | None, log=print):
+    """Harici (ör. ElevenLabs) satır sesi: 48 kHz mono, baş/son sessizlik kırpılır, pencereye sığmazsa atempo,
+    kelime zamanları yerel ASR (faster-whisper) ile; sayı uyuşmazsa harf sayısına göre dağıtılır."""
+    import subprocess, tempfile
+    from .tts import WordTime, _redistribute
+
+    tmp = Path(tempfile.mkdtemp()) / "x.wav"
+    flt = "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.02,areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.02,areverse"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(path), "-ac", "1", "-ar", str(SR_OUT), "-af", flt, str(tmp)], check=True)
+    audio, _ = sf.read(tmp, dtype="float32")
+    dur = len(audio) / SR_OUT
+    if window and dur > window:
+        k = min(1.25, dur / window)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(tmp), "-af", f"atempo={k:.4f}", str(tmp.with_name("y.wav"))], check=True)
+        audio, _ = sf.read(tmp.with_name("y.wav"), dtype="float32")
+        log(f"  [ses] {path.stem}: {dur:.2f} sn → atempo {k:.3f}")
+    pad = np.zeros(int(0.08 * SR_OUT), dtype=np.float32)
+    audio = np.concatenate([pad, audio, pad])
+    wavp = tmp.with_name("z.wav")
+    sf.write(wavp, audio, SR_OUT, subtype="FLOAT")
+    from .qa import asr_words
+    asr = asr_words(wavp, "medium")
+    if len(asr) == len(spoken):
+        words = [{"text": t, "start": round(a["start"], 4), "end": round(a["end"], 4)} for t, a in zip(spoken, asr)]
+    else:
+        base = [WordTime(a["word"], a["start"], a["end"]) for a in asr]
+        words = [{"text": w.text, "start": round(w.start, 4), "end": round(w.end, 4)} for w in _redistribute(base, spoken)]
+    return audio, words
+
+
 def synth_lines(topic: dict, cache_dir: Path, log=print) -> list[LineAudio]:
     v = topic["voice"]
+    if v.get("external_dir"):
+        ext = Path(v["external_dir"])
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        out: list[LineAudio] = []
+        for line in topic["lines"]:
+            parsed = parse_line(line["text"])
+            cache = cache_dir / f"ext-{line['id']}.npz"
+            src = next(ext.glob(f"{line['id']}.*"))
+            if cache.exists() and cache.stat().st_mtime > src.stat().st_mtime:
+                z = np.load(cache, allow_pickle=True)
+                audio, words = z["audio"], json.loads(str(z["words"]))
+            else:
+                audio, words = _external_line(src, parsed.spoken, line.get("window"), log)
+                np.savez(cache, audio=audio, words=json.dumps(words))
+            la = LineAudio(id=line["id"], parsed=parsed, audio=audio, words=words, pause_after=line.get("pause_after", v.get("gap", 0.25)))
+            la.fixed_at = line.get("at")
+            out.append(la)
+        return out
     model = VOICES / f"{v['model']}.onnx"
     cfgp = VOICES / f"{v['model']}.onnx.json"
     if not model.exists():
@@ -98,6 +146,8 @@ def layout(lines: list[LineAudio], lead_in: float) -> float:
     t = lead_in
     for i, la in enumerate(lines):
         head = la.words[0]["start"] if la.words else 0.0
+        if getattr(la, "fixed_at", None) is not None:
+            t = max(t, la.fixed_at)
         la.start = t - head  # konuşma tam t'de başlasın
         t = la.speech_end + la.pause_after
     return lines[-1].speech_end
