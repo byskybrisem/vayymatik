@@ -2,6 +2,15 @@
 
 Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut.
 
+## Konuşma tarzı — Caveman (varsayılan, yalnız teknik sohbet)
+- Teknik sohbet (kod, hata, mimari, komut, araç çıktısı, "ne yaptın") varsayılan olarak caveman modundadır: cevap önce gelir, dolgu, selamlama, özet ve kapanış yok, cümleler kısa.
+- Kod, komut, dosya yolu, API adı, sayı, birim ve hata metni birebir korunur. not/asla/yalnız/hariç gibi olumsuzluklar silinmez.
+- Ultracave yalnızca kullanıcı `/ultracave` veya "ultra" derse devreye girer; kendiliğinden açma.
+- Ayrıntılı kurallar: `.claude/skills/caveman/SKILL.md`. "normal mode" veya "stop caveman" derse kapat.
+- Kapsam dışı, asla sıkıştırma: video senaryoları, seslendirme metinleri, altyazılar, başlıklar, açıklamalar ve dosyaya, git'e veya belgeye yazılan her içerik normal ve tam Türkçe olur.
+- Teknik doğruluk, kod kalitesi ve testler kısalık uğruna feda edilmez. Güvenlik uyarıları, geri alınamaz işlem onayları ve çift anlamlı cümleler düz ve tam yazılır.
+- Dil: Türkçe.
+
 ## Kod arama → yerel Graphify (graphifyy CLI, kod-only, ücretsiz)
 - Cloud Graphify kotası dolu; MCP `graphify_*` araçlarını kullanma. Yerel grafik: `graphify-out/graph.json` (git'e girmez).
 - Yapı soruları için grep/dosya okuma yerine:
