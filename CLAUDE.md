@@ -50,7 +50,10 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 
 
 ## RTK — komut çıktısı sıkıştırma (proje bazlı, hook yok)
-- Kurulum: `./scripts/setup-rtk.sh` (sürüm sabit: v1.2.1, Apache-2.0 edition, kaynaktan `--locked` derleme). Doğrulama: `rtk --version`, `rtk gain`.
+- Her yeni oturumda, ilk komuttan önce bir kez kontrol et: `RTK_BIN=$(command -v rtk || echo "$HOME/.local/bin/rtk"); "$RTK_BIN" --version 2>/dev/null` çıktısı tam olarak `rtk 1.2.1` ise RTK kuruludur; yeniden kurma.
+- Eşleşmiyorsa (komut yok veya sürüm farklı) `./scripts/setup-rtk.sh` çalıştır (sürüm sabit v1.2.1, Apache-2.0 edition, kaynaktan `--locked` derleme, yaklaşık 5 dk, `cargo` gerekir). Kurulumdan sonra shell PATH değişikliği kalıcı olmadığı için `$HOME/.local/bin/rtk` mutlak yolunu kullan.
+- Kurulum başarısız olursa RTK'siz devam et, komutları ham çalıştır ve bunu tek satırla bildir.
+- Doğrulama: `rtk --version`, `rtk gain`.
 - Yalnızca bu komutlarda `rtk` öneki kullan: `rtk git status|diff|log|show|branch`, `rtk cargo test`, `rtk pytest`, `rtk npm test|ci|run build` (test/derleme çıktısı çoksa), `cd engine && rtk npx tsc --noEmit`.
 - Asla `rtk` ile çalıştırma: `ffmpeg`, `ffprobe`, `npx remotion` (render/bundle), `python3 -m vayy build|audio|remux|qa|stills`, Piper ve diğer render/ses/QA komutları. Bunların hata kayıtları ve çıktıları eksiksiz görünmeli.
 - Exit code ≠ 0, test kırmızı, çıktı boş/çelişkili/bozuk ise: `rtk bypass <cmd>` ile ham çıktıyı al veya komutu `rtk`siz yeniden çalıştır. Hata metnini özetleme; kritik satırları birebir aktar.
