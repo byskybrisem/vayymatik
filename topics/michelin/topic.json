@@ -2315,7 +2315,7 @@
         "seed": 6,
         "ground": "#1a2018",
         "road": "#3a3630",
-        "trees": 40
+        "trees": 8
        }
       ]
      },
@@ -2548,7 +2548,7 @@
      "leakOpacity": 0.4
     },
     "camera": {
-     "ease": "cine",
+     "ease": "linear",
      "shake": 0.01,
      "keys": [
       {
