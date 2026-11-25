@@ -2,19 +2,13 @@
 
 Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut.
 
-## Kod arama → önce Graphify
-- Depo kimliği: `byskybrisem/vayymatik` (graphify `repository_id`).
-- Yapı soruları için grep/dosya okuma yerine Graphify kullan:
-  - tanım nerede → `graphify_find`
-  - nasıl çalışıyor / nerede ele alınıyor → `query_graph`
-  - kim çağırıyor → `graphify_callers`; sembol + komşular → `graphify_node`
-  - değişiklik etkisi → `graphify_impact` (`include_risk=true`)
-  - ilgili testler → `graphify_tests_for`; dosya bağımlılıkları → `graphify_file_neighbors`
-- Sonuçtaki `commitSha` == `git rev-parse HEAD` ise sonuca güven, tekrar grep yapma.
-  Farklıysa yalnızca o commit'ten sonra değişen dosyaları oku.
-- Depo Graphify'da yoksa / indeks hazır değilse: `Grep`/`Glob` ile hedefli ara,
-  dosyanın tamamını değil ilgili satır aralığını (`offset`/`limit`) oku.
-- Düz metin, config değeri, indekslenmemiş dosya → `Grep`.
+## Kod arama → yerel Graphify (graphifyy CLI, kod-only, ücretsiz)
+- Cloud Graphify kotası dolu; MCP `graphify_*` araçlarını kullanma. Yerel grafik: `graphify-out/graph.json` (git'e girmez).
+- Yapı soruları için grep/dosya okuma yerine:
+  - `graphify query "<soru>" --budget 1500` (BFS), `graphify explain "<sembol>"`, `graphify path "A" "B"`
+  - Rapor: `graphify-out/GRAPH_REPORT.md` (topluluklar, önemli düğümler)
+- Grafik yoksa/eskiyse (kod değiştiyse): `pip install graphifyy` sonra `graphify update .` (yalnız AST, LLM yok, API yok; ~saniyeler). `graphify extract` ve semantik tarama KULLANMA.
+- Sonuç yetmezse veya düz metin/config/indekslenmemiş dosya → `Grep`; dosyanın yalnız ilgili satırlarını oku (`offset`/`limit`).
 
 ## Kütüphane/API dokümanı → Context7
 - Bir kütüphane, framework, SDK, CLI veya API kullanırken ezberden yazma:
