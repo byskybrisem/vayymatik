@@ -1,0 +1,44 @@
+{
+ "words": [
+  {
+   "text": "Tarım",
+   "start": 0.14,
+   "end": 0.4042
+  },
+  {
+   "text": "çökmeye",
+   "start": 0.4042,
+   "end": 0.7815
+  },
+  {
+   "text": "başlar,",
+   "start": 0.7815,
+   "end": 1.2532
+  },
+  {
+   "text": "içilebilir",
+   "start": 1.6683,
+   "end": 2.1589
+  },
+  {
+   "text": "su",
+   "start": 2.1589,
+   "end": 2.4042
+  },
+  {
+   "text": "kaynakları",
+   "start": 2.4042,
+   "end": 2.9702
+  },
+  {
+   "text": "giderek",
+   "start": 2.9702,
+   "end": 3.2721
+  },
+  {
+   "text": "azalırdı.",
+   "start": 3.2721,
+   "end": 3.9136
+  }
+ ]
+}

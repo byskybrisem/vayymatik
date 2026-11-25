@@ -20,3 +20,6 @@ kullanıma **uygun değil**), espeak-ng (GPL yazılım, çıktı serbest; roboti
 ## 3D motor varlıkları
 `engine/src/three` altındaki tüm geometri, karakter, şehir, banknot ("VAYY" kurgusal tasarım) ve dokular koddan üretilir; dış görsel/model dosyası yoktur.
 Three.js (MIT), @react-three/fiber (MIT), @remotion/three (Remotion lisansı: bireyler/≤3 kişilik şirketler ücretsiz).
+
+- topics/okyanus/img/*.jpg — AI üretimi (ElevenLabs, bytedance-seedream-5-pro), 2× Lanczos büyütülmüş; temsili sahneler.
+- topics/okyanus/voice/furkan_full.mp3 — ElevenLabs TTS çıktısı (Furkan – Deep, Natural and Clear).

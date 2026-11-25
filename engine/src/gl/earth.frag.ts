@@ -8,6 +8,8 @@ uniform vec3 uPos, uFwd, uRight, uUp;
 uniform float uTanHalf, uFovHalf, uFisheye;
 uniform vec3 uSun;
 uniform sampler2D uEarth;
+uniform sampler2D uEarth2;
+uniform float uDrain;
 uniform sampler2D uMask;
 uniform sampler2D uDetailTex;
 uniform vec4 uDetailBounds; // lat0(üst), lat1(alt), lon0(sol), lon1(sağ)
@@ -128,6 +130,13 @@ void main(){
   vec3 n = normalize(sp);
   vec2 uv = dirToUV(n);
   vec3 tex = sampleEq(uEarth, uv).rgb;
+  float drainLocal = 0.0;
+  if (uDrain > 0.0){
+    // okyanus düzensiz bir cephe halinde çekilir (gürültülü eşik)
+    float dn = fbm(n * 3.2 + vec3(1.7, 0.4, 2.9), 4.0);
+    drainLocal = smoothstep(0.0, 0.22, uDrain * 1.25 - dn * 0.55);
+    tex = mix(tex, sampleEq(uEarth2, uv).rgb, drainLocal);
+  }
   // bölgesel yüksek çözünürlüklü doku (ör. Stratos bölgesi, 500 m/piksel)
   float latD = degrees(asin(clamp(n.z, -1.0, 1.0)));
   float lonD = degrees(atan(n.y, n.x));
@@ -158,7 +167,7 @@ void main(){
     vec3 lit = albedo * sunT * diff * 2.6;
     // okyanus parlaması
     vec3 hv = normalize(uSun - rd);
-    float spec = pow(max(dot(n, hv), 0.0), 90.0) * (1.0 - land);
+    float spec = pow(max(dot(n, hv), 0.0), 90.0) * (1.0 - land) * (1.0 - drainLocal);
     lit += sunT * spec * 0.9 * step(0.0, ndl);
     // bulutlar
     if (uClouds > 0.0){

@@ -18,6 +18,9 @@ export type EarthProps = {
 	sun?: [number, number];
 	sunFollow?: [number, number]; // güneş kamerayı izler (dLat, dLon): küre uçuşlarında hep aydınlık taraf
 	clouds?: number;
+	cloudKeys?: {t: number; v: number}[];
+	drain?: {t: number; v: number}[]; // 0=okyanus var, 1=kurumuş
+	tex2?: string;
 	cloudOct?: number;
 	detail?: number;
 	stars?: number;
@@ -110,7 +113,8 @@ export const EarthScene: React.FC<EarthProps> = (p) => {
 		uHlColA: hexToRgb01(p.hlA?.color ?? '#ff1e3c'),
 		uHlColB: hexToRgb01(p.hlB?.color ?? '#ff1e3c'),
 		uBorders: keyv(frame, p.borders, 0),
-		uClouds: p.clouds ?? 0.6,
+		uClouds: p.cloudKeys ? keyv(frame, p.cloudKeys, 0.6) : p.clouds ?? 0.6,
+		uDrain: keyv(frame, p.drain, 0),
 		uCloudOct: p.cloudOct ?? 6,
 		uDetail: p.detail ?? 0,
 		uDots: dots,
@@ -127,6 +131,7 @@ export const EarthScene: React.FC<EarthProps> = (p) => {
 	const textures = useMemo(
 		() => [
 			{name: 'uEarth', src: staticFile('shared/earth_bmng_5400.jpg'), repeatX: true},
+			{name: 'uEarth2', src: staticFile(p.tex2 ?? 'shared/earth_dry_5400.jpg'), repeatX: true},
 			{name: 'uMask', src: staticFile('current/geo_mask.png'), repeatX: true},
 			{name: 'uDetailTex', src: staticFile(p.detailTex?.src ?? 'current/geo_mask.png'), repeatX: false},
 		],

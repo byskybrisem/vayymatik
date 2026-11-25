@@ -46,8 +46,26 @@ def _resample(x: np.ndarray, sr: int) -> np.ndarray:
     return resample_poly(x, SR_OUT // g, sr // g).astype(np.float32)
 
 
+def _external_lines(topic: dict, log=print) -> list[LineAudio]:
+    """Harici seslendirme (ElevenLabs/Furkan): satır WAV'ları + kelime zamanları topics/<konu>/voice/lines altında."""
+    from .extvoice import split_external
+    d = split_external(topic)
+    v = topic["voice"]
+    out = []
+    for line in topic["lines"]:
+        audio, sr = sf.read(d / f"{line['id']}.wav", dtype="float32")
+        if sr != SR_OUT:
+            audio = _resample(audio, sr)
+        words = json.loads((d / f"{line['id']}.json").read_text(encoding="utf-8"))["words"]
+        out.append(LineAudio(id=line["id"], parsed=parse_line(line["text"]), audio=audio, words=words, pause_after=line.get("pause_after", v.get("gap", 0.25))))
+        log(f"  [ses/harici] {line['id']}: {len(audio)/SR_OUT:.2f} sn")
+    return out
+
+
 def synth_lines(topic: dict, cache_dir: Path, log=print) -> list[LineAudio]:
     v = topic["voice"]
+    if v.get("provider") == "external":
+        return _external_lines(topic, log)
     model = VOICES / f"{v['model']}.onnx"
     cfgp = VOICES / f"{v['model']}.onnx.json"
     if not model.exists():

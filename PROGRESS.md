@@ -63,3 +63,8 @@ sunFollow (küre uçuşlarında aydınlık taraf), hook başlığı "NEDEN?", ro
 12 Zirvede, YouTube'da 8 milyondan fazla eş zamanlı canlı yayın izlendi.
 13 Sonuç? 2025'te yaklaşık 14 milyar kutu, 12,2 milyar avro ciro.
 14 Red Bull sadece bir içecek satmadı. 15 İnsanların izlemek istediği bir dünya kurdu.
+
+## okyanus — "Okyanuslar yok olsaydı?" (52,9 sn, 1080×1920)
+- `python3 -m vayy build okyanus` → `deliverables/okyanus/VAYYMATIK0_Okyanuslar_Yok_Olsaydi.mp4` (QA geçti, -14 LUFS).
+- Yeni: `photo` sahne türü (fotogerçekçi görsel + sinematik kamera), `earth` sahnesinde `drain`/`cloudKeys` (okyanus çekilme shader'ı, `vayy/dryearth.py`), harici ses sağlayıcısı (`voice.provider: "external"`, `vayy/extvoice.py`, kaynak `topics/okyanus/voice/source.json`).
+- Ses: ElevenLabs Furkan (tdFSWWKss8eFFcWBpKZ8), eleven_multilingual_v2, 1.06× tempo. Görseller: ElevenLabs seedream-5-pro (ücretsiz kota 3 görselde doldu); eksik sahneler (mercan/balina, tarım, baraj) için görsel üretilemedi.

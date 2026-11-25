@@ -1,0 +1,49 @@
+Dünyadaki Bütün Okyanuslar Bir Anda Yok Olsaydı Ne Olurdu? 🌊
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 52.9 sn
+
+SENARYO (zaman kodlu, seslendirme ile birebir)
+============================================================
+[00:00.15 – 00:04.26]  Bir sabah uyandığını ve dünyadaki bütün okyanusların yok olduğunu düşün.
+      sahne: hook
+[00:04.56 – 00:09.34]  Gezegenimizdeki suyun yüzde 96,5'i bir anda kaybolmuş olurdu!
+      sahne: hook
+      okunuş (TTS): Gezegenimizdeki suyun yüzde doksan altı virgül beşi bir anda kaybolmuş olurdu!
+[00:09.64 – 00:13.49]  Dev yük gemileri kilometrelerce derinlikteki okyanus tabanında kalırdı.
+      sahne: gemi
+[00:13.79 – 00:18.45]  Bir zamanlar denizlerle çevrili şehirlerin önünde devasa uçurumlar ortaya çıkardı.
+      sahne: ucurum
+[00:18.75 – 00:21.63]  Deniz canlılarının büyük bölümü hayatta kalamazdı.
+      sahne: yasam
+[00:21.93 – 00:24.24]  Ama asıl felaket henüz başlamamıştı.
+      sahne: felaket
+[00:24.54 – 00:30.72]  Okyanuslar olmadan su döngüsü büyük ölçüde bozulur, yağışlar ciddi şekilde azalırdı.
+      sahne: dongu
+[00:31.02 – 00:34.80]  Tarım çökmeye başlar, içilebilir su kaynakları giderek azalırdı.
+      sahne: tarim
+[00:35.10 – 00:37.46]  Gezegenin sıcaklık dengesi altüst olurdu.
+      sahne: kriz
+[00:37.76 – 00:40.28]  Milyarlarca insanın yaşamı tehlikeye girerdi.
+      sahne: kriz
+[00:40.58 – 00:44.81]  Mavi gezegenimiz, zamanla devasa ve kurak bir dünyaya dönüşebilirdi.
+      sahne: son
+[00:45.11 – 00:50.51]  Meğer okyanuslar, gezegenimizin hayatta kalmasını sağlayan en önemli sistemlerden biriymiş.
+      sahne: son
+
+SAHNE LİSTESİ
+============================================================
+00:00.00 – 00:05.03  hook            [earth]  geçiş: cut  
+00:04.77 – 00:09.93  liman           [photo]  geçiş: flash  
+00:09.63 – 00:14.10  gemi            [photo]  geçiş: zoom  
+00:13.80 – 00:19.07  ucurum          [photo]  geçiş: whip  
+00:18.73 – 00:22.13  yasam           [photo]  geçiş: blur  
+00:21.93 – 00:24.53  felaket         [earth]  geçiş: flash  
+00:24.53 – 00:31.37  dongu           [earth]  geçiş: cut  
+00:31.03 – 00:35.40  tarim           [earth]  geçiş: blur  
+00:35.10 – 00:40.90  kriz            [photo]  geçiş: glitch  
+00:40.60 – 00:52.93  son             [earth]  geçiş: flash  
+
+SES
+============================================================
+Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
+Müzik: özgün prosedürel kompozisyon · 84 BPM · Re minör
+Miks: {"integrated_lufs": -14.03, "true_peak_dbtp": -0.57, "voice_lufs": -16.0, "music_under_voice_db": 10.7}

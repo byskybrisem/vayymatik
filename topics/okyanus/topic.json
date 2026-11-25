@@ -1,0 +1,922 @@
+{
+ "id": "okyanus",
+ "output_name": "VAYYMATIK0_Okyanuslar_Yok_Olsaydi",
+ "language": "tr",
+ "voice": {
+  "provider": "external",
+  "lead_in": 0.15,
+  "tail": 2.4,
+  "gap": 0.3
+ },
+ "foreign_words": [],
+ "lines": [
+  {
+   "id": "l1",
+   "text": "Bir sabah uyandığını ve dünyadaki bütün {okyanusların} {yok olduğunu} düşün.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l2",
+   "text": "Gezegenimizdeki suyun {g:yüzde 96,5'i|yüzde doksan altı virgül beşi} bir anda {kaybolmuş} olurdu!",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l3",
+   "text": "{Dev yük gemileri} kilometrelerce derinlikteki okyanus tabanında kalırdı.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l4",
+   "text": "Bir zamanlar denizlerle çevrili şehirlerin önünde {devasa uçurumlar} ortaya çıkardı.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l5",
+   "text": "{Deniz canlılarının} büyük bölümü hayatta kalamazdı.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l6",
+   "text": "Ama asıl {felaket} henüz başlamamıştı.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l7",
+   "text": "Okyanuslar olmadan {su döngüsü} büyük ölçüde bozulur, {yağışlar} ciddi şekilde azalırdı.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l8",
+   "text": "{Tarım} çökmeye başlar, içilebilir su kaynakları giderek azalırdı.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l9",
+   "text": "Gezegenin {sıcaklık dengesi} altüst olurdu.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l10",
+   "text": "{Milyarlarca} insanın yaşamı tehlikeye girerdi.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l11",
+   "text": "Mavi gezegenimiz, zamanla devasa ve {kurak} bir dünyaya dönüşebilirdi.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "l12",
+   "text": "Meğer {okyanuslar}, gezegenimizin hayatta kalmasını sağlayan en önemli sistemlerden biriymiş.",
+   "pause_after": 0.3
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "earth",
+   "start": "@start",
+   "props": {
+    "clouds": 0.55,
+    "cloudOct": 6,
+    "detail": 0.0,
+    "haze": 0.6,
+    "stars": 0.9,
+    "exposure": 1.0,
+    "sat": 1.15,
+    "sunGlare": 0.25,
+    "sun": [
+     20,
+     35
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "lat": 18,
+      "lon": -30,
+      "alt": 20000,
+      "heading": 0,
+      "pitch": 90,
+      "fov": 52,
+      "fisheye": 0,
+      "e": "linear"
+     },
+     {
+      "t": 1.7,
+      "lat": 18,
+      "lon": -28,
+      "alt": 12000,
+      "fov": 50,
+      "e": "in"
+     },
+     {
+      "t": "@l2.start+0.2",
+      "lat": 12,
+      "lon": -36,
+      "alt": 3800,
+      "fov": 56,
+      "roll": 6,
+      "e": "inOut"
+     }
+    ],
+    "drain": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": 1.35,
+      "v": 0
+     },
+     {
+      "t": 3.3,
+      "v": 1,
+      "e": "inOut"
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.05
+     },
+     {
+      "t": 1.4,
+      "v": 0.2
+     },
+     {
+      "t": 3.4,
+      "v": 0.45
+     },
+     {
+      "t": "@l2.start",
+      "v": 0
+     }
+    ],
+    "titles": [
+     {
+      "text": "OKYANUSLAR\nYOK OLSAYDI?",
+      "kicker": "Varsayımsal senaryo",
+      "from": 0.05,
+      "dur": "@l2.start+0.1",
+      "kind": "slam",
+      "y": 430,
+      "size": 150,
+      "font": "display",
+      "upper": true,
+      "maxWidth": 900,
+      "color": "white"
+     }
+    ]
+   }
+  },
+  {
+   "id": "liman",
+   "type": "photo",
+   "start": "@l2.start+0.2",
+   "transition": {
+    "type": "flash",
+    "dur": 0.25
+   },
+   "props": {
+    "src": "port_city.jpg",
+    "dust": 0.5,
+    "warm": [
+     {
+      "t": 0,
+      "v": 0.5
+     }
+    ],
+    "sat": [
+     {
+      "t": 0,
+      "v": 1.1
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "fx": 0.16,
+      "fy": 0.5,
+      "z": 1.0,
+      "rot": 0
+     },
+     {
+      "t": "@l3.start",
+      "fx": 0.47,
+      "fy": 0.5,
+      "z": 1.28,
+      "e": "inOut"
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.5
+     },
+     {
+      "t": 0.5,
+      "v": 0.0
+     }
+    ],
+    "titles": [
+     {
+      "text": "",
+      "from": "@l2.word:yüzde-0.05",
+      "dur": "@l3.start-0.1",
+      "kind": "count",
+      "y": 560,
+      "size": 230,
+      "color": "gold",
+      "count": {
+       "v0": 0,
+       "v1": 96.5,
+       "decimals": 1,
+       "prefix": "%",
+       "dur": 1.3
+      },
+      "font": "sans",
+      "upper": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "gemi",
+   "type": "photo",
+   "start": "@l3.start",
+   "transition": {
+    "type": "zoom",
+    "dur": 0.3
+   },
+   "props": {
+    "src": "ship_seabed.jpg",
+    "dust": 0.8,
+    "warm": [
+     {
+      "t": 0,
+      "v": 0.2
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "fx": 0.3,
+      "fy": 0.62,
+      "z": 1.0
+     },
+     {
+      "t": "@l4.start",
+      "fx": 0.52,
+      "fy": 0.55,
+      "z": 1.55,
+      "e": "cine"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ucurum",
+   "type": "photo",
+   "start": "@l4.start",
+   "transition": {
+    "type": "whip",
+    "dur": 0.3
+   },
+   "props": {
+    "src": "port_city.jpg",
+    "dust": 0.4,
+    "warm": [
+     {
+      "t": 0,
+      "v": 0.35
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "fx": 0.2,
+      "fy": 0.35,
+      "z": 1.05
+     },
+     {
+      "t": "@l4.word:devasa",
+      "fx": 0.46,
+      "fy": 0.62,
+      "z": 1.25,
+      "e": "inOut"
+     },
+     {
+      "t": "@l5.start",
+      "fx": 0.56,
+      "fy": 0.88,
+      "z": 1.45,
+      "e": "cine"
+     }
+    ]
+   }
+  },
+  {
+   "id": "yasam",
+   "type": "photo",
+   "start": "@l5.start",
+   "transition": {
+    "type": "blur",
+    "dur": 0.35
+   },
+   "props": {
+    "src": "ship_seabed.jpg",
+    "dust": 0.9,
+    "sat": [
+     {
+      "t": 0,
+      "v": 0.9
+     },
+     {
+      "t": "@l6.start",
+      "v": 0.5
+     }
+    ],
+    "cool": [
+     {
+      "t": 0,
+      "v": 0.2
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "fx": 0.14,
+      "fy": 0.78,
+      "z": 1.15
+     },
+     {
+      "t": "@l6.start",
+      "fx": 0.82,
+      "fy": 0.78,
+      "z": 1.2,
+      "e": "inOut"
+     }
+    ],
+    "titles": [
+     {
+      "text": "Deniz yaşamı çöker",
+      "kicker": "Ekosistem",
+      "from": "@l5.word:canlı",
+      "dur": "@l6.start-0.1",
+      "kind": "rise",
+      "y": 420,
+      "size": 98,
+      "plate": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "felaket",
+   "type": "earth",
+   "start": "@l6.start",
+   "transition": {
+    "type": "flash",
+    "dur": 0.2
+   },
+   "props": {
+    "clouds": 0.85,
+    "cloudOct": 6,
+    "haze": 0.22,
+    "stars": 0.9,
+    "exposure": 1.0,
+    "sat": 1.1,
+    "sunGlare": 0.25,
+    "sun": [
+     20,
+     20
+    ],
+    "drain": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "lat": 12,
+      "lon": -36,
+      "alt": 3800,
+      "pitch": 90,
+      "fov": 54,
+      "e": "linear"
+     },
+     {
+      "t": "@l7.start",
+      "lat": 14,
+      "lon": -30,
+      "alt": 13000,
+      "fov": 50,
+      "e": "in"
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.6
+     },
+     {
+      "t": "@l7.start",
+      "v": 0
+     }
+    ]
+   }
+  },
+  {
+   "id": "dongu",
+   "type": "earth",
+   "start": "@l7.start",
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   },
+   "props": {
+    "cloudOct": 6,
+    "haze": 0.22,
+    "stars": 0.9,
+    "exposure": 1.0,
+    "sat": 1.1,
+    "sunGlare": 0.25,
+    "sun": [
+     20,
+     30
+    ],
+    "drain": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "cloudKeys": [
+     {
+      "t": 0,
+      "v": 0.95
+     },
+     {
+      "t": "@l7.word:büyük",
+      "v": 0.8
+     },
+     {
+      "t": "@l7.word:yağışlar",
+      "v": 0.5,
+      "e": "inOut"
+     },
+     {
+      "t": "@l8.start",
+      "v": 0.18,
+      "e": "cine"
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "lat": 14,
+      "lon": -30,
+      "alt": 13000,
+      "pitch": 90,
+      "fov": 50
+     },
+     {
+      "t": "@l7.word:yağışlar",
+      "lat": 16,
+      "lon": -24,
+      "alt": 6500,
+      "fov": 50,
+      "e": "inOut"
+     },
+     {
+      "t": "@l8.start",
+      "lat": 24,
+      "lon": -14,
+      "alt": 5000,
+      "fov": 50,
+      "e": "out"
+     }
+    ],
+    "titles": [
+     {
+      "text": "Su döngüsü bozulur",
+      "kicker": "Bulut oluşumu ve yağış azalır",
+      "from": "@l7.word:döngüsü-0.1",
+      "dur": "@l8.start",
+      "kind": "rise",
+      "y": 420,
+      "size": 96,
+      "plate": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "tarim",
+   "type": "earth",
+   "start": "@l8.start",
+   "transition": {
+    "type": "blur",
+    "dur": 0.35
+   },
+   "props": {
+    "cloudKeys": [
+     {
+      "t": 0,
+      "v": 0.18
+     },
+     {
+      "t": "@l9.start",
+      "v": 0.1
+     }
+    ],
+    "haze": 0.22,
+    "stars": 0.5,
+    "exposure": 1.0,
+    "sat": 1.2,
+    "detail": 0.7,
+    "sunGlare": 0.25,
+    "sun": [
+     30,
+     55
+    ],
+    "drain": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "lat": 36,
+      "lon": 14,
+      "alt": 3200,
+      "heading": 0,
+      "pitch": 90,
+      "fov": 52
+     },
+     {
+      "t": "@l9.start",
+      "lat": 35,
+      "lon": 24,
+      "alt": 1200,
+      "heading": 15,
+      "pitch": 65,
+      "fov": 58,
+      "e": "cine"
+     }
+    ],
+    "titles": [
+     {
+      "text": "Tarım çöker",
+      "kicker": "Tatlı su kaynakları azalır",
+      "from": "@l8.word:Tarım",
+      "dur": "@l9.start",
+      "kind": "rise",
+      "y": 420,
+      "size": 110,
+      "plate": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "kriz",
+   "type": "photo",
+   "start": "@l9.start",
+   "transition": {
+    "type": "glitch",
+    "dur": 0.3
+   },
+   "props": {
+    "src": "port_city.jpg",
+    "dust": 1.0,
+    "haze": [
+     {
+      "t": 0,
+      "v": 0.5
+     }
+    ],
+    "sat": [
+     {
+      "t": 0,
+      "v": 0.95
+     },
+     {
+      "t": "@l11.start",
+      "v": 0.45
+     }
+    ],
+    "warm": [
+     {
+      "t": 0,
+      "v": 0.6
+     },
+     {
+      "t": "@l11.start",
+      "v": 1.0
+     }
+    ],
+    "bright": [
+     {
+      "t": 0,
+      "v": 1.0
+     },
+     {
+      "t": "@l11.start",
+      "v": 0.85
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "fx": 0.14,
+      "fy": 0.42,
+      "z": 1.05
+     },
+     {
+      "t": "@l10.start",
+      "fx": 0.3,
+      "fy": 0.5,
+      "z": 1.3,
+      "e": "inOut"
+     },
+     {
+      "t": "@l11.start",
+      "fx": 0.36,
+      "fy": 0.52,
+      "z": 1.9,
+      "e": "cine"
+     }
+    ],
+    "titles": [
+     {
+      "text": "Milyarlarca",
+      "sub": "insan etkilenirdi",
+      "from": "@l10.start",
+      "dur": "@l11.start-0.1",
+      "kind": "slam",
+      "y": 450,
+      "size": 120,
+      "color": "gold",
+      "plate": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "son",
+   "type": "earth",
+   "start": "@l11.start",
+   "transition": {
+    "type": "flash",
+    "dur": 0.3
+   },
+   "props": {
+    "cloudKeys": [
+     {
+      "t": 0,
+      "v": 0.55
+     },
+     {
+      "t": "@l11.word:kurak",
+      "v": 0.5
+     },
+     {
+      "t": "@l12.start",
+      "v": 0.12
+     }
+    ],
+    "haze": 0.22,
+    "stars": 1.0,
+    "exposure": 1.0,
+    "sat": 1.15,
+    "sunGlare": 0.25,
+    "sun": [
+     20,
+     35
+    ],
+    "drain": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": "@l11.word:devasa",
+      "v": 0.0
+     },
+     {
+      "t": "@l11.end",
+      "v": 1,
+      "e": "inOut"
+     }
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "lat": 22,
+      "lon": -14,
+      "alt": 9500,
+      "pitch": 90,
+      "fov": 50
+     },
+     {
+      "t": "@l12.start",
+      "lat": 22,
+      "lon": -10,
+      "alt": 14500,
+      "fov": 50,
+      "e": "out"
+     },
+     {
+      "t": "@end",
+      "lat": 22,
+      "lon": 0,
+      "alt": 19000,
+      "fov": 50,
+      "e": "linear"
+     }
+    ],
+    "titles": [
+     {
+      "text": "SENCE İNSANLIK\nHAYATTA KALABİLİR\nMİYDİ?",
+      "from": "@l12.word:sistemlerden>end+0.2",
+      "dur": "@end",
+      "kind": "slam",
+      "y": 560,
+      "size": 112,
+      "font": "display",
+      "upper": true,
+      "maxWidth": 940,
+      "color": "white",
+      "plate": true
+     }
+    ]
+   }
+  }
+ ],
+ "music": {
+  "bpm": 84,
+  "seed": 21,
+  "sections": {
+   "hook": "@start",
+   "origin": "@l2.start",
+   "rise": "@l4.start",
+   "drive": "@l7.start",
+   "break": "@l9.start",
+   "climax": "@l11.start",
+   "resolve": "@l12.start",
+   "end": "@end"
+  },
+  "hits": [
+   {
+    "at": "@start",
+    "kind": "impact"
+   },
+   {
+    "at": "@l1.word:yok",
+    "kind": "boom"
+   },
+   {
+    "at": "@l6.start",
+    "kind": "braam"
+   },
+   {
+    "at": "@l11.word:kurak",
+    "kind": "boom"
+   }
+  ],
+  "risers": [
+   {
+    "to": "@l2.start",
+    "dur": 1.2
+   },
+   {
+    "to": "@l7.start",
+    "dur": 1.0
+   },
+   {
+    "to": "@l11.start",
+    "dur": 1.2
+   }
+  ]
+ },
+ "sfx": [
+  {
+   "type": "heartbeat",
+   "at": 0.1,
+   "gain": -4
+  },
+  {
+   "type": "whoosh",
+   "at": 1.4,
+   "dur": 1.8,
+   "up": true,
+   "gain": -3
+  },
+  {
+   "type": "impact",
+   "at": "@l2.start+0.2",
+   "size": 1.0,
+   "gain": -3
+  },
+  {
+   "type": "whoosh",
+   "at": "@l3.start-0.1",
+   "dur": 0.5,
+   "gain": -6
+  },
+  {
+   "type": "whoosh",
+   "at": "@l4.start-0.1",
+   "dur": 0.5,
+   "up": false,
+   "gain": -6
+  },
+  {
+   "type": "wind",
+   "at": "@l3.start",
+   "dur": 9,
+   "curve": [
+    [
+     0,
+     0.2
+    ],
+    [
+     4,
+     0.5
+    ],
+    [
+     9,
+     0.15
+    ]
+   ],
+   "gain": -14
+  },
+  {
+   "type": "impact",
+   "at": "@l6.start",
+   "size": 1.0,
+   "gain": -3
+  },
+  {
+   "type": "whoosh",
+   "at": "@l6.start",
+   "dur": 1.0,
+   "gain": -4
+  },
+  {
+   "type": "static",
+   "at": "@l9.start",
+   "dur": 0.35,
+   "gain": -12
+  },
+  {
+   "type": "heartbeat",
+   "at": "@l10.start",
+   "gain": -5
+  },
+  {
+   "type": "impact",
+   "at": "@l11.word:kurak",
+   "size": 1.2,
+   "gain": -3
+  },
+  {
+   "type": "wind",
+   "at": "@l11.start",
+   "dur": 6,
+   "curve": [
+    [
+     0,
+     0.2
+    ],
+    [
+     3,
+     0.5
+    ],
+    [
+     6,
+     0.1
+    ]
+   ],
+   "gain": -14
+  }
+ ],
+ "metadata": {
+  "title": "Dünyadaki Bütün Okyanuslar Bir Anda Yok Olsaydı Ne Olurdu? 🌊",
+  "title_alternatives": [
+   "Okyanuslar Yok Olsaydı Dünya Nasıl Bir Yer Olurdu?",
+   "Bütün Okyanuslar Kaybolsaydı Hayatta Kalabilir miydik?"
+  ],
+  "description": [
+   "Varsayımsal bilim senaryosu: okyanuslar bir anda ortadan kalksaydı gezegenimizde ne olurdu?"
+  ],
+  "hashtags": [
+   "#Shorts"
+  ]
+ }
+}

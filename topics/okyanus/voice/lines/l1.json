@@ -1,0 +1,54 @@
+{
+ "words": [
+  {
+   "text": "Bir",
+   "start": 0.0,
+   "end": 0.1887
+  },
+  {
+   "text": "sabah",
+   "start": 0.1887,
+   "end": 0.5849
+  },
+  {
+   "text": "uyandığını",
+   "start": 0.5849,
+   "end": 1.1509
+  },
+  {
+   "text": "ve",
+   "start": 1.1509,
+   "end": 1.6981
+  },
+  {
+   "text": "dünyadaki",
+   "start": 1.6981,
+   "end": 2.2453
+  },
+  {
+   "text": "bütün",
+   "start": 2.2453,
+   "end": 2.5849
+  },
+  {
+   "text": "okyanusların",
+   "start": 2.5849,
+   "end": 3.2453
+  },
+  {
+   "text": "yok",
+   "start": 3.2453,
+   "end": 3.4717
+  },
+  {
+   "text": "olduğunu",
+   "start": 3.4717,
+   "end": 3.8113
+  },
+  {
+   "text": "düşün.",
+   "start": 3.8113,
+   "end": 4.1132
+  }
+ ]
+}

@@ -14,3 +14,4 @@ __pycache__/
 *.pyc
 .DS_Store
 graphify-out/
+engine/public/shared/earth_dry_5400.jpg

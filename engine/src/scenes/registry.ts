@@ -6,6 +6,7 @@ import {CardsScene} from './CardsScene';
 import {FlapScene} from './FlapScene';
 import {MediaScene} from './MediaScene';
 import {KpiScene} from './KpiScene';
+import {PhotoScene} from './PhotoScene';
 import {World3DScene} from '../three/World3DScene';
 
 // Sahne türü -> bileşen. Yeni sahne türü eklemek için buraya kaydedin.
@@ -18,5 +19,6 @@ export const SCENES: Record<string, React.FC<any>> = {
 	flap: FlapScene,
 	media: MediaScene,
 	kpi: KpiScene,
+	photo: PhotoScene, // fotogerçekçi görsel + sinematik kamera (Ken Burns/paralaks)
 	world3d: World3DScene, // Three.js 3D motoru (engine/src/three)
 };

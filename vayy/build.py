@@ -16,6 +16,7 @@ from .assets import ensure_public
 from .audio import mix as mixmod
 from .audio.music import compose
 from .audio.sfx import render_sfx
+from .dryearth import ensure_dry_earth
 from .geo import make_mask
 from .paths import BRAND, ENGINE, ENGINE_PUBLIC, TOPICS, build_dir, deliver_dir
 from .timeline import Resolver, build_scenes, visual_events, _convert
@@ -172,12 +173,16 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     # 6) Motor girdileri
     log("6/8 Motor girdileri (engine/public/current)")
     ensure_public()
+    ensure_dry_earth()
     cur = ENGINE_PUBLIC / "current"
     if cur.exists():
         shutil.rmtree(cur)
     cur.mkdir(parents=True)
     geo = topic.get("geo", {})
     make_mask(cur / "geo_mask.png", geo.get("highlight_a"), geo.get("highlight_b"))
+    img_src = TOPICS / topic_id / "img"
+    if img_src.exists():  # konuya özgü fotogerçekçi görseller
+        shutil.copytree(img_src, cur / "img")
     shutil.copy2(bdir / "mix.wav", cur / "mix.wav")
     (cur / "timeline.json").write_text(json.dumps(timeline, ensure_ascii=False), encoding="utf-8")
     (bdir / "timeline.json").write_text(json.dumps(timeline, ensure_ascii=False, indent=1), encoding="utf-8")
