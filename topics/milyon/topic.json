@@ -1,0 +1,379 @@
+{
+ "id": "milyon",
+ "output_name": "HerkesMilyoner_VAYYMATIK_Shorts",
+ "language": "tr",
+ "voice": {
+  "provider": "external",
+  "name": "ElevenLabs · Furkan - Bilingual Turkish Narrator (Dzgub2SzfGvifooR4JMV)",
+  "lead_in": 0.12,
+  "tail": 1.3
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "text": "Bir sabah uyandın, telefonuna baktın ve hesabında tam {g:bir milyon lira} var!",
+   "pause_after": 0.3
+  },
+  {
+   "id": "herkes",
+   "text": "Ama sadece senin değil, {herkesin} hesabına aynı para yatmış.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "zengin",
+   "text": "İlk başta herkes {zengin} olduğunu düşünürdü.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "magaza",
+   "text": "İnsanlar {araba}, {ev} ve {telefon} almak için {mağazalara} koşardı.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "sorun",
+   "text": "Ama ortada büyük bir {sorun} var.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "ayni",
+   "text": "Para miktarı arttı, fakat satılık evlerin, arabaların ve ürünlerin sayısı {aynı kaldı}!",
+   "pause_after": 0.2
+  },
+  {
+   "id": "talep",
+   "text": "{Talep} hızla yükselirken {fiyatlar} da artmaya başlayabilirdi.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "calisan",
+   "text": "Bazı insanlar {çalışmayı bırakabilir}, işletmeler çalışan bulmakta {zorlanabilirdi}.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "guc",
+   "text": "Bir milyon liranın {satın alma gücü} giderek düşebilirdi.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "servet",
+   "text": "Çünkü {para üretmek}, gerçek {servet} üretmekle aynı şey değildir.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "final",
+   "text": "Herkes {milyoner} olsa bile, herkes {zengin} olamazdı.",
+   "pause_after": 0.25
+  },
+  {
+   "id": "soru",
+   "text": "Peki sen hesabına bir milyon lira yatsa, {ilk ne alırdın}?"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "telefon",
+   "type": "econ",
+   "start": "@start",
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   },
+   "note": "Telefon ekranında banka bildirimi, bakiye 1.000.000 TL artıyor; ışıkla aydınlanan siluet",
+   "props": {
+    "mode": "phone"
+   }
+  },
+  {
+   "id": "dalga",
+   "type": "econ",
+   "start": "@herkes.start-0.1",
+   "transition": {
+    "type": "flash",
+    "dur": 0.3
+   },
+   "note": "Herkes aynı bildirimi alıyor; şehir ışıkları, sevinç",
+   "props": {
+    "mode": "wave"
+   }
+  },
+  {
+   "id": "magaza",
+   "type": "econ",
+   "start": "@magaza.start-0.15",
+   "transition": {
+    "type": "whip",
+    "dur": 0.3
+   },
+   "note": "Otomobil bayisi, emlakçı ve teknoloji mağazasında kalabalık",
+   "props": {
+    "mode": "shops"
+   }
+  },
+  {
+   "id": "fiyat",
+   "type": "econ",
+   "start": "@ayni.start-0.1",
+   "transition": {
+    "type": "zoom",
+    "dur": 0.3
+   },
+   "note": "Stok azalırken fiyat etiketleri yükselir (ÖRNEK simülasyon)",
+   "props": {
+    "mode": "prices"
+   }
+  },
+  {
+   "id": "isgucu",
+   "type": "econ",
+   "start": "@calisan.start-0.15",
+   "transition": {
+    "type": "blur",
+    "dur": 0.3
+   },
+   "note": "Eleman bulamayan işletmeler, artan maliyet, belirsizlik",
+   "props": {
+    "mode": "labor"
+   }
+  },
+  {
+   "id": "guc",
+   "type": "econ",
+   "start": "@guc.start-0.1",
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   },
+   "note": "Bakiye 1.000.000 TL kalır, alınabilecek ürün miktarı azalır",
+   "props": {
+    "mode": "power"
+   }
+  },
+  {
+   "id": "final",
+   "type": "econ",
+   "start": "@final.start-0.1",
+   "transition": {
+    "type": "flash",
+    "dur": 0.35
+   },
+   "note": "Sinematik final: HERKES MİLYONER, AMA HERKES ZENGİN DEĞİL!",
+   "props": {
+    "mode": "finale"
+   }
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Varsayımsal senaryo · örnek simülasyon",
+   "start": "@start",
+   "end": "@end"
+  }
+ ],
+ "music": {
+  "style": "story",
+  "bpm": 100,
+  "seed": 23,
+  "sections": {
+   "hook": "@start",
+   "origin": "@herkes.start-0.1",
+   "rise": "@magaza.start-0.2",
+   "drive": "@ayni.start-0.1",
+   "break": "@guc.start-0.1",
+   "climax": "@final.start-0.1",
+   "resolve": "@soru.start-0.15",
+   "end": "@end"
+  },
+  "hits": [
+   {
+    "at": "@start",
+    "kind": "impact"
+   },
+   {
+    "at": "@sorun.start",
+    "kind": "braam"
+   },
+   {
+    "at": "@final.start",
+    "kind": "boom"
+   }
+  ],
+  "risers": [
+   {
+    "to": "@sorun.start",
+    "dur": 1.0
+   },
+   {
+    "to": "@final.start-0.1",
+    "dur": 1.2
+   }
+  ]
+ },
+ "sfx": [
+  {
+   "type": "cash",
+   "at": 0.55,
+   "gain": -2
+  },
+  {
+   "type": "pop",
+   "at": "@start+1.9"
+  },
+  {
+   "type": "whoosh",
+   "at": "@herkes.start-0.2"
+  },
+  {
+   "type": "pop",
+   "at": "@herkes.start+0.8"
+  },
+  {
+   "type": "pop",
+   "at": "@herkes.start+1.6"
+  },
+  {
+   "type": "pop",
+   "at": "@herkes.start+2.3"
+  },
+  {
+   "type": "cash",
+   "at": "@zengin.start"
+  },
+  {
+   "type": "whoosh",
+   "at": "@magaza.start-0.3"
+  },
+  {
+   "type": "crowd",
+   "at": "@magaza.start",
+   "dur": 6.5,
+   "gain": -6
+  },
+  {
+   "type": "impact",
+   "at": "@sorun.start",
+   "gain": -2
+  },
+  {
+   "type": "whoosh",
+   "at": "@ayni.start-0.25"
+  },
+  {
+   "type": "ticks",
+   "at": "@ayni.start+0.2",
+   "dur": 4.0,
+   "gain": -8
+  },
+  {
+   "type": "impact",
+   "at": "@ayni.word:aynı"
+  },
+  {
+   "type": "whoosh",
+   "at": "@calisan.start-0.25"
+  },
+  {
+   "type": "heartbeat",
+   "at": "@calisan.start+0.5",
+   "gain": -5
+  },
+  {
+   "type": "riser",
+   "at": "@guc.start-0.9",
+   "dur": 0.9
+  },
+  {
+   "type": "heartbeat",
+   "at": "@guc.start+0.5",
+   "gain": -5
+  },
+  {
+   "type": "heartbeat",
+   "at": "@servet.start+0.5",
+   "gain": -5
+  },
+  {
+   "type": "riser",
+   "at": "@final.start-1.0",
+   "dur": 1.0
+  },
+  {
+   "type": "impact",
+   "at": "@final.start",
+   "gain": 0
+  },
+  {
+   "type": "impact",
+   "at": "@final.word:zengin",
+   "gain": 0
+  }
+ ],
+ "metadata": {
+  "title": "Herkesin Hesabına 1 Milyon TL Yatsa Ne Olurdu? 💸",
+  "title_alternatives": [
+   "Herkes Milyoner Olsa Ne Olur? 🤯",
+   "Hesabına 1 Milyon Lira Yattı… Ama Herkesinkine De!",
+   "Herkes Milyoner Olursa Fiyatlara Ne Olur?"
+  ],
+  "description": [
+   "Bir sabah uyanıyorsun ve hesabında 1.000.000 TL var… ama herkesin hesabında da! 💸",
+   "",
+   "Bu videoda varsayımsal bir senaryoyu inceliyoruz: yeni yaratılan para herkesin hesabına aynı anda yatıyor, fakat ev, araba ve ürün arzı başlangıçta aynı kalıyor. Talep, fiyatlar, işgücü ve satın alma gücü ne yönde etkilenebilir?",
+   "",
+   "⚠️ Bu bir varsayımsal ekonomi senaryosudur. Videodaki fiyatlar ve sayılar yalnızca örnek simülasyondur; enflasyon oranı veya fiyatların kaç katına çıkacağı tahmin edilmemiştir. Sonuç; insanların harcama davranışlarına, üretime ve ekonomi politikalarına bağlıdır.",
+   "Yatırım tavsiyesi değildir.",
+   "",
+   "👇 Yorumlara yaz: Hesabına 1 milyon lira yatsa ilk ne alırdın?",
+   "",
+   "Ses: ElevenLabs (Furkan sesi). Görseller ve müzik VAYYMATİK için özgün olarak üretilmiştir.",
+   "🔔 Ekonomiyi sade anlatan videolar için VAYYMATİK'i takip et."
+  ],
+  "hashtags": [
+   "#Shorts",
+   "#Ekonomi",
+   "#Enflasyon",
+   "#1MilyonTL",
+   "#NeOlurdu",
+   "#ParaveEkonomi",
+   "#Finans",
+   "#SatınAlmaGücü",
+   "#VAYYMATİK"
+  ],
+  "tiktok": {
+   "description": "Herkesin hesabına 1 milyon TL yatsa ne olurdu? 💸 Herkes milyoner olur ama herkes zengin olur mu? 🤔 Varsayımsal senaryo, örnek simülasyon. Sen ilk ne alırdın? 👇",
+   "hashtags": [
+    "#ekonomi",
+    "#neolurdu",
+    "#1milyontl",
+    "#enflasyon",
+    "#para",
+    "#finans",
+    "#keşfet",
+    "#fyp",
+    "#vayymatik"
+   ]
+  },
+  "thumbnail": {
+   "kicker": "Varsayımsal senaryo",
+   "lines": [
+    {
+     "text": "Herkese"
+    },
+    {
+     "text": "1 milyon TL",
+     "color": "gold"
+    },
+    {
+     "text": "yatsa?"
+    }
+   ],
+   "badge": "Herkes zengin olur mu?",
+   "pitch": 6
+  }
+ },
+ "sources": [],
+ "assets_credits": [
+  "Ses: ElevenLabs — 'Furkan - Bilingual Turkish Narrator' (kullanıcının mevcut hesabı).",
+  "Görseller: VAYYMATİK motoru ile koddan üretildi (dış görsel yok).",
+  "Müzik/SFX: prosedürel, özgün."
+ ]
+}
