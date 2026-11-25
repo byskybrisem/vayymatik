@@ -46,8 +46,53 @@ def _resample(x: np.ndarray, sr: int) -> np.ndarray:
     return resample_poly(x, SR_OUT // g, sr // g).astype(np.float32)
 
 
+def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dict]]:
+    """Harici (ör. ElevenLabs) ses dosyası: 48 kHz'e çevir, baş/son sessizliği bul, kelime
+    zamanlarını heceye (ünlü sayısı) + virgül duraklarına göre konuşma aralığına dağıt."""
+    import subprocess, tempfile
+
+    with tempfile.TemporaryDirectory() as td:
+        wav = Path(td) / "x.wav"
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(path), "-ac", "1", "-ar", str(SR_OUT), str(wav)], check=True)
+        audio, _ = sf.read(wav, dtype="float32")
+    env = np.abs(audio)
+    win = SR_OUT // 100
+    e = np.convolve(env, np.ones(win) / win, mode="same")
+    on = np.where(e > max(0.02 * e.max(), 1e-4))[0]
+    t0, t1 = (on[0] / SR_OUT, on[-1] / SR_OUT) if len(on) else (0.0, len(audio) / SR_OUT)
+    weights = []
+    for w in parsed.spoken:
+        syl = max(1, sum(ch in "aeıioöuüAEIİOÖUÜ" for ch in w))
+        weights.append(syl + 0.45)
+        if w.rstrip().endswith((",", ";", ":")):
+            weights.append(0.0)  # duraklama yeri aşağıda ayrı eklenir
+    # duraklama ağırlığı: virgüllü kelimeden sonra ~0.12 sn eşdeğeri
+    total_syl_rate = max(1e-6, sum(weights)) / max(0.1, (t1 - t0))
+    words, t = [], t0
+    span = t1 - t0
+    pause = [0.12 if w.rstrip().endswith((",", ";", ":")) else 0.0 for w in parsed.spoken]
+    wts = [max(1, sum(ch in "aeıioöuüAEIİOÖUÜ" for ch in w)) + 0.45 for w in parsed.spoken]
+    avail = max(0.1, span - sum(pause[:-1]))
+    scale = avail / sum(wts)
+    for w, wt, pz in zip(parsed.spoken, wts, pause):
+        d = wt * scale
+        words.append({"text": w, "start": round(t, 4), "end": round(t + d, 4)})
+        t += d + pz
+    return audio, words
+
+
 def synth_lines(topic: dict, cache_dir: Path, log=print) -> list[LineAudio]:
     v = topic["voice"]
+    if v.get("provider") == "external":
+        from .paths import TOPICS
+        out = []
+        for line in topic["lines"]:
+            parsed = parse_line(line["text"])
+            src = TOPICS / topic["id"] / "voice" / f"{line['id']}.mp3"
+            audio, words = _external_line(src, parsed)
+            out.append(LineAudio(id=line["id"], parsed=parsed, audio=audio, words=words, pause_after=line.get("pause_after", v.get("gap", 0.25))))
+        log(f"  [ses] harici ses ({v.get('name', 'external')}): {len(out)} satır")
+        return out
     model = VOICES / f"{v['model']}.onnx"
     cfgp = VOICES / f"{v['model']}.onnx.json"
     if not model.exists():
