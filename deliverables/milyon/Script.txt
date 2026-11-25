@@ -1,0 +1,45 @@
+Herkesin Hesabına 1 Milyon TL Yatsa Ne Olurdu? 💸
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 51.7 sn
+
+SENARYO (zaman kodlu, seslendirme ile birebir)
+============================================================
+[00:00.12 – 00:05.15]  Bir sabah uyandın, telefonuna baktın ve hesabında tam bir milyon lira var!
+      sahne: telefon — Telefon ekranında banka bildirimi, bakiye 1.000.000 TL artıyor; ışıkla aydınlanan siluet
+[00:05.45 – 00:09.43]  Ama sadece senin değil, herkesin hesabına aynı para yatmış.
+      sahne: dalga — Herkes aynı bildirimi alıyor; şehir ışıkları, sevinç
+[00:09.73 – 00:12.40]  İlk başta herkes zengin olduğunu düşünürdü.
+      sahne: dalga — Herkes aynı bildirimi alıyor; şehir ışıkları, sevinç
+[00:12.60 – 00:16.93]  İnsanlar araba, ev ve telefon almak için mağazalara koşardı.
+      sahne: magaza — Otomobil bayisi, emlakçı ve teknoloji mağazasında kalabalık
+[00:17.13 – 00:19.30]  Ama ortada büyük bir sorun var.
+      sahne: magaza — Otomobil bayisi, emlakçı ve teknoloji mağazasında kalabalık
+[00:19.50 – 00:25.33]  Para miktarı arttı, fakat satılık evlerin, arabaların ve ürünlerin sayısı aynı kaldı!
+      sahne: fiyat — Stok azalırken fiyat etiketleri yükselir (ÖRNEK simülasyon)
+[00:25.53 – 00:29.17]  Talep hızla yükselirken fiyatlar da artmaya başlayabilirdi.
+      sahne: fiyat — Stok azalırken fiyat etiketleri yükselir (ÖRNEK simülasyon)
+[00:29.37 – 00:34.63]  Bazı insanlar çalışmayı bırakabilir, işletmeler çalışan bulmakta zorlanabilirdi.
+      sahne: isgucu — Eleman bulamayan işletmeler, artan maliyet, belirsizlik
+[00:34.83 – 00:38.17]  Bir milyon liranın satın alma gücü giderek düşebilirdi.
+      sahne: guc — Bakiye 1.000.000 TL kalır, alınabilecek ürün miktarı azalır
+[00:38.37 – 00:42.56]  Çünkü para üretmek, gerçek servet üretmekle aynı şey değildir.
+      sahne: guc — Bakiye 1.000.000 TL kalır, alınabilecek ürün miktarı azalır
+[00:42.76 – 00:46.24]  Herkes milyoner olsa bile, herkes zengin olamazdı.
+      sahne: final — Sinematik final: HERKES MİLYONER, AMA HERKES ZENGİN DEĞİL!
+[00:46.49 – 00:50.34]  Peki sen hesabına bir milyon lira yatsa, ilk ne alırdın?
+      sahne: final — Sinematik final: HERKES MİLYONER, AMA HERKES ZENGİN DEĞİL!
+
+SAHNE LİSTESİ
+============================================================
+00:00.00 – 00:05.63  telefon         [econ]  geçiş: cut  Telefon ekranında banka bildirimi, bakiye 1.000.000 TL artıyor; ışıkla aydınlanan siluet
+00:05.33 – 00:12.77  dalga           [econ]  geçiş: flash  Herkes aynı bildirimi alıyor; şehir ışıkları, sevinç
+00:12.47 – 00:19.70  magaza          [econ]  geçiş: whip  Otomobil bayisi, emlakçı ve teknoloji mağazasında kalabalık
+00:19.40 – 00:29.53  fiyat           [econ]  geçiş: zoom  Stok azalırken fiyat etiketleri yükselir (ÖRNEK simülasyon)
+00:29.23 – 00:35.03  isgucu          [econ]  geçiş: blur  Eleman bulamayan işletmeler, artan maliyet, belirsizlik
+00:34.73 – 00:43.00  guc             [econ]  geçiş: fade  Bakiye 1.000.000 TL kalır, alınabilecek ürün miktarı azalır
+00:42.67 – 00:51.67  final           [econ]  geçiş: flash  Sinematik final: HERKES MİLYONER, AMA HERKES ZENGİN DEĞİL!
+
+SES
+============================================================
+Anlatıcı: ElevenLabs · Furkan - Bilingual Turkish Narrator (Dzgub2SzfGvifooR4JMV)
+Müzik: özgün prosedürel kompozisyon · 100 BPM · Re minör
+Miks: {"integrated_lufs": -14.01, "true_peak_dbtp": -1.77, "voice_lufs": -16.0, "music_under_voice_db": 10.3}
