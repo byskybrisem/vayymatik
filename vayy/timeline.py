@@ -16,7 +16,7 @@ import re
 from .voice import LineAudio
 
 TIME_KEYS = {"t", "from", "to", "dur", "start", "end", "at", "out", "breakAt"}
-LIST_TIME_KEYS = {"beats", "on"}
+LIST_TIME_KEYS = {"beats", "on", "groupOut"}
 _REF = re.compile(r"^@(?P<base>[^+\-]+?)(?P<off>[+\-]\d+(?:\.\d+)?)?$")
 
 

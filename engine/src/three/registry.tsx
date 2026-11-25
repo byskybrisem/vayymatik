@@ -2,6 +2,7 @@
 import type React from 'react';
 import {Character} from './character/Character';
 import {Banknote, CashStack, Car, Chair, Coin, CoinStack, Desk, DeskLamp, Glow, GoldBar, GoldPile, Laptop} from './objects/props';
+import {Baseplate, Bricks, Conveyor, Hall, LineGraph, StudioFloor, ToyBoxes} from './objects/lego';
 import {Room} from './env/Room';
 import {City, Tower} from './env/City';
 import {Sky} from './env/Sky';
@@ -31,4 +32,11 @@ export const OBJECTS: Record<string, React.FC<any>> = {
 	moneySwirl: MoneySwirl,
 	lightCone: LightCone,
 	chart: GrowthChart3D,
+	bricks: Bricks,
+	baseplate: Baseplate,
+	studioFloor: StudioFloor,
+	toyBoxes: ToyBoxes,
+	conveyor: Conveyor,
+	hall: Hall,
+	lineGraph: LineGraph,
 };
