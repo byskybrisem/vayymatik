@@ -2828,9 +2828,24 @@
   }
  },
  "sources": [
-  "LEGO Group Annual Report 2003 (2003 satışlarında %26 düşüş; vergi öncesi zarar 1,432 milyar DKK)",
-  "LEGO Group resmî şirket tarihçesi (2004 yönetim değişikliği ve yeniden yapılanma; 2005 LEGOLAND parklarının satışı)",
-  "LEGO Group 2025 Full Year Results (ciro 83,5 milyar DKK; net kâr 16,7 milyar DKK)"
+  {
+   "claim": "2003'te satışlarda %26 düşüş; vergi öncesi zarar 1,432 milyar DKK",
+   "title": "LEGO Group Annual Report 2003",
+   "url": "https://www.lego.com/en-us/aboutus/lego-group/annual-report",
+   "accessed": "Kullanıcı tarafından sağlanan kaynak (bağımsız olarak yeniden doğrulanmadı)"
+  },
+  {
+   "claim": "2004 yönetim değişikliği ve yeniden yapılanma; 2005 LEGOLAND parklarının satışı",
+   "title": "LEGO resmî şirket tarihçesi",
+   "url": "https://www.lego.com/en-us/history",
+   "accessed": "Kullanıcı tarafından sağlanan kaynak (bağımsız olarak yeniden doğrulanmadı)"
+  },
+  {
+   "claim": "2025 ciro 83,5 milyar DKK; net kâr 16,7 milyar DKK",
+   "title": "LEGO Group 2025 Full Year Results",
+   "url": "https://www.lego.com/en-us/aboutus/lego-group/annual-report",
+   "accessed": "Kullanıcı tarafından sağlanan kaynak (bağımsız olarak yeniden doğrulanmadı)"
+  }
  ],
  "disclaimers": [],
  "assets_credits": [
