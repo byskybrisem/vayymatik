@@ -80,7 +80,11 @@
    },
    "note": "Telefon ekranında banka bildirimi, bakiye 1.000.000 TL artıyor; ışıkla aydınlanan siluet",
    "props": {
-    "mode": "phone"
+    "mode": "phone",
+    "beats": [
+     1.9,
+     3.6
+    ]
    }
   },
   {
@@ -93,7 +97,12 @@
    },
    "note": "Herkes aynı bildirimi alıyor; şehir ışıkları, sevinç",
    "props": {
-    "mode": "wave"
+    "mode": "wave",
+    "beats": [
+     2.0,
+     4.0,
+     6.0
+    ]
    }
   },
   {
@@ -106,7 +115,11 @@
    },
    "note": "Otomobil bayisi, emlakçı ve teknoloji mağazasında kalabalık",
    "props": {
-    "mode": "shops"
+    "mode": "shops",
+    "beats": [
+     2.3,
+     4.7
+    ]
    }
   },
   {
@@ -119,7 +132,15 @@
    },
    "note": "Stok azalırken fiyat etiketleri yükselir (ÖRNEK simülasyon)",
    "props": {
-    "mode": "prices"
+    "mode": "prices",
+    "beats": [
+     0.9,
+     1.7,
+     3.5,
+     5.5,
+     7.5,
+     9.3
+    ]
    }
   },
   {
@@ -132,7 +153,12 @@
    },
    "note": "Eleman bulamayan işletmeler, artan maliyet, belirsizlik",
    "props": {
-    "mode": "labor"
+    "mode": "labor",
+    "beats": [
+     0.9,
+     1.9,
+     3.0
+    ]
    }
   },
   {
@@ -145,7 +171,12 @@
    },
    "note": "Bakiye 1.000.000 TL kalır, alınabilecek ürün miktarı azalır",
    "props": {
-    "mode": "power"
+    "mode": "power",
+    "beats": [
+     2.0,
+     4.0,
+     6.0
+    ]
    }
   },
   {
@@ -158,13 +189,19 @@
    },
    "note": "Sinematik final: HERKES MİLYONER, AMA HERKES ZENGİN DEĞİL!",
    "props": {
-    "mode": "finale"
+    "mode": "finale",
+    "beats": [
+     1.3,
+     3.4,
+     5.6,
+     7.6
+    ]
    }
   }
  ],
  "disclaimers": [
   {
-   "text": "Varsayımsal senaryo · örnek simülasyon",
+   "text": "Örnek simülasyon",
    "start": "@start",
    "end": "@end"
   }
@@ -375,5 +412,8 @@
   "Ses: ElevenLabs — 'Furkan - Bilingual Turkish Narrator' (kullanıcının mevcut hesabı).",
   "Görseller: VAYYMATİK motoru ile koddan üretildi (dış görsel yok).",
   "Müzik/SFX: prosedürel, özgün."
- ]
+ ],
+ "mix": {
+  "ceiling_db": -2.6
+ }
 }

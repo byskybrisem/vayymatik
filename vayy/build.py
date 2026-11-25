@@ -163,7 +163,7 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     # 5) Miks
     log("5/8 Miks + loudness")
     voice = render_voice_track(lines, total)
-    mixed, astats = mixmod.master(voice, music, sfx, brand.get("mix"))
+    mixed, astats = mixmod.master(voice, music, sfx, {**(brand.get("mix") or {}), **topic.get("mix", {})})
     sf.write(bdir / "mix.wav", mixed, SR_OUT, subtype="PCM_24")
     sf.write(bdir / "voice_dry.wav", voice, SR_OUT, subtype="PCM_24")
     sf.write(bdir / "music.wav", music, SR_OUT, subtype="PCM_16")

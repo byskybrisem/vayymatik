@@ -68,7 +68,7 @@ def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dic
             weights.append(0.0)  # duraklama yeri aşağıda ayrı eklenir
     # duraklama ağırlığı: virgüllü kelimeden sonra ~0.12 sn eşdeğeri
     total_syl_rate = max(1e-6, sum(weights)) / max(0.1, (t1 - t0))
-    words, t = [], t0
+    words, t = [], t0 + 0.1  # ölçülen sistematik gecikme (ASR başlangıçları ≈ +0,1 sn)
     span = t1 - t0
     pause = [0.12 if w.rstrip().endswith((",", ";", ":")) else 0.0 for w in parsed.spoken]
     wts = [max(1, sum(ch in "aeıioöuüAEIİOÖUÜ" for ch in w)) + 0.45 for w in parsed.spoken]
@@ -78,6 +78,22 @@ def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dic
         d = wt * scale
         words.append({"text": w, "start": round(t, 4), "end": round(t + d, 4)})
         t += d + pz
+    # Kelime sınırlarını yakın enerji çukuruna yapıştır (±120 ms): oransal tahmini gerçek ses zarfına oturtur
+    ev = np.convolve(env, np.ones(win // 2) / (win // 2), mode="same")
+    prev = t0
+    for i in range(1, len(words)):
+        c = words[i]["start"]
+        lo, hi = int((c - 0.12) * SR_OUT), int((c + 0.12) * SR_OUT)
+        lo, hi = max(lo, int((prev + 0.05) * SR_OUT)), min(hi, len(ev) - 1)
+        if hi > lo:
+            seg = ev[lo:hi]
+            pen = np.abs(np.arange(lo, hi) / SR_OUT - c) * 0.02 * ev.max()
+            c = (lo + int(np.argmin(seg + pen))) / SR_OUT
+        words[i]["start"] = round(c, 4)
+        words[i - 1]["end"] = round(c, 4)
+        prev = c
+    for w in words:
+        w["end"] = round(max(w["end"], w["start"] + 0.06), 4)
     return audio, words
 
 

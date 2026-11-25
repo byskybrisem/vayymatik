@@ -359,7 +359,7 @@ const PowerScene: React.FC<{f: number}> = ({f}) => {
 			<div style={{position: 'absolute', left: 60, right: 60, top: 730, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18}}>
 				{items.map((it, i) => {
 					const gone = prog(f, 0, 1) * (hash(i * 5) * 0.85 < k * 1.0 - 0.1 * (i % 4) ? 1 : 0);
-					const fade = interpolate(k, [hash(i * 5) * 0.8, hash(i * 5) * 0.8 + 0.15], [1, 0.08], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+					const fade = interpolate(k, [0.25 + hash(i * 5) * 0.55, 0.4 + hash(i * 5) * 0.55], [1, 0.12], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 					return (
 						<div key={i} style={{height: 150, borderRadius: 22, display: 'grid', placeItems: 'center', background: 'rgba(255,255,255,0.06)', boxShadow: 'inset 0 0 0 2px rgba(255,255,255,0.1)', opacity: fade, transform: `scale(${0.7 + 0.3 * fade})`, filter: gone ? 'grayscale(1)' : undefined}}>
 							<Icon kind={it} size={96} color={fade > 0.5 ? '#fff' : '#888'} />
@@ -397,6 +397,9 @@ const FinaleScene: React.FC<{f: number}> = ({f}) => {
 				<div style={{fontSize: 156, lineHeight: 1, color: '#fff', letterSpacing: 2, opacity: a, transform: `scale(${1.25 - 0.25 * a})`, textShadow: '0 0 50px rgba(255,200,61,0.7), 0 8px 0 rgba(0,0,0,0.5)'}}>HERKES<br />MİLYONER,</div>
 				<div style={{marginTop: 46, fontSize: 104, lineHeight: 1.02, color: GOLD, opacity: b, transform: `scale(${1.3 - 0.3 * b})`, textShadow: '0 0 60px rgba(255,68,88,0.55), 0 6px 0 rgba(0,0,0,0.5)'}}>AMA HERKES<br /><span style={{color: RED}}>ZENGİN DEĞİL!</span></div>
 			</div>
+			{[3.4 * 30, 5.6 * 30].map((at, i) => (
+				<AbsoluteFill key={i} style={{background: 'radial-gradient(ellipse 70% 40% at 50% 30%, rgba(255,210,120,0.55), transparent)', opacity: interpolate(f, [at, at + 6, at + 26], [0, 0.8, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}), mixBlendMode: 'screen'}} />
+			))}
 			<Grade leak="rgba(255,190,80,0.3)" />
 		</AbsoluteFill>
 	);

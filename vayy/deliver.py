@@ -44,7 +44,7 @@ def deliver(topic_id: str, thumbnail: bool = True) -> None:
     for s in scenes:
         out.append(f"{_ts(s['from'] / fps)} – {_ts((s['from'] + s['dur']) / fps)}  {s['id']:<15} [{s['type']}]  geçiş: {s['transitionIn'].get('type')}  {notes.get(s['id'], '')}")
     out += ["", "SES", "=" * 60,
-            f"Anlatıcı: Piper TTS · {topic['voice']['model']} (CC0) · length {topic['voice']['length_scale']} · noise {topic['voice']['noise_scale']} · noise_w {topic['voice']['noise_w']}",
+            f"Anlatıcı: {topic['voice']['name']}" if topic["voice"].get("provider") == "external" else f"Anlatıcı: Piper TTS · {topic['voice']['model']} (CC0) · length {topic['voice']['length_scale']} · noise {topic['voice']['noise_scale']} · noise_w {topic['voice']['noise_w']}",
             f"Müzik: özgün prosedürel kompozisyon · {topic['music'].get('bpm', 120)} BPM · Re minör",
             f"Miks: {json.dumps(meta['audio'], ensure_ascii=False)}"]
     (ddir / "Script.txt").write_text("\n".join(out) + "\n", encoding="utf-8")
@@ -52,6 +52,9 @@ def deliver(topic_id: str, thumbnail: bool = True) -> None:
     (ddir / "Title.txt").write_text(md["title"] + "\n\nAlternatifler:\n" + "\n".join("- " + t for t in md.get("title_alternatives", [])) + "\n", encoding="utf-8")
     desc = "\n".join(md["description"]) + "\n\n" + " ".join(md["hashtags"]) + "\n"
     (ddir / "Description.txt").write_text(desc, encoding="utf-8")
+    if md.get("tiktok"):
+        tk = md["tiktok"]
+        (ddir / "TikTok.txt").write_text(tk["description"] + "\n\n" + " ".join(tk["hashtags"]) + "\n", encoding="utf-8")
     (ddir / "Hashtags.txt").write_text(" ".join(md["hashtags"]) + "\n", encoding="utf-8")
 
     src = ["# Kaynaklar ve doğrulama — " + md["title"], "",
