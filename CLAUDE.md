@@ -47,3 +47,11 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 - Kullanıcı video istediğinde konuya göre ilgili proje skill'lerini kendin çağır; slash komutu veya ayrıca izin isteme: `shorts-script-to-scenes` (senaryo/konu), `three-scene-builder` (3D), `remotion-video-creation` (Remotion kodu/animasyon), `render-qa` (render/teslim).
 - Skill aracı yoksa ilgili `.claude/skills/<ad>/SKILL.md` dosyasını oku. Yalnız gereken skill ve referansları yükle; mevcut JSON motorunu tercih et, gereksiz paket/ajan/ücretli API kullanma.
 - Referans videonun metnini/karakterini kopyalama. Render ve QA gerçek çıktılarla doğrulanmadan tamamlandı deme.
+
+
+## RTK — komut çıktısı sıkıştırma (proje bazlı, hook yok)
+- Kurulum: `./scripts/setup-rtk.sh` (sürüm sabit: v1.2.1, Apache-2.0 edition, kaynaktan `--locked` derleme). Doğrulama: `rtk --version`, `rtk gain`.
+- Yalnızca bu komutlarda `rtk` öneki kullan: `rtk git status|diff|log|show|branch`, `rtk cargo test`, `rtk pytest`, `rtk npm test|ci|run build` (test/derleme çıktısı çoksa), `cd engine && rtk npx tsc --noEmit`.
+- Asla `rtk` ile çalıştırma: `ffmpeg`, `ffprobe`, `npx remotion` (render/bundle), `python3 -m vayy build|audio|remux|qa|stills`, Piper ve diğer render/ses/QA komutları. Bunların hata kayıtları ve çıktıları eksiksiz görünmeli.
+- Exit code ≠ 0, test kırmızı, çıktı boş/çelişkili/bozuk ise: `rtk bypass <cmd>` ile ham çıktıyı al veya komutu `rtk`siz yeniden çalıştır. Hata metnini özetleme; kritik satırları birebir aktar.
+- Telemetri kapalı tut (`rtk telemetry status` → enabled: no). Global hook (`rtk init -g`) kurma.
