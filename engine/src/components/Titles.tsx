@@ -20,7 +20,7 @@ export type TitleSpec = {
 	subColor?: string;
 	font?: 'display' | 'sans';
 	metallic?: boolean;
-	count?: {v0: number; v1: number; decimals?: number; prefix?: string; suffix?: string; dur?: number};
+	count?: {v0: number; v1: number; decimals?: number; prefix?: string; suffix?: string; dur?: number; accel?: boolean};
 	maxWidth?: number;
 	upper?: boolean;
 	plate?: boolean; // parlak zeminde okunurluk için koyu yarı saydam panel
@@ -39,7 +39,7 @@ const Title: React.FC<{t: TitleSpec}> = ({t}) => {
 	const upper = t.upper !== false;
 	let text = upper ? trUpper(t.text) : t.text;
 	if (t.count) {
-		const cp = prog(f, 0, t.count.dur ?? Math.min(t.dur - 6, 40), ease.cine);
+		const cp = prog(f, 0, t.count.dur ?? Math.min(t.dur - 6, 40), t.count.accel ? ease.in : ease.cine);
 		const v = t.count.v0 + (t.count.v1 - t.count.v0) * cp;
 		text = `${t.count.prefix ?? ''}${trNumber(v, t.count.decimals ?? 0)}${t.count.suffix ?? ''}`;
 	}

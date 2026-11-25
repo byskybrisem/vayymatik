@@ -24,7 +24,7 @@ export const Stage3D: React.FC<StageProps> = ({bg = '#05070D', fog, exposure = 1
 			dpr={scale}
 			shadows={shadows ? {type: THREE.PCFSoftShadowMap} : false}
 			gl={{antialias: true, preserveDrawingBuffer: true, powerPreference: 'high-performance'}}
-			camera={{fov: 35, near: 0.1, far: 900, position: [0, 1.6, 5]}}
+			camera={{fov: 35, near: 0.1, far: 4000, position: [0, 1.6, 5]}}
 			style={{backgroundColor: bg}}
 			onCreated={({gl}) => {
 				gl.toneMapping = THREE.ACESFilmicToneMapping;

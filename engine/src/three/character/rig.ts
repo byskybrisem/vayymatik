@@ -35,6 +35,10 @@ export const POSES: Record<string, Pose> = {
 	// kollar açık: zirvede sakin güç
 	open: {...STAND, shLX: -0.25, shLZ: 0.75, shRX: -0.25, shRZ: -0.75, elLX: -0.25, elRX: -0.25, fingerL: 0.15, fingerR: 0.15, chestX: -0.06, headX: -0.08},
 	triumph: {...STAND, shLZ: 2.55, shRZ: -2.55, shLX: -0.2, shRX: -0.2, elLX: -0.35, elRX: -0.35, fingerL: 1.0, fingerR: 1.0, headX: -0.18, chestX: -0.1},
+	// çubuğu iki elle kavra (kollar öne)
+	hold: {...STAND, shLX: -1.25, shRX: -1.25, shLZ: 0.12, shRZ: -0.12, elLX: -0.45, elRX: -0.45, fingerL: 1, fingerR: 1, chestX: 0.03, headX: -0.04},
+	// çubuğu geri çek: gövde geriye yaslı, dirsekler bükük
+	pull: {...STAND, shLX: -1.0, shRX: -1.0, shLZ: 0.12, shRZ: -0.12, elLX: -1.15, elRX: -1.15, fingerL: 1, fingerR: 1, spineX: -0.22, chestX: -0.12, headX: 0.08, hipLX: -0.15, hipRX: 0.25, knLX: 0.25, knRX: 0.1},
 	handsHips: {...STAND, shLZ: 0.55, shRZ: -0.55, shLY: 0.5, shRY: -0.5, elLX: -1.6, elRX: -1.6, elLY: 0.5, elRY: -0.5, fingerL: 0.6, fingerR: 0.6, chestX: -0.04},
 };
 

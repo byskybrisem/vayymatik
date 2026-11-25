@@ -1,0 +1,3475 @@
+{
+ "id": "cubuk",
+ "output_name": "Isik_Hizi_Cubuk_VAYYMATIK",
+ "language": "tr",
+ "voice": {
+  "lead_in": 0.15,
+  "tail": 4.0,
+  "length_scale": 1.18
+ },
+ "foreign_words": [],
+ "lines": [
+  {
+   "id": "hook",
+   "text": "{İki} ışık yılı uzunluğunda bir {çubuğun} olduğunu düşün. Bir ucunu çektiğinde, diğer ucu {anında} hareket eder miydi?",
+   "pause_after": 0.85
+  },
+  {
+   "id": "evren",
+   "text": "Eğer öyle olsaydı, ışıktan bile hızlı mesaj gönderebilirdin. Ama {evren} buna izin vermiyor.",
+   "pause_after": 0.85
+  },
+  {
+   "id": "yay",
+   "text": "Birbirine bağlı yüzlerce {yayı} düşün. İlk yayı çektiğinde, hareket sırayla diğerlerine aktarılır.",
+   "pause_after": 0.85
+  },
+  {
+   "id": "celik",
+   "text": "{Çelik} bir çubukta da aynı şey olur. Hareketin etkisi, malzemenin içinde bir {dalga} olarak ilerler.",
+   "pause_after": 0.85
+  },
+  {
+   "id": "hiz",
+   "text": "Çelikte bu dalganın hızı, saniyede yaklaşık {beş} kilometredir.",
+   "pause_after": 0.85
+  },
+  {
+   "id": "yil",
+   "text": "Yani iki ışık yılı uzunluğundaki çubuğun diğer ucunun tepki vermesi, yaklaşık {g:yüz yirmi bin yıl} sürerdi!",
+   "pause_after": 0.85
+  },
+  {
+   "id": "son",
+   "text": "Sen çubuğu {bugün} çekerdin, ama diğer ucu binlerce {nesil} sonra hareket ederdi.",
+   "pause_after": 0.85
+  }
+ ],
+ "scenes": [
+  {
+   "id": "uzay",
+   "type": "world3d",
+   "start": "@start",
+   "end": "@yay.start-0.15",
+   "props": {
+    "stage": {
+     "bg": "#02030a",
+     "exposure": 1.1
+    },
+    "fog": {
+     "color": "#02040c",
+     "near": 40,
+     "far": 620
+    },
+    "grade": {
+     "saturate": 1.15,
+     "contrast": 1.1,
+     "leak": "rgba(80,150,255,0.5)",
+     "leakOpacity": [
+      {
+       "t": "@start+0",
+       "v": 0.15
+      },
+      {
+       "t": "@start+3",
+       "v": 0.3
+      },
+      {
+       "t": "@start+8",
+       "v": 0.15
+      }
+     ],
+     "flash": [
+      {
+       "t": "@start+11.9",
+       "v": 0
+      },
+      {
+       "t": "@start+12.0",
+       "v": 0.0
+      },
+      {
+       "t": "@start+12.05",
+       "v": 0.28
+      },
+      {
+       "t": "@start+12.5",
+       "v": 0
+      }
+     ]
+    },
+    "camera": {
+     "keys": [
+      {
+       "t": "@start+0",
+       "pos": [
+        2.0,
+        1.5,
+        5.2
+       ],
+       "target": [
+        0.1,
+        1.05,
+        0.3
+       ],
+       "fov": 34
+      },
+      {
+       "t": "@start+1.8",
+       "pos": [
+        1.9,
+        1.55,
+        4.9
+       ],
+       "target": [
+        -0.2,
+        1.1,
+        0.4
+       ],
+       "fov": 34
+      },
+      {
+       "t": "@start+2.7",
+       "pos": [
+        5.0,
+        1.8,
+        4.4
+       ],
+       "target": [
+        9,
+        1.4,
+        0.5
+       ],
+       "fov": 42
+      },
+      {
+       "t": "@start+3.6",
+       "pos": [
+        26,
+        3.2,
+        8
+       ],
+       "target": [
+        70,
+        1.4,
+        0.5
+       ],
+       "fov": 48
+      },
+      {
+       "t": "@start+6.2",
+       "pos": [
+        330,
+        5,
+        13
+       ],
+       "target": [
+        420,
+        1.2,
+        0.3
+       ],
+       "fov": 52
+      },
+      {
+       "t": "@start+7.6",
+       "pos": [
+        350,
+        5,
+        13
+       ],
+       "target": [
+        240,
+        1.2,
+        0.3
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+13.4",
+       "pos": [
+        380,
+        3.5,
+        9
+       ],
+       "target": [
+        60,
+        1.2,
+        0.3
+       ],
+       "fov": 56
+      }
+     ],
+     "shake": 0.012,
+     "ease": "linear"
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#3f4f80",
+      "intensity": 0.55
+     },
+     {
+      "type": "hemi",
+      "color": "#9fb8ff",
+      "ground": "#10131f",
+      "intensity": 0.5
+     },
+     {
+      "type": "spot",
+      "color": "#fff0dc",
+      "pos": [
+       2.2,
+       4.2,
+       3.6
+      ],
+      "target": [
+       0,
+       1.0,
+       0.2
+      ],
+      "intensity": 130,
+      "angle": 0.6,
+      "penumbra": 0.7,
+      "decay": 2,
+      "castShadow": true,
+      "mapSize": 1024
+     },
+     {
+      "type": "dir",
+      "color": "#bcd4ff",
+      "pos": [
+       10,
+       9,
+       12
+      ],
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "intensity": 2.4
+     },
+     {
+      "type": "point",
+      "color": "#ff8a3d",
+      "pos": [
+       -1.5,
+       1.8,
+       -1.5
+      ],
+      "intensity": 6,
+      "distance": 7,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "sky",
+      "top": "#050a1c",
+      "horizon": "#10204a",
+      "bottom": "#02030a",
+      "sunDir": [
+       0.3,
+       0.1,
+       -1
+      ],
+      "sunSize": 1.0,
+      "sun": "#000000",
+      "stars": 1.0
+     },
+     {
+      "kind": "stars",
+      "seed": 1
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       520
+      ],
+      "color": "#2a4aa8",
+      "opacity": 0.45,
+      "pos": [
+       120,
+       60,
+       -260
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       640
+      ],
+      "color": "#6a2aa0",
+      "opacity": 0.4,
+      "pos": [
+       300,
+       -90,
+       300
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       760
+      ],
+      "color": "#1a8aa8",
+      "opacity": 0.4,
+      "pos": [
+       520,
+       130,
+       -320
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       620
+      ],
+      "color": "#3a4ac0",
+      "opacity": 0.4,
+      "pos": [
+       700,
+       -60,
+       240
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       480
+      ],
+      "color": "#a03a7a",
+      "opacity": 0.3,
+      "pos": [
+       30,
+       -120,
+       -220
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       700
+      ],
+      "color": "#2a60b0",
+      "opacity": 0.3,
+      "pos": [
+       430,
+       200,
+       40
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       700
+      ],
+      "color": "#2a60b0",
+      "opacity": 0.35,
+      "pos": [
+       800,
+       60,
+       -200
+      ]
+     },
+     {
+      "kind": "debris",
+      "count": 700,
+      "length": 760,
+      "rMin": 4,
+      "rMax": 48,
+      "seed": 3,
+      "size": 0.4,
+      "color": "#6b7390"
+     },
+     {
+      "kind": "debris",
+      "count": 500,
+      "length": 760,
+      "rMin": 2.5,
+      "rMax": 32,
+      "seed": 9,
+      "size": 0.07,
+      "color": "#bcd8ff",
+      "glow": true
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       60
+      ],
+      "color": "#ff9a3d",
+      "opacity": [
+       {
+        "t": "@start+0",
+        "v": 0
+       },
+       {
+        "t": "@start+6.5",
+        "v": 0
+       },
+       {
+        "t": "@start+8.5",
+        "v": 0.8
+       }
+      ],
+      "pos": [
+       0,
+       1.3,
+       0
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "ico",
+      "size": [
+       2.3
+      ],
+      "color": "#3b4256",
+      "rough": 0.95,
+      "metal": 0.0,
+      "receive": true,
+      "pos": [
+       0,
+       -0.62,
+       0.2
+      ],
+      "scale": [
+       1,
+       0.3,
+       1
+      ],
+      "rot": [
+       0,
+       0.5,
+       0
+      ]
+     },
+     {
+      "kind": "character",
+      "pos": [
+       {
+        "t": "@start+0",
+        "v": [
+         0,
+         0,
+         0.1
+        ]
+       },
+       {
+        "t": "@start+0.25",
+        "v": [
+         0,
+         0,
+         0.1
+        ]
+       },
+       {
+        "t": "@start+0.95",
+        "v": [
+         -0.5,
+         0,
+         0.1
+        ],
+        "e": "out"
+       },
+       {
+        "t": "@start+4.2",
+        "v": [
+         -0.5,
+         0,
+         0.1
+        ]
+       },
+       {
+        "t": "@start+4.6",
+        "v": [
+         -0.5,
+         0,
+         0.1
+        ]
+       }
+      ],
+      "rot": [
+       {
+        "t": "@start+0",
+        "v": [
+         0,
+         0,
+         0
+        ]
+       },
+       {
+        "t": "@start+0.95",
+        "v": [
+         0,
+         0,
+         0.12
+        ]
+       }
+      ],
+      "pose": [
+       {
+        "t": "@start+0",
+        "v": "hold"
+       },
+       {
+        "t": "@start+0.3",
+        "v": "pull",
+        "dur": 0.4
+       },
+       {
+        "t": "@start+1.6",
+        "v": "hold",
+        "dur": 0.5
+       },
+       {
+        "t": "@start+3.5",
+        "v": "pull",
+        "dur": 0.4
+       }
+      ],
+      "expr": [
+       {
+        "t": "@start+0",
+        "v": "determined"
+       },
+       {
+        "t": "@start+6.0",
+        "v": "surprised",
+        "dur": 0.4
+       }
+      ],
+      "outfit": {
+       "suit": "#e8742a",
+       "pants": "#27304a",
+       "shirt": "#e6ecf5",
+       "tie": "#e8742a",
+       "hair": "#2a1c16"
+      },
+      "seed": 4,
+      "look": [
+       {
+        "t": "@start+0",
+        "v": [
+         0,
+         0.15,
+         0
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "id": "rod",
+      "pos": [
+       {
+        "t": "@start+0",
+        "v": [
+         -0.95,
+         1.33,
+         0.58
+        ]
+       },
+       {
+        "t": "@start+0.25",
+        "v": [
+         -0.95,
+         1.33,
+         0.58
+        ]
+       },
+       {
+        "t": "@start+0.95",
+        "v": [
+         -1.45,
+         1.33,
+         0.58
+        ],
+        "e": "out"
+       }
+      ],
+      "children": [
+       {
+        "kind": "rod",
+        "length": 740,
+        "radius": 0.07,
+        "bands": {
+         "every": 22,
+         "color": "#5ad2ff",
+         "glow": 1.6
+        },
+        "color": "#b6c0cf"
+       },
+       {
+        "kind": "shape",
+        "shape": "glow",
+        "size": [
+         26
+        ],
+        "color": "#7fd0ff",
+        "ei": 1,
+        "opacity": 0.9,
+        "pos": [
+         740,
+         0,
+         0
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": "@start+9.85",
+        "v": [
+         -1,
+         1.33,
+         0.58
+        ]
+       },
+       {
+        "t": "@start+10.3",
+        "v": [
+         740,
+         1.33,
+         0.58
+        ]
+       }
+      ],
+      "show": {
+       "from": "@start+9.8",
+       "dur": 0.05,
+       "to": "@start+10.32",
+       "out": 0.05
+      },
+      "children": [
+       {
+        "kind": "shape",
+        "shape": "sphere",
+        "size": [
+         0.45
+        ],
+        "color": "#fff",
+        "emissive": "#63d4ff",
+        "ei": 3,
+        "additive": true
+       },
+       {
+        "kind": "shape",
+        "shape": "glow",
+        "size": [
+         7
+        ],
+        "color": "#63d4ff"
+       }
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "torus",
+      "size": [
+       1.0,
+       0.05
+      ],
+      "color": "#ff2b44",
+      "emissive": "#ff2b44",
+      "ei": 3,
+      "additive": true,
+      "pos": [
+       330,
+       1.33,
+       0.58
+      ],
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "scale": [
+       {
+        "t": "@start+11.7",
+        "v": 0.01
+       },
+       {
+        "t": "@start+12.9",
+        "v": 9,
+        "e": "out"
+       }
+      ],
+      "opacity": [
+       {
+        "t": "@start+11.7",
+        "v": 0
+       },
+       {
+        "t": "@start+11.9",
+        "v": 1
+       },
+       {
+        "t": "@start+13.0",
+        "v": 0
+       }
+      ],
+      "show": {
+       "from": "@start+11.7"
+      }
+     }
+    ],
+    "titles": [
+     {
+      "text": "2 IŞIK YILI",
+      "sub": "≈ 19 trilyon km",
+      "kind": "slam",
+      "from": "@start+3.1",
+      "dur": 3.0,
+      "y": 430,
+      "size": 150,
+      "color": "#ffffff",
+      "subColor": "#7fd0ff",
+      "plate": false
+     },
+     {
+      "text": "İdealize düşünce deneyi",
+      "kind": "rise",
+      "font": "sans",
+      "from": "@start+0.3",
+      "dur": 2.2,
+      "y": 300,
+      "size": 40,
+      "color": "#cfd8e8",
+      "upper": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "yaylar",
+   "type": "world3d",
+   "start": "@yay.start-0.15",
+   "end": "@celik.start-0.15",
+   "transition": {
+    "type": "whip",
+    "dur": 0.25,
+    "dir": "left"
+   },
+   "props": {
+    "stage": {
+     "bg": "#070a14",
+     "exposure": 1.1
+    },
+    "fog": {
+     "color": "#070a14",
+     "near": 14,
+     "far": 48
+    },
+    "grade": {
+     "saturate": 1.12,
+     "contrast": 1.1,
+     "leak": "rgba(255,150,70,0.4)",
+     "leakOpacity": 0.1
+    },
+    "camera": {
+     "keys": [
+      {
+       "t": "@start+13.5",
+       "pos": [
+        1.1,
+        2.5,
+        4.4
+       ],
+       "target": [
+        0,
+        1.1,
+        -4.0
+       ],
+       "fov": 48
+      },
+      {
+       "t": "@start+15.6",
+       "pos": [
+        1.1,
+        2.5,
+        4.3
+       ],
+       "target": [
+        0,
+        1.1,
+        -5.5
+       ],
+       "fov": 48
+      },
+      {
+       "t": "@start+16.3",
+       "pos": [
+        1.2,
+        2.5,
+        4.3
+       ],
+       "target": [
+        0,
+        1.1,
+        -6.5
+       ],
+       "fov": 48
+      },
+      {
+       "t": "@start+19.0",
+       "pos": [
+        2.2,
+        2.8,
+        -2.0
+       ],
+       "target": [
+        -0.2,
+        1.0,
+        -14
+       ],
+       "fov": 46
+      },
+      {
+       "t": "@start+20.0",
+       "pos": [
+        1.6,
+        3.0,
+        -8.0
+       ],
+       "target": [
+        -0.2,
+        1.0,
+        -20
+       ],
+       "fov": 48
+      }
+     ],
+     "shake": 0.012,
+     "ease": "inOut"
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#46517a",
+      "intensity": 0.5
+     },
+     {
+      "type": "hemi",
+      "color": "#b8c8ff",
+      "ground": "#1a1410",
+      "intensity": 0.5
+     },
+     {
+      "type": "spot",
+      "color": "#fff1de",
+      "pos": [
+       3,
+       5.5,
+       3
+      ],
+      "target": [
+       0,
+       0.5,
+       -3
+      ],
+      "intensity": 150,
+      "angle": 0.75,
+      "penumbra": 0.8,
+      "decay": 2,
+      "castShadow": true,
+      "mapSize": 1024
+     },
+     {
+      "type": "dir",
+      "color": "#9db8ff",
+      "pos": [
+       -4,
+       6,
+       -8
+      ],
+      "target": [
+       0,
+       0,
+       -6
+      ],
+      "intensity": 1.8
+     },
+     {
+      "type": "point",
+      "color": "#9fc4ff",
+      "pos": [
+       0,
+       3.5,
+       -4
+      ],
+      "intensity": 3,
+      "distance": 10,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "stars",
+      "seed": 2,
+      "count": 900
+     },
+     {
+      "kind": "sky",
+      "top": "#04060e",
+      "horizon": "#14203f",
+      "bottom": "#05070e",
+      "stars": 0.8,
+      "sunSize": 1.0,
+      "sun": "#000000"
+     },
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       14,
+       0.2,
+       60
+      ],
+      "color": "#171c2c",
+      "rough": 0.8,
+      "metal": 0.1,
+      "receive": true,
+      "pos": [
+       0,
+       -0.1,
+       -24
+      ]
+     },
+     {
+      "kind": "springs",
+      "n": 15,
+      "spacing": 1.35,
+      "massR": 0.24,
+      "coilR": 0.2,
+      "turns": 6,
+      "from": "@start+16.2",
+      "dur": 0.45,
+      "delay": 6,
+      "amp": -0.55,
+      "pos": [
+       0,
+       1.33,
+       0
+      ],
+      "rot": [
+       0,
+       1.5708,
+       0
+      ]
+     },
+     {
+      "kind": "character",
+      "pos": [
+       {
+        "t": "@start+13.5",
+        "v": [
+         0,
+         0,
+         0.95
+        ]
+       },
+       {
+        "t": "@start+16.2",
+        "v": [
+         0,
+         0,
+         0.95
+        ]
+       },
+       {
+        "t": "@start+16.65",
+        "v": [
+         0,
+         0,
+         1.5
+        ]
+       }
+      ],
+      "rot": [
+       0,
+       3.1416,
+       0
+      ],
+      "pose": [
+       {
+        "t": "@start+13.5",
+        "v": "hold"
+       },
+       {
+        "t": "@start+16.2",
+        "v": "pull",
+        "dur": 0.4
+       },
+       {
+        "t": "@start+18",
+        "v": "hold",
+        "dur": 0.5
+       }
+      ],
+      "expr": [
+       {
+        "t": "@start+13.5",
+        "v": "determined"
+       },
+       {
+        "t": "@start+16.2",
+        "v": "focused"
+       }
+      ],
+      "outfit": {
+       "suit": "#e8742a",
+       "pants": "#27304a",
+       "shirt": "#e6ecf5",
+       "tie": "#e8742a",
+       "hair": "#2a1c16"
+      },
+      "seed": 6
+     },
+     {
+      "kind": "shape",
+      "shape": "cyl",
+      "size": [
+       0.045,
+       0.7
+      ],
+      "color": "#d7dde8",
+      "metal": 0.8,
+      "rough": 0.3,
+      "pos": [
+       {
+        "t": "@start+13.5",
+        "v": [
+         0,
+         1.33,
+         0.37
+        ]
+       },
+       {
+        "t": "@start+16.2",
+        "v": [
+         0,
+         1.33,
+         0.37
+        ]
+       },
+       {
+        "t": "@start+16.65",
+        "v": [
+         0,
+         1.33,
+         0.92
+        ]
+       }
+      ],
+      "rot": [
+       0,
+       0,
+       1.5708
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "cyl",
+      "size": [
+       0.04,
+       0.37
+      ],
+      "color": "#aeb8c8",
+      "metal": 0.8,
+      "rough": 0.3,
+      "pos": [
+       {
+        "t": "@start+13.5",
+        "v": [
+         0,
+         1.33,
+         0.185
+        ]
+       },
+       {
+        "t": "@start+16.2",
+        "v": [
+         0,
+         1.33,
+         0.185
+        ]
+       },
+       {
+        "t": "@start+16.65",
+        "v": [
+         0,
+         1.33,
+         0.735
+        ]
+       }
+      ],
+      "rot": [
+       1.5708,
+       0,
+       0
+      ]
+     },
+     {
+      "kind": "dust",
+      "count": 140,
+      "size": [
+       8,
+       5,
+       40
+      ],
+      "color": "#9fc4ff",
+      "opacity": 0.5,
+      "seed": 4,
+      "scale": 0.06,
+      "pos": [
+       0,
+       0,
+       -12
+      ]
+     }
+    ],
+    "titles": [
+     {
+      "text": "HAREKET SIRAYLA İLETİLİR",
+      "kind": "rise",
+      "from": "@start+17.0",
+      "dur": 2.6,
+      "y": 420,
+      "size": 80,
+      "color": "#ffd28a",
+      "maxWidth": 900
+     }
+    ]
+   }
+  },
+  {
+   "id": "mikro",
+   "type": "world3d",
+   "start": "@celik.start-0.15",
+   "end": "@hiz.start-0.1",
+   "transition": {
+    "type": "zoom",
+    "dur": 0.3
+   },
+   "props": {
+    "stage": {
+     "bg": "#050913",
+     "exposure": 1.15
+    },
+    "grade": {
+     "saturate": 1.18,
+     "contrast": 1.12,
+     "leak": "rgba(90,170,255,0.55)",
+     "leakOpacity": 0.35
+    },
+    "camera": {
+     "keys": [
+      {
+       "t": "@start+20.0",
+       "pos": [
+        -6.0,
+        0.0,
+        22
+       ],
+       "target": [
+        -5.6,
+        0.0,
+        0
+       ],
+       "fov": 30
+      },
+      {
+       "t": "@start+21.4",
+       "pos": [
+        -5.2,
+        0.2,
+        12.5
+       ],
+       "target": [
+        -4.9,
+        0,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": "@start+21.0",
+       "pos": [
+        -5.2,
+        0.2,
+        12.0
+       ],
+       "target": [
+        -5.2,
+        0.0,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": "@start+26.4",
+       "pos": [
+        4.2,
+        0.2,
+        12.0
+       ],
+       "target": [
+        4.2,
+        0.0,
+        0
+       ],
+       "fov": 36
+      }
+     ],
+     "shake": 0.008,
+     "ease": "linear"
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#5a74b8",
+      "intensity": 0.8
+     },
+     {
+      "type": "hemi",
+      "color": "#b0ccff",
+      "ground": "#101830",
+      "intensity": 0.7
+     },
+     {
+      "type": "dir",
+      "color": "#e8f0ff",
+      "pos": [
+       3,
+       6,
+       10
+      ],
+      "target": [
+       0,
+       0,
+       0
+      ],
+      "intensity": 2.6
+     },
+     {
+      "type": "point",
+      "color": "#ffb066",
+      "pos": [
+       0,
+       0,
+       3
+      ],
+      "intensity": 14,
+      "distance": 12,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       40,
+       12,
+       0.1
+      ],
+      "color": "#0a1226",
+      "rough": 1,
+      "metal": 0,
+      "pos": [
+       0,
+       0,
+       -2.4
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       13,
+       0.14,
+       0.2
+      ],
+      "color": "#c4cfdf",
+      "metal": 0.8,
+      "rough": 0.3,
+      "pos": [
+       0,
+       2.62,
+       0.6
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       13,
+       0.14,
+       0.2
+      ],
+      "color": "#c4cfdf",
+      "metal": 0.8,
+      "rough": 0.3,
+      "pos": [
+       0,
+       -2.62,
+       0.6
+      ]
+     },
+     {
+      "kind": "atoms",
+      "cols": 26,
+      "rows": 11,
+      "layers": 2,
+      "spacing": 0.42,
+      "atomR": 0.1,
+      "amp": 0.26,
+      "width": 1.2,
+      "speed": 0.05,
+      "from": "@start+20.9"
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       5
+      ],
+      "color": "#ff9a3d",
+      "opacity": [
+       {
+        "t": "@start+20",
+        "v": 0
+       },
+       {
+        "t": "@start+20.9",
+        "v": 0
+       },
+       {
+        "t": "@start+21.4",
+        "v": 0.55
+       },
+       {
+        "t": "@start+26.4",
+        "v": 0.55
+       }
+      ],
+      "pos": [
+       {
+        "t": "@start+20.9",
+        "v": [
+         -5.5,
+         0,
+         1.2
+        ]
+       },
+       {
+        "t": "@start+26.5",
+        "v": [
+         4.2,
+         0,
+         1.2
+        ]
+       }
+      ],
+      "ei": 1
+     },
+     {
+      "kind": "dust",
+      "count": 90,
+      "size": [
+       14,
+       8,
+       3
+      ],
+      "color": "#9fc4ff",
+      "opacity": 0.4,
+      "seed": 2,
+      "scale": 0.05,
+      "pos": [
+       0,
+       -4,
+       0
+      ]
+     }
+    ],
+    "titles": [
+     {
+      "text": "ÇUBUĞUN İÇİ",
+      "sub": "atomdan atoma aktarım",
+      "kind": "rise",
+      "from": "@start+20.35",
+      "dur": 2.4,
+      "y": 400,
+      "size": 95,
+      "color": "#9fd2ff",
+      "subColor": "#ffd28a"
+     },
+     {
+      "text": "MEKANİK DALGA",
+      "kind": "stamp",
+      "from": "@start+24.7",
+      "dur": 1.6,
+      "y": 400,
+      "size": 100,
+      "color": "#ffb347"
+     }
+    ]
+   }
+  },
+  {
+   "id": "yaris",
+   "type": "world3d",
+   "start": "@hiz.start-0.1",
+   "end": "@yil.start-0.1",
+   "transition": {
+    "type": "whip",
+    "dur": 0.25,
+    "dir": "up"
+   },
+   "props": {
+    "stage": {
+     "bg": "#03050c",
+     "exposure": 1.1
+    },
+    "fog": {
+     "color": "#03050c",
+     "near": 20,
+     "far": 240
+    },
+    "grade": {
+     "saturate": 1.15,
+     "contrast": 1.1,
+     "leak": "rgba(70,170,255,0.45)",
+     "leakOpacity": 0.35,
+     "flash": [
+      {
+       "t": "@start+27.43",
+       "v": 0
+      },
+      {
+       "t": "@start+27.83",
+       "v": 0
+      },
+      {
+       "t": "@start+27.849999999999998",
+       "v": 0.22
+      },
+      {
+       "t": "@start+28.15",
+       "v": 0
+      },
+      {
+       "t": "@start+28.28",
+       "v": 0
+      },
+      {
+       "t": "@start+28.68",
+       "v": 0
+      },
+      {
+       "t": "@start+28.7",
+       "v": 0.22
+      },
+      {
+       "t": "@start+29.0",
+       "v": 0
+      },
+      {
+       "t": "@start+29.13",
+       "v": 0
+      },
+      {
+       "t": "@start+29.529999999999998",
+       "v": 0
+      },
+      {
+       "t": "@start+29.549999999999997",
+       "v": 0.22
+      },
+      {
+       "t": "@start+29.849999999999998",
+       "v": 0
+      }
+     ]
+    },
+    "camera": {
+     "keys": [
+      {
+       "t": "@start+26.7",
+       "pos": [
+        -15,
+        6.0,
+        0.4
+       ],
+       "target": [
+        18,
+        0,
+        0.4
+       ],
+       "fov": 46
+      },
+      {
+       "t": "@start+30.5",
+       "pos": [
+        -13,
+        5.0,
+        0.4
+       ],
+       "target": [
+        20,
+        0,
+        0.4
+       ],
+       "fov": 44
+      }
+     ],
+     "shake": 0.012,
+     "ease": "inOut"
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#3a4a7a",
+      "intensity": 0.6
+     },
+     {
+      "type": "hemi",
+      "color": "#a8c0ff",
+      "ground": "#10101a",
+      "intensity": 0.5
+     },
+     {
+      "type": "dir",
+      "color": "#d8e6ff",
+      "pos": [
+       -6,
+       10,
+       8
+      ],
+      "target": [
+       10,
+       0,
+       0
+      ],
+      "intensity": 2.2
+     },
+     {
+      "type": "point",
+      "color": "#63d4ff",
+      "pos": [
+       0,
+       1.5,
+       -1
+      ],
+      "intensity": 8,
+      "distance": 14,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "stars",
+      "seed": 3
+     },
+     {
+      "kind": "sky",
+      "top": "#02030a",
+      "horizon": "#0a1230",
+      "bottom": "#02030a",
+      "stars": 1.0,
+      "sunSize": 1.0,
+      "sun": "#000000"
+     },
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       300,
+       0.1,
+       2.6
+      ],
+      "color": "#10162a",
+      "rough": 0.7,
+      "pos": [
+       100,
+       -0.2,
+       -1.6
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       300,
+       0.1,
+       2.6
+      ],
+      "color": "#1a1410",
+      "rough": 0.7,
+      "pos": [
+       100,
+       -0.2,
+       1.6
+      ]
+     },
+     {
+      "kind": "debris",
+      "count": 260,
+      "length": 260,
+      "rMin": 6,
+      "rMax": 40,
+      "seed": 17,
+      "size": 0.3,
+      "color": "#5d6682"
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0,
+       0
+      ],
+      "children": [
+       {
+        "kind": "group",
+        "pos": [
+         0,
+         0.5,
+         -1.0
+        ],
+        "children": []
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "id": "isik",
+      "pos": [
+       {
+        "t": "@start+27.45",
+        "v": [
+         -2,
+         0.5,
+         -1.6
+        ]
+       },
+       {
+        "t": "@start+27.849999999999998",
+        "v": [
+         160,
+         0.5,
+         -1.6
+        ]
+       },
+       {
+        "t": "@start+27.86",
+        "v": [
+         -2,
+         0.5,
+         -1.6
+        ]
+       },
+       {
+        "t": "@start+28.3",
+        "v": [
+         -2,
+         0.5,
+         -1.6
+        ]
+       },
+       {
+        "t": "@start+28.7",
+        "v": [
+         160,
+         0.5,
+         -1.6
+        ]
+       },
+       {
+        "t": "@start+28.71",
+        "v": [
+         -2,
+         0.5,
+         -1.6
+        ]
+       },
+       {
+        "t": "@start+29.15",
+        "v": [
+         -2,
+         0.5,
+         -1.6
+        ]
+       },
+       {
+        "t": "@start+29.549999999999997",
+        "v": [
+         160,
+         0.5,
+         -1.6
+        ]
+       },
+       {
+        "t": "@start+29.56",
+        "v": [
+         -2,
+         0.5,
+         -1.6
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "shape",
+        "shape": "sphere",
+        "size": [
+         0.45
+        ],
+        "color": "#fff",
+        "emissive": "#63d4ff",
+        "ei": 3,
+        "additive": true
+       },
+       {
+        "kind": "shape",
+        "shape": "glow",
+        "size": [
+         9
+        ],
+        "color": "#63d4ff"
+       },
+       {
+        "kind": "shape",
+        "shape": "cyl",
+        "size": [
+         0.07,
+         16
+        ],
+        "color": "#63d4ff",
+        "emissive": "#63d4ff",
+        "ei": 2,
+        "additive": true,
+        "opacity": 0.7,
+        "rot": [
+         0,
+         0,
+         1.5708
+        ],
+        "pos": [
+         -8,
+         0,
+         0
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "id": "dalga",
+      "pos": [
+       {
+        "t": "@start+26.7",
+        "v": [
+         -2,
+         0.5,
+         1.6
+        ]
+       },
+       {
+        "t": "@start+30.6",
+        "v": [
+         -0.5,
+         0.5,
+         1.6
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "shape",
+        "shape": "box",
+        "size": [
+         0.8,
+         0.8,
+         0.8
+        ],
+        "color": "#d0d8e6",
+        "metal": 0.7,
+        "rough": 0.3,
+        "emissive": "#ff8a1e",
+        "ei": 1.3,
+        "cast": true
+       },
+       {
+        "kind": "shape",
+        "shape": "glow",
+        "size": [
+         2.6
+        ],
+        "color": "#ff9a3d",
+        "opacity": 0.7
+       }
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       300,
+       0.03,
+       0.25
+      ],
+      "color": "#63d4ff",
+      "emissive": "#63d4ff",
+      "ei": 2,
+      "additive": true,
+      "opacity": 0.5,
+      "pos": [
+       100,
+       -0.12,
+       -1.6
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       300,
+       0.03,
+       0.25
+      ],
+      "color": "#ff9a3d",
+      "emissive": "#ff9a3d",
+      "ei": 2,
+      "additive": true,
+      "opacity": 0.5,
+      "pos": [
+       100,
+       -0.12,
+       1.6
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "box",
+      "size": [
+       0.12,
+       0.4,
+       7
+      ],
+      "color": "#ffffff",
+      "emissive": "#ffffff",
+      "ei": 1,
+      "additive": true,
+      "opacity": 0.35,
+      "pos": [
+       -2.5,
+       0.1,
+       0
+      ]
+     }
+    ],
+    "titles": [
+     {
+      "text": "IŞIK",
+      "sub": "≈ 300.000 km/sn",
+      "kind": "rise",
+      "from": "@start+27.0",
+      "dur": 3.4,
+      "y": 400,
+      "size": 120,
+      "color": "#8fe0ff",
+      "subColor": "#ffffff"
+     },
+     {
+      "text": "ÇELİKTE DALGA",
+      "sub": "≈ 5 km/sn",
+      "kind": "rise",
+      "from": "@start+28.4",
+      "dur": 2.2,
+      "y": 1040,
+      "size": 110,
+      "color": "#ffb347",
+      "subColor": "#ffffff",
+      "maxWidth": 900
+     }
+    ]
+   }
+  },
+  {
+   "id": "final",
+   "type": "world3d",
+   "start": "@yil.start-0.1",
+   "end": "@end",
+   "transition": {
+    "type": "flash",
+    "dur": 0.3
+   },
+   "props": {
+    "stage": {
+     "bg": "#02030a",
+     "exposure": 1.12
+    },
+    "fog": {
+     "color": "#02040c",
+     "near": 50,
+     "far": 700
+    },
+    "grade": {
+     "saturate": 1.15,
+     "contrast": 1.1,
+     "leak": "rgba(255,160,70,0.55)",
+     "leakOpacity": [
+      {
+       "t": "@start+31",
+       "v": 0.15
+      },
+      {
+       "t": "@start+36.4",
+       "v": 0.2
+      },
+      {
+       "t": "@start+36.7",
+       "v": 0.4
+      },
+      {
+       "t": "@start+40",
+       "v": 0.2
+      }
+     ],
+     "flash": [
+      {
+       "t": "@start+36.45",
+       "v": 0
+      },
+      {
+       "t": "@start+36.62",
+       "v": 0.55
+      },
+      {
+       "t": "@start+37.2",
+       "v": 0
+      }
+     ]
+    },
+    "camera": {
+     "keys": [
+      {
+       "t": "@start+31.0",
+       "pos": [
+        -9,
+        2.4,
+        5.2
+       ],
+       "target": [
+        6,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+31.5",
+       "pos": [
+        -8.96023563075559,
+        2.220993613922937,
+        5.2
+       ],
+       "target": [
+        4.039764369244409,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+31.7",
+       "pos": [
+        -8.681885046044725,
+        2.270067042442255,
+        5.2
+       ],
+       "target": [
+        4.318114953955275,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+31.900000000000002",
+       "pos": [
+        -7.926362030400928,
+        2.3163471190887397,
+        5.2
+       ],
+       "target": [
+        5.073637969599072,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+32.1",
+       "pos": [
+        -6.455080368357766,
+        2.3579888032517213,
+        5.2
+       ],
+       "target": [
+        6.544919631642234,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+32.3",
+       "pos": [
+        -4.029453844448829,
+        2.393331972391555,
+        5.2
+       ],
+       "target": [
+        8.97054615555117,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+32.5",
+       "pos": [
+        -0.4108962432074996,
+        2.420967605886458,
+        5.2
+       ],
+       "target": [
+        12.5891037567925,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+32.7",
+       "pos": [
+        4.6391786508326245,
+        2.4397939582382704,
+        5.2
+       ],
+       "target": [
+        17.639178650832626,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+32.9",
+       "pos": [
+        11.359357053137732,
+        2.449060482188716,
+        5.2
+       ],
+       "target": [
+        24.35935705313773,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+33.1",
+       "pos": [
+        19.98822517917478,
+        2.448397750670099,
+        5.2
+       ],
+       "target": [
+        32.988225179174776,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+33.3",
+       "pos": [
+        30.7643692444096,
+        2.437832184696696,
+        5.2
+       ],
+       "target": [
+        43.7643692444096,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+33.5",
+       "pos": [
+        43.92637546430939,
+        2.4177850000422945,
+        5.2
+       ],
+       "target": [
+        56.92637546430939,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+33.7",
+       "pos": [
+        59.712830054340316,
+        2.3890554146965157,
+        5.2
+       ],
+       "target": [
+        72.71283005434032,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+33.9",
+       "pos": [
+        78.36231922996812,
+        2.3527887865656494,
+        5.2
+       ],
+       "target": [
+        91.36231922996812,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+34.1",
+       "pos": [
+        100.11342920666058,
+        2.310430951667306,
+        5.2
+       ],
+       "target": [
+        113.11342920666058,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+34.3",
+       "pos": [
+        125.20474619988255,
+        2.263670583211009,
+        5.2
+       ],
+       "target": [
+        138.20474619988255,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+34.5",
+       "pos": [
+        153.8748564251024,
+        2.2143718695262313,
+        5.2
+       ],
+       "target": [
+        166.8748564251024,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+34.7",
+       "pos": [
+        186.3623460977857,
+        2.1645001947564997,
+        5.2
+       ],
+       "target": [
+        199.3623460977857,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+34.9",
+       "pos": [
+        222.90580143339753,
+        2.1160437851957146,
+        5.2
+       ],
+       "target": [
+        235.90580143339753,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+35.1",
+       "pos": [
+        263.743808647407,
+        2.0709344449800184,
+        5.2
+       ],
+       "target": [
+        276.743808647407,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+35.3",
+       "pos": [
+        309.1149539552776,
+        2.030970541153059,
+        5.2
+       ],
+       "target": [
+        322.1149539552776,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+35.5",
+       "pos": [
+        359.2578235724789,
+        1.9977453084470236,
+        5.2
+       ],
+       "target": [
+        372.2578235724789,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+35.7",
+       "pos": [
+        414.4110037144761,
+        1.9725833320416182,
+        5.2
+       ],
+       "target": [
+        427.4110037144761,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+35.9",
+       "pos": [
+        474.8130805967333,
+        1.9564877405329186,
+        5.2
+       ],
+       "target": [
+        487.8130805967333,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+36.1",
+       "pos": [
+        540.7026404347213,
+        1.9501002143617994,
+        5.2
+       ],
+       "target": [
+        553.7026404347213,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+36.3",
+       "pos": [
+        612.3182694439018,
+        1.9536754040396993,
+        5.2
+       ],
+       "target": [
+        625.3182694439018,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+36.5",
+       "pos": [
+        689.8985538397465,
+        1.967070778036324,
+        5.2
+       ],
+       "target": [
+        702.8985538397465,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+36.6",
+       "pos": [
+        731,
+        1.9772989639807848,
+        5.2
+       ],
+       "target": [
+        744,
+        1.3,
+        0.58
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+37.2",
+       "pos": [
+        731,
+        2.2,
+        6.5
+       ],
+       "target": [
+        740,
+        1.3,
+        0.3
+       ],
+       "fov": 40
+      },
+      {
+       "t": "@start+39.5",
+       "pos": [
+        733,
+        2.0,
+        5.0
+       ],
+       "target": [
+        740,
+        1.3,
+        0.3
+       ],
+       "fov": 36
+      },
+      {
+       "t": "@start+42.5",
+       "pos": [
+        700,
+        5,
+        14
+       ],
+       "target": [
+        730,
+        1.3,
+        0.3
+       ],
+       "fov": 50
+      },
+      {
+       "t": "@start+46.5",
+       "pos": [
+        620,
+        10,
+        30
+       ],
+       "target": [
+        720,
+        1.3,
+        0.3
+       ],
+       "fov": 58
+      }
+     ],
+     "shake": 0.014,
+     "ease": "linear"
+    },
+    "lights": [
+     {
+      "type": "ambient",
+      "color": "#3f4f80",
+      "intensity": 0.55
+     },
+     {
+      "type": "hemi",
+      "color": "#9fb8ff",
+      "ground": "#10131f",
+      "intensity": 0.5
+     },
+     {
+      "type": "dir",
+      "color": "#bcd4ff",
+      "pos": [
+       720,
+       10,
+       14
+      ],
+      "target": [
+       740,
+       0,
+       0
+      ],
+      "intensity": 2.4
+     },
+     {
+      "type": "point",
+      "color": "#ff8a3d",
+      "pos": [
+       743,
+       2,
+       3
+      ],
+      "intensity": [
+       {
+        "t": "@start+31",
+        "v": 0
+       },
+       {
+        "t": "@start+36.4",
+        "v": 0
+       },
+       {
+        "t": "@start+36.7",
+        "v": 60
+       },
+       {
+        "t": "@start+42",
+        "v": 30
+       }
+      ],
+      "distance": 40,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#63d4ff",
+      "pos": [
+       0,
+       3,
+       3
+      ],
+      "intensity": 8,
+      "distance": 30,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       520
+      ],
+      "color": "#2a4aa8",
+      "opacity": 0.45,
+      "pos": [
+       120,
+       60,
+       -260
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       640
+      ],
+      "color": "#6a2aa0",
+      "opacity": 0.4,
+      "pos": [
+       300,
+       -90,
+       300
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       760
+      ],
+      "color": "#1a8aa8",
+      "opacity": 0.4,
+      "pos": [
+       520,
+       130,
+       -320
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       620
+      ],
+      "color": "#3a4ac0",
+      "opacity": 0.4,
+      "pos": [
+       700,
+       -60,
+       240
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       480
+      ],
+      "color": "#a03a7a",
+      "opacity": 0.3,
+      "pos": [
+       30,
+       -120,
+       -220
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       700
+      ],
+      "color": "#2a60b0",
+      "opacity": 0.3,
+      "pos": [
+       430,
+       200,
+       40
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       700
+      ],
+      "color": "#2a60b0",
+      "opacity": 0.35,
+      "pos": [
+       800,
+       60,
+       -200
+      ]
+     },
+     {
+      "kind": "stars",
+      "seed": 1
+     },
+     {
+      "kind": "sky",
+      "top": "#02030a",
+      "horizon": "#0c1636",
+      "bottom": "#02030a",
+      "stars": 1.0,
+      "sunSize": 1.0,
+      "sun": "#000000"
+     },
+     {
+      "kind": "debris",
+      "count": 700,
+      "length": 760,
+      "rMin": 4,
+      "rMax": 48,
+      "seed": 3,
+      "size": 0.4,
+      "color": "#6b7390"
+     },
+     {
+      "kind": "debris",
+      "count": 500,
+      "length": 760,
+      "rMin": 2.5,
+      "rMax": 32,
+      "seed": 9,
+      "size": 0.07,
+      "color": "#bcd8ff",
+      "glow": true
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       1.33,
+       0.58
+      ],
+      "children": [
+       {
+        "kind": "rod",
+        "length": 740,
+        "radius": 0.07,
+        "bands": {
+         "every": 22,
+         "color": "#5ad2ff",
+         "glow": 1.4
+        },
+        "color": "#b6c0cf"
+       }
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "glow",
+      "size": [
+       2.5
+      ],
+      "color": "#ffb347",
+      "pos": [
+       0,
+       1.33,
+       0.58
+      ],
+      "opacity": [
+       {
+        "t": "@start+31",
+        "v": 0.9
+       },
+       {
+        "t": "@start+36",
+        "v": 0.9
+       },
+       {
+        "t": "@start+40",
+        "v": 0.2
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": "@start+31.0",
+        "v": [
+         0,
+         1.33,
+         0.58
+        ]
+       },
+       {
+        "t": "@start+31.3",
+        "v": [
+         0,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+31.5",
+        "v": [
+         0.03976436924440937,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+31.7",
+        "v": [
+         0.31811495395527495,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+31.900000000000002",
+        "v": [
+         1.073637969599072,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+32.1",
+        "v": [
+         2.5449196316422333,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+32.3",
+        "v": [
+         4.970546155551171,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+32.5",
+        "v": [
+         8.5891037567925,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+32.7",
+        "v": [
+         13.639178650832624,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+32.9",
+        "v": [
+         20.35935705313773,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+33.1",
+        "v": [
+         28.98822517917478,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+33.3",
+        "v": [
+         39.7643692444096,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+33.5",
+        "v": [
+         52.92637546430939,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+33.7",
+        "v": [
+         68.71283005434032,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+33.9",
+        "v": [
+         87.36231922996812,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+34.1",
+        "v": [
+         109.11342920666058,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+34.3",
+        "v": [
+         134.20474619988255,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+34.5",
+        "v": [
+         162.8748564251024,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+34.7",
+        "v": [
+         195.3623460977857,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+34.9",
+        "v": [
+         231.90580143339753,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+35.1",
+        "v": [
+         272.743808647407,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+35.3",
+        "v": [
+         318.1149539552776,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+35.5",
+        "v": [
+         368.2578235724789,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+35.7",
+        "v": [
+         423.4110037144761,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+35.9",
+        "v": [
+         483.8130805967333,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+36.1",
+        "v": [
+         549.7026404347213,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+36.3",
+        "v": [
+         621.3182694439018,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+36.5",
+        "v": [
+         698.8985538397465,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       },
+       {
+        "t": "@start+36.6",
+        "v": [
+         740,
+         1.33,
+         0.58
+        ],
+        "e": "linear"
+       }
+      ],
+      "show": {
+       "from": "@start+31.0",
+       "to": "@start+36.65",
+       "out": 0.1
+      },
+      "children": [
+       {
+        "kind": "shape",
+        "shape": "torus",
+        "size": [
+         1.3,
+         0.1
+        ],
+        "color": "#ffb347",
+        "emissive": "#ff8a1e",
+        "ei": 3,
+        "additive": true,
+        "rot": [
+         0,
+         1.5708,
+         0
+        ]
+       },
+       {
+        "kind": "shape",
+        "shape": "glow",
+        "size": [
+         4.5
+        ],
+        "color": "#ff9a3d",
+        "opacity": 0.8
+       },
+       {
+        "kind": "shape",
+        "shape": "cyl",
+        "size": [
+         0.16,
+         0.8
+        ],
+        "color": "#ffd28a",
+        "emissive": "#ff8a1e",
+        "ei": 2,
+        "additive": true,
+        "rot": [
+         0,
+         0,
+         1.5708
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": "@start+36.5",
+        "v": [
+         740,
+         1.33,
+         0.58
+        ]
+       },
+       {
+        "t": "@start+36.75",
+        "v": [
+         741.6,
+         1.33,
+         0.58
+        ],
+        "e": "out"
+       },
+       {
+        "t": "@start+38",
+        "v": [
+         741.1,
+         1.33,
+         0.58
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "shape",
+        "shape": "ico",
+        "size": [
+         0.4
+        ],
+        "color": "#e9eef5",
+        "emissive": "#ff8a1e",
+        "ei": [
+         {
+          "t": "@start+36",
+          "v": 0
+         },
+         {
+          "t": "@start+36.6",
+          "v": 3
+         },
+         {
+          "t": "@start+40",
+          "v": 0.8
+         }
+        ],
+        "metal": 0.5,
+        "rough": 0.3,
+        "cast": true
+       },
+       {
+        "kind": "shape",
+        "shape": "glow",
+        "size": [
+         8
+        ],
+        "color": "#ffb347",
+        "opacity": [
+         {
+          "t": "@start+36.5",
+          "v": 0
+         },
+         {
+          "t": "@start+36.7",
+          "v": 0.8
+         },
+         {
+          "t": "@start+41",
+          "v": 0.35
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "shape",
+      "shape": "torus",
+      "size": [
+       1,
+       0.05
+      ],
+      "color": "#ffb347",
+      "emissive": "#ffb347",
+      "ei": 3,
+      "additive": true,
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "pos": [
+       740.6,
+       1.33,
+       0.58
+      ],
+      "scale": [
+       {
+        "t": "@start+36.6",
+        "v": 0.2
+       },
+       {
+        "t": "@start+38.4",
+        "v": 14,
+        "e": "out"
+       }
+      ],
+      "opacity": [
+       {
+        "t": "@start+36.6",
+        "v": 0
+       },
+       {
+        "t": "@start+36.7",
+        "v": 1
+       },
+       {
+        "t": "@start+38.5",
+        "v": 0
+       }
+      ],
+      "show": {
+       "from": "@start+36.6"
+      }
+     },
+     {
+      "kind": "shape",
+      "shape": "torus",
+      "size": [
+       1,
+       0.04
+      ],
+      "color": "#ffffff",
+      "emissive": "#ffffff",
+      "ei": 3,
+      "additive": true,
+      "rot": [
+       0,
+       1.5708,
+       0
+      ],
+      "pos": [
+       740.6,
+       1.33,
+       0.58
+      ],
+      "scale": [
+       {
+        "t": "@start+36.9",
+        "v": 0.2
+       },
+       {
+        "t": "@start+39.2",
+        "v": 22,
+        "e": "out"
+       }
+      ],
+      "opacity": [
+       {
+        "t": "@start+36.9",
+        "v": 0
+       },
+       {
+        "t": "@start+37.0",
+        "v": 0.8
+       },
+       {
+        "t": "@start+39.2",
+        "v": 0
+       }
+      ],
+      "show": {
+       "from": "@start+36.9"
+      }
+     }
+    ],
+    "titles": [
+     {
+      "text": "0 YIL",
+      "kind": "count",
+      "count": {
+       "v0": 0,
+       "v1": 120000,
+       "suffix": " YIL",
+       "dur": 5.3500000000000005,
+       "accel": true
+      },
+      "from": "@start+31.2",
+      "dur": 6.000000000000001,
+      "y": 400,
+      "size": 140,
+      "color": "#ffd28a",
+      "font": "display",
+      "maxWidth": 980
+     },
+     {
+      "text": "DİĞER UÇ TEPKİ VERDİ",
+      "kind": "stamp",
+      "from": "@start+37.3",
+      "dur": 2.5,
+      "y": 400,
+      "size": 100,
+      "color": "#ffffff",
+      "maxWidth": 900
+     },
+     {
+      "text": "120.000 YIL SONRA",
+      "kind": "rise",
+      "from": "@start+39.9",
+      "dur": 5.5,
+      "y": 1040,
+      "size": 96,
+      "color": "#ffb347",
+      "maxWidth": 980
+     }
+    ]
+   }
+  }
+ ],
+ "music": {
+  "bpm": 96,
+  "seed": 21,
+  "sections": {
+   "hook": "@start",
+   "origin": "@evren.start",
+   "rise": "@yay.start",
+   "drive": "@celik.start",
+   "break": "@hiz.start",
+   "climax": "@yil.start+2.0",
+   "resolve": "@son.start",
+   "end": "@end"
+  },
+  "hits": [
+   {
+    "at": "@start",
+    "kind": "impact"
+   },
+   {
+    "at": "@evren.word:izin",
+    "kind": "impact"
+   },
+   {
+    "at": "@yil.word:sürerdi",
+    "kind": "boom"
+   }
+  ],
+  "risers": [
+   {
+    "to": "@yil.word:sürerdi",
+    "dur": 4.0
+   },
+   {
+    "to": "@yay.start",
+    "dur": 1.0
+   }
+  ]
+ },
+ "sfx": [
+  {
+   "type": "wind",
+   "at": 0.0,
+   "dur": 5.5,
+   "curve": [
+    [
+     0,
+     0.2
+    ],
+    [
+     2.5,
+     0.4
+    ],
+    [
+     3.6,
+     0.9
+    ],
+    [
+     5.5,
+     0.3
+    ]
+   ],
+   "gain": -6
+  },
+  {
+   "type": "whoosh",
+   "at": 3.2,
+   "dur": 1.4,
+   "gain": -5
+  },
+  {
+   "type": "whoosh",
+   "at": 5.8,
+   "dur": 0.9,
+   "up": false,
+   "gain": -9
+  },
+  {
+   "type": "impact",
+   "at": 0.5,
+   "size": 0.5,
+   "gain": -8
+  },
+  {
+   "type": "heartbeat",
+   "at": 0.2,
+   "gain": -8
+  },
+  {
+   "type": "whoosh",
+   "at": 9.8,
+   "dur": 0.7,
+   "gain": -3
+  },
+  {
+   "type": "impact",
+   "at": "@evren.word:izin",
+   "gain": -5
+  },
+  {
+   "type": "static",
+   "at": "@evren.word:izin",
+   "dur": 0.5,
+   "gain": -14
+  },
+  {
+   "type": "whoosh",
+   "at": "@yay.start-0.2",
+   "dur": 0.7,
+   "gain": -7
+  },
+  {
+   "type": "ticks",
+   "at": 16.4,
+   "dur": 3.0,
+   "gain": -14
+  },
+  {
+   "type": "pop",
+   "at": 16.25,
+   "gain": -9
+  },
+  {
+   "type": "impact",
+   "at": 16.25,
+   "size": 0.4,
+   "gain": -10
+  },
+  {
+   "type": "whoosh",
+   "at": "@celik.start-0.3",
+   "dur": 0.8,
+   "gain": -6
+  },
+  {
+   "type": "ticks",
+   "at": 21.0,
+   "dur": 5.4,
+   "gain": -14
+  },
+  {
+   "type": "pop",
+   "at": 24.8,
+   "gain": -9
+  },
+  {
+   "type": "whoosh",
+   "at": "@hiz.start-0.3",
+   "dur": 0.8,
+   "gain": -6
+  },
+  {
+   "type": "whoosh",
+   "at": 27.45,
+   "dur": 0.4,
+   "gain": -4
+  },
+  {
+   "type": "whoosh",
+   "at": 28.3,
+   "dur": 0.4,
+   "gain": -4
+  },
+  {
+   "type": "whoosh",
+   "at": 29.15,
+   "dur": 0.4,
+   "gain": -4
+  },
+  {
+   "type": "impact",
+   "at": 27.8,
+   "size": 0.3,
+   "gain": -12
+  },
+  {
+   "type": "whoosh",
+   "at": "@yil.start-0.3",
+   "dur": 0.6,
+   "gain": -7
+  },
+  {
+   "type": "ticks",
+   "at": 31.4,
+   "dur": 5.2,
+   "gain": -8
+  },
+  {
+   "type": "wind",
+   "at": 31.3,
+   "dur": 5.5,
+   "curve": [
+    [
+     0,
+     0.2
+    ],
+    [
+     3,
+     0.5
+    ],
+    [
+     5.3,
+     1.0
+    ]
+   ],
+   "gain": -5
+  },
+  {
+   "type": "impact",
+   "at": 36.55,
+   "gain": -1
+  },
+  {
+   "type": "whoosh",
+   "at": 36.6,
+   "dur": 2.0,
+   "up": false,
+   "gain": -8
+  },
+  {
+   "type": "heartbeat",
+   "at": 38.5,
+   "gain": -8
+  }
+ ],
+ "metadata": {
+  "title": "Devasa Bir Çubuk Işık Hızını Aşabilir mi?",
+  "title_alternatives": [
+   "2 Işık Yılı Uzunluğunda Çubuğu Çekersen Ne Olur?",
+   "Işıktan Hızlı Mesaj Mümkün mü?"
+  ],
+  "description": [
+   "İki ışık yılı uzunluğunda bir çubuğun bir ucunu çekersen diğer ucu anında hareket eder mi? İdealize bir düşünce deneyi.",
+   "",
+   "Hareket çubuk içinde mekanik dalga olarak ilerler; çelikte bu hız yaklaşık 5 km/sn. 2 ışık yılı ≈ 1,89×10^13 km → yaklaşık 120.000 yıl.",
+   "",
+   "🔔 Bilim ve merak için VAYYMATİK'i takip et."
+  ],
+  "hashtags": [
+   "#VAYYMATİK",
+   "#Bilim",
+   "#Fizik",
+   "#IşıkHızı",
+   "#Shorts"
+  ]
+ },
+ "disclaimers": [],
+ "sources": [
+  {
+   "claim": "Işık hızı 299.792,458 km/sn",
+   "title": "SI tanımı (BIPM)",
+   "url": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+   "accessed": "2026-11-25"
+  },
+  {
+   "claim": "Çelikte boyuna dalga hızı yaklaşık 5–6 km/sn",
+   "title": "Katılarda ses hızı",
+   "url": "https://en.wikipedia.org/wiki/Speed_of_sound#Solids",
+   "accessed": "2026-11-25"
+  }
+ ],
+ "assets_credits": [
+  "3D sahneler, karakter, nesneler: VAYYMATİK motorunda koddan üretilmiş özgün içerik (Three.js, MIT).",
+  "Seslendirme: Piper TTS, tr_TR-fahrettin-medium (CC0).",
+  "Müzik ve ses efektleri: prosedürel, özgün."
+ ]
+}

@@ -2,6 +2,7 @@
 import type React from 'react';
 import {Character} from './character/Character';
 import {Banknote, CashStack, Car, Chair, Coin, CoinStack, Desk, DeskLamp, Glow, GoldBar, GoldPile, Laptop} from './objects/props';
+import {AtomLattice, Debris, Rod, Shape, SpringChain, Stars} from './objects/physics';
 import {Room} from './env/Room';
 import {City, Tower} from './env/City';
 import {Sky} from './env/Sky';
@@ -31,4 +32,10 @@ export const OBJECTS: Record<string, React.FC<any>> = {
 	moneySwirl: MoneySwirl,
 	lightCone: LightCone,
 	chart: GrowthChart3D,
+	shape: Shape,
+	rod: Rod,
+	springs: SpringChain,
+	atoms: AtomLattice,
+	debris: Debris,
+	stars: Stars,
 };
