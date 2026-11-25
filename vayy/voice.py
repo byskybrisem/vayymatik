@@ -84,7 +84,7 @@ def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dic
     for i in range(1, len(words)):
         c = words[i]["start"]
         lo, hi = int((c - 0.12) * SR_OUT), int((c + 0.12) * SR_OUT)
-        lo, hi = max(lo, int((prev + 0.05) * SR_OUT)), min(hi, len(ev) - 1)
+        lo, hi = max(lo, int((prev + 0.14) * SR_OUT)), min(hi, len(ev) - 1)
         if hi > lo:
             seg = ev[lo:hi]
             pen = np.abs(np.arange(lo, hi) / SR_OUT - c) * 0.02 * ev.max()
