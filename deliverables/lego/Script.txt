@@ -1,0 +1,52 @@
+LEGO İflasın Eşiğinden Nasıl Döndü? 🧱
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 38.3 sn
+
+SENARYO (zaman kodlu, seslendirme ile birebir)
+============================================================
+[00:00.15 – 00:02.88]  LEGO'nun bir zamanlar batmak üzere olduğunu biliyor muydun?
+      sahne: hook — Devasa LEGO kulesi çöker, kırmızı grafik düşer, zarar yazısı çarpar
+      okunuş (TTS): Legonun bir zamanlar batmak üzere olduğunu biliyor muydun?
+[00:03.18 – 00:06.45]  2003 yılında şirketin satışları yüzde 26 düştü.
+      sahne: satis — Fabrika bandı, satılmayan kutular, düşen satış çubuğu
+      okunuş (TTS): iki bin üç yılında şirketin satışları yüzde yirmi altı düştü.
+[00:06.65 – 00:10.56]  Vergi öncesi zararı tam 1,43 milyar Danimarka kronuna ulaştı!
+      sahne: zarar — Satılmayan oyuncak kutuları yığılır, kırmızı grafik dibe iner, zarar sayacı
+      okunuş (TTS): Vergi öncesi zararı tam bir virgül kırk üç milyar Danimarka kronuna ulaştı!
+[00:10.86 – 00:15.07]  Şirket, ana işinden uzaklaşmış ve maliyetlerini kontrol etmekte zorlanmıştı.
+      sahne: daginik — Birbirinden kopuk karmaşık yapılar, yükselen maliyet çubukları
+[00:15.37 – 00:17.16]  2004 yılında yönetim değişti.
+      sahne: yonetim — Yönetim değişir, karakter işaret eder, gereksiz yapılar tek tek kaybolur
+      okunuş (TTS): iki bin dört yılında yönetim değişti.
+[00:17.36 – 00:18.92]  Gereksiz faaliyetler azaltıldı.
+      sahne: yonetim — Yönetim değişir, karakter işaret eder, gereksiz yapılar tek tek kaybolur
+[00:19.02 – 00:22.41]  Hatta 2005 yılında LEGOLAND eğlence parkları bile satıldı!
+      sahne: park — LEGOLAND temsili kalesi satılır, tuğlalar yükselip kaybolur
+      okunuş (TTS): Hatta iki bin beş yılında Legoland eğlence parkları bile satıldı!
+[00:22.71 – 00:26.25]  LEGO yeniden en iyi bildiği işe odaklandı: oyuncak tuğlalarına.
+      sahne: park — LEGOLAND temsili kalesi satılır, tuğlalar yükselip kaybolur
+[00:26.55 – 00:27.10]  Ve sonuç?
+      sahne: birlesme — Dağılmış parçalar havadan birleşip sade bir tuğla imparatorluğu oluşturur
+[00:27.35 – 00:32.96]  2025 yılında 83,5 milyar kron ciro ve 16,7 milyar kron net kâr!
+      sahne: birlesme — Dağılmış parçalar havadan birleşip sade bir tuğla imparatorluğu oluşturur
+      okunuş (TTS): iki bin yirmi beş yılında seksen üç virgül beş milyar kron ciro ve on altı virgül yedi milyar kron net kâr!
+[00:33.31 – 00:37.48]  LEGO'yu kurtaran şey, daha fazla iş yapmak değil, doğru işe odaklanmaktı.
+      sahne: final — Sade imparatorluk, final yazısı
+      okunuş (TTS): Legoyu kurtaran şey, daha fazla iş yapmak değil, doğru işe odaklanmaktı.
+
+SAHNE LİSTESİ
+============================================================
+00:00.00 – 00:03.27  hook            [world3d]  geçiş: cut  Devasa LEGO kulesi çöker, kırmızı grafik düşer, zarar yazısı çarpar
+00:03.00 – 00:06.60  satis           [world3d]  geçiş: whip  Fabrika bandı, satılmayan kutular, düşen satış çubuğu
+00:06.60 – 00:10.97  zarar           [world3d]  geçiş: cut  Satılmayan oyuncak kutuları yığılır, kırmızı grafik dibe iner, zarar sayacı
+00:10.70 – 00:15.40  daginik         [world3d]  geçiş: whip  Birbirinden kopuk karmaşık yapılar, yükselen maliyet çubukları
+00:15.20 – 00:19.00  yonetim         [world3d]  geçiş: flash  Yönetim değişir, karakter işaret eder, gereksiz yapılar tek tek kaybolur
+00:19.00 – 00:23.00  park            [world3d]  geçiş: cut  LEGOLAND temsili kalesi satılır, tuğlalar yükselip kaybolur
+00:22.80 – 00:28.77  birlesme        [world3d]  geçiş: flash  Dağılmış parçalar havadan birleşip sade bir tuğla imparatorluğu oluşturur
+00:28.50 – 00:33.10  sonuc           [world3d]  geçiş: whip  Yükselen çubuklar ve sayaçlar: 2025 ciro ve net kâr
+00:33.10 – 00:38.30  final           [world3d]  geçiş: cut  Sade imparatorluk, final yazısı
+
+SES
+============================================================
+Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
+Müzik: özgün prosedürel kompozisyon · 124 BPM · Re minör
+Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.99, "voice_lufs": -16.0, "music_under_voice_db": 11.9}

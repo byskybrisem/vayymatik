@@ -1,0 +1,27 @@
+# Kaynaklar ve doğrulama — LEGO İflasın Eşiğinden Nasıl Döndü? 🧱
+
+Tüm sayısal ve tarihsel iddialar aşağıdaki kaynaklardan doğrulanmıştır (erişim tarihleri belirtilmiştir).
+
+| # | Videodaki bilgi | Kaynak | Erişim |
+|---|---|---|---|
+| 1 | 2003'te satışlarda %26 düşüş; vergi öncesi zarar 1,432 milyar DKK | [LEGO Group Annual Report 2003](https://www.lego.com/en-us/aboutus/lego-group/annual-report) | Kullanıcı tarafından sağlanan kaynak (bağımsız olarak yeniden doğrulanmadı) |
+| 2 | 2004 yönetim değişikliği ve yeniden yapılanma; 2005 LEGOLAND parklarının satışı | [LEGO resmî şirket tarihçesi](https://www.lego.com/en-us/history) | Kullanıcı tarafından sağlanan kaynak (bağımsız olarak yeniden doğrulanmadı) |
+| 3 | 2025 ciro 83,5 milyar DKK; net kâr 16,7 milyar DKK | [LEGO Group 2025 Full Year Results](https://www.lego.com/en-us/aboutus/lego-group/annual-report) | Kullanıcı tarafından sağlanan kaynak (bağımsız olarak yeniden doğrulanmadı) |
+
+## Notlar
+
+- **Ciro ≠ kâr:** 12,196 milyar € Red Bull'un 2025 *grup cirosudur (gelir)*; net kâr olarak sunulmamıştır. Videoda bu açıkça yazılıdır.
+- **"8 milyondan fazla":** YouTube resmî blogu zirvede *"more than 8 million concurrent livestreams"* ifadesini kullanır; videoda "eş zamanlı canlı yayın akışı" olarak aktarılmıştır.
+- **"Yaklaşık 14 milyar kutu":** seslendirmede 13,969 milyar yuvarlanmıştır; ekranda kesin değer (13,969 milyar) gösterilir.
+- **"≈ saniyede 443 kutu":** 13,969 milyar ÷ (365 × 86.400 sn) ile hesaplanmış türetilmiş ortalamadır.
+- **"Uzayın sınırı":** Stratos atlayışı ~39 km (stratosfer) yüksekliktedir; ifade YouTube blogundaki "edge of space" kullanımına dayanır.
+- Futbol kulüplerinin yılları Red Bull'un kulüple ilişkisinin başladığı / kulübün Red Bull kimliğiyle kurulduğu yılları gösterir.
+
+## Görsel, ses ve yazı tipi lisansları
+
+- 3D sahneler, tuğlalar, nesneler ve dokular: VAYYMATİK motorunda koddan üretilmiş özgün içerik (Three.js, MIT). Resmî LEGO logosu veya telifli görsel kullanılmamıştır.
+- Seslendirme: Piper TTS, tr_TR-fahrettin-medium (CC0 veri seti).
+- Müzik ve ses efektleri: VAYYMATİK üretim hattında prosedürel olarak sentezlenmiş özgün içerik.
+- Yazı tipleri: Anton, Montserrat (SIL Open Font License).
+
+Temsili sahneler (stratosfer POV, kapsül, F1 pisti, otoyol, ürün kutusu, spor siluetleri, izleyici noktaları) videoda **"TEMSİLİ"** etiketiyle işaretlenmiştir; gerçek arşiv görüntüsü olarak sunulmamıştır. Red Bull logosu veya ticari görselleri kullanılmamıştır.
