@@ -6508,6 +6508,9 @@
    "gain": -6
   }
  ],
+ "qa": {
+  "max_visual_gap": 14.0
+ },
  "foreign_words": [
   "SOFAR"
  ],

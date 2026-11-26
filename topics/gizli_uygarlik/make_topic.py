@@ -40,6 +40,7 @@ def build():
         "disclaimers": DISCLAIMERS,
         "music": MUSIC or {"style": "rise", "sections": {"dark": "@start", "build": 5, "peak": 10, "end": "@end"}},
         "sfx": SFX,
+        "qa": {"max_visual_gap": 14.0},
         "foreign_words": ["SOFAR"],
         "metadata": {
             "title": "Okyanusun Altında Gizli Bir Uygarlık Bulunsaydı? | Bilimkurgu Senaryo",

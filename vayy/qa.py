@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import difflib
 import json
+import os
 import re
 import subprocess
 import time
@@ -222,7 +223,8 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     cuts = _scene_changes(video)
     cut_ev = sorted(set([0.0] + cuts + [dur]))
     cut_gaps = [round(b - a_, 2) for a_, b in zip(cut_ev, cut_ev[1:])]
-    add("Anlamlı görsel değişim aralığı ≤ 4 sn (zaman çizelgesi)", max(gaps) <= 4.0, {"max_gap_s": max(gaps), "events": len(ev)})
+    gap_lim = float(topic.get("qa", {}).get("max_visual_gap", 4.0))  # Shorts: 4 sn · uzun belgesel: konu JSON'unda gevşetilir
+    add(f"Anlamlı görsel değişim aralığı ≤ {gap_lim:g} sn (zaman çizelgesi)", max(gaps) <= gap_lim, {"max_gap_s": max(gaps), "events": len(ev)})
     add("Ölçülen sahne kesmeleri (ffmpeg scene>0.18)", True, {"cuts": len(cuts), "max_gap_s": max(cut_gaps)}, crit=False)
 
     loud = _ebur128(video)
@@ -279,7 +281,8 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     from .paths import ENGINE
 
     audit_p = bdir / "audit_log.json"
-    subprocess.run(["node", "audit.mjs", "--step", "3", "--out", str(audit_p)], cwd=ENGINE, check=True)
+    step = os.environ.get("VAYY_AUDIT_STEP", "3")  # uzun videolarda seyrek tarama (ör. 15)
+    subprocess.run(["node", "audit.mjs", "--step", step, "--out", str(audit_p)], cwd=ENGINE, check=True)
     audit = json.loads(audit_p.read_text(encoding="utf-8"))
     over = [json.loads(e["text"].split("[OVERFLOW] ", 1)[1]) for e in audit["logs"]]
     frames_bad = sorted({o["frame"] for o in over})
