@@ -11,7 +11,7 @@ import {FlashLayer} from './components/FlashLayer';
 import './lib/fonts';
 import {registerForeignWords} from './lib/tr';
 
-export const Short: React.FC<ShortProps> = ({timeline, audit}) => {
+export const Short: React.FC<ShortProps> = ({timeline, audit, clean}) => {
 	if (!timeline) return <AbsoluteFill style={{background: '#000'}} />;
 	const brand = {...DEFAULT_BRAND, ...timeline.brand};
 	registerForeignWords(timeline.foreignWords);
@@ -30,12 +30,12 @@ export const Short: React.FC<ShortProps> = ({timeline, audit}) => {
 					);
 				})}
 				<GlobalFX />
-				<Watermark />
-				<Disclaimers items={timeline.disclaimer} />
-				<Captions pages={timeline.captions} />
+				{clean ? null : <Watermark />}
+				{clean ? null : <Disclaimers items={timeline.disclaimer} />}
+				{clean ? null : <Captions pages={timeline.captions} />}
 				<FlashLayer scenes={timeline.scenes} />
 				{timeline.audioSrc ? <Audio src={staticFile(timeline.audioSrc)} /> : null}
-				{audit !== false ? <Audit scenes={timeline.scenes} /> : null}
+				{audit !== false && !clean ? <Audit scenes={timeline.scenes} /> : null}
 			</AbsoluteFill>
 		</BrandCtx.Provider>
 	);

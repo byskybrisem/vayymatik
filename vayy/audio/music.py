@@ -351,6 +351,131 @@ class Music:
             self.riser(t_end, dur, -6)
         self.arc = [(S["dark"], -3.0), (S["build"], -2.0), (S["peak"], 1.0), (S["end"] - 0.6, 0.0), (S["end"], -2.0)]
 
+    # ---- uzun belgesel (10–12 dk): ruh hâli bölümleri ----
+    def arrange_doc(self, sections, hits, risers):
+        """sections = {"mood#n": zaman}. Moods: mystery, storm, signal, wonder, descent, deep, contact, suspense,
+        build, reveal, news, somber, lost, tech, decision, finale, outro."""
+        R = np.random.default_rng(self.seed)
+        items = sorted(((t, k.split("#")[0]) for k, t in sections.items() if k != "end"), key=lambda x: x[0])
+        end_t = sections.get("end", self.total)
+        for i, (a, mood) in enumerate(items):
+            b = items[i + 1][0] if i + 1 < len(items) else end_t
+            d = max(0.5, b - a)
+            if mood == "lost":
+                self.sub(a, min(d, 3.0), 26, -10)
+                continue
+            if mood in ("mystery", "signal", "suspense"):
+                self.pad(a, d, [50, 57, 64, 65], gain=-3, bright=650, attack=2.5)
+                self.sub(a, d, 26, -9)
+                t = a + 1.0
+                while t < b - 0.5:
+                    self.bell(t, int(R.choice([74, 69, 77, 72])), gain=-9)
+                    t += R.uniform(2.8, 4.6)
+                if mood in ("signal", "suspense"):
+                    step = 1.6 if mood == "signal" else 0.8
+                    for k, tt in enumerate(self.grid(a + 0.5, b, step)):
+                        self.pulse(tt, 0.35, 38, gain=-11 + (min(k, 20) * 0.15 if mood == "suspense" else 0), cutoff=500)
+            elif mood == "storm":
+                self.pad(a, d, [50, 53, 57, 62], gain=-4, bright=560, attack=1.5)
+                self.sub(a, d, 26, -8)
+                for tt in self.grid(a + 0.3, b, 60 / 92 / 2):
+                    self.pulse(tt, 0.22, 38, gain=-14, cutoff=420)
+            elif mood == "wonder":
+                prog = [[53, 57, 60, 64], [50, 53, 57, 62], [46, 53, 58, 62], [48, 55, 60, 64]]
+                for k, tt in enumerate(np.arange(a, b, 6.0)):
+                    self.pad(tt, min(6.4, b - tt + 0.4), prog[k % 4], gain=-4, bright=1300, attack=1.6)
+                arp = [65, 69, 72, 76, 72, 69]
+                for k, tt in enumerate(self.grid(a + 1.0, b - 0.3, 60 / 100 / 2)):
+                    self.pluck(tt, arp[k % len(arp)], gain=-14, decay=0.5, pan_=0.3 * np.sin(k * 0.7))
+            elif mood == "descent":
+                prog = [[46, 50, 53, 57], [43, 50, 55, 58], [38, 50, 53, 57], [41, 48, 53, 57]]
+                for k, tt in enumerate(np.arange(a, b, 7.0)):
+                    br = max(380, 1500 - (tt - a) * 9)
+                    self.pad(tt, min(7.4, b - tt + 0.4), prog[k % 4], gain=-4, bright=br, attack=2.0)
+                    self.sub(tt, min(7.0, b - tt), prog[k % 4][0] - 12, -8)
+                t = a + 2.0
+                while t < b - 1:
+                    self.bell(t, int(R.choice([62, 65, 57])), gain=-12)
+                    t += R.uniform(4.0, 6.5)
+            elif mood == "deep":
+                self.pad(a, d, [38, 45, 50], gain=-4, bright=360, attack=3.0)
+                self.sub(a, d, 26, -7)
+                t = a + 1.5
+                while t < b - 1:
+                    self.pluck(t, int(R.choice([38, 41, 45])), gain=-10, decay=1.2)
+                    t += R.uniform(3.5, 6.0)
+            elif mood == "contact":
+                self.pad(a, d, [62, 63, 69, 74], gain=-6, bright=900, attack=3.5)
+                self.sub(a, d, 26, -9)
+                t = a + 0.8
+                while t < b - 0.5:
+                    self.bell(t, int(R.choice([86, 87, 81])), gain=-15)
+                    t += R.uniform(1.5, 3.2)
+                for tt in self.grid(a + 0.4, b, 2.2):
+                    self.pulse(tt, 0.4, 33, gain=-10, cutoff=380)
+            elif mood == "build":
+                self.pad(a, d, [50, 57, 62, 65, 69], gain=-3, bright=900, attack=d * 0.6)
+                n_hits = max(1, int(d / 0.5))
+                for k in range(n_hits):
+                    self.tom(a + k * d / n_hits, gain=-16 + 10 * (k / n_hits), pitch=0.9)
+                self.riser(b, min(d, 3.5), gain=-6)
+            elif mood == "reveal":
+                self.braam(a, 26, gain=-4, dur=4.0)
+                self.choir(a + 0.2, d, [62, 65, 69], gain=-3)
+                prog = [[50, 57, 62, 65, 69], [46, 53, 58, 62, 65], [53, 57, 60, 65, 69], [48, 55, 60, 64, 67]]
+                for k, tt in enumerate(np.arange(a, b, 4.0)):
+                    self.pad(tt, min(4.4, b - tt + 0.4), prog[k % 4], gain=-2, bright=2200, attack=0.6)
+                    self.sub(tt, min(4.0, b - tt), prog[k % 4][0] - 12, -6)
+            elif mood == "news":
+                self.pad(a, d, [50, 53, 57], gain=-8, bright=700, attack=1.0)
+                pat = [50, 57, 53, 57, 50, 57, 55, 57]
+                for k, tt in enumerate(self.grid(a + 0.2, b, 60 / 100 / 4)):
+                    self.pulse(tt, 0.12, pat[k % 8] - 12, gain=-13, cutoff=1100)
+                for tt in self.grid(a + 0.2, b, 60 / 100):
+                    self.kick(tt, gain=-20)
+            elif mood == "somber":
+                prog = [[43, 50, 55, 58], [39, 46, 51, 55], [46, 50, 53, 58], [41, 48, 53, 57]]
+                for k, tt in enumerate(np.arange(a, b, 5.0)):
+                    self.pad(tt, min(5.4, b - tt + 0.4), prog[k % 4], gain=-4, bright=800, attack=1.5)
+                    self.bell(tt + 0.4, prog[k % 4][-1] + 12, gain=-10)
+            elif mood == "tech":
+                self.pad(a, d, [50, 57, 62], gain=-6, bright=1200, attack=1.2)
+                arp = [62, 65, 69, 71, 74, 71, 69, 65]
+                for k, tt in enumerate(self.grid(a + 0.5, b - 0.2, 60 / 108 / 4)):
+                    self.pluck(tt, arp[k % 8], gain=-15, decay=0.28, pan_=0.4 * np.sin(k * 0.45))
+                self.sub(a, d, 26, -10)
+            elif mood == "decision":
+                prog = [[43, 50, 55, 58], [39, 51, 55, 58], [46, 50, 53, 58], [41, 53, 57, 60]]
+                for k, tt in enumerate(np.arange(a, b, 4.0)):
+                    self.pad(tt, min(4.4, b - tt + 0.4), prog[k % 4], gain=-4, bright=900, attack=1.0)
+                    self.sub(tt, min(4.0, b - tt), prog[k % 4][0] - 12, -8)
+                mel = [74, 72, 70, 69, 67, 69, 70, 72]
+                for k, tt in enumerate(np.arange(a + 1.0, b - 1.0, 2.0)):
+                    self.bell(tt, mel[k % 8], gain=-11)
+            elif mood == "finale":
+                prog = [[50, 57, 62, 65, 69], [46, 53, 58, 62, 65], [53, 57, 60, 65, 69], [48, 55, 60, 64, 67]]
+                for k, tt in enumerate(np.arange(a, b, 3.0)):
+                    lift = min(1.0, (tt - a) / max(1.0, d))
+                    self.pad(tt, min(3.4, b - tt + 0.4), [m + (12 if lift > 0.6 else 0) for m in prog[k % 4]], gain=-3 + 2 * lift, bright=1400 + 1600 * lift, attack=0.5)
+                    self.sub(tt, min(3.0, b - tt), prog[k % 4][0] - 12, -6)
+                self.choir(a + 1.0, max(1.0, d - 1.0), [62, 65, 69, 74], gain=-4)
+                for tt in self.grid(a + 0.5, b, 60 / 84):
+                    self.tom(tt, gain=-15 + 7 * min(1.0, (tt - a) / max(1.0, d)), pitch=0.8)
+            elif mood == "outro":
+                self.pad(a, d, [50, 54, 57, 62, 66], gain=-2, bright=1600, attack=2.0)
+                self.choir(a, d, [62, 66, 69], gain=-5)
+                self.sub(a, d, 26, -7)
+        for t, kind in hits:
+            if kind == "impact":
+                self.impact(t, -3)
+            elif kind == "braam":
+                self.braam(t, 26, -3, 3.4)
+            elif kind == "swell":
+                self.reverse_swell(t, 1.6, 62, -4)
+        for t_end, dur in risers:
+            self.riser(t_end, dur, -5)
+        self.arc = None
+
     def mix(self) -> np.ndarray:
         g = {"drums": 0.0, "bass": -1.0, "pads": 0.0, "keys": -1.0, "fx": 0.0, "lead": 0.0}
         out = sum(self.stems[k] * 10 ** (g[k] / 20) for k in self.stems)
@@ -375,5 +500,5 @@ class Music:
 def compose(total: float, sections: dict[str, float], hits, risers, bpm=120.0, seed=7, style: str = "story") -> np.ndarray:
     """style: 'story' (8 bölümlü anlatı, 30–60 sn) · 'rise' (kısa sinematik yükseliş: dark/build/peak/end)."""
     m = Music(total, bpm=bpm, seed=seed)
-    (m.arrange_rise if style == "rise" else m.arrange)(sections, hits, risers)
+    {"rise": m.arrange_rise, "doc": m.arrange_doc}.get(style, m.arrange)(sections, hits, risers)
     return m.mix()

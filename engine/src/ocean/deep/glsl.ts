@@ -19,6 +19,7 @@ uniform float uPower;       // şehir enerji seviyesi 0..1
 uniform float uSurface;     // sığ su (yüzey ışığı) 0..1
 uniform vec3 uCore;         // şehir çekirdeği (parıltı kaynağı)
 uniform vec3 uCoreCol;      // çekirdeğin suda saçılan rengi
+uniform vec3 uSurfCol;      // yukarıdan gelen yüzey ışığının rengi
 
 float hash11(float p){ p = fract(p * .1031); p *= p + 33.33; p *= p + p; return fract(p); }
 float hash21(vec2 p){ vec3 p3 = fract(vec3(p.xyx) * .1031); p3 += dot(p3, p3.yzx + 33.33); return fract((p3.x + p3.y) * p3.z); }
@@ -67,7 +68,7 @@ vec3 lightSurface(vec3 P, vec3 N, vec3 V, vec3 albedo, float spec, float rough){
     col += uPtCol[i] * att * (albedo * ndl + sp);
   }
   // yukarıdan süzülen zayıf yüzey ışığı (sığ sahneler)
-  col += uSurface * albedo * vec3(0.10, 0.35, 0.55) * max(N.y, 0.0);
+  col += uSurface * albedo * uSurfCol * (0.35 + 0.65 * max(N.y, 0.0));
   return col;
 }
 

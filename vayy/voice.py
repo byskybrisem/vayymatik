@@ -98,8 +98,17 @@ def synth_lines(topic: dict, cache_dir: Path, log=print) -> list[LineAudio]:
                 pause = line.get("pause_after", meta.get("gap_after", v.get("gap_chunk", 0.45)))
             else:
                 src = TOPICS / topic["id"] / "voice" / f"{line['id']}.mp3"
-                audio, words = _external_line(src, parsed)
-                pause = line.get("pause_after", v.get("gap", 0.25))
+                if src.exists():
+                    audio, words = _external_line(src, parsed)
+                else:
+                    # YER TUTUCU: kayıt henüz yok → tahmini süre (≈14,4 karakter/sn), sessiz ses, eşit kelime aralıkları.
+                    # Önceki satırların zamanlaması değişmez; böylece hazır bölümler erkenden render edilebilir.
+                    dur = max(1.0, len(parsed.tts_text) / 14.4)
+                    audio = np.zeros(int(dur * SR_OUT) + int(0.1 * SR_OUT), np.float32)
+                    n = max(1, len(parsed.spoken))
+                    words = [{"text": w, "start": round(0.05 + dur * k / n, 4), "end": round(0.05 + dur * (k + 1) / n, 4)} for k, w in enumerate(parsed.spoken)]
+                    log(f"  [ses] YER TUTUCU: {line['id']} ({dur:.1f} sn tahmini)")
+                pause = line.get("pause_after", v.get("gap_chunk", v.get("gap", 0.25)))
             out.append(LineAudio(id=line["id"], parsed=parsed, audio=audio, words=words, pause_after=pause))
         log(f"  [ses] harici ses ({v.get('name', 'external')}): {len(out)} satır")
         return out

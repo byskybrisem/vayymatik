@@ -200,11 +200,105 @@ def tv_static(dur=0.6, seed=18):
     return dsp.stereo(x)
 
 
+# ---- Okyanus / derin deniz (gizli_uygarlik) ----
+def sonar_ping(seed=19, pitch=1.0):
+    """Aktif sonar "ping"i: saf ton + metalik rezonans + uzun yankı."""
+    n = n_of(2.6)
+    f = 1350 * pitch
+    x = dsp.sine(np.full(n, f), n) * dsp.expdec(n, 0.25) * 0.5 + dsp.sine(np.full(n, f * 2.01), n) * dsp.expdec(n, 0.08) * 0.15
+    return dsp.reverb(dsp.stereo(x), wet=0.55, decay=3.2, predelay=0.06, damp=4000, seed=seed)
+
+
+def signal_pulse(seed=20, pitch=1.0):
+    """Derinlikten gelen düşük frekanslı atım (uzaylı olmayan, doğal görünmeyen 'tok' darbe)."""
+    n = n_of(1.2)
+    f = (62 + 30 * np.exp(-dsp.tvec(n) / 0.05)) * pitch
+    x = dsp.sine(f, n) * dsp.expdec(n, 0.28) * 0.9 + dsp.sine(f * 3.0, n) * dsp.expdec(n, 0.06) * 0.2
+    return dsp.reverb(dsp.stereo(dsp.saturate(x, 1.4)), wet=0.45, decay=2.4, seed=seed)
+
+
+def thunder(seed=21, size=1.0):
+    n = n_of(5.0 * size)
+    crack = dsp.hp(dsp.noise(n_of(0.35), seed), 800) * dsp.expdec(n_of(0.35), 0.05) * 0.6
+    rumble = dsp.lp(dsp.pink(n, seed + 1), 160, 2) * (dsp.adsr(n, 0.05, 0.6, 0.55, 2.0)) * 3.0
+    rumble *= 0.6 + 0.4 * np.abs(np.sin(dsp.tvec(n) * 7.3)) ** 0.5
+    rumble[: len(crack)] += crack
+    return dsp.reverb(dsp.stereo(rumble), wet=0.3, decay=3.0, seed=seed) * 0.8
+
+
+def rain(dur=8.0, seed=22, heavy=1.0):
+    n = n_of(dur)
+    x = dsp.bp(dsp.noise(n, seed), 900, 9000) * 0.18 * heavy
+    drops = (dsp.noise(n, seed + 1) > 0.995 - 0.004 * heavy).astype(np.float32) * dsp.noise(n, seed + 2) * 0.5
+    x = x + dsp.hp(drops, 2000)
+    env = dsp.adsr(n, 0.8, 0.1, 1.0, 1.2)
+    sea = dsp.lp(dsp.pink(n, seed + 3), 500, 2) * 0.9 * (0.7 + 0.3 * np.sin(dsp.tvec(n) * 0.9))
+    return np.stack([x * env + sea * env, np.roll(x, 311) * env + sea * env * 0.95], -1).astype(np.float32) * 0.7
+
+
+def underwater(dur=10.0, seed=23, depth=1.0):
+    """Su altı ortamı: boğuk uğultu, uzak gıcırtılar, kabarcık izleri (derinlikle koyulaşır)."""
+    n = n_of(dur)
+    hum = dsp.lp(dsp.pink(n, seed), 120 + 200 * (1 - depth), 2) * 2.2
+    hum += dsp.sine(np.full(n, 41.0), n) * 0.08 * depth
+    env = dsp.adsr(n, 1.2, 0.1, 1.0, 1.5)
+    L = hum * env
+    R = np.roll(hum, n_of(0.021)) * env
+    return np.stack([L, R], -1).astype(np.float32) * 0.6
+
+
+def splash(seed=24):
+    n = n_of(2.0)
+    x = dsp.bp(dsp.noise(n, seed), 200, 5000) * dsp.adsr(n, 0.01, 0.25, 0.3, 1.2) * 0.8
+    sub = dsp.sine(60 + 40 * np.exp(-dsp.tvec(n) / 0.1), n) * dsp.expdec(n, 0.3) * 0.6
+    bub = np.zeros(n, np.float32)
+    rng = np.random.default_rng(seed)
+    for k in range(18):
+        t0 = int(rng.uniform(0.3, 1.7) * SR)
+        m = n_of(0.06)
+        if t0 + m < n:
+            f = rng.uniform(500, 1600)
+            bub[t0:t0 + m] += dsp.sine(np.linspace(f, f * 1.6, m), m) * dsp.expdec(m, 0.015) * 0.25
+    return dsp.reverb(dsp.stereo(x + sub + bub), wet=0.25, decay=1.4, seed=seed)
+
+
+def creak(seed=25, pitch=1.0):
+    """Basınç altında metal gövde gıcırtısı."""
+    n = n_of(1.8)
+    f = (55 + 25 * np.sin(dsp.tvec(n) * 3.0)) * pitch
+    x = dsp.saw(f, n) * (0.5 + 0.5 * (dsp.noise(n, seed) > 0.2)) * dsp.adsr(n, 0.2, 0.4, 0.5, 0.6) * 0.25
+    x = dsp.bp(x, 120, 1800)
+    return dsp.reverb(dsp.stereo(x), wet=0.5, decay=2.8, seed=seed)
+
+
+def deep_boom(seed=26, size=1.0):
+    n = n_of(4.0 * size)
+    x = dsp.sine(26 + 40 * np.exp(-dsp.tvec(n) / 0.12), n) * dsp.expdec(n, 1.0 * size) * 1.2
+    x += dsp.lp(dsp.noise(n, seed), 300) * dsp.expdec(n, 0.15) * 0.5
+    return dsp.reverb(dsp.stereo(dsp.saturate(x, 1.8)), wet=0.4, decay=4.0, seed=seed)
+
+
+def data_blips(dur=1.2, seed=27, rate=14):
+    n = n_of(dur)
+    out = np.zeros(n, np.float32)
+    rng = np.random.default_rng(seed)
+    t = 0.0
+    while t < dur - 0.05:
+        m = n_of(0.03)
+        i = int(t * SR)
+        f = rng.choice([1800, 2400, 3000, 1500])
+        out[i:i + m] += dsp.sine(np.full(m, f), m) * dsp.expdec(m, 0.01) * 0.2
+        t += 1.0 / rate * rng.uniform(0.6, 1.4)
+    return dsp.stereo(out)
+
+
 SFX = {
     "whoosh": whoosh, "impact": impact, "riser": riser, "wind": wind, "engine": engine_flyby,
     "engine_idle": engine_idle, "light": light_clunk, "tick": tick, "ticks": ticks, "flaps": flap_clicks,
     "shutter": shutter, "pop": ui_pop, "heartbeat": heartbeat, "crowd": crowd, "static": static_burst,
     "glitch": glitch, "cash": cash, "tv": tv_static,
+    "ping": sonar_ping, "pulse": signal_pulse, "thunder": thunder, "rain": rain, "underwater": underwater,
+    "splash": splash, "creak": creak, "boom": deep_boom, "blips": data_blips,
 }
 
 

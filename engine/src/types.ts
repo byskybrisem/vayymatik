@@ -60,4 +60,6 @@ export type ShortProps = {
 	topic: string;
 	timeline?: Timeline | null;
 	audit?: boolean;
+	/** Altyazı/filigran/uyarı olmadan temiz kare (UI içi görüntü akışları için) */
+	clean?: boolean;
 };

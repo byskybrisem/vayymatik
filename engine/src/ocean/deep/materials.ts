@@ -18,6 +18,7 @@ export type Shared = {
 	uSurface: {value: number};
 	uCore: {value: THREE.Vector3};
 	uCoreCol: {value: THREE.Color};
+	uSurfCol: {value: THREE.Color};
 };
 
 export const makeShared = (): Shared => ({
@@ -36,6 +37,7 @@ export const makeShared = (): Shared => ({
 	uSurface: {value: 0},
 	uCore: {value: new THREE.Vector3(0, 200, 0)},
 	uCoreCol: {value: new THREE.Color(0.02, 0.1, 0.11)},
+	uSurfCol: {value: new THREE.Color('#1a5a8c')},
 });
 
 const withShared = (shared: Shared, extra: Record<string, THREE.IUniform>) => ({...shared, ...extra}) as Record<string, THREE.IUniform>;

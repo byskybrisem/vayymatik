@@ -2,6 +2,7 @@
 // Tamamen koddan üretilir (özgün tasarım). Işık/su modeli: ocean/deep/glsl.ts. Hareket yalnızca kareye bağlı.
 import React, {useMemo} from 'react';
 import {Chapter, ChapterSpec} from './Chapter';
+import {Tag} from './ui';
 import * as THREE from 'three';
 import {useThree} from '@react-three/fiber';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
@@ -22,7 +23,7 @@ type V = V3 | VecKey[];
 export type DeepProps = {
 	stage?: {scale?: number; exposure?: number};
 	camera: CameraSpec;
-	water?: {sigma?: V; color?: string; amb?: string; surface?: N};
+	water?: {sigma?: V; color?: string; amb?: string; surface?: N; surfCol?: string};
 	lamps?: {mode?: 'cam' | 'rov' | 'off'; i?: N; spread?: number; beams?: N};
 	city?: {show?: boolean; power?: N; seed?: number; beats?: number[]; period?: number; glow?: string};
 	rov?: {show?: boolean; pos?: V; yaw?: N; pitch?: N; tether?: boolean};
@@ -36,6 +37,8 @@ export type DeepProps = {
 	grade?: GradeSpec;
 	titles?: TitleSpec[];
 	chapter?: ChapterSpec;
+	tag?: string;
+	tagColor?: string;
 };
 
 // Karışık (indeksli/indekssiz) geometrileri güvenle birleştir
@@ -126,10 +129,11 @@ const City: React.FC<{sh: Shared; layout: CityLayout; glow: string; frame: numbe
 			base: structMat(sh, {base: '#4a535b', glow, hex: 0.3, veins: 0.05, mode: 1, seed: 2}),
 			pod: structMat(sh, {base: '#7a848c', glow, hex: 0.45, veins: 0.05, mode: 0, seed: 8}),
 			band: glowMat(sh, {color: glow, i: 0.8, kind: 2}),
-			core: glowMat(sh, {color: '#9ffcf4', i: 3.2, kind: 2}),
+			core: glowMat(sh, {color: '#9ffcf4', i: 2.0, kind: 2}),
+			ringC: glowMat(sh, {color: glow, i: 0.45, kind: 2}),
 			halo: glowMat(sh, {color: glow, i: 1.1, kind: 0}),
-			haloBig: glowMat(sh, {color: glow, i: 1.4, kind: 0}),
-			beam: glowMat(sh, {color: glow, i: 0.16, kind: 1}),
+			haloBig: glowMat(sh, {color: glow, i: 0.75, kind: 0}),
+			beam: glowMat(sh, {color: glow, i: 0.07, kind: 1}),
 		}),
 		[sh, glow],
 	);
@@ -236,9 +240,9 @@ const City: React.FC<{sh: Shared; layout: CityLayout; glow: string; frame: numbe
 			<mesh geometry={geos.column} material={mats.tower} />
 			<mesh geometry={geos.legs} material={mats.tower} />
 			<mesh geometry={geos.rings} material={mats.tower} rotation={[0, frame * 0.0006, 0]} />
-			<mesh geometry={geos.ringC} material={mats.band} />
+			<mesh geometry={geos.ringC} material={mats.ringC} />
 			<mesh geometry={geos.core} material={mats.core} position={[0, 200, 0]} />
-			<Billboard pos={[0, 200, 0]} size={230} mat={mats.haloBig} />
+			<Billboard pos={[0, 200, 0]} size={150} mat={mats.haloBig} />
 			<mesh geometry={geos.beam} material={mats.beam} />
 			<points geometry={lights.g} material={lights.m} />
 			<points geometry={pods.g} material={pods.m} />
@@ -539,6 +543,7 @@ const Director: React.FC<{p: DeepProps; sh: Shared; layout: CityLayout | null; f
 	sh.uWater.value.set(p.water?.color ?? '#01050a');
 	sh.uAmb.value.set(p.water?.amb ?? '#040a10');
 	sh.uSurface.value = num(frame, p.water?.surface, 0);
+	sh.uSurfCol.value.set(p.water?.surfCol ?? '#1a5a8c');
 	sh.uPower.value = p.city?.show === false ? 0 : num(frame, p.city?.power, 1);
 	// sinyal nabzı: verilen vuruşlarda keskin tepe, yoksa yavaş solunum
 	let pulse = 0.5 + 0.5 * Math.sin((t * Math.PI * 2) / (p.city?.period ?? 4.2));
@@ -578,7 +583,7 @@ const Director: React.FC<{p: DeepProps; sh: Shared; layout: CityLayout | null; f
 	// şehir ışıkları → yakındaki yüzeyleri aydınlatan nokta ışıklar
 	const glowC = new THREE.Color(p.city?.glow ?? '#35f2e0');
 	const pw = sh.uPower.value;
-	sh.uCoreCol.value.copy(glowC).multiplyScalar(p.city && p.city.show !== false ? (p.city as {scatter?: number}).scatter ?? 0.2 : 0);
+	sh.uCoreCol.value.copy(glowC).multiplyScalar(p.city && p.city.show !== false ? (p.city as {scatter?: number}).scatter ?? 0.13 : 0);
 	const pts: [V3, number][] = [[[0, 200, 0], 3200]];
 	if (layout) {
 		const near = [...layout.domes].sort((a, b) => Math.hypot(a.x - cam.position.x, a.z - cam.position.z) - Math.hypot(b.x - cam.position.x, b.z - cam.position.z)).slice(0, 3);
@@ -642,6 +647,7 @@ export const DeepScene: React.FC<DeepProps> = (p) => {
 			</AbsoluteFill>
 			<Grade spec={p.grade} lamp={p.lamps?.mode === 'cam' ? num(frame, p.lamps?.i, 7) / 7 : 0} />
 			{p.hud ? <Hud spec={p.hud} /> : null}
+			{p.tag ? <Tag text={p.tag} color={p.tagColor} style={{right: 80, top: p.hud ? 150 : 56}} /> : null}
 			{p.chapter ? <Chapter spec={p.chapter} /> : null}
 			{p.titles ? <Titles titles={p.titles} /> : null}
 		</AbsoluteFill>

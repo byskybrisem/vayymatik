@@ -150,13 +150,15 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         "foreignWords": topic.get("foreign_words", []),
     }
 
+    fast = __import__("os").environ.get("VAYY_FAST") == "1"  # hızlı görsel deneme: müzik/SFX/miks atlanır
     # 3) Müzik
-    log("3/8 Müzik (prosedürel, özgün)")
+    log("3/8 Müzik (prosedürel, özgün)" + (" — ATLANDI (VAYY_FAST)" if fast else ""))
     m = topic["music"]
     sections = {k: res.abs(v) for k, v in m["sections"].items()}
     hits = [(res.abs(h["at"]), h["kind"]) for h in m.get("hits", [])]
     risers = [(res.abs(r["to"]), r["dur"]) for r in m.get("risers", [])]
-    music = compose(total, sections, hits, risers, bpm=m.get("bpm", 120), seed=m.get("seed", 7), style=m.get("style", "story"))
+    n_tot = int(round(total * SR_OUT))
+    music = np.zeros((n_tot, 2), np.float32) if fast else compose(total, sections, hits, risers, bpm=m.get("bpm", 120), seed=m.get("seed", 7), style=m.get("style", "story"))
 
     # 4) Efektler
     log("4/8 Ses efektleri")
@@ -165,12 +167,15 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         e = dict(e)
         e["t"] = res.abs(e.pop("at"))
         events.append(e)
-    sfx = render_sfx(events, total)
+    sfx = np.zeros((n_tot, 2), np.float32) if fast else render_sfx(events, total)
 
     # 5) Miks
     log("5/8 Miks + loudness")
     voice = render_voice_track(lines, total)
-    mixed, astats = mixmod.master(voice, music, sfx, brand.get("mix"))
+    if fast:
+        mixed, astats = np.stack([voice, voice], -1) * 0.5, {"fast": True}
+    else:
+        mixed, astats = mixmod.master(voice, music, sfx, brand.get("mix"))
     sf.write(bdir / "mix.wav", mixed, SR_OUT, subtype="PCM_24")
     sf.write(bdir / "voice_dry.wav", voice, SR_OUT, subtype="PCM_24")
     sf.write(bdir / "music.wav", music, SR_OUT, subtype="PCM_16")
