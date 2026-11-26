@@ -7,7 +7,7 @@ Kullanım:
       --patch build/<konu>/patch_x.mp4:2746 ...
 
 `--seg DOSYA:İLK_KARE` ve `--patch DOSYA:İLK_KARE`: dosyanın ilk karesinin mutlak kare numarası. Yamalar parçaların üstüne yazılır.
-Kare doğruluğu: concat demuxer (inpoint/outpoint) + tek geçişte yeniden kodlama. Toplam kare sayısı `--frames` ile doğrulanır.
+Kare doğruluğu: trim=start_frame + concat filtresi + tek geçişte yeniden kodlama (kopya/atlanan kare yok). Toplam kare sayısı `--frames` ile doğrulanır.
 """
 from __future__ import annotations
 
@@ -65,13 +65,19 @@ def main() -> int:
         else:
             runs.append((f, i, i))
     print(f"{len(runs)} parça, {a.frames} kare ({a.frames / FPS:.1f} sn)")
-    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False) as lst:
-        for f, i0, i1 in runs:
-            lst.write(f"file '{Path(f).resolve()}'\ninpoint {i0 / FPS:.6f}\noutpoint {(i1 + 1) / FPS:.6f}\n")
-        lst_path = lst.name
+    # Kare indeksine göre kesme (trim=start_frame) + concat filtresi: zaman damgalarından bağımsız, kare doğruluğunda.
+    inputs: list[str] = []
+    chains: list[str] = []
+    for n, (f, i0, i1) in enumerate(runs):
+        inputs += ["-i", str(Path(f).resolve())]
+        chains.append(f"[{n}:v]trim=start_frame={i0}:end_frame={i1 + 1},setpts=PTS-STARTPTS[v{n}]")
+    labels = "".join(f"[v{n}]" for n in range(len(runs)))
+    fc = ";".join(chains) + f";{labels}concat=n={len(runs)}:v=1:a=0[vc];[vc]setpts=N/({FPS}*TB)[vout]"
+    audio_idx = len(runs)
     cmd = [
-        "ffmpeg", "-y", "-v", "error", "-stats", "-f", "concat", "-safe", "0", "-i", lst_path, "-i", a.audio,
-        "-map", "0:v:0", "-map", "1:a:0", "-r", str(FPS), "-c:v", "libx264", "-preset", "medium", "-crf", str(a.crf), "-maxrate", "20M", "-bufsize", "40M",
+        "ffmpeg", "-y", "-v", "error", "-stats", *inputs, "-i", a.audio, "-filter_complex", fc,
+        "-map", "[vout]", "-map", f"{audio_idx}:a:0", "-r", str(FPS), "-fps_mode", "cfr",
+        "-c:v", "libx264", "-preset", "medium", "-crf", str(a.crf), "-maxrate", "20M", "-bufsize", "40M",
         "-pix_fmt", "yuv420p", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
         "-c:a", "aac", "-b:a", "320k", "-ar", "48000", "-shortest", "-movflags", "+faststart",
         "-metadata", f"title={a.title}", "-metadata", "artist=VAYYMATİK", a.out,
