@@ -1,5 +1,6 @@
 // "ocean" sahne türü: GLSL tam ekran okyanus — mode "storm" (yüzey, gemi, şimşek) veya "water" (iniş/açık su).
 import React from 'react';
+import {Chapter, ChapterSpec} from './Chapter';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {GLCanvas} from '../gl/GLCanvas';
 import {num, vec, NumKey, VecKey, V3} from '../three/core/math';
@@ -32,6 +33,7 @@ export type OceanProps = {
 	hud?: HudSpec;
 	grade?: GradeSpec;
 	titles?: TitleSpec[];
+	chapter?: ChapterSpec;
 };
 
 const flashAt = (frame: number, fps: number, list: number[] = []) => {
@@ -120,6 +122,7 @@ export const OceanScene: React.FC<OceanProps> = (p) => {
 			<GLCanvas frag={p.mode === 'storm' ? STORM_FRAG : WATER_FRAG} uniforms={uniforms} width={width} height={height} scale={scale} />
 			<Grade spec={p.grade} lamp={p.mode === 'water' ? Math.min(1, num(frame, p.lamp, 1)) : 0} />
 			{p.hud ? <Hud spec={p.hud} /> : null}
+			{p.chapter ? <Chapter spec={p.chapter} /> : null}
 			{p.titles ? <Titles titles={p.titles} /> : null}
 		</AbsoluteFill>
 	);

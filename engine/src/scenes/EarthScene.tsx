@@ -37,6 +37,10 @@ export type EarthProps = {
 	titles?: TitleSpec[];
 	shake?: {t: number; v: number}[];
 	live?: {from: number; to?: number; text?: string};
+	/** Okyanus altı ışıklar (kurgusal şehirler): parıldayan noktalar + isteğe bağlı etiket (16:9 uyumlu) */
+	lights?: {lat: number; lon: number; from: number; color?: string; size?: number; label?: string}[];
+	/** Okyanuslar arası ses yayı (SOFAR) */
+	arcs?: {from: [number, number]; to: [number, number]; start: number; dur: number}[];
 };
 
 const DEF: EarthCam = {lat: 33.4, lon: -104.5, alt: 39, heading: 0, pitch: 0, roll: 0, fov: 60, fisheye: 0};
@@ -179,6 +183,44 @@ export const EarthScene: React.FC<EarthProps> = (p) => {
 				const a = prog(frame, l.from, 10) * (l.to !== undefined ? 1 - prog(frame, l.to, 8) : 1);
 				if (!q.visible || a <= 0) return null;
 				return <GeoLabel key={i} x={q.x} y={q.y} text={l.text} sub={l.sub} color={l.color} appear={a} frame={frame - l.from} />;
+			})}
+			{p.arcs?.length ? (
+				<svg width={width} height={height} style={{position: 'absolute', inset: 0}}>
+					{p.arcs.map((a, i) => {
+						const pr = prog(frame, a.start, a.dur, ease.inOut);
+						if (pr <= 0) return null;
+						const pts: string[] = [];
+						const n = 48;
+						for (let k = 0; k <= Math.round(n * pr); k++) {
+							const [la, lo] = slerpLatLon(a.from, a.to, k / n);
+							const q = projectLatLon(la, lo, b, cam, width, height, 0);
+							if (!q.visible) continue;
+							pts.push(`${pts.length ? 'L' : 'M'}${q.x.toFixed(1)},${q.y.toFixed(1)}`);
+						}
+						return <path key={i} d={pts.join(' ')} stroke="#62F0E4" strokeWidth={2.4} strokeDasharray="10 9" strokeDashoffset={-frame * 1.5} fill="none" opacity={0.85} style={{filter: 'drop-shadow(0 0 6px #62F0E4)'}} />;
+					})}
+				</svg>
+			) : null}
+			{(p.lights ?? []).map((l, i) => {
+				const q = projectLatLon(l.lat, l.lon, b, cam, width, height, 0);
+				const a = prog(frame, l.from, 14);
+				if (!q.visible || a <= 0) return null;
+				const c = l.color ?? '#62F0E4';
+				const s = (l.size ?? 1) * (width > height ? 1 : 1.2);
+				const pulse = 0.75 + 0.25 * Math.sin((frame - l.from) * 0.12 + i);
+				const ring = ((frame - l.from) % 50) / 50;
+				return (
+					<div key={`ol${i}`} style={{position: 'absolute', left: q.x, top: q.y, opacity: a}}>
+						<div style={{position: 'absolute', left: -60 * s, top: -60 * s, width: 120 * s, height: 120 * s, borderRadius: 999, background: `radial-gradient(circle, ${c}cc 0%, ${c}44 18%, ${c}00 62%)`, opacity: pulse}} />
+						<div style={{position: 'absolute', left: -5 * s, top: -5 * s, width: 10 * s, height: 10 * s, borderRadius: 99, background: '#eaffff', boxShadow: `0 0 ${14 * s}px ${c}`}} />
+						<div style={{position: 'absolute', left: -(8 + ring * 40) * s, top: -(8 + ring * 40) * s, width: (16 + ring * 80) * s, height: (16 + ring * 80) * s, borderRadius: 999, border: `2px solid ${c}`, opacity: (1 - ring) * 0.7}} />
+						{l.label ? (
+							<div style={{position: 'absolute', left: 22 * s, top: -40 * s, fontFamily: '"Montserrat", sans-serif', fontWeight: 800, fontSize: 34 * s, color: '#fff', whiteSpace: 'nowrap', textShadow: '0 2px 12px rgba(0,0,0,0.9)'}}>
+								{l.label}
+							</div>
+						) : null}
+					</div>
+				);
 			})}
 			{capsuleOpacity > 0 ? <CapsuleFrame opacity={capsuleOpacity} frame={frame} /> : null}
 			{p.live && frame >= p.live.from && (p.live.to === undefined || frame < p.live.to) ? <LiveBadge f={frame - p.live.from} text={p.live.text} /> : null}

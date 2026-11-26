@@ -1,0 +1,580 @@
+{
+ "id": "gizli_uygarlik",
+ "output_name": "VAYYMATIK0_Gizli_Uygarlik",
+ "language": "tr",
+ "render": {
+  "width": 1920,
+  "height": 1080,
+  "crf": 19
+ },
+ "brand": {
+  "safe": {
+   "top": 60,
+   "bottom": 70,
+   "left": 80,
+   "right": 80
+  },
+  "captions": {
+   "style": "doc",
+   "centerY": 968,
+   "maxWidth": 1480,
+   "fontSize": 42,
+   "uppercase": false
+  },
+  "colors": {
+   "accentDoc": "#6FF2E6"
+  }
+ },
+ "caption_pages": {
+  "max_words": 10,
+  "max_chars": 60
+ },
+ "voice": {
+  "provider": "external",
+  "name": "ElevenLabs · Furkan - Bilingual Turkish Narrator (Dzgub2SzfGvifooR4JMV) · eleven_v4",
+  "lead_in": 0.9,
+  "tail": 4.0,
+  "gap_chunk": 0.5
+ },
+ "extra_lines": {
+  "s1_hook": "Bilim insanları okyanusun {g:8.000 metre} altında bir sinyal yakalasaydı ne olurdu?",
+  "s2_hook": "Bir denizaltı okyanusun dibinde, ışıkları açık {devasa bir şehir} bulsaydı?",
+  "s3_hook": "Ya Dünya'nın en gelişmiş uygarlığı {insanlar değilse}?",
+  "s4_hook": "Okyanusun dibindeki uygarlık bize {bir mesaj} gönderseydi ne olurdu?",
+  "s5_hook": "Bu keşif bütün {dünya ekonomisini} değiştirebilirdi!",
+  "s6_hook": "Onları ilk kez keşfettiğimizi düşündük. Ama onlar {bizi zaten tanıyordu}.",
+  "s_cta": "Hikâyenin tamamı, kanaldaki uzun videoda."
+ },
+ "lines": [
+  {
+   "id": "hook",
+   "text": "Ya insanlık binlerce yıldır Dünya'yı {başka bir uygarlıkla} paylaşıyorsa… ve biz bunun farkında bile değilsek?",
+   "chapter": "b1"
+  },
+  {
+   "id": "yil",
+   "text": "Yıl {g:2027}. Pasifik Okyanusu'nun ortasında, fırtınanın içinde küçük bir araştırma gemisi ilerliyor: {w:Meridyen}.",
+   "chapter": "b1"
+  },
+  {
+   "id": "gorev",
+   "text": "Görevi sıradan: okyanus tabanını haritalamak. Çünkü bugün okyanus tabanının yalnızca {g:dörtte biri} ayrıntılı olarak haritalanmış durumda.",
+   "chapter": "b1"
+  },
+  {
+   "id": "sinyal",
+   "text": "Ama bir gece, sensörler yaklaşık {g:8.000 metre} derinlikten gelen {tuhaf bir sinyal} yakalıyor.",
+   "chapter": "b1"
+  },
+  {
+   "id": "duzen",
+   "text": "Sinyal düzenli. Tekrarlıyor. Ve doğada olmaması gereken bir {düzen} taşıyor.",
+   "chapter": "b1"
+  },
+  {
+   "id": "jeoloji",
+   "text": "Bilim insanları önce en mantıklı açıklamaya yöneliyor: yer kabuğunda bir çatlak, gaz kabarcıkları, ya da uzak bir depremin yankısı.",
+   "chapter": "b1"
+  },
+  {
+   "id": "okyanus_ses",
+   "text": "Okyanus zaten sessiz bir yer değildir. Balinalar, buzullar, yanardağlar ve gemiler sürekli ses üretir.",
+   "chapter": "b1"
+  },
+  {
+   "id": "fark",
+   "text": "Ama veriler ekrana döküldükçe, genç bir akustik uzmanı tuhaf bir ayrıntı fark ediyor.",
+   "chapter": "b1"
+  },
+  {
+   "id": "asal",
+   "text": "Atımlar rastgele değil. {g:İki} atım. Sessizlik. {g:Üç} atım. Sessizlik. Sonra {g:beş}, {g:yedi}, {g:on bir}, {g:on üç}.",
+   "chapter": "b1"
+  },
+  {
+   "id": "asal2",
+   "text": "Bunlar {asal sayılar}. Yalnızca bire ve kendisine bölünebilen sayılar.",
+   "chapter": "b1"
+  },
+  {
+   "id": "doga",
+   "text": "Bilinen hiçbir doğal süreç, asal sayıları {sırayla sayamaz}.",
+   "chapter": "b1"
+  },
+  {
+   "id": "tekrar",
+   "text": "Ve dizi, tam {g:37 dakikada} bir, en baştan yeniden başlıyor.",
+   "chapter": "b1"
+  },
+  {
+   "id": "soru",
+   "text": "O gece mürettebat, bilimin en zor sorusuyla baş başa kalıyor: Aşağıda bir şey, {bize mi sesleniyor}?",
+   "chapter": "b1"
+  },
+  {
+   "id": "rov",
+   "text": "Ertesi sabah karar verilir. Sinyalin kaynağına {insansız bir denizaltı} gönderilecek.",
+   "chapter": "b1"
+  },
+  {
+   "id": "yanki",
+   "text": "Adı {w:Yankı}. Kameralar, ışıklar ve sensörlerle donatılmış, gemiye kilometrelerce uzunlukta bir kabloyla bağlı bir robot.",
+   "chapter": "b2"
+  },
+  {
+   "id": "suya",
+   "text": "Vinç onu dalgaların arasına bırakıyor. Ve {iniş başlıyor}.",
+   "chapter": "b2"
+  },
+  {
+   "id": "m100",
+   "text": "{g:Yüz metre}. Güneş ışığı hâlâ burada, ama renkler çoktan kayboldu. Önce kırmızı, sonra turuncu, sonra sarı. Geriye yalnızca {w:mavi} kalıyor.",
+   "chapter": "b2"
+  },
+  {
+   "id": "m200",
+   "text": "{g:İki yüz metre}. Fotosentez için yeterli ışık burada bitiyor.",
+   "chapter": "b2"
+  },
+  {
+   "id": "m1000",
+   "text": "{g:Bin metre}. Güneş ışığı artık buraya hiç ulaşmıyor. Burası okyanusun {gece yarısı bölgesi}.",
+   "chapter": "b2"
+  },
+  {
+   "id": "biyo",
+   "text": "Ama karanlık boş değil. Bir araştırmaya göre su sütununda görülen hayvanların yaklaşık {g:dörtte üçü}, kendi ışığını üretebiliyor.",
+   "chapter": "b2"
+  },
+  {
+   "id": "m4000",
+   "text": "{g:Dört bin metre}. Su sıcaklığı birkaç dereceye düşüyor. Okyanusun büyük bölümü, işte bu soğuk karanlıktan oluşur.",
+   "chapter": "b2"
+  },
+  {
+   "id": "parazit",
+   "text": "Ve tam burada ilk sorun başlıyor. Görüntüde {parazitler}, veride boşluklar.",
+   "chapter": "b2"
+  },
+  {
+   "id": "kablo",
+   "text": "Su, radyo dalgalarını neredeyse tamamen yutar. Robotun tek bağlantısı bu ince kablo. Ve kablo, açıklanamayan bir {gürültüyle} doluyor.",
+   "chapter": "b2"
+  },
+  {
+   "id": "m6000",
+   "text": "{g:Altı bin metre}. Hadal bölge. Adını, Yunan mitolojisindeki {yeraltı dünyasından} alıyor.",
+   "chapter": "b2"
+  },
+  {
+   "id": "m8000",
+   "text": "{g:Sekiz bin metre}. Basınç, yaklaşık {g:800 atmosfer}.",
+   "chapter": "b2"
+  },
+  {
+   "id": "basinc",
+   "text": "Bu, başparmak tırnağınız kadar bir alana, {küçük bir otomobilin} ağırlığının binmesi demek.",
+   "chapter": "b2"
+  },
+  {
+   "id": "balik",
+   "text": "Bugüne kadar görüntülenen en derin balık, {g:8.336 metrede} kaydedildi. Burası, yaşamın sınırı.",
+   "chapter": "b2"
+  },
+  {
+   "id": "carpma",
+   "text": "Robot yavaşlıyor. Işıklar dibe yaklaşıyor. Ve sonra… ışık, {bir şeye çarpıyor}.",
+   "chapter": "b2"
+  },
+  {
+   "id": "kaya",
+   "text": "Bu bir kaya değil. Yüzeyi pürüzsüz. Kenarları, kusursuz {düz çizgiler} halinde uzanıyor.",
+   "chapter": "b3"
+  },
+  {
+   "id": "desen",
+   "text": "Üzerinde tekrar eden geometrik desenler var. {Altıgenler}, iç içe halkalar, milimetrik oranlar.",
+   "chapter": "b3"
+  },
+  {
+   "id": "dogal",
+   "text": "Doğa da bazen şaşırtıcı geometriler üretir; bazalt sütunları ya da kristaller gibi. Ama bu farklı.",
+   "chapter": "b3"
+  },
+  {
+   "id": "nabiz",
+   "text": "Çünkü desenlerin içinden, soluk {turkuaz bir ışık} geçiyor. Yavaşça. Bir nabız gibi.",
+   "chapter": "b3"
+  },
+  {
+   "id": "geri",
+   "text": "Pilotlar robotu yükseltiyor. Kamera geri çekildikçe, yapının {tek başına olmadığı} anlaşılıyor.",
+   "chapter": "b3"
+  },
+  {
+   "id": "sehir",
+   "text": "Karşılarında, okyanus tabanına yayılmış, ışıkları yanan {devasa bir şehir} duruyor.",
+   "chapter": "b3"
+  },
+  {
+   "id": "olcek",
+   "text": "Kubbeler. Kilometrelerce uzanan bağlantı tünelleri. Ve şehrin ortasında yükselen, dev bir {enerji merkezi}.",
+   "chapter": "b3"
+  },
+  {
+   "id": "kure",
+   "text": "Kubbeler tesadüf değil. Basınca en iyi dayanan şekil {küredir}. İnsanların derin dalış araçlarındaki mürettebat bölmeleri de bu yüzden küre biçimindedir.",
+   "chapter": "b3"
+  },
+  {
+   "id": "ulasim",
+   "text": "Tünellerin içinde {ışıklı kapsüller} hareket ediyor. Yani bu şehir, terk edilmiş değil.",
+   "chapter": "b3"
+  },
+  {
+   "id": "sessiz",
+   "text": "Gemideki kontrol odasında kimse konuşmuyor. Görüntüler kaydediliyor, kopyalanıyor, şifreleniyor.",
+   "chapter": "b3"
+  },
+  {
+   "id": "eskisi",
+   "text": "Çünkü herkes aynı şeyi biliyor: Bu görüntüler dünyaya ulaştığı an, {hiçbir şey eskisi gibi olmayacak}.",
+   "chapter": "b3"
+  },
+  {
+   "id": "sizinti",
+   "text": "Görüntüler resmî bir açıklamadan önce sızıyor. Birkaç saat içinde {milyarlarca ekrana} ulaşıyor.",
+   "chapter": "b4"
+  },
+  {
+   "id": "sahte",
+   "text": "Önce herkes bunun bir yapay zekâ sahtesi olduğunu düşünüyor. Ama bağımsız ekipler, veriyi tek tek {doğruluyor}.",
+   "chapter": "b4"
+  },
+  {
+   "id": "ikiye",
+   "text": "Ve dünya {ikiye bölünüyor}.",
+   "chapter": "b4"
+  },
+  {
+   "id": "umut",
+   "text": "Bir kesim için bu, insanlık tarihinin en büyük keşfi. {Yalnız olmadığımızın} ilk kanıtı.",
+   "chapter": "b4"
+  },
+  {
+   "id": "korku",
+   "text": "Diğerleri için ise bir {tehdit}: Bizim gezegenimizde, bizden habersiz yaşayan ve bizden güçlü olabilecek bir uygarlık.",
+   "chapter": "b4"
+  },
+  {
+   "id": "piyasa",
+   "text": "Piyasalar sarsılıyor. Enerji, savunma ve deniz taşımacılığı hisselerinde {sert dalgalanmalar} yaşanıyor.",
+   "chapter": "b4"
+  },
+  {
+   "id": "toplanti",
+   "text": "Hükümetler {acil toplantılara} çağrılıyor. Okyanus bilimcileri, güvenlik uzmanlarıyla aynı masaya oturuyor.",
+   "chapter": "b4"
+  },
+  {
+   "id": "hukuk",
+   "text": "Uluslararası deniz hukukuna göre, ülkelerin yetki alanı dışındaki okyanus tabanı, {insanlığın ortak mirası} sayılıyor.",
+   "chapter": "b4"
+  },
+  {
+   "id": "miras",
+   "text": "Peki ya orada, bizden çok önce yaşayan biri varsa? O miras, gerçekte {kime ait}?",
+   "chapter": "b4"
+  },
+  {
+   "id": "kanit",
+   "text": "Bilim insanları tek bir konuda hemfikir: Elimizde bu uygarlığın saldırgan olduğuna dair {hiçbir kanıt yok}.",
+   "chapter": "b4"
+  },
+  {
+   "id": "bekliyor",
+   "text": "Ve robot hâlâ aşağıda, şehrin kenarında bekliyor. Sıradaki adım, {merkeze yaklaşmak}.",
+   "chapter": "b4"
+  },
+  {
+   "id": "ilerle",
+   "text": "Robot şehrin merkezine doğru ilerliyor. Işıklı tünellerin arasından, enerji merkezine doğru.",
+   "chapter": "b5"
+  },
+  {
+   "id": "degisim",
+   "text": "Tam o sırada sinyal değişiyor. Asal sayılar susuyor, yerine {yepyeni bir desen} geliyor.",
+   "chapter": "b5"
+  },
+  {
+   "id": "dil",
+   "text": "Bilim insanları cevap vermeye karar veriyor. Ama {hangi dille}?",
+   "chapter": "b5"
+  },
+  {
+   "id": "mat",
+   "text": "Matematik, evrensel olabilecek tek dil. Bir dairenin çevresinin çapına oranı, evrenin her yerinde aynıdır.",
+   "chapter": "b5"
+  },
+  {
+   "id": "gonder",
+   "text": "Robotun hoparlörlerinden aşağıya basit bir mesaj gönderiliyor: {g:Bir}, {g:iki}, {g:üç}, {g:beş}, {g:yedi}. {Biz de saymayı biliyoruz}.",
+   "chapter": "b5"
+  },
+  {
+   "id": "bekle",
+   "text": "Saatlerce cevap gelmiyor.",
+   "chapter": "b5"
+  },
+  {
+   "id": "yanit",
+   "text": "Sonra şehir {yanıt veriyor}. Dizinin devamını gönderiyor: {g:on bir}, {g:on üç}, {g:on yedi}… ve ardından, çok daha karmaşık bir desen.",
+   "chapter": "b5"
+  },
+  {
+   "id": "pi",
+   "text": "Desen, {pi sayısının} ilk basamaklarını içeriyor gibi görünüyor. Ama geri kalanı, bilinen hiçbir kodlamaya uymuyor.",
+   "chapter": "b5"
+  },
+  {
+   "id": "hareket",
+   "text": "Bu sırada robotun kameraları, karanlığın içinde {bir hareket} yakalıyor.",
+   "chapter": "b5"
+  },
+  {
+   "id": "siluet",
+   "text": "Işıkların hemen ötesinde, {devasa bir silüet}. Durgun. Sessiz. İzliyor.",
+   "chapter": "b5"
+  },
+  {
+   "id": "belirsiz",
+   "text": "Bir canlı mı, bir makine mi, yoksa ikisi birden mi, bilinmiyor. Ne kadar büyük olduğu bile tam anlaşılmıyor.",
+   "chapter": "b5"
+  },
+  {
+   "id": "ritim",
+   "text": "Gövdesindeki ışıklar, {sinyalle aynı ritimde} yanıp sönüyor.",
+   "chapter": "b5"
+  },
+  {
+   "id": "kopus",
+   "text": "Ve sonra… {bağlantı kopuyor}.",
+   "chapter": "b5"
+  },
+  {
+   "id": "donus",
+   "text": "Dakikalar sonra görüntü geri geliyor. Silüet gitmiş. Robot ise {hasarsız}.",
+   "chapter": "b6"
+  },
+  {
+   "id": "nasil",
+   "text": "Şimdi asıl soru şu: Böyle bir uygarlık, {g:8.000 metre} derinlikte nasıl yaşayabilir? Burada gerçek bilimle kurguyu ayırmak gerekiyor.",
+   "chapter": "b6"
+  },
+  {
+   "id": "baca",
+   "text": "Önce enerji. Okyanus tabanında, sıcaklığı {g:350 dereceyi} aşabilen suyu fışkırtan {hidrotermal bacalar} var. İlk kez {g:1977}'de keşfedildiler.",
+   "chapter": "b6"
+  },
+  {
+   "id": "ekosistem",
+   "text": "Çevrelerinde güneş ışığı olmadan, kimyasal enerjiyle yaşayan {bütün bir ekosistem} bulunuyor. Bu kısım gerçek.",
+   "chapter": "b6"
+  },
+  {
+   "id": "enerji_kurgu",
+   "text": "Ama bu ısıyı, bir şehri çalıştıracak ölçekte toplamak? İşte o kısım {tamamen kurgu}.",
+   "chapter": "b6"
+  },
+  {
+   "id": "yapi",
+   "text": "Sonra yapılar. Derin deniz canlıları, hücrelerini basınca karşı koruyan {özel moleküller} kullanır. Kendini onaran malzemeler de bugün laboratuvarlarda geliştiriliyor.",
+   "chapter": "b6"
+  },
+  {
+   "id": "yapi_kurgu",
+   "text": "Ama {g:800 atmosfere} yüzyıllarca dayanan bir şehir? Bu, {kurgu}.",
+   "chapter": "b6"
+  },
+  {
+   "id": "isik",
+   "text": "Işık ise belki de en kolay kısım. Canlıların kendi ışığını üretmesine {biyolüminesans} denir ve okyanusta son derece yaygındır. Bütün bir şehri canlı ışıkla aydınlatmak ise, hâlâ bir hayal.",
+   "chapter": "b6"
+  },
+  {
+   "id": "sofar",
+   "text": "Ve iletişim. Okyanusta, sesin {binlerce kilometre} taşınabildiği doğal bir kanal var: {SOFAR|Sofar} kanalı. Bu da gerçek.",
+   "chapter": "b6"
+  },
+  {
+   "id": "fisilti",
+   "text": "Bir uygarlık bu kanalı kullansaydı, okyanusun bir ucundan diğerine {fısıldayabilirdi}.",
+   "chapter": "b6"
+  },
+  {
+   "id": "ucurum",
+   "text": "Bütün bunlar gerçek olsaydı, aramızdaki fark birkaç yüzyıl değil, belki de {binlerce yıl} olurdu.",
+   "chapter": "b6"
+  },
+  {
+   "id": "ekonomi",
+   "text": "Tek bir enerji teknolojisi bile, petrolden elektriğe bütün piyasaları altüst edebilirdi. Tek bir patent, koca bir sektörü {bitirebilirdi}.",
+   "chapter": "b6"
+  },
+  {
+   "id": "tur",
+   "text": "Ve bilim dünyası ilk kez, insanlığın Dünya'daki {en gelişmiş tür} olmayabileceği ihtimaliyle yüzleşirdi.",
+   "chapter": "b6"
+  },
+  {
+   "id": "karar",
+   "text": "Şimdi insanlığın vermesi gereken bir karar var. Belki de tarihimizin {en önemli kararı}.",
+   "chapter": "b7"
+  },
+  {
+   "id": "yol1",
+   "text": "Birinci yol: {iletişim kurmak}. Matematikle başlayan bu diyaloğu sürdürmek, onları anlamaya çalışmak.",
+   "chapter": "b7"
+  },
+  {
+   "id": "risk1",
+   "text": "Ama karşımızdakinin niyetini bilmeden kapıyı çalmak, ne kadar güvenli?",
+   "chapter": "b7"
+  },
+  {
+   "id": "yol2",
+   "text": "İkinci yol: {bölgeyi koruma altına almak}. Teması sınırlamak, gemileri uzak tutmak, onları rahat bırakmak.",
+   "chapter": "b7"
+  },
+  {
+   "id": "risk2",
+   "text": "Ama bize sinyal göndermiş bir uygarlığı görmezden gelmek, konuşmak kadar riskli olabilir.",
+   "chapter": "b7"
+  },
+  {
+   "id": "yol3",
+   "text": "Üçüncü yol: {araştırmaya devam etmek}. Şehri incelemek, teknolojisini anlamak, belki de kopyalamak.",
+   "chapter": "b7"
+  },
+  {
+   "id": "risk3",
+   "text": "Ama bu teknolojiye ilk kim ulaşırsa, dünyadaki güç dengesini {tek başına} değiştirebilir.",
+   "chapter": "b7"
+  },
+  {
+   "id": "devletler",
+   "text": "Devletler anlaşamıyor. Bazıları ortak bir bilim misyonu istiyor. Bazıları bölgeye {savaş gemileri} göndermekten söz ediyor.",
+   "chapter": "b7"
+  },
+  {
+   "id": "zarar",
+   "text": "Bilim insanları ise aynı şeyi tekrarlıyor: Onlar bize zarar vermedi. Robota dokunmadılar bile. İlk hamle, {korku} olmamalı.",
+   "chapter": "b7"
+  },
+  {
+   "id": "sen",
+   "text": "Peki karar senin elinde olsaydı? {Konuşur muydun}, {bekler miydin}, yoksa {araştırır mıydın}?",
+   "chapter": "b7"
+  },
+  {
+   "id": "haber",
+   "text": "Tartışmalar sürerken, şifre çözme ekibinden beklenmedik bir haber geliyor.",
+   "chapter": "b7"
+  },
+  {
+   "id": "cozum",
+   "text": "Aylar süren çalışmanın ardından, sinyallerin bir bölümü {çözülüyor}.",
+   "chapter": "b8"
+  },
+  {
+   "id": "harita",
+   "text": "İlk anlaşılan şey, bir {harita}. Ekranda, Dünya'nın okyanuslarında yanıp sönen noktalar beliriyor.",
+   "chapter": "b8"
+  },
+  {
+   "id": "pasifik",
+   "text": "{w:Pasifik}.",
+   "chapter": "b8"
+  },
+  {
+   "id": "atlantik",
+   "text": "{w:Atlantik}.",
+   "chapter": "b8"
+  },
+  {
+   "id": "hint",
+   "text": "{w:Hint Okyanusu}.",
+   "chapter": "b8"
+  },
+  {
+   "id": "tek",
+   "text": "Keşfedilen şehir, {tek değil}.",
+   "chapter": "b8"
+  },
+  {
+   "id": "kayit",
+   "text": "Okyanusu dinleyen istasyonların eski kayıtları yeniden inceleniyor. Bu noktalardan gelen sinyaller, {yıllardır} oradaymış. Biz onları doğanın sesi sanmışız.",
+   "chapter": "b8"
+  },
+  {
+   "id": "son",
+   "text": "Sonra mesajın son kısmı çözülüyor. Çevirisi tartışmalı, ama anlamı açık:",
+   "chapter": "b8"
+  },
+  {
+   "id": "mesaj",
+   "text": "{Biz sizi uzun zamandır izliyoruz.}",
+   "chapter": "b8"
+  },
+  {
+   "id": "yukari",
+   "text": "Okyanusun dibinden yüzeye, yüzeyden gökyüzüne yükseldikçe, gezegenimiz bambaşka görünüyor.",
+   "chapter": "b8"
+  },
+  {
+   "id": "uzay",
+   "text": "Okyanusların derinliklerinde, belki binlerce yıldır yanan {küçük ışıklar}.",
+   "chapter": "b8"
+  },
+  {
+   "id": "final",
+   "text": "Belki de insanlığın en büyük keşfi, yıldızların arasında değil… binlerce yıldır {ayaklarımızın altındaydı}.",
+   "chapter": "b8"
+  },
+  {
+   "id": "cta",
+   "text": "Sen olsaydın, onlarla {iletişim kurar mıydın}?",
+   "chapter": "b8"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "tmp",
+   "type": "ocean",
+   "start": "@start",
+   "props": {
+    "mode": "water",
+    "depth": 1000
+   }
+  }
+ ],
+ "disclaimers": [],
+ "music": {
+  "style": "rise",
+  "sections": {
+   "dark": "@start",
+   "build": 5,
+   "peak": 10,
+   "end": "@end"
+  }
+ },
+ "sfx": [],
+ "foreign_words": [
+  "SOFAR"
+ ],
+ "metadata": {
+  "title": "Okyanusun Altında Gizli Bir Uygarlık Bulunsaydı? | Bilimkurgu Senaryo",
+  "description": [],
+  "hashtags": []
+ }
+}

@@ -1,6 +1,7 @@
 // "deep3d" sahne türü: 8.000 m derinlikte kurgusal su altı şehri, ROV, bilinmeyen varlık, hidrotermal bacalar.
 // Tamamen koddan üretilir (özgün tasarım). Işık/su modeli: ocean/deep/glsl.ts. Hareket yalnızca kareye bağlı.
 import React, {useMemo} from 'react';
+import {Chapter, ChapterSpec} from './Chapter';
 import * as THREE from 'three';
 import {useThree} from '@react-three/fiber';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
@@ -34,6 +35,7 @@ export type DeepProps = {
 	hud?: HudSpec;
 	grade?: GradeSpec;
 	titles?: TitleSpec[];
+	chapter?: ChapterSpec;
 };
 
 // Karışık (indeksli/indekssiz) geometrileri güvenle birleştir
@@ -640,6 +642,7 @@ export const DeepScene: React.FC<DeepProps> = (p) => {
 			</AbsoluteFill>
 			<Grade spec={p.grade} lamp={p.lamps?.mode === 'cam' ? num(frame, p.lamps?.i, 7) / 7 : 0} />
 			{p.hud ? <Hud spec={p.hud} /> : null}
+			{p.chapter ? <Chapter spec={p.chapter} /> : null}
 			{p.titles ? <Titles titles={p.titles} /> : null}
 		</AbsoluteFill>
 	);
