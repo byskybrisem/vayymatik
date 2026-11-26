@@ -289,7 +289,7 @@ const Sofar: React.FC = () => {
 			{rays.map((r, i) => (
 				<polyline key={i} points={r} fill="none" stroke={C.cyan} strokeWidth={2.5} opacity={0.85 - i * 0.2} style={{filter: `drop-shadow(0 0 6px ${C.cyan})`}} />
 			))}
-			<text x={W * 0.12} y={axis - 56} fill={C.white} fontFamily={FONTS.sans} fontWeight={800} fontSize={34}>
+			<text x={W * 0.12} y={axis - 135} fill={C.white} fontFamily={FONTS.sans} fontWeight={800} fontSize={34}>
 				SOFAR kanalı · ses binlerce kilometre taşınabilir
 			</text>
 			<text x={W * 0.12} y={axis + 80} fill={C.dim} fontFamily={FONTS.mono} fontSize={22}>
@@ -308,7 +308,7 @@ const Law: React.FC = () => {
 			<div style={{position: 'absolute', left: land ? 120 : 60, top: land ? 160 : 300, width: land ? W * 0.5 : W - 120, height: land ? H * 0.62 : H * 0.3, borderRadius: 16, overflow: 'hidden', border: `1px solid ${C.line}`}}>
 				<img src={staticFile('shared/earth_bmng_5400.jpg')} style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.4) brightness(0.55) contrast(1.1)'}} />
 				<div style={{position: 'absolute', inset: 0, background: 'rgba(10,60,110,0.25)', mixBlendMode: 'screen'}} />
-				<div style={{position: 'absolute', left: '62%', top: '52%', width: 30, height: 30, marginLeft: -15, marginTop: -15, borderRadius: 99, background: C.cyan, boxShadow: `0 0 30px ${C.cyan}`, opacity: 0.6 + 0.4 * Math.sin(frame * 0.15)}} />
+				<div style={{position: 'absolute', left: '36.5%', top: '41.7%', width: 30, height: 30, marginLeft: -15, marginTop: -15, borderRadius: 99, background: C.cyan, boxShadow: `0 0 30px ${C.cyan}`, opacity: 0.6 + 0.4 * Math.sin(frame * 0.15)}} />
 			</div>
 			<div style={{position: 'absolute', left: land ? W * 0.58 : 60, top: land ? 190 : H * 0.6, width: land ? W * 0.36 : W - 120}}>
 				<Label size={20} color={C.cyan}>BM Deniz Hukuku Sözleşmesi · Madde 136</Label>
@@ -326,15 +326,15 @@ const Facts: React.FC<{rows: NonNullable<InfoProps['rows']>}> = ({rows}) => {
 	const colW = land ? W * 0.38 : W * 0.42;
 	return (
 		<>
-			<div style={{position: 'absolute', left: land ? W * 0.1 : 50, top: land ? 160 : 330, width: colW}}>
+			<div style={{position: 'absolute', left: land ? W * 0.1 : 50, top: land ? 235 : 330, width: colW}}>
 				<div style={{fontFamily: FONTS.sans, fontWeight: 900, fontSize: 40, color: C.green, letterSpacing: 4}}>GERÇEK</div>
 			</div>
-			<div style={{position: 'absolute', left: land ? W * 0.53 : W * 0.52, top: land ? 160 : 330, width: colW}}>
+			<div style={{position: 'absolute', left: land ? W * 0.53 : W * 0.52, top: land ? 235 : 330, width: colW}}>
 				<div style={{fontFamily: FONTS.sans, fontWeight: 900, fontSize: 40, color: C.amber, letterSpacing: 4}}>KURGU</div>
 			</div>
 			{rows.map((r, i) => {
 				const a = appear(frame, r.at, 12);
-				const y = (land ? 250 : 420) + i * (land ? 150 : 210);
+				const y = (land ? 320 : 420) + i * (land ? 160 : 210);
 				return (
 					<React.Fragment key={i}>
 						<div style={{position: 'absolute', left: land ? W * 0.1 : 50, top: y, width: colW, opacity: a, transform: `translateX(${(1 - a) * -30}px)`, borderLeft: `4px solid ${C.green}`, paddingLeft: 20, fontFamily: FONTS.ui, fontSize: land ? 30 : 30, color: C.white, lineHeight: 1.35}}>

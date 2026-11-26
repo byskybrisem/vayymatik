@@ -420,7 +420,7 @@ const Vents: React.FC<{sh: Shared; pos: V3}> = ({sh, pos}) => {
 			const z = s.z + Math.sin(a) * rr;
 			const tilt = (R() - 0.5) * 0.5;
 			tubes.push(new THREE.CylinderGeometry(0.045, 0.06, h, 6).rotateZ(tilt).translate(x, h / 2 + 0.3, z));
-			tips.push(new THREE.SphereGeometry(0.09, 8, 6).scale(1, 1.6, 1).translate(x - Math.sin(tilt) * h * 0.5, h + 0.35, z));
+			tips.push(new THREE.SphereGeometry(0.055, 8, 6).scale(1, 1.5, 1).translate(x - Math.sin(tilt) * h * 0.5, h + 0.35, z));
 		}
 		return {chim: mergeGeometries(chim), mound, tubes: mergeGeometries(tubes), tips: mergeGeometries(tips), stacks};
 	}, []);

@@ -107,9 +107,9 @@ export const Hud: React.FC<{spec: HudSpec}> = ({spec}) => {
 				</div>
 			</AbsoluteFill>
 			{lost > 0 ? (
-				<AbsoluteFill style={{opacity: lost, background: '#020406', alignItems: 'center', justifyContent: 'center'}}>
-					<AbsoluteFill style={{backgroundImage: `url(${staticFile('shared/grain.png')})`, backgroundSize: '200px 200px', backgroundPosition: `${Math.floor(hash(frame) * 200)}px ${Math.floor(hash(frame + 1) * 200)}px`, opacity: 0.5}} />
-					<div style={{...txt, fontSize: 44 * S, letterSpacing: 8, color: '#ff5a4a', textShadow: '0 0 18px rgba(255,80,60,0.6)', opacity: frame % 24 < 16 ? 1 : 0.35}}>SİNYAL KAYBI</div>
+				<AbsoluteFill style={{opacity: lost, background: '#010203', alignItems: 'center', justifyContent: 'center'}}>
+					<AbsoluteFill style={{backgroundImage: `url(${staticFile('shared/grain.png')})`, backgroundSize: '200px 200px', backgroundPosition: `${Math.floor(hash(frame) * 200)}px ${Math.floor(hash(frame + 1) * 200)}px`, opacity: 0.2}} />
+					<div style={{...txt, fontSize: 44 * S, letterSpacing: 8, color: '#ff7a68', textShadow: '0 0 22px rgba(255,90,70,0.8)', opacity: frame % 24 < 16 ? 1 : 0.35}}>SİNYAL KAYBI</div>
 					<div style={{...txt, marginTop: 18, opacity: 0.7}}>YANKI · BAĞLANTI YOK · YENİDEN DENENİYOR</div>
 				</AbsoluteFill>
 			) : null}

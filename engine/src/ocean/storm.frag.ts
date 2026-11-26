@@ -50,7 +50,7 @@ vec3 skyCol(vec3 rd){
   vec2 cp = rd.xz / max(rd.y, 0.04) * 0.55 + vec2(uTime * 0.012, uTime * 0.006);
   float cl = fbm(cp);
   float cl2 = fbm(cp * 2.3 + 4.0);
-  float cover = smoothstep(0.35 - uStorm * 0.25, 0.85, cl);
+  float cover = smoothstep(0.35 - uStorm * 0.25, 0.85, cl) * smoothstep(0.03, 0.22, rd.y);   // ufukta bulut dokusu gerilir: sönümle
   vec3 cloud = mix(vec3(0.02, 0.025, 0.032), vec3(0.32, 0.31, 0.32), uDawn) * (0.6 + 0.6 * cl2);
   c = mix(c, cloud, cover * (0.55 + 0.45 * uStorm));
   // güneş parıltısı (şafak)

@@ -298,7 +298,7 @@ SCENES = [
         lamps={"mode": "cam", "i": 6}, vents={"show": True, "pos": [-950, 0, 300]}, hud=hud(2510, label="TEMSİLİ · HİDROTERMAL BACA"),
         tag="GERÇEK · İLK KEŞİF 1977 (WHOI)", tagColor="#5BE38A"), ("fade", 0.3)),
     sc("ekosistem_worms", "deep3d", S("ekosistem", -0.1), deep(
-        [K(0, [-945.5, 2.6, 307], [-950, 1.2, 301.5], 42), K(7, [-944, 2.4, 306], [-949.5, 1.2, 301], 40)], sigma=[0.06, 0.025, 0.018], city=False,
+        [K(0, [-939.5, 4.6, 313], [-950, 1.6, 300], 42), K(7, [-940.5, 4.4, 312], [-950, 1.6, 300.5], 42)], sigma=[0.06, 0.025, 0.018], city=False,
         lamps={"mode": "cam", "i": 5}, vents={"show": True, "pos": [-950, 0, 300]}, hud=hud(2510, label="TEMSİLİ · TÜP SOLUCANLARI"),
         tag="GERÇEK · KİMYASAL ENERJİYLE YAŞAM", tagColor="#5BE38A")),
     sc("enerji_kurgu_heart", "deep3d", S("enerji_kurgu", -0.1), deep(
@@ -306,7 +306,7 @@ SCENES = [
         tag="KURGU · ŞEHİR ÖLÇEĞİNDE ENERJİ", tagColor="#FFB347"), ("fade", 0.3)),
     sc("yapi_fish", "deep3d", S("yapi", -0.1), deep(
         [K(0, [-1001, 2.3, -501], [-1004.5, 1.6, -507], 40), K(6, [-1000.6, 2.2, -501.4], [-1004, 1.6, -507.5], 40)], sigma=MIDC,
-        lamps={"mode": "cam", "i": 0.9}, power=0.4, fish={"show": True, "pos": [{"t": 0, "v": [-1000.3, 2.05, -503.4]}, {"t": 6, "v": [-1002.0, 2.0, -502.5]}], "yaw": 0.5},
+        lamps={"mode": "cam", "i": 1.3}, power=0.4, fish={"show": True, "pos": [{"t": 0, "v": [-1000.3, 2.05, -503.4]}, {"t": 6, "v": [-1002.0, 2.0, -502.5]}], "yaw": 0.5},
         tag="GERÇEK · BASINCA KARŞI KORUYUCU MOLEKÜLLER", tagColor="#5BE38A"), ("fade", 0.3)),
     sc("yapi_wall", "deep3d", W("yapi", "Kendini", off=-0.15), deep(
         [K(0, [585.83, 26.46, 78.06], [583.22, 25.32, 80.71], 54), K(5, [584.99, 26.46, 79.88], [582.59, 25.32, 82.07], 54)], sigma=CLOSE,
@@ -322,7 +322,7 @@ SCENES = [
     sc("sofar_info", "info", S("sofar", -0.1), {"mode": "sofar", "title": "Okyanusun doğal ses kanalı", "source": "NOAA · SOFAR kanalı"}, ("fade", 0.3)),
     sc("fisilti_earth", "earth", S("fisilti", -0.2), {
         "clouds": 0.45, "stars": 0.7, "exposure": 1.1, "sat": 1.05, "sunFollow": [-10, 35],
-        "keys": [{"t": 0, "lat": 5, "lon": -150, "alt": 21000, "heading": 0, "pitch": 90, "fov": 46}, {"t": 8, "lat": 0, "lon": -120, "alt": 23000, "e": "linear"}],
+        "keys": [{"t": 0, "lat": 5, "lon": -150, "alt": 13500, "heading": 0, "pitch": 90, "fov": 46}, {"t": 8, "lat": 0, "lon": -120, "alt": 15500, "e": "linear"}],
         "arcs": [{"from": [-30.5, -177.0], "to": [19.8, -66.0], "start": 0.6, "dur": 2.4}, {"from": [-30.5, -177.0], "to": [-10.3, 110.0], "start": 1.6, "dur": 2.8}]}, ("fade", 0.4)),
     sc("ucurum_gap", "info", S("ucurum", -0.1), {"mode": "gap", "title": "Aradaki fark: yüzyıllar mı, binlerce yıl mı?"}, ("fade", 0.3)),
     sc("ekonomi_lab", "lab", S("ekonomi", -0.1), {"title": "Tek bir teknoloji, bütün bir sektör", "tag": "VARSAYIMSAL SENARYO", "panels": [
@@ -387,12 +387,12 @@ SCENES = [
     sc("yukari_ascent", "ocean", S("yukari", -0.3), water([{"t": 0, "v": 6000}, {"t": 3.2, "v": 60}], cam={"pitch": 0.55, "fov": 62}, lamp=[{"t": 0, "v": 0.6}, {"t": 2.5, "v": 0}],
         snow=0.6, descent=-9, hud=hud([{"t": 0, "v": 6000}, {"t": 3.2, "v": 60}], minimal=True)), ("fade", 0.4)),
     sc("yukari_surface", "ocean", W("yukari", "gökyüzüne", off=-0.6), storm(
-        [{"t": 0, "v": [0, 2.5, 0]}, {"t": 4, "v": [0, 260, 40]}], 0.6, [{"t": 0, "v": 0.05}, {"t": 4, "v": -0.35}], 50,
-        amp=1.0, storm=0.15, dawn=1, rain=0, ship={"show": False}), ("fade", 0.3)),
+        [{"t": 0, "v": [0, 2.5, 0]}, {"t": 5, "v": [0, 150, 0], "e": "cine"}], 0.86, [{"t": 0, "v": 0.035}, {"t": 5, "v": -0.12}], 52,
+        amp=1.0, storm=0.3, dawn=0.85, rain=0, exposure=0.5, ship={"show": False}), ("fade", 0.3)),
     sc("uzay_earth", "earth", S("uzay", -0.4), {
         "clouds": 0.5, "stars": 0.9, "exposure": 1.05, "sat": 1.05, "sunFollow": [-20, 60],
-        "keys": [{"t": 0, "lat": 5, "lon": -150, "alt": 9000, "heading": 0, "pitch": 90, "fov": 46}, {"t": 14, "lat": 0, "lon": -100, "alt": 32000, "e": "inOut"}],
-        "lights": [{"lat": la, "lon": lo, "from": 0.4 + k * 0.25, "size": 0.65} for k, (la, lo) in enumerate([
+        "keys": [{"t": 0, "lat": 5, "lon": -150, "alt": 8000, "heading": 0, "pitch": 90, "fov": 46}, {"t": 14, "lat": 0, "lon": -100, "alt": 17500, "e": "inOut"}],
+        "lights": [{"lat": la, "lon": lo, "from": 0.4 + k * 0.25, "size": 0.85} for k, (la, lo) in enumerate([
             (-30.5, -177.0), (19.8, -66.0), (-10.3, 110.0), (11.3, 142.2), (37.0, 143.5), (-23.0, -71.5), (51.0, -175.0), (-56.0, -25.0), (10.5, 127.0), (-8.0, -152.0), (25.0, -40.0), (-40.0, 60.0)])]}, ("fade", 0.6)),
 ]
 

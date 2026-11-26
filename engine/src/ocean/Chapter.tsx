@@ -1,14 +1,23 @@
 // Bölüm başlığı katmanı (sol alt, ince çizgi + harf aralıklı başlık); slayt değil, sahnenin üstünde.
 import React from 'react';
-import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {getInputProps, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FONTS} from '../lib/theme';
 import {ease} from '../lib/anim';
 
 export type ChapterSpec = {n: string; title: string; at?: number; dur?: number};
 
+const CLEAN = (() => {
+	try {
+		return Boolean((getInputProps() as {clean?: boolean}).clean);
+	} catch {
+		return false;
+	}
+})();
+
 export const Chapter: React.FC<{spec: ChapterSpec}> = ({spec}) => {
 	const frame = useCurrentFrame();
 	const {width: W, height: H, fps} = useVideoConfig();
+	if (CLEAN) return null;
 	const at = spec.at ?? 6;
 	const dur = spec.dur ?? 4.2 * fps;
 	const a = interpolate(frame, [at, at + 14, at + dur - 14, at + dur], [0, 1, 1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
