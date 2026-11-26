@@ -14,3 +14,6 @@ __pycache__/
 *.pyc
 .DS_Store
 graphify-out/
+
+# görsel deneme konusu çıktıları
+deliverables/gu_lookdev/
