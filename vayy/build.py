@@ -32,6 +32,13 @@ def load_topic(topic_id: str) -> tuple[dict, dict]:
     v = dict(brand["voice"])
     v.update(topic.get("voice", {}))
     topic["voice"] = v
+    # Konuya özel marka/render geçersiz kılmaları (ör. 16:9 belgesel: render.width/height, captions.style)
+    for k, ov in topic.get("brand", {}).items():
+        if isinstance(ov, dict) and isinstance(brand.get(k), dict):
+            brand[k] = {**brand[k], **ov}
+        else:
+            brand[k] = ov
+    brand["render"] = {**brand["render"], **topic.get("render", {})}
     return topic, brand
 
 
@@ -126,7 +133,7 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
                     w["at"] = w["at"] - st  # saniye (sahneye göre); _convert kareye çevirir
     scenes = build_scenes({"scenes": scenes_src}, res, fps)
     cap_lines = [l for l, src in zip(lines, topic["lines"]) if src.get("captions", True)]
-    pages = cap.pages(cap.display_words(cap_lines))
+    pages = cap.pages(cap.display_words(cap_lines), **topic.get("caption_pages", {}))
     cap_json = cap.caption_pages_json(pages, fps)
     disclaimers = [{"text": d["text"], "from": int(round(res.abs(d["start"]) * fps)), "to": int(round(res.abs(d["end"]) * fps))} for d in topic.get("disclaimers", [])]
     timeline = {

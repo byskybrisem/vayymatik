@@ -46,11 +46,22 @@ def transcribe(x48: np.ndarray, prompt: str | None = None, model_size: str = "me
         _MODEL[model_size] = WhisperModel(model_size, device="cpu", compute_type="int8", cpu_threads=4)
     segs, _ = _MODEL[model_size].transcribe(x, language="tr", word_timestamps=True, beam_size=5, vad_filter=False,
                                             condition_on_previous_text=False, initial_prompt=prompt)
+    from .textnorm import expand_numbers
+
     out = []
     for s in segs:
         for w in s.words or []:
-            if norm(w.word):
-                out.append({"w": w.word.strip(), "start": float(w.start), "end": float(w.end)})
+            if not norm(w.word):
+                continue
+            # "2027" gibi rakamlı ASR kelimelerini Türkçe sözcüklere aç, süreyi harf sayısına göre böl
+            parts = expand_numbers(w.word.strip()).split() if any(ch.isdigit() for ch in w.word) else [w.word.strip()]
+            parts = [p for p in parts if norm(p)] or [w.word.strip()]
+            tot = sum(len(norm(p)) or 1 for p in parts)
+            t = float(w.start)
+            for p in parts:
+                d = (float(w.end) - float(w.start)) * (len(norm(p)) or 1) / tot
+                out.append({"w": p, "start": t, "end": t + d})
+                t += d
     return out
 
 
@@ -151,7 +162,10 @@ def split_chunk(x: np.ndarray, lines: list[tuple[str, list[str]]], times: list[t
         seg[:fi] *= np.linspace(0, 1, fi)
         seg[-fo:] *= np.linspace(1, 0, fo)
         words = [{"start": round(times[i][0] - s0, 4), "end": round(times[i][1] - s0, 4)} for i in range(a, b)]
+        meta = {"words": words}
+        if q < len(spans) - 1:  # parça içindeki doğal ara (sonraki satırın konuşma başlangıcına kadar)
+            meta["gap_after"] = round(max(0.05, times[spans[q + 1][1]][0] - times[b - 1][1]), 4)
         sf.write(out_dir / f"{lid}.wav", seg, SR, subtype="FLOAT")
-        (out_dir / f"{lid}.json").write_text(json.dumps({"words": words}, ensure_ascii=False), encoding="utf-8")
+        (out_dir / f"{lid}.json").write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
         report[lid] = round(len(seg) / SR, 3)
     return report

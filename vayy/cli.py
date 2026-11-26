@@ -6,6 +6,7 @@
   stills <konu> 0,90  Seçili kareleri PNG olarak üret
   qa <konu>           Var olan MP4 için kalite kontrol
   deliver <konu>      Metin teslimleri + kapak görseli
+  extvoice <konu>     Harici ses parçalarını (ElevenLabs) Whisper ile satırlara böl
 """
 from __future__ import annotations
 
@@ -15,7 +16,7 @@ import sys
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="vayy", description="VAYYMATİK Shorts üretim hattı")
-    ap.add_argument("command", choices=["build", "audio", "remux", "stills", "qa", "deliver"])
+    ap.add_argument("command", choices=["build", "audio", "remux", "stills", "qa", "deliver", "extvoice"])
     ap.add_argument("topic")
     ap.add_argument("frames", nargs="?", default="")
     ap.add_argument("--concurrency", type=int, default=4)
@@ -25,6 +26,11 @@ def main(argv: list[str] | None = None) -> int:
 
     from . import build as b
 
+    if a.command == "extvoice":
+        from .extvoice import prepare
+
+        prepare(a.topic, force=a.frames == "force")
+        return 0
     if a.command == "audio":
         b.build(a.topic, render=False)
         return 0

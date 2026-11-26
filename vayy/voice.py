@@ -84,13 +84,23 @@ def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dic
 def synth_lines(topic: dict, cache_dir: Path, log=print) -> list[LineAudio]:
     v = topic["voice"]
     if v.get("provider") == "external":
-        from .paths import TOPICS
+        from .paths import BUILD, TOPICS
         out = []
         for line in topic["lines"]:
             parsed = parse_line(line["text"])
-            src = TOPICS / topic["id"] / "voice" / f"{line['id']}.mp3"
-            audio, words = _external_line(src, parsed)
-            out.append(LineAudio(id=line["id"], parsed=parsed, audio=audio, words=words, pause_after=line.get("pause_after", v.get("gap", 0.25))))
+            # Hizalanmış satır (vayy/extvoice.py): build/<kaynak>/extlines/<satır>.wav + .json (kelime zamanları)
+            src_topic = line.get("src_topic", v.get("source_topic", topic["id"]))
+            ext = BUILD / src_topic / "extlines" / f"{line.get('src', line['id'])}.wav"
+            meta = json.loads(ext.with_suffix(".json").read_text(encoding="utf-8")) if ext.exists() else None
+            if meta and len(meta["words"]) == len(parsed.spoken):
+                audio, _ = sf.read(ext, dtype="float32")
+                words = [{"text": t, **w} for t, w in zip(parsed.spoken, meta["words"])]
+                pause = line.get("pause_after", meta.get("gap_after", v.get("gap_chunk", 0.45)))
+            else:
+                src = TOPICS / topic["id"] / "voice" / f"{line['id']}.mp3"
+                audio, words = _external_line(src, parsed)
+                pause = line.get("pause_after", v.get("gap", 0.25))
+            out.append(LineAudio(id=line["id"], parsed=parsed, audio=audio, words=words, pause_after=pause))
         log(f"  [ses] harici ses ({v.get('name', 'external')}): {len(out)} satır")
         return out
     model = VOICES / f"{v['model']}.onnx"
