@@ -1,0 +1,1642 @@
+{
+ "qa": {
+  "duration_range": [
+   35,
+   45
+  ]
+ },
+ "id": "moon",
+ "output_name": "VAYYMATIK0_What_If_The_Moon_Crashed",
+ "language": "en",
+ "voice": {
+  "provider": "external",
+  "name": "ElevenLabs — Adrian (Cinematic History Storyteller)",
+  "lead_in": 0.2,
+  "tail": 0.6,
+  "gap": 0.2,
+  "align_asr": true
+ },
+ "foreign_words": [],
+ "lines": [
+  {
+   "id": "hook",
+   "text": "What if the Moon suddenly started {falling} toward Earth?",
+   "pause_after": 0.2
+  },
+  {
+   "id": "breath",
+   "text": "At first, it would look {breathtaking}.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "giant",
+   "text": "A {gigantic Moon} dominating the night sky.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "pull",
+   "text": "But the {closer} it came, the more {dangerous} its gravitational pull would become.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "tides",
+   "text": "{Extreme tides} could {flood} coastal cities.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "tear",
+   "text": "Powerful tidal forces could {tear the Moon apart}, creating an enormous {ring of debris} around Earth.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "debris",
+   "text": "Some of that {debris} could {rain down} on our planet.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "collide",
+   "text": "And if a {collision} occurred, the energy released could {devastate} Earth's surface.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "blue",
+   "text": "Our familiar {blue planet} might become an {unrecognizable} world.",
+   "pause_after": 0.2
+  },
+  {
+   "id": "final",
+   "text": "The Moon looks {peaceful} tonight. But imagine if it started getting {closer}.",
+   "pause_after": 0.2
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "moonsky",
+   "start": "@start",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pitch": 10,
+      "fov": 64
+     },
+     {
+      "t": 0.55,
+      "pitch": 24,
+      "fov": 58,
+      "e": "out"
+     },
+     {
+      "t": 3.3,
+      "pitch": 27,
+      "fov": 50,
+      "e": "inOut"
+     }
+    ],
+    "moonRad": [
+     {
+      "t": 0,
+      "v": 16
+     },
+     {
+      "t": 3.3,
+      "v": 23
+     }
+    ],
+    "moonEl": [
+     {
+      "t": 0,
+      "v": 22
+     },
+     {
+      "t": 3.3,
+      "v": 27
+     }
+    ],
+    "camY": [
+     {
+      "t": 0,
+      "v": 90
+     }
+    ],
+    "people": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": 0.12,
+      "v": 2.2
+     },
+     {
+      "t": 0.8,
+      "v": 0.7
+     },
+     {
+      "t": 3.3,
+      "v": 1.4
+     }
+    ],
+    "exposure": 1.1,
+    "titles": [
+     {
+      "text": "THE MOON\nIS FALLING!",
+      "from": 0.15,
+      "dur": 3.0,
+      "kind": "slam",
+      "y": 600,
+      "size": 150,
+      "maxWidth": 880,
+      "color": "white"
+     }
+    ]
+   }
+  },
+  {
+   "id": "approach",
+   "type": "moonspace",
+   "start": "@breath.start-0.2",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       -2.2,
+       -6.0,
+       2.2
+      ],
+      "tgt": [
+       1.6,
+       2.4,
+       0
+      ],
+      "fov": 42
+     },
+     {
+      "t": 3.1,
+      "pos": [
+       -1.0,
+       -5.4,
+       1.7
+      ],
+      "tgt": [
+       2.0,
+       2.7,
+       0.15
+      ],
+      "fov": 42,
+      "e": "linear"
+     },
+     {
+      "t": 6.3,
+      "pos": [
+       0.2,
+       -4.6,
+       1.2
+      ],
+      "tgt": [
+       2.4,
+       3.0,
+       0.3
+      ],
+      "fov": 42,
+      "e": "cine"
+     }
+    ],
+    "moonDist": [
+     {
+      "t": 0,
+      "v": 13
+     },
+     {
+      "t": 6.3,
+      "v": 4.8
+     }
+    ],
+    "moonAng": [
+     {
+      "t": 0,
+      "v": 52
+     }
+    ],
+    "moonR": 0.55,
+    "sun": [
+     0.55,
+     -0.7,
+     0.35
+    ],
+    "exposure": 1.1,
+    "earthRot": [
+     {
+      "t": 0,
+      "v": 40
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.2
+     },
+     {
+      "t": 6.3,
+      "v": 0.8
+     }
+    ]
+   },
+   "transition": {
+    "type": "whip",
+    "dur": 0.35,
+    "dir": "up"
+   }
+  },
+  {
+   "id": "pull",
+   "type": "moonspace",
+   "start": "@pull.start-0.1",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       -0.6,
+       -3.6,
+       1.2
+      ],
+      "tgt": [
+       1.4,
+       1.9,
+       0.1
+      ],
+      "fov": 46
+     },
+     {
+      "t": 2.6,
+      "pos": [
+       0.4,
+       -3.0,
+       0.9
+      ],
+      "tgt": [
+       1.7,
+       2.1,
+       0.1
+      ],
+      "fov": 46
+     }
+    ],
+    "moonDist": [
+     {
+      "t": 0,
+      "v": 4.0
+     },
+     {
+      "t": 2.6,
+      "v": 3.4
+     }
+    ],
+    "moonAng": [
+     {
+      "t": 0,
+      "v": 52
+     }
+    ],
+    "moonR": 0.55,
+    "stretch": [
+     {
+      "t": 0,
+      "v": 0.0
+     },
+     {
+      "t": 2.6,
+      "v": 0.14
+     }
+    ],
+    "sun": [
+     0.55,
+     -0.7,
+     0.35
+    ],
+    "exposure": 1.1,
+    "earthRot": [
+     {
+      "t": 0,
+      "v": 50
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.4
+     },
+     {
+      "t": 2.6,
+      "v": 1.3
+     }
+    ]
+   },
+   "transition": {
+    "type": "blur",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "harbor",
+   "type": "moonsky",
+   "start": "@pull.word:gravitational",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pitch": 9,
+      "fov": 66,
+      "roll": 0
+     },
+     {
+      "t": 2.4,
+      "pitch": 13,
+      "fov": 62,
+      "roll": -3,
+      "e": "inOut"
+     },
+     {
+      "t": 5.2,
+      "pitch": 17,
+      "fov": 56,
+      "roll": 2.5,
+      "e": "inOut"
+     }
+    ],
+    "moonRad": [
+     {
+      "t": 0,
+      "v": 7
+     },
+     {
+      "t": 5.2,
+      "v": 16
+     }
+    ],
+    "moonEl": [
+     {
+      "t": 0,
+      "v": 19
+     },
+     {
+      "t": 5.2,
+      "v": 25
+     }
+    ],
+    "camY": [
+     {
+      "t": 0,
+      "v": 120
+     }
+    ],
+    "water": [
+     {
+      "t": 0,
+      "v": 2
+     },
+     {
+      "t": 1.6,
+      "v": 14
+     },
+     {
+      "t": 5.2,
+      "v": 95
+     }
+    ],
+    "wave": [
+     {
+      "t": 0,
+      "v": 0.5
+     },
+     {
+      "t": 2.5,
+      "v": 1.2
+     },
+     {
+      "t": 5.2,
+      "v": 2.2
+     }
+    ],
+    "blackout": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": 2.6,
+      "v": 0.35
+     },
+     {
+      "t": 5.2,
+      "v": 0.92
+     }
+    ],
+    "spray": [
+     {
+      "t": 0,
+      "v": 0.4
+     },
+     {
+      "t": 5.2,
+      "v": 1
+     }
+    ],
+    "panic": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": 2.5,
+      "v": 0.3
+     },
+     {
+      "t": 5.2,
+      "v": 1
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.8
+     },
+     {
+      "t": 2.6,
+      "v": 1.6
+     },
+     {
+      "t": 5.2,
+      "v": 2.8
+     }
+    ],
+    "exposure": 1.05
+   },
+   "transition": {
+    "type": "whip",
+    "dur": 0.3,
+    "dir": "right"
+   }
+  },
+  {
+   "id": "tear_a",
+   "type": "moonspace",
+   "start": "@tear.start-0.15",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       -1.8,
+       -2.2,
+       1.3
+      ],
+      "tgt": [
+       1.9,
+       2.4,
+       0
+      ],
+      "fov": 42
+     },
+     {
+      "t": 3.2,
+      "pos": [
+       2.4,
+       0.6,
+       0.7
+      ],
+      "tgt": [
+       1.9,
+       2.4,
+       0
+      ],
+      "fov": 40,
+      "e": "cine"
+     }
+    ],
+    "moonDist": [
+     {
+      "t": 0,
+      "v": 3.2
+     },
+     {
+      "t": 3.2,
+      "v": 2.7
+     }
+    ],
+    "moonAng": [
+     {
+      "t": 0,
+      "v": 52
+     }
+    ],
+    "moonR": 0.55,
+    "stretch": [
+     {
+      "t": 0,
+      "v": 0.08
+     },
+     {
+      "t": 3.2,
+      "v": 0.55
+     }
+    ],
+    "crack": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": 1.2,
+      "v": 0.25
+     },
+     {
+      "t": 3.2,
+      "v": 1.0
+     }
+    ],
+    "sun": [
+     0.55,
+     -0.7,
+     0.35
+    ],
+    "exposure": 1.1,
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.6
+     },
+     {
+      "t": 3.2,
+      "v": 2.6
+     }
+    ],
+    "titles": [
+     {
+      "text": "TIDAL DISRUPTION",
+      "from": 0.3,
+      "dur": 2.6,
+      "kind": "rise",
+      "y": 420,
+      "size": 86,
+      "maxWidth": 900,
+      "color": "gold"
+     }
+    ]
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "tear_b",
+   "type": "moonspace",
+   "start": "@tear.word:creating-0.2",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       0.5,
+       -5.6,
+       2.0
+      ],
+      "tgt": [
+       1.4,
+       1.6,
+       0
+      ],
+      "fov": 42
+     },
+     {
+      "t": 3.0,
+      "pos": [
+       -0.8,
+       -8.6,
+       4.8
+      ],
+      "tgt": [
+       0.0,
+       0.4,
+       0
+      ],
+      "fov": 46,
+      "e": "cine"
+     }
+    ],
+    "moonDist": [
+     {
+      "t": 0,
+      "v": 2.7
+     }
+    ],
+    "moonAng": [
+     {
+      "t": 0,
+      "v": 52
+     },
+     {
+      "t": 3.0,
+      "v": 78
+     }
+    ],
+    "moonR": 0.55,
+    "shatter": [
+     {
+      "t": 0,
+      "v": 0.0
+     },
+     {
+      "t": 2.6,
+      "v": 1.0
+     }
+    ],
+    "ring": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": 0.8,
+      "v": 0.2
+     },
+     {
+      "t": 3.0,
+      "v": 1.0
+     }
+    ],
+    "ringSpread": [
+     {
+      "t": 0,
+      "v": 0.04
+     },
+     {
+      "t": 3.0,
+      "v": 1.0
+     }
+    ],
+    "flash": [
+     {
+      "t": 0,
+      "v": 0.75
+     },
+     {
+      "t": 0.35,
+      "v": 0
+     }
+    ],
+    "sun": [
+     0.55,
+     -0.7,
+     0.35
+    ],
+    "exposure": 1.1,
+    "shake": [
+     {
+      "t": 0,
+      "v": 3
+     },
+     {
+      "t": 1.0,
+      "v": 1.0
+     },
+     {
+      "t": 3.0,
+      "v": 0.4
+     }
+    ],
+    "heat": [
+     {
+      "t": 0,
+      "v": 0.2
+     }
+    ]
+   },
+   "transition": {
+    "type": "flash",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "debris",
+   "type": "moonspace",
+   "start": "@debris.start-0.15",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       3.8,
+       -4.8,
+       0.9
+      ],
+      "tgt": [
+       0,
+       0,
+       0
+      ],
+      "fov": 40
+     },
+     {
+      "t": 3.2,
+      "pos": [
+       -1.8,
+       -5.0,
+       0.4
+      ],
+      "tgt": [
+       0,
+       0,
+       0
+      ],
+      "fov": 40,
+      "e": "inOut"
+     }
+    ],
+    "moonDist": [
+     {
+      "t": 0,
+      "v": 2.7
+     }
+    ],
+    "moonAng": [
+     {
+      "t": 0,
+      "v": 78
+     }
+    ],
+    "moonR": 0.55,
+    "moonOn": [
+     {
+      "t": 0,
+      "v": 0
+     }
+    ],
+    "shatter": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "ring": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "ringSpread": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "rain": [
+     {
+      "t": 0,
+      "v": 0.25
+     },
+     {
+      "t": 3.2,
+      "v": 1.0
+     }
+    ],
+    "heat": [
+     {
+      "t": 0,
+      "v": 0.2
+     },
+     {
+      "t": 3.2,
+      "v": 0.55
+     }
+    ],
+    "sun": [
+     0.55,
+     -0.7,
+     0.35
+    ],
+    "exposure": 1.1,
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.5
+     },
+     {
+      "t": 3.2,
+      "v": 1.2
+     }
+    ]
+   },
+   "transition": {
+    "type": "whip",
+    "dur": 0.3,
+    "dir": "left"
+   }
+  },
+  {
+   "id": "chunk",
+   "type": "moonspace",
+   "start": "@collide.start-0.1",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       2.8,
+       -3.3,
+       1.0
+      ],
+      "tgt": [
+       0.2,
+       -0.5,
+       0.2
+      ],
+      "fov": 40
+     },
+     {
+      "t": 2.0,
+      "pos": [
+       2.6,
+       -3.0,
+       0.9
+      ],
+      "tgt": [
+       0.3,
+       -0.6,
+       0.25
+      ],
+      "fov": 36,
+      "e": "in"
+     }
+    ],
+    "moonDist": [
+     {
+      "t": 0,
+      "v": 2.7
+     }
+    ],
+    "moonAng": [
+     {
+      "t": 0,
+      "v": 78
+     }
+    ],
+    "moonR": 0.55,
+    "moonOn": [
+     {
+      "t": 0,
+      "v": 0
+     }
+    ],
+    "shatter": [
+     {
+      "t": 0,
+      "v": 0.0
+     }
+    ],
+    "ring": [
+     {
+      "t": 0,
+      "v": 0.55
+     }
+    ],
+    "ringSpread": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "rain": [
+     {
+      "t": 0,
+      "v": 0.7
+     },
+     {
+      "t": 2.0,
+      "v": 1.0
+     }
+    ],
+    "heat": [
+     {
+      "t": 0,
+      "v": 0.55
+     },
+     {
+      "t": 2.0,
+      "v": 0.75
+     }
+    ],
+    "impact": {
+     "at": 99.0,
+     "dir": [
+      0.5,
+      -0.78,
+      0.38
+     ]
+    },
+    "chunk": {
+     "from": 0.0,
+     "at": 2.0,
+     "start": [
+      5.5,
+      -1.5,
+      2.2
+     ],
+     "rad": 0.3
+    },
+    "sun": [
+     0.55,
+     -0.7,
+     0.35
+    ],
+    "exposure": 1.1,
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.8
+     },
+     {
+      "t": 2.0,
+      "v": 2.4
+     }
+    ],
+    "titles": [
+     {
+      "text": "DIRECT IMPACT",
+      "from": 0.2,
+      "dur": 1.8,
+      "kind": "rise",
+      "y": 420,
+      "size": 86,
+      "maxWidth": 900,
+      "color": "gold"
+     }
+    ]
+   },
+   "transition": {
+    "type": "zoom",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "impact",
+   "type": "moonspace",
+   "start": "@collide.word:energy-0.15",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       2.7,
+       -3.1,
+       0.95
+      ],
+      "tgt": [
+       0.3,
+       -0.6,
+       0.25
+      ],
+      "fov": 36
+     },
+     {
+      "t": 2.8,
+      "pos": [
+       4.6,
+       -5.4,
+       2.2
+      ],
+      "tgt": [
+       0.2,
+       -0.4,
+       0.2
+      ],
+      "fov": 42,
+      "e": "out"
+     }
+    ],
+    "moonDist": [
+     {
+      "t": 0,
+      "v": 2.7
+     }
+    ],
+    "moonAng": [
+     {
+      "t": 0,
+      "v": 78
+     }
+    ],
+    "moonR": 0.55,
+    "moonOn": [
+     {
+      "t": 0,
+      "v": 0
+     }
+    ],
+    "ring": [
+     {
+      "t": 0,
+      "v": 0.55
+     }
+    ],
+    "ringSpread": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "rain": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "impact": {
+     "at": 0.05,
+     "dir": [
+      0.5,
+      -0.78,
+      0.38
+     ]
+    },
+    "flash": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": 0.05,
+      "v": 0.95
+     },
+     {
+      "t": 0.45,
+      "v": 0.0
+     }
+    ],
+    "heat": [
+     {
+      "t": 0,
+      "v": 0.75
+     },
+     {
+      "t": 2.8,
+      "v": 1.0
+     }
+    ],
+    "devast": [
+     {
+      "t": 0,
+      "v": 0.0
+     },
+     {
+      "t": 2.8,
+      "v": 0.5
+     }
+    ],
+    "sun": [
+     0.55,
+     -0.7,
+     0.35
+    ],
+    "exposure": 1.15,
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.0
+     },
+     {
+      "t": 0.06,
+      "v": 4.0
+     },
+     {
+      "t": 1.6,
+      "v": 1.0
+     },
+     {
+      "t": 2.8,
+      "v": 0.5
+     }
+    ]
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "blue_a",
+   "type": "moonspace",
+   "start": "@blue.start-0.1",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       0.6,
+       -4.7,
+       0.9
+      ],
+      "tgt": [
+       0,
+       0,
+       0
+      ],
+      "fov": 40
+     },
+     {
+      "t": 2.3,
+      "pos": [
+       0.2,
+       -4.1,
+       0.5
+      ],
+      "tgt": [
+       0,
+       0,
+       0
+      ],
+      "fov": 40,
+      "e": "cine"
+     }
+    ],
+    "moonOn": [
+     {
+      "t": 0,
+      "v": 0
+     }
+    ],
+    "sun": [
+     0.75,
+     -0.45,
+     0.3
+    ],
+    "exposure": 1.12,
+    "earthRot": [
+     {
+      "t": 0,
+      "v": 95
+     }
+    ],
+    "impact": {
+     "at": 99.0,
+     "dir": [
+      0.5,
+      -0.78,
+      0.38
+     ]
+    }
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.4
+   }
+  },
+  {
+   "id": "blue_b",
+   "type": "moonspace",
+   "start": "@blue.word:might-0.15",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pos": [
+       0.2,
+       -4.1,
+       0.5
+      ],
+      "tgt": [
+       0,
+       0,
+       0
+      ],
+      "fov": 40
+     },
+     {
+      "t": 2.0,
+      "pos": [
+       -0.2,
+       -3.7,
+       0.3
+      ],
+      "tgt": [
+       0,
+       0,
+       0
+      ],
+      "fov": 38,
+      "e": "inOut"
+     }
+    ],
+    "moonOn": [
+     {
+      "t": 0,
+      "v": 0
+     }
+    ],
+    "ring": [
+     {
+      "t": 0,
+      "v": 0.5
+     }
+    ],
+    "ringSpread": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "devast": [
+     {
+      "t": 0,
+      "v": 1.0
+     }
+    ],
+    "heat": [
+     {
+      "t": 0,
+      "v": 0.7
+     }
+    ],
+    "rain": [
+     {
+      "t": 0,
+      "v": 0.35
+     }
+    ],
+    "impact": {
+     "at": -40.0,
+     "dir": [
+      0.5,
+      -0.78,
+      0.38
+     ]
+    },
+    "sun": [
+     0.75,
+     -0.45,
+     0.3
+    ],
+    "exposure": 1.15,
+    "earthRot": [
+     {
+      "t": 0,
+      "v": 95
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0.4
+     }
+    ],
+    "titles": [
+     {
+      "text": "ONE POSSIBLE OUTCOME",
+      "from": 0.45,
+      "dur": 1.4,
+      "kind": "rise",
+      "y": 420,
+      "size": 72,
+      "maxWidth": 900,
+      "color": "gold"
+     }
+    ]
+   },
+   "transition": {
+    "type": "blur",
+    "dur": 0.55
+   }
+  },
+  {
+   "id": "final",
+   "type": "moonsky",
+   "start": "@final.start-0.15",
+   "props": {
+    "keys": [
+     {
+      "t": 0,
+      "pitch": 34,
+      "fov": 70
+     },
+     {
+      "t": 2.7,
+      "pitch": 24,
+      "fov": 67,
+      "e": "linear"
+     },
+     {
+      "t": 5.45,
+      "pitch": 10,
+      "fov": 64,
+      "e": "inOut"
+     }
+    ],
+    "moonRad": [
+     {
+      "t": 0,
+      "v": 2.6
+     },
+     {
+      "t": 5.45,
+      "v": 16,
+      "e": "in"
+     }
+    ],
+    "moonEl": [
+     {
+      "t": 0,
+      "v": 36
+     },
+     {
+      "t": 5.45,
+      "v": 22
+     }
+    ],
+    "camY": [
+     {
+      "t": 0,
+      "v": 90
+     }
+    ],
+    "people": [
+     {
+      "t": 0,
+      "v": 1
+     }
+    ],
+    "shake": [
+     {
+      "t": 0,
+      "v": 0
+     },
+     {
+      "t": 5.45,
+      "v": 0
+     }
+    ],
+    "exposure": 1.1
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.5
+   }
+  }
+ ],
+ "music": {
+  "style": "story",
+  "bpm": 120,
+  "seed": 21,
+  "sections": {
+   "hook": "@start",
+   "origin": "@breath.start",
+   "rise": "@pull.start",
+   "drive": "@tides.start",
+   "break": "@tear.start",
+   "climax": "@collide.start",
+   "resolve": "@blue.start",
+   "end": "@end"
+  },
+  "hits": [
+   {
+    "at": "@start",
+    "kind": "impact"
+   },
+   {
+    "at": "@tear.word:tear",
+    "kind": "boom"
+   },
+   {
+    "at": "@collide.word:energy-0.1",
+    "kind": "braam"
+   }
+  ],
+  "risers": [
+   {
+    "to": "@tear.start",
+    "dur": 1.6
+   },
+   {
+    "to": "@collide.word:energy-0.1",
+    "dur": 2.0
+   }
+  ]
+ },
+ "sfx": [
+  {
+   "type": "impact",
+   "at": 0.05,
+   "gain": -3
+  },
+  {
+   "type": "heartbeat",
+   "at": 0.35,
+   "gain": -6
+  },
+  {
+   "type": "whoosh",
+   "at": 0.1,
+   "dur": 0.6,
+   "gain": -6
+  },
+  {
+   "type": "whoosh",
+   "at": "@breath.start-0.3",
+   "dur": 0.8,
+   "gain": -8
+  },
+  {
+   "type": "riser",
+   "at": "@giant.start",
+   "dur": 3.4,
+   "gain": -12
+  },
+  {
+   "type": "impact",
+   "at": "@pull.start-0.05",
+   "size": 0.6,
+   "gain": -8
+  },
+  {
+   "type": "wind",
+   "at": "@pull.word:gravitational",
+   "dur": 5.2,
+   "curve": [
+    [
+     0,
+     0.2
+    ],
+    [
+     2.5,
+     0.7
+    ],
+    [
+     5.2,
+     1.0
+    ]
+   ],
+   "gain": -9
+  },
+  {
+   "type": "whoosh",
+   "at": "@pull.word:gravitational",
+   "dur": 0.7,
+   "gain": -6
+  },
+  {
+   "type": "crowd",
+   "at": "@tides.start",
+   "dur": 3.0,
+   "gain": -16
+  },
+  {
+   "type": "riser",
+   "at": "@pull.word:gravitational",
+   "dur": 4.9,
+   "gain": -14
+  },
+  {
+   "type": "impact",
+   "at": "@tides.word:flood",
+   "size": 0.9,
+   "gain": -6
+  },
+  {
+   "type": "riser",
+   "at": "@tear.start-0.3",
+   "dur": 2.0,
+   "gain": -10
+  },
+  {
+   "type": "impact",
+   "at": "@tear.word:tear",
+   "size": 1.1,
+   "gain": -4
+  },
+  {
+   "type": "static",
+   "at": "@tear.word:tear",
+   "dur": 1.5,
+   "gain": -18
+  },
+  {
+   "type": "impact",
+   "at": "@tear.word:creating-0.2",
+   "size": 1.5,
+   "gain": -2
+  },
+  {
+   "type": "whoosh",
+   "at": "@debris.start-0.15",
+   "dur": 0.7,
+   "gain": -8
+  },
+  {
+   "type": "wind",
+   "at": "@debris.start",
+   "dur": 3.0,
+   "curve": [
+    [
+     0,
+     0.2
+    ],
+    [
+     3,
+     0.9
+    ]
+   ],
+   "gain": -10
+  },
+  {
+   "type": "riser",
+   "at": "@collide.start-0.2",
+   "dur": 2.2,
+   "gain": -8
+  },
+  {
+   "type": "impact",
+   "at": "@collide.word:energy-0.1",
+   "size": 2.0,
+   "gain": 0
+  },
+  {
+   "type": "static",
+   "at": "@collide.word:energy-0.1",
+   "dur": 1.2,
+   "gain": -14
+  },
+  {
+   "type": "heartbeat",
+   "at": "@blue.start",
+   "gain": -8
+  },
+  {
+   "type": "whoosh",
+   "at": "@blue.word:might-0.15",
+   "dur": 0.6,
+   "gain": -7
+  },
+  {
+   "type": "impact",
+   "at": "@blue.word:might-0.1",
+   "size": 0.7,
+   "gain": -7
+  },
+  {
+   "type": "heartbeat",
+   "at": "@final.start",
+   "gain": -9
+  },
+  {
+   "type": "riser",
+   "at": "@final.word:imagine-0.8",
+   "dur": 2.6,
+   "gain": -9
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Hypothetical scenario",
+   "start": "@start",
+   "end": "@end"
+  }
+ ],
+ "metadata": {
+  "title": "What If The Moon Crashed Into Earth? #shorts",
+  "title_alternatives": [
+   "The Moon Is Falling — What Would Happen?",
+   "What If The Moon Started Falling Toward Earth?"
+  ],
+  "description": [
+   "What if the Moon suddenly started falling toward Earth? A hypothetical scenario in which the Moon's orbit is somehow altered.",
+   "",
+   "As the Moon approached, extreme tides could flood coastal cities. Powerful tidal forces could tear the Moon apart before it ever reached the surface, creating a ring of debris — and some of that debris could rain down on Earth. A direct collision, if it occurred, could devastate the surface. Outcomes shown are possibilities, not predictions.",
+   "",
+   "Visuals: Earth texture NASA Blue Marble; Moon texture NASA/LRO. Voice: ElevenLabs. Music, effects and scenes: generated in the VAYYMATIK engine."
+  ],
+  "hashtags": [
+   "#Moon",
+   "#Space",
+   "#Astronomy",
+   "#WhatIf",
+   "#Shorts"
+  ],
+  "thumbnail_text": "THE MOON IS FALLING"
+ },
+ "sources": [],
+ "assets_credits": [
+  "Earth texture: NASA Earth Observatory Blue Marble Next Generation (public domain).",
+  "Moon texture: NASA Scientific Visualization Studio / Lunar Reconnaissance Orbiter LROC color mosaic (public domain).",
+  "Narration: ElevenLabs text-to-speech, voice 'Adrian - Cinematic History Storyteller'.",
+  "Music and sound effects: procedurally synthesized in the VAYYMATIK pipeline."
+ ]
+}

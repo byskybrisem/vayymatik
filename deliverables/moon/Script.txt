@@ -1,0 +1,47 @@
+What If The Moon Crashed Into Earth? #shorts
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 41.0 sn
+
+SENARYO (zaman kodlu, seslendirme ile birebir)
+============================================================
+[00:00.20 – 00:03.44]  What if the Moon suddenly started falling toward Earth?
+      sahne: hook
+[00:03.64 – 00:06.12]  At first, it would look breathtaking.
+      sahne: approach
+[00:06.32 – 00:09.52]  A gigantic Moon dominating the night sky.
+      sahne: approach
+[00:09.72 – 00:14.27]  But the closer it came, the more dangerous its gravitational pull would become.
+      sahne: pull
+[00:14.47 – 00:17.40]  Extreme tides could flood coastal cities.
+      sahne: harbor
+[00:17.60 – 00:23.71]  Powerful tidal forces could tear the Moon apart, creating an enormous ring of debris around Earth.
+      sahne: tear_a
+[00:23.91 – 00:26.83]  Some of that debris could rain down on our planet.
+      sahne: debris
+[00:27.03 – 00:31.31]  And if a collision occurred, the energy released could devastate Earth's surface.
+      sahne: chunk
+      okunuş (TTS): And if a collision occurred, the energy released could devastate Earths surface.
+[00:31.51 – 00:35.59]  Our familiar blue planet might become an unrecognizable world.
+      sahne: blue_a
+[00:35.79 – 00:40.38]  The Moon looks peaceful tonight. But imagine if it started getting closer.
+      sahne: final
+
+SAHNE LİSTESİ
+============================================================
+00:00.00 – 00:03.77  hook            [moonsky]  geçiş: cut  
+00:03.43 – 00:09.93  approach        [moonspace]  geçiş: whip  
+00:09.63 – 00:12.70  pull            [moonspace]  geçiş: blur  
+00:12.40 – 00:17.47  harbor          [moonsky]  geçiş: whip  
+00:17.47 – 00:20.63  tear_a          [moonspace]  geçiş: cut  
+00:20.43 – 00:24.07  tear_b          [moonspace]  geçiş: flash  
+00:23.77 – 00:27.23  debris          [moonspace]  geçiş: whip  
+00:26.93 – 00:28.57  chunk           [moonspace]  geçiş: zoom  
+00:28.57 – 00:31.80  impact          [moonspace]  geçiş: cut  
+00:31.40 – 00:33.73  blue_a          [moonspace]  geçiş: fade  
+00:33.20 – 00:36.13  blue_b          [moonspace]  geçiş: blur  
+00:35.63 – 00:41.00  final           [moonsky]  geçiş: fade  
+
+SES
+============================================================
+Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
+Müzik: özgün prosedürel kompozisyon · 120 BPM · Re minör
+Miks: {"integrated_lufs": -14.08, "true_peak_dbtp": -1.79, "voice_lufs": -16.0, "music_under_voice_db": 10.2}

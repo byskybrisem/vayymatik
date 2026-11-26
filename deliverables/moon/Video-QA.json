@@ -1,0 +1,247 @@
+{
+  "video": "VAYYMATIK0_What_If_The_Moon_Crashed.mp4",
+  "generated_at": "2026-11-26T00:12:05Z",
+  "overall_pass": false,
+  "summary": {
+    "total": 22,
+    "passed": 20,
+    "critical_failed": [
+      "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)",
+      "Satır başı zamanları ses enerjisiyle uyumlu (≤ 100 ms)"
+    ]
+  },
+  "specs": {
+    "duration_s": 41.0,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "video_bitrate_kbps": 10990,
+    "size_mb": 58.08
+  },
+  "checks": [
+    {
+      "check": "Çözünürlük 1080×1920 (9:16)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "check": "Süre 35–45 sn",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "seconds": 41.0
+      }
+    },
+    {
+      "check": "FPS 30 veya 60",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "fps": 30.0
+      }
+    },
+    {
+      "check": "Video codec H.264 yuv420p",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "codec": "h264",
+        "pix_fmt": "yuv420p",
+        "profile": "High"
+      }
+    },
+    {
+      "check": "Ses akışı AAC 48 kHz stereo",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "codec": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    },
+    {
+      "check": "faststart (moov başta)",
+      "pass": true,
+      "critical": false,
+      "detail": {}
+    },
+    {
+      "check": "Baştan sona tam çözme (oynatılabilirlik)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "errors": ""
+      }
+    },
+    {
+      "check": "Siyah kare yok",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "black_segments": []
+      }
+    },
+    {
+      "check": "Donmuş görüntü yok (>1,2 sn)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "freezes": []
+      }
+    },
+    {
+      "check": "Statik slayt değil (her 1 sn'de hareket)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "mean_frame_diff": 13.68,
+        "min_1s_window": 4.1,
+        "windows_below_0.6": 0,
+        "windows": 40
+      }
+    },
+    {
+      "check": "Anlamlı görsel değişim aralığı ≤ 4 sn (zaman çizelgesi)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "max_gap_s": 3.17,
+        "events": 33
+      }
+    },
+    {
+      "check": "Ölçülen sahne kesmeleri (ffmpeg scene>0.18)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "cuts": 11,
+        "max_gap_s": 12.4
+      }
+    },
+    {
+      "check": "Loudness −14 LUFS ±1",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "integrated_lufs": -14.1,
+        "lra_lu": 2.8,
+        "true_peak_dbfs": -1.8
+      }
+    },
+    {
+      "check": "Gerçek tepe ≤ −1,0 dBTP",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "true_peak_dbtp": -1.8
+      }
+    },
+    {
+      "check": "Müzik konuşmanın en az 8 dB altında",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "music_under_voice_db": 10.2
+      }
+    },
+    {
+      "check": "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)",
+      "pass": false,
+      "critical": true,
+      "detail": {
+        "script_tokens": 100,
+        "asr_tokens": 100,
+        "matched_tokens": 100,
+        "match_ratio": 1.0,
+        "wer": 0.0,
+        "sync_pairs": 100,
+        "offset_median_ms": 75.5,
+        "offset_abs_median_ms": 142.5,
+        "offset_abs_p90_ms": 278.8
+      }
+    },
+    {
+      "check": "Seslendirme anlaşılırlığı (ASR WER ≤ %25, kuru ses)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "wer": 0.0,
+        "match_ratio": 1.0
+      }
+    },
+    {
+      "check": "Müzik altında anlaşılırlık (ASR WER, final miks)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "wer_mix": 0.0,
+        "wer_dry": 0.0
+      }
+    },
+    {
+      "check": "Satır başı zamanları ses enerjisiyle uyumlu (≤ 100 ms)",
+      "pass": false,
+      "critical": true,
+      "detail": {
+        "max_abs_ms": 103.0,
+        "median_abs_ms": 56.5,
+        "lines": 10
+      }
+    },
+    {
+      "check": "Altyazı sayfaları kelime zamanlarını kapsıyor",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "words": 100,
+        "outside": 0
+      }
+    },
+    {
+      "check": "Taşan/güvenli alan dışı metin yok (yerleşmiş karelerde)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "frames_checked": 410,
+        "issues": 0,
+        "frames": [],
+        "examples": []
+      }
+    },
+    {
+      "check": "Tekrar izleme döngüsü (ilk/son kare benzerliği)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "mean_abs_diff": 9.83
+      }
+    }
+  ],
+  "facts": [],
+  "frame_samples_s": [
+    1.14,
+    3.42,
+    5.69,
+    7.97,
+    10.25,
+    12.53,
+    14.81,
+    17.08,
+    19.36,
+    21.64,
+    23.92,
+    26.19,
+    28.47,
+    30.75,
+    33.03,
+    35.31,
+    37.58,
+    39.86
+  ],
+  "qa_seconds": 390.7
+}
