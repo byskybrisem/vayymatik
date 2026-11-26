@@ -84,10 +84,10 @@ const isPrime = (n: number) => {
 const SieveV: React.FC<{p: SignalProps}> = ({p}) => {
 	const frame = useCurrentFrame();
 	const {width: W, height: H} = useVideoConfig();
-	const cell = Math.min(W, H) * 0.072;
+	const cell = Math.min(W, H) * 0.062;
 	const at = p.at ?? 10;
 	return (
-		<div style={{position: 'absolute', left: W / 2 - cell * 5, top: H / 2 - cell * 5 + 30, width: cell * 10, height: cell * 10}}>
+		<div style={{position: 'absolute', left: W / 2 - cell * 5, top: H / 2 - cell * 5 + (W > H ? 0 : 30), width: cell * 10, height: cell * 10}}>
 			{Array.from({length: 100}, (_, i) => {
 				const n = i + 1;
 				const r = Math.floor(i / 10);

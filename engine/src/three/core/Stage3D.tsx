@@ -12,10 +12,12 @@ export type StageProps = {
 	shadows?: boolean;
 	/** Çözünürlük ölçeği (GPU'suz hızlı önizleme için 0.5–0.75; final 1) */
 	scale?: number;
+	/** MSAA (varsayılan açık). SwiftShader'da bazı karolarda eski içerik bırakabildiği için derin deniz sahnesinde kapalı. */
+	aa?: boolean;
 	children: React.ReactNode;
 };
 
-export const Stage3D: React.FC<StageProps> = ({bg = '#05070D', fog, exposure = 1, shadows = true, scale = 1, children}) => {
+export const Stage3D: React.FC<StageProps> = ({bg = '#05070D', fog, exposure = 1, shadows = true, scale = 1, aa = true, children}) => {
 	const {width, height} = useVideoConfig();
 	return (
 		<ThreeCanvas
@@ -23,7 +25,7 @@ export const Stage3D: React.FC<StageProps> = ({bg = '#05070D', fog, exposure = 1
 			height={height}
 			dpr={scale}
 			shadows={shadows ? {type: THREE.PCFSoftShadowMap} : false}
-			gl={{antialias: true, preserveDrawingBuffer: true, powerPreference: 'high-performance'}}
+			gl={{antialias: aa, preserveDrawingBuffer: true, powerPreference: 'high-performance'}}
 			camera={{fov: 35, near: 0.1, far: 900, position: [0, 1.6, 5]}}
 			style={{backgroundColor: bg}}
 			onCreated={({gl}) => {

@@ -193,46 +193,79 @@ const SonarW: React.FC<{p: Sonar; W: number; H: number}> = ({p, W, H}) => {
 	);
 };
 
+const bathyH = (u: number, v: number) => {
+	// sırt + deniz dağları + derin hendek + ince sırtlar (abisal tepeler)
+	let h = 0.45 + 0.18 * Math.sin(u * 2.3 + 0.6) * Math.cos(v * 1.7 - 0.4);
+	h += 0.12 * Math.exp(-Math.pow((u - 0.25) * 7, 2) - Math.pow((v - 0.3) * 6, 2));
+	h += 0.16 * Math.exp(-Math.pow((u - 0.78) * 9, 2) - Math.pow((v - 0.72) * 7, 2));
+	h -= 0.42 * Math.exp(-Math.pow((u * 0.8 + v * 0.6 - 0.95) * 9, 2));
+	for (let k = 1; k <= 5; k++) h += (0.05 / k) * Math.sin(u * 9 * k + Math.sin(v * 4 * k + k) * 1.5) * Math.cos(v * 7 * k - u * 2);
+	return h;
+};
+const bathyCol = (s: number): [number, number, number] => {
+	const st: [number, number, number, number][] = [
+		[0, 60, 20, 120], [0.25, 30, 70, 190], [0.45, 40, 160, 210], [0.6, 70, 200, 120], [0.75, 230, 220, 80], [0.9, 240, 120, 40], [1, 220, 50, 40],
+	];
+	for (let i = 0; i < st.length - 1; i++) {
+		const a = st[i];
+		const b = st[i + 1];
+		if (s <= b[0]) {
+			const t = (s - a[0]) / (b[0] - a[0]);
+			return [a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t, a[3] + (b[3] - a[3]) * t];
+		}
+	}
+	return [220, 50, 40];
+};
+
 const BathyW: React.FC<{p: Bathy; W: number; H: number}> = ({p, W, H}) => {
 	const frame = useCurrentFrame();
 	const ref = useRef<HTMLCanvasElement>(null);
-	const cw = Math.round(((p.w / 100) * W) / 3);
-	const ch = Math.round(((p.h / 100) * H - 40) / 3);
+	const cw = Math.round(((p.w / 100) * W) / 2.5);
+	const ch = Math.round(((p.h / 100) * H - 40) / 2.5);
 	useEffect(() => {
 		const ctx = ref.current!.getContext('2d')!;
 		const img = ctx.createImageData(cw, ch);
 		const prog = Math.max(0, Math.min(1, (frame - (p.from ?? 0)) / Math.max(1, p.dur ?? 150)));
-		const sw = 0.22;
+		const lanes = 5;
 		for (let y = 0; y < ch; y++) {
 			for (let x = 0; x < cw; x++) {
 				const u = x / cw;
 				const v = y / ch;
-				// gemi rotası: soldan sağa zikzak şeritler
-				const lane = Math.floor(v / sw);
+				const lane = Math.min(lanes - 1, Math.floor(v * lanes));
 				const lp = lane % 2 === 0 ? u : 1 - u;
-				const done = lane + lp < prog * 4.2;
+				const edge = Math.abs(((v * lanes) % 1) - 0.5) * 2; // şerit kenarına yakınlık
+				const done = (lane + lp) / lanes < prog && edge < 0.97;
 				const k = (y * cw + x) * 4;
 				if (!done) {
 					img.data[k] = 6;
-					img.data[k + 1] = 14;
-					img.data[k + 2] = 24;
+					img.data[k + 1] = 12;
+					img.data[k + 2] = 20;
 					img.data[k + 3] = 255;
 					continue;
 				}
-				const hgt =
-					0.5 + 0.28 * Math.sin(u * 7.1 + Math.sin(v * 5.3) * 1.3) * Math.cos(v * 6.2 + u * 1.7) + 0.12 * Math.sin(u * 23 + v * 19) - 0.35 * Math.exp(-Math.pow((u - 0.62) * 6, 2) - Math.pow((v - 0.55) * 3, 2));
-				const s = Math.max(0, Math.min(1, hgt));
-				const r = 20 + 230 * Math.pow(s, 2.2);
-				const g = 40 + 200 * Math.sin(s * Math.PI * 0.9);
-				const b = 120 + 120 * (1 - s);
-				const shade = 0.75 + 0.25 * Math.sin(u * 60 + hgt * 20);
-				img.data[k] = r * shade;
-				img.data[k + 1] = g * shade;
-				img.data[k + 2] = b * shade;
+				const e = 0.002;
+				const h = bathyH(u, v);
+				const dx = (bathyH(u + e, v) - h) / e;
+				const dy = (bathyH(u, v + e) - h) / e;
+				const shade = Math.max(0.25, Math.min(1.25, 0.85 + (-dx * 0.7 + dy * 0.5) * 0.09));
+				const [r, g, b] = bathyCol(Math.max(0, Math.min(1, h)));
+				const n = 0.94 + 0.06 * hash(x * 0.31 + y * 7.7);
+				img.data[k] = Math.min(255, r * shade * n);
+				img.data[k + 1] = Math.min(255, g * shade * n);
+				img.data[k + 2] = Math.min(255, b * shade * n);
 				img.data[k + 3] = 255;
 			}
 		}
+		// gemi konumu (şerit ucu)
+		const lane = Math.min(lanes - 1, Math.floor(prog * lanes));
+		const lp = prog * lanes - lane;
+		const sx = (lane % 2 === 0 ? lp : 1 - lp) * cw;
+		const sy2 = ((lane + 0.5) / lanes) * ch;
 		ctx.putImageData(img, 0, 0);
+		ctx.fillStyle = '#ffffff';
+		ctx.beginPath();
+		ctx.arc(sx, sy2, 3.5, 0, Math.PI * 2);
+		ctx.fill();
 	}, [frame, cw, ch, p]);
 	return <canvas ref={ref} width={cw} height={ch} style={{position: 'absolute', left: 0, top: 36, width: '100%', height: 'calc(100% - 40px)'}} />;
 };

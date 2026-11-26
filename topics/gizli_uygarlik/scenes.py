@@ -61,6 +61,10 @@ def deep(keys, *, sigma=MID, lamps=None, power=1.0, city=True, hud=None, **kw):
         p["city"]["beats"] = kw.pop("beats")
     if "period" in kw:
         p["city"]["period"] = kw.pop("period")
+    if "veins" in kw:
+        p["city"]["veins"] = kw.pop("veins")
+    if "micro" in kw:
+        p["city"]["micro"] = kw.pop("micro")
     p.update(kw)
     return p
 
@@ -94,7 +98,7 @@ P6b = [595.1, 5.6, 80.5]
 SCENES = [
     # ===================== BÖLÜM 1 · KARANLIKTAKİ SİNYAL =====================
     sc("hook_wall", "deep3d", "@start", deep(
-        [K(0, [604.0, 5.0, 62.8], [598.6, 4.2, 66.5], 46), K(9, [602.7, 5.6, 74.7], [598.0, 5.0, 77.0], 44)],
+        [K(0, [593.69, 25.38, 61.65], [589.97, 22.61, 63.31], 46), K(9, [592.75, 25.38, 71.61], [589.04, 22.61, 73.27], 44)],
         sigma=CLOSE, lamps={"mode": "cam", "i": 0.9}, power=1.25, beats=[W("hook", "başka", off=-0.1), W("hook", "farkında", off=-0.1)],
         hud=hud(8034, label="YANKI · KAMERA 1", alt=4.2), grade={"vignette": 0.75})),
     sc("yil_storm", "ocean", S("yil", -0.25), storm(
@@ -105,7 +109,7 @@ SCENES = [
         {"kind": "counter", "x": 66, "y": 22, "w": 29, "h": 32, "a": 0, "b": 27.3, "from": W("gorev", "Çünkü", off=-0.4), "to": W("gorev", "dörtte", off=0.6), "decimals": 1, "unit": "%", "label": "Ayrıntılı haritalanan taban", "at": 8},
         {"kind": "text", "x": 66, "y": 58, "w": 29, "h": 30, "text": "Seabed 2030", "sub": "Haziran 2025 verisi · modern standartlarda haritalanan okyanus tabanı", "size": 40, "at": 18}]}, ("fade", 0.25)),
     sc("sinyal_storm", "ocean", S("sinyal", -0.15), storm(
-        [{"t": 0, "v": [-60, 9, 45]}, {"t": 4, "v": [-55, 9.5, 41]}], 0.963, -0.03, 36, flashes=[W("sinyal", "gece", off=0.1)], rain=1.2), ("cut", 0)),
+        [{"t": 0, "v": [-120, 9, 75]}, {"t": 4, "v": [-112, 9.5, 70]}], 1.012, -0.02, 32, flashes=[W("sinyal", "gece", off=0.1)], rain=1.2), ("cut", 0)),
     sc("sinyal_spectro", "lab", W("sinyal", "tuhaf", off=-0.15), {"title": "Hidrofon kaydı · 8.000 m", "panels": [
         {"kind": "spectro", "x": 5, "y": 21, "w": 62, "h": 68, "title": "SPEKTROGRAM · 0–200 Hz", "beats": [0.5, 1.7, 2.9, 4.1, 5.3, 6.5, 7.7, 8.9, 10.1, 11.3, 12.5, 13.7, 14.9, 16.1], "window": 10},
         {"kind": "sonar", "x": 69, "y": 21, "w": 27, "h": 46, "title": "SONAR", "contact": 8000, "range": 10000},
@@ -141,17 +145,20 @@ SCENES = [
         water={"sigma": [0.05, 0.02, 0.014], "color": "#06233a", "amb": "#0e3050", "surface": 1.0, "surfCol": "#8fb4c4"}, seabed={"show": False},
         chapter=ch("BÖLÜM 2", "BİLİNMEYENE İNİŞ", at=0.8)), ("fade", 0.8)),
     sc("suya_dawn", "ocean", S("suya", -0.1), storm(
-        [{"t": 0, "v": [-70, 5, 26]}, {"t": 5, "v": [-66, 4.6, 24]}], 0.958, -0.02, 38, amp=0.9, storm=0.2, dawn=1, rain=0,
-        ship={"pos": [0, 0, 0], "yaw": 0.0, "rovY": [{"t": 0, "v": 9}, {"t": 3.2, "v": -3}], "motion": 0.35})),
+        [{"t": 0, "v": [-110, 3, 40]}, {"t": 5, "v": [-106, 3, 38]}], 1.107, 0.05, 30, amp=0.9, storm=0.2, dawn=1, rain=0,
+        ship={"pos": [0, 0, 0], "yaw": 0.0, "rovY": [{"t": 0, "v": 10}, {"t": 4.2, "v": -1}], "motion": 0.35})),
     sc("m100_water", "ocean", S("m100", -0.15), water([{"t": 0, "v": 40}, {"t": 4, "v": 100}], cam={"pitch": 0.38, "fov": 62}, lamp=0, snow=0.45, descent=2.2,
         hud=hud([{"t": 0, "v": 40}, {"t": 4, "v": 100}], minimal=True)), ("fade", 0.4)),
     sc("m100_spectrum", "info", W("m100", "Önce", off=-0.35), {"mode": "spectrum", "title": "Işık suda renk renk kaybolur", "sub": "Yaklaşık penetrasyon derinlikleri · açık okyanus", "source": "NOAA Ocean Exploration"}, ("fade", 0.25)),
     sc("m200_water", "ocean", S("m200", -0.15), water(200, cam={"pitch": 0.25, "fov": 58}, lamp=0, snow=0.55, descent=1.6, hud=hud([{"t": 0, "v": 190}, {"t": 4, "v": 210}])), ("fade", 0.3)),
-    sc("m1000_water", "ocean", S("m1000", -0.15), water(1000, cam={"pitch": -0.05, "fov": 55}, lamp=0.8, snow=0.75, descent=0.9, hud=hud([{"t": 0, "v": 990}, {"t": 3, "v": 1010}]))),
+    sc("m1000_water", "ocean", S("m1000", -0.15), water(1000, cam={"pitch": -0.05, "fov": 55}, lamp=0, bio=0.25, snow=0.15, descent=0.9, hud=hud([{"t": 0, "v": 990}, {"t": 3, "v": 1010}]))),
     sc("m1000_zones", "info", W("m1000", "Burası", off=-0.2), {"mode": "zones", "depth": 1000, "source": "NOAA · okyanus ışık bölgeleri"}, ("fade", 0.25)),
     sc("biyo_water", "ocean", S("biyo", -0.15), water(1100, cam={"pitch": 0.0, "fov": 56}, lamp=0.45, bio=1, jelly=1, snow=0.35, descent=0.5,
         hud=hud(1104), tag="GERÇEK · MBARI 2017: ~%76", tagColor="#5BE38A"), ("fade", 0.3)),
-    sc("m4000_water", "ocean", S("m4000", -0.15), water(4000, cam={"pitch": -0.12, "fov": 55}, lamp=1, snow=0.6, descent=0.8, hud=hud([{"t": 0, "v": 3990}, {"t": 4, "v": 4020}], temp=1.6))),
+    sc("m4000_rov", "deep3d", S("m4000", -0.15), deep(
+        [K(0, [5.5, 301.2, 5.8], [0, 300.0, 0], 44), K(8, [5.2, 294.2, 5.5], [0, 293.0, 0], 44)], sigma=[0.05, 0.02, 0.015], city=False, seabed={"show": False},
+        lamps={"mode": "rov", "i": 7, "beams": 1}, rov={"show": True, "pos": [{"t": 0, "v": [0, 300, 0]}, {"t": 8, "v": [0, 293, 0], "e": "cine"}], "yaw": 0.5, "pitch": -0.25},
+        water={"sigma": [0.05, 0.02, 0.015], "color": "#010409", "amb": "#0a141a", "surface": 0.5, "surfCol": "#3a5662"}, tag="4.000 m · 1,6 °C", tagColor="#62F0E4"), ("fade", 0.3)),
     sc("parazit_water", "ocean", S("parazit", -0.1), water(4200, cam={"pitch": -0.1, "fov": 55}, lamp=1, snow=0.7, descent=0.8,
         glitch=[{"t": 0, "v": 0}, {"t": 1.4, "v": 0.45}, {"t": 3.0, "v": 0.2}, {"t": 4.5, "v": 0.5}],
         hud=hud(4230, glitch=[{"t": 0, "v": 0}, {"t": 1.4, "v": 0.45}, {"t": 3.0, "v": 0.2}, {"t": 4.5, "v": 0.5}], note="VERİ KAYBI · YENİDEN İLETİLİYOR"))),
@@ -162,36 +169,36 @@ SCENES = [
     sc("basinc_info", "info", W("m8000", "Basınç", off=-0.2), {"mode": "pressure", "source": "NOAA · ≈1 atm / 10 m"}, ("fade", 0.25)),
     sc("balik_fish", "deep3d", S("balik", -0.15), deep(
         [K(0, [-1000, 2.2, -500], [-1004, 1.4, -507], 44), K(8, [-999.6, 2.1, -500.6], [-1003.5, 1.4, -507.5], 42)],
-        sigma=MIDC, lamps={"mode": "cam", "i": 5}, power=0.5, fish={"show": True, "pos": [{"t": 0, "v": [-1006.5, 1.5, -506]}, {"t": 8, "v": [-1000.5, 1.7, -508]}], "yaw": -0.15},
+        sigma=MIDC, lamps={"mode": "cam", "i": 0.9}, power=0.5, fish={"show": True, "pos": [{"t": 0, "v": [-1002.1, 1.95, -501.7]}, {"t": 8, "v": [-1000.4, 2.0, -502.6]}], "yaw": -2.646},
         hud=hud(8031, alt=2.0), tag="TEMSİLİ · SALYANGOZ BALIĞI (8.336 m, 2022)", tagColor="#62F0E4"), ("fade", 0.3)),
     sc("carpma_wall", "deep3d", S("carpma", -0.1), deep(
-        [K(0, [622, 9, 71], [598.5, 3.9, 68.2], 50), K(5.5, [604.2, 5.4, 69.0], [598.5, 3.9, 68.2], 48)],
+        [K(0, [611.93, 24.53, 69.69], [594.33, 15.25, 67.69], 50), K(5.5, [598.38, 17.38, 68.15], [594.33, 15.25, 67.69], 48)],
         sigma=CLOSE, lamps={"mode": "cam", "i": 1.6}, power=0.0, hud=hud([{"t": 0, "v": 8040}, {"t": 5, "v": 8046}], alt=[{"t": 0, "v": 9.0}, {"t": 5, "v": 3.4}]))),
 
     # ===================== BÖLÜM 3 · İLK KEŞİF =====================
     sc("kaya_wall", "deep3d", S("kaya", -0.4), deep(
-        [K(0, [598.6, 6.6, 82.0], [595.1, 5.6, 80.5], 52), K(7, [598.2, 6.4, 83.3], [594.9, 5.5, 81.8], 50)],
+        [K(0, [591.0, 23.2, 77.97], [588.07, 21.2, 77.92], 52), K(7, [590.11, 23.2, 80.3], [587.64, 21.2, 79.04], 50)],
         sigma=CLOSE, lamps={"mode": "cam", "i": 1.0}, power=0.35, hud=hud(8046, alt=3.1),
         chapter=ch("BÖLÜM 3", "İLK KEŞİF", at=0.6)), ("cut", 0)),
     sc("desen_macro", "deep3d", S("desen", -0.1), deep(
-        [K(0, [597.3, 5.9, 78.1], [594.7, 5.7, 82.5], 56), K(7, [596.6, 6.0, 80.0], [594.0, 5.8, 84.4], 56)],
+        [K(0, [585.76, 26.39, 78.03], [583.22, 25.32, 80.71], 56), K(7, [584.92, 26.39, 79.85], [582.59, 25.32, 82.07], 56)],
         sigma=CLOSE, lamps={"mode": "cam", "i": 0.9}, power=0.55, hud=hud(8046, alt=2.6))),
     sc("dogal_basalt", "deep3d", S("dogal", -0.1), deep(
         [K(0, [913, 7.5, 461], [900, 3.5, 450], 44), K(7, [909, 6.5, 463], [899, 3.5, 450], 42)],
         sigma=MIDC, lamps={"mode": "cam", "i": 4.5}, power=0.5, basalt={"show": True, "pos": [900, -0.5, 450]},
         hud=hud(7920, alt=5.2), tag="DOĞAL ÖRNEK · BAZALT SÜTUNLARI (TEMSİLİ)", tagColor="#62F0E4"), ("fade", 0.3)),
     sc("nabiz_wall", "deep3d", W("dogal", "Ama", off=-0.15), deep(
-        [K(0, [601.5, 6.0, 64.5], [598.4, 4.2, 69.0], 48), K(9, [601.2, 6.6, 71.5], [598.0, 4.8, 74.0], 47)],
-        sigma=CLOSE, lamps={"mode": "cam", "i": 1.0}, power=1.2, beats=[W("nabiz", "turkuaz"), W("nabiz", "Yavaşça"), W("nabiz", "nabız")],
+        [K(0, [596.57, 20.5, 59.95], [592.94, 18.28, 61.83], 48), K(9, [596.31, 20.5, 67.95], [592.67, 18.28, 69.83], 47)],
+        sigma=CLOSE, lamps={"mode": "cam", "i": 0.12}, power=1.6, veins=0.0, micro=1.4, beats=[W("nabiz", "turkuaz"), W("nabiz", "Yavaşça"), W("nabiz", "nabız")],
         hud=hud(8046, alt=3.0))),
     sc("geri_pullback", "deep3d", S("geri", -0.1), deep(
-        [K(0, [602.4, 4.8, 68.6], [598.5, 3.9, 68.2], 50), K(7.5, [672, 52, 78], [540, 22, 60], 46)],
+        [K(0, [598.38, 17.38, 68.15], [594.33, 15.25, 67.69], 50), K(7.5, [655.93, 57.73, 74.69], [540, 22, 60], 46)],
         sigma=[{"t": 0, "v": CLOSE}, {"t": 7.5, "v": [0.014, 0.006, 0.0048]}], lamps={"mode": "cam", "i": [{"t": 0, "v": 2.0}, {"t": 5, "v": 0.6}]}, power=1.0,
         hud=hud(8046, alt=[{"t": 0, "v": 3.0}, {"t": 7.5, "v": 58}]))),
     sc("sehir_reveal", "deep3d", S("sehir", -0.2), deep(
         [K(0, [720, 42, -120], [0, 110, 0], 44), K(12, [712, 96, -118], [0, 140, 0], 44)],
         sigma=[{"t": 0, "v": WIDE}, {"t": 10, "v": FAR}], lamps={"mode": "rov", "i": 6, "beams": 1}, power=[{"t": 0, "v": 0.85}, {"t": 4, "v": 1.15}],
-        rov={"show": True, "pos": [{"t": 0, "v": [705.5, 39.0, -121.0]}, {"t": 12, "v": [697.5, 92.0, -119.5]}], "yaw": -2.978}, grade={"vignette": 0.6}), ("fade", 0.5)),
+        rov={"show": True, "pos": [{"t": 0, "v": [708.9, 44.0, -120.2]}, {"t": 12, "v": [700.9, 97.7, -118.2], "e": "cine"}], "yaw": -2.977}, grade={"vignette": 0.6}), ("fade", 0.5)),
     sc("olcek_domes", "deep3d", S("olcek", -0.1), deep(
         [K(0, [330, 170, 270], [140, 10, 120], 46), K(3, [318, 162, 262], [135, 10, 118], 46)], sigma=WIDE, lamps={"mode": "off"}, power=1.1)),
     sc("olcek_tunnels", "deep3d", W("olcek", "Kilometrelerce", off=-0.1), deep(
@@ -200,7 +207,7 @@ SCENES = [
         [K(0, [170, 26, 160], [0, 175, 0], 46), K(5, [150, 30, 140], [0, 185, 0], 46)], sigma=WIDE, lamps={"mode": "off"}, power=1.2)),
     sc("kure_info", "info", S("kure", -0.1), {"mode": "sphere", "title": "Basınca en iyi dayanan şekil: küre", "source": "Derin dalış araçlarının mürettebat küreleri bu ilkeyle tasarlanır"}, ("fade", 0.25)),
     sc("ulasim_pods", "deep3d", S("ulasim", -0.1), deep(
-        [K(0, [152, 31, 136], [135, 26, 152], 52), K(6, [146, 30, 132], [130, 26, 150], 50)], sigma=[0.03, 0.012, 0.009], lamps={"mode": "off"}, power=1.2)),
+        [K(0, [100, 48, 196], [150, 22, 130], 46), K(6, [104, 47, 190], [152, 22, 128], 46)], sigma=[0.02, 0.008, 0.006], lamps={"mode": "off"}, power=1.2)),
     sc("sessiz_lab", "lab", S("sessiz", -0.1), {"title": "Meridyen · kontrol odası", "panels": [
         {"kind": "feed", "x": 4, "y": 20, "w": 56, "h": 70, "src": "gizli/city_wide.jpg", "label": "YANKI · KAYIT"},
         {"kind": "bars", "x": 62, "y": 20, "w": 34, "h": 44, "title": "VERİ", "items": [
@@ -299,10 +306,10 @@ SCENES = [
         tag="KURGU · ŞEHİR ÖLÇEĞİNDE ENERJİ", tagColor="#FFB347"), ("fade", 0.3)),
     sc("yapi_fish", "deep3d", S("yapi", -0.1), deep(
         [K(0, [-1001, 2.3, -501], [-1004.5, 1.6, -507], 40), K(6, [-1000.6, 2.2, -501.4], [-1004, 1.6, -507.5], 40)], sigma=MIDC,
-        lamps={"mode": "cam", "i": 5}, power=0.4, fish={"show": True, "pos": [{"t": 0, "v": [-1007, 1.6, -507.5]}, {"t": 6, "v": [-1002.5, 1.8, -506]}], "yaw": 0.25},
+        lamps={"mode": "cam", "i": 0.9}, power=0.4, fish={"show": True, "pos": [{"t": 0, "v": [-1000.3, 2.05, -503.4]}, {"t": 6, "v": [-1002.0, 2.0, -502.5]}], "yaw": 0.5},
         tag="GERÇEK · BASINCA KARŞI KORUYUCU MOLEKÜLLER", tagColor="#5BE38A"), ("fade", 0.3)),
     sc("yapi_wall", "deep3d", W("yapi", "Kendini", off=-0.15), deep(
-        [K(0, [597.0, 6.0, 79.0], [594.7, 5.7, 82.5], 54), K(5, [596.4, 6.1, 80.6], [594.1, 5.8, 84.0], 54)], sigma=CLOSE,
+        [K(0, [585.83, 26.46, 78.06], [583.22, 25.32, 80.71], 54), K(5, [584.99, 26.46, 79.88], [582.59, 25.32, 82.07], 54)], sigma=CLOSE,
         lamps={"mode": "cam", "i": 1.5}, power=0.7, tag="GERÇEK · KENDİNİ ONARAN MALZEMELER (LABORATUVAR)", tagColor="#5BE38A")),
     sc("yapi_kurgu_dome", "deep3d", S("yapi_kurgu", -0.1), deep(
         [K(0, [-20, 60, 330], [-163, 30, 171], 44), K(5, [-10, 64, 322], [-160, 32, 168], 44)], sigma=[0.012, 0.005, 0.004], lamps={"mode": "off"}, power=1.05,
@@ -435,7 +442,7 @@ SFX = [
     *[_fx("tick", W("asal", w, nth=n, off=k * 0.1), -12) for w, n, c in [("İki", 1, 2), ("Üç", 1, 3), ("beş", 1, 5), ("yedi", 1, 7), ("on", 1, 11), ("on", 2, 13)] for k in range(c)],
     _fx("ticks", S("asal2", 0.3), -14, dur=2.5), _fx("whoosh", S("tekrar", -0.1), -14),
     _fx("rain", S("soru", -0.3), -9, dur=8.0, heavy=1.1), _fx("thunder", W("soru", "sesleniyor", off=-0.25), -5, size=1.2),
-    _fx("splash", S("suya", 2.3), -4),
+    _fx("splash", S("suya", 3.6), -4),
     _fx("whoosh", S("m100", -0.1), -10, up=False), _fx("underwater", S("m100", -0.2), -9, dur=95.0, depth=0.6),
     _fx("creak", S("m4000", 1.0), -8), _fx("creak", S("m8000", 0.6), -6, pitch=0.85),
     _fx("static", S("parazit", 1.4), -10), _fx("glitch", S("parazit", 4.4), -10), _fx("static", W("kablo", "Ve", off=0.1), -9, dur=0.6),

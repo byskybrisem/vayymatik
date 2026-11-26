@@ -111,6 +111,8 @@ uniform float uGlowAmt;    // emisyon çarpanı
 uniform float uMode;       // 0: kubbe (küresel uv), 1: üçdüzlem, 2: boru (uv)
 uniform float uSeedM;
 uniform float uSpec;
+uniform float uFill;      // sahte dolgu ışığı (ROV gibi kahraman nesneler için)
+uniform float uMicro;     // ince altıgen çizgi parıltısı (0.1 varsayılan; "nabız" planında yüksek)
 varying vec3 vW; varying vec3 vN; varying vec3 vO; varying vec2 vUv; varying float vScale;
 void main(){
   vec3 N = normalize(vN);
@@ -141,8 +143,9 @@ void main(){
   // yakın planda görünen ince altıgen/halka işleme (uzakta soluklaşır: moire yok)
   vec2 pm = p * 9.0;
   vec3 hm = hexGrid(pm);
-  float fw = fwidth(pm.x) + fwidth(pm.y);
-  float micro = 1.0 - smoothstep(0.12, 0.55, fw);
+  // yakınlık sönümü kameraya uzaklıkla (fwidth üçgen sınırlarında sıçrayıp yüz yüz parlama üretiyordu)
+  float camD = length(cameraPosition - vW);
+  float micro = 1.0 - smoothstep(7.0, 18.0, camD * uHexScale * 4.0);
   float mline = (1.0 - smoothstep(0.0, 0.05, hm.x)) * micro;
   float ringsel = step(0.82, fract(cell * 3.7));
   float rings = (1.0 - smoothstep(0.0, 0.08, abs(fract(length(fract(p) - 0.5) * 7.0) - 0.5))) * ringsel * micro;
@@ -156,7 +159,7 @@ void main(){
   vec3 glow = uGlow * line * (0.35 + 0.65 * flow) * pulse * uPower * uGlowAmt;
   float mflow = smoothstep(0.75, 1.0, sin(dot(vW, vec3(0.31, 0.47, 0.22)) * 0.9 - uTime * 2.4) * 0.5 + 0.5);
   float msel = step(0.62, fract(cell * 5.3));
-  glow += uGlow * (mline * 0.1 * msel + rings * 0.35) * (0.2 + 0.8 * mflow) * (0.4 + 0.6 * uPulse) * uPower * uGlowAmt;
+  glow += uGlow * mline * uMicro * (uMicro > 0.5 ? 1.0 : msel) * (0.15 + 0.85 * mflow) * (0.35 + 0.65 * uPulse) * uPower * uGlowAmt;
   // pencere benzeri hücre ışıkları
   float win = (uMode < 0.5 ? step(0.985, fract(cell * 91.7)) : 0.0) * smoothstep(0.08, 0.2, edge) * uPower;
   glow += mix(uGlow, vec3(1.0, 0.95, 0.85), 0.35) * win * 0.9 * uGlowAmt;
@@ -166,8 +169,9 @@ void main(){
     glow += uGlow * band * (0.35 + 1.2 * run) * uPower * uGlowAmt;
   }
   // kenar yansıması: arkadaki parıltıya karşı silüet
-  float fr = pow(1.0 - max(dot(N, V), 0.0), 3.0);
-  col += inscatter(-V) * 1.6 * fr;
+  float fr = pow(1.0 - abs(dot(N, V)), 5.0) * smoothstep(12.0, 70.0, length(cameraPosition - vW));
+  col += inscatter(-V) * 0.9 * fr;
+  col += uBase * uFill;
   col += glow;
   col = waterAttenP(col, vW);
   gl_FragColor = vec4(col, 1.0);
@@ -219,6 +223,7 @@ ${COMMON}
 uniform vec3 uColor;
 uniform float uI;
 uniform float uKind;   // 0: hale (uv merkezli disk), 1: koni (uv.y boyunca + fresnel), 2: düz
+uniform vec3 uAxis;    // koni ekseni (dünya): eksen boyunca bakınca disk görünmesin
 varying vec3 vW; varying vec3 vN; varying vec2 vUv;
 void main(){
   float a;
@@ -231,6 +236,8 @@ void main(){
     float side = abs(dot(normalize(vN), V));
     a = pow(side, 1.6) * pow(1.0 - vUv.y, 1.4) * smoothstep(0.0, 0.08, 1.0 - vUv.y);
     a *= 0.75 + 0.25 * fbm(vec2(vUv.x * 6.0, vUv.y * 3.0 - uTime * 0.25));
+    vec3 Vc = normalize(cameraPosition - vW);
+    a *= pow(clamp(1.0 - abs(dot(normalize(uAxis), Vc)), 0.0, 1.0), 1.5);
   } else {
     a = 1.0;
   }
@@ -334,11 +341,12 @@ uniform vec3 uGlow;
 varying vec3 vW; varying vec3 vN; varying vec3 vO; varying vec2 vUv;
 void main(){
   vec3 N = normalize(vN);
+  if (!gl_FrontFacing) N = -N;
   vec3 V = normalize(cameraPosition - vW);
   vec3 albedo = vec3(0.025, 0.03, 0.034) * (0.8 + 0.4 * fbm(vO.xy * 0.6));
   vec3 col = lightSurface(vW, N, V, albedo, 0.35, 0.5);
-  float fr = pow(1.0 - max(dot(N, V), 0.0), 2.5);
-  col += vec3(0.05, 0.22, 0.26) * fr * 0.9;
+  float fr = pow(1.0 - max(dot(N, V), 0.0), 3.0);
+  col += inscatter(-V) * 1.4 * fr + vec3(0.02, 0.09, 0.1) * fr;
   // desen: gövde boyunca nokta dizileri
   float ang = atan(vO.z, vO.x);
   float rows = abs(fract(vO.y * 0.55) - 0.5);
@@ -362,8 +370,8 @@ varying vec3 vW; varying vec3 vN; varying vec3 vO; varying vec2 vUv;
 void main(){
   vec3 p = position;
   if (uAxis < 0.5) {
-    float k = clamp(-p.x / 0.3, 0.0, 1.0);
-    p.z += sin(uTime * uFreq - p.x * 18.0) * uAmp * k * k;
+    float k = clamp(p.x / 0.3, 0.0, 1.0);
+    p.z += sin(uTime * uFreq + p.x * 18.0) * uAmp * k * k;
   } else {
     float k = clamp(-p.y / 30.0, 0.0, 1.0);
     p.x += sin(uTime * uFreq + p.y * 0.12) * uAmp * k;
@@ -380,9 +388,10 @@ ${COMMON}
 varying vec3 vW; varying vec3 vN; varying vec3 vO; varying vec2 vUv;
 void main(){
   vec3 N = normalize(vN);
+  if (!gl_FrontFacing) N = -N;
   vec3 V = normalize(cameraPosition - vW);
-  vec3 albedo = vec3(0.92, 0.78, 0.76);
-  vec3 col = lightSurface(vW, N, V, albedo, 0.6, 0.3);
+  vec3 albedo = vec3(0.62, 0.46, 0.45);
+  vec3 col = lightSurface(vW, N, V, albedo, 0.25, 0.4);
   float fr = pow(1.0 - max(dot(N, V), 0.0), 2.0);
   col += vec3(0.9, 0.55, 0.55) * fr * 0.12 * uLampI * 0.1;   // yarı saydam kenar
   col = waterAttenP(col, vW);

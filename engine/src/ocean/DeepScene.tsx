@@ -119,7 +119,7 @@ const Billboard: React.FC<{pos: V3; size: number; mat: THREE.ShaderMaterial}> = 
 };
 
 // ---------- Şehir ----------
-const City: React.FC<{sh: Shared; layout: CityLayout; glow: string; frame: number; fps: number}> = ({sh, layout, glow, frame, fps}) => {
+const City: React.FC<{sh: Shared; layout: CityLayout; glow: string; frame: number; fps: number; veins?: number; micro?: number}> = ({sh, layout, glow, frame, fps, veins, micro}) => {
 	const mats = useMemo(
 		() => ({
 			dome: structMat(sh, {base: '#7d8890', glow, hex: 0.25, veins: 0.06, mode: 0, seed: 3}),
@@ -129,8 +129,8 @@ const City: React.FC<{sh: Shared; layout: CityLayout; glow: string; frame: numbe
 			base: structMat(sh, {base: '#4a535b', glow, hex: 0.3, veins: 0.05, mode: 1, seed: 2}),
 			pod: structMat(sh, {base: '#7a848c', glow, hex: 0.45, veins: 0.05, mode: 0, seed: 8}),
 			band: glowMat(sh, {color: glow, i: 0.8, kind: 2}),
-			core: glowMat(sh, {color: '#9ffcf4', i: 2.0, kind: 2}),
-			ringC: glowMat(sh, {color: glow, i: 0.45, kind: 2}),
+			core: glowMat(sh, {color: '#9ffcf4', i: 1.5, kind: 2}),
+			ringC: glowMat(sh, {color: glow, i: 0.25, kind: 2}),
 			halo: glowMat(sh, {color: glow, i: 1.1, kind: 0}),
 			haloBig: glowMat(sh, {color: glow, i: 0.75, kind: 0}),
 			beam: glowMat(sh, {color: glow, i: 0.07, kind: 1}),
@@ -139,8 +139,8 @@ const City: React.FC<{sh: Shared; layout: CityLayout; glow: string; frame: numbe
 	);
 	const geos = useMemo(() => {
 		const hemi = new THREE.SphereGeometry(1, 72, 28, 0, Math.PI * 2, 0, Math.PI / 2);
-		const baseRing = new THREE.CylinderGeometry(1.04, 1.1, 1, 72, 1);
-		const bandRing = new THREE.TorusGeometry(1, 0.012, 6, 96);
+		const baseRing = new THREE.CylinderGeometry(1.04, 1.1, 1, 72, 1, true);
+		const bandRing = new THREE.TorusGeometry(1, 0.0045, 12, 220);
 		const spire = new THREE.CylinderGeometry(0.15, 1.6, 1, 10);
 		const tubes = mergeGeometries(layout.tunnels.map((c) => new THREE.TubeGeometry(c, 72, 5.5, 14, false)));
 		const legs = mergeGeometries(
@@ -168,7 +168,7 @@ const City: React.FC<{sh: Shared; layout: CityLayout; glow: string; frame: numbe
 		g.setAttribute('aSeed', new THREE.BufferAttribute(new Float32Array(n).map((_, i) => (i * 0.137) % 1), 1));
 		g.setAttribute('aCol', new THREE.BufferAttribute(new Float32Array(n * 3).map((_, i) => [1.6, 2.2, 2.2][i % 3]), 3));
 		const m = new THREE.ShaderMaterial({
-			uniforms: {...sh, uSize: {value: 5.5}, uPxScale: {value: 900}} as unknown as Record<string, THREE.IUniform>,
+			uniforms: {...sh, uSize: {value: 13}, uPxScale: {value: 900}} as unknown as Record<string, THREE.IUniform>,
 			vertexShader: LIGHTS_VERT,
 			fragmentShader: LIGHTS_FRAG,
 			transparent: true,
@@ -177,6 +177,8 @@ const City: React.FC<{sh: Shared; layout: CityLayout; glow: string; frame: numbe
 		});
 		return {g, m, n};
 	}, [layout, sh]);
+	mats.dome.uniforms.uVeins.value = veins ?? 0.06;
+	mats.dome.uniforms.uMicro.value = micro ?? 0.1;
 	const t = frame / fps;
 	const pos = pods.g.getAttribute('position') as THREE.BufferAttribute;
 	for (let i = 0; i < pods.n; i++) {
@@ -313,9 +315,9 @@ const Rov: React.FC<{sh: Shared; pos: V3; yaw: number; pitch: number; beams: num
 	const g = useMemo(() => rovGeos(), []);
 	const m = useMemo(
 		() => ({
-			foam: structMat(sh, {base: '#d9a21b', glow: '#000000', hex: 0.0001, veins: 0, mode: 1, glowAmt: 0}),
-			frame: structMat(sh, {base: '#8d969e', glow: '#000000', hex: 0.0001, veins: 0, mode: 1, glowAmt: 0}),
-			dark: structMat(sh, {base: '#1d2228', glow: '#000000', hex: 0.0001, veins: 0, mode: 1, glowAmt: 0}),
+			foam: structMat(sh, {base: '#d9a21b', glow: '#000000', hex: 0.0001, veins: 0, mode: 1, glowAmt: 0, fill: 0.09, spec: 0.5}),
+			frame: structMat(sh, {base: '#8d969e', glow: '#000000', hex: 0.0001, veins: 0, mode: 1, glowAmt: 0, fill: 0.07, spec: 0.6}),
+			dark: structMat(sh, {base: '#1d2228', glow: '#000000', hex: 0.0001, veins: 0, mode: 1, glowAmt: 0, fill: 0.08, spec: 0.6}),
 			face: glowMat(sh, {color: '#fff6e8', i: 4, kind: 2}),
 			beam: glowMat(sh, {color: '#e8f4ff', i: 0.5, kind: 1}),
 			halo: glowMat(sh, {color: '#fff2dc', i: 1.2, kind: 0}),
@@ -325,6 +327,7 @@ const Rov: React.FC<{sh: Shared; pos: V3; yaw: number; pitch: number; beams: num
 	);
 	const L = 26;
 	const coneR = Math.tan(spread) * L;
+	m.beam.uniforms.uAxis.value.set(Math.cos(pitch) * Math.cos(yaw), Math.sin(pitch), -Math.cos(pitch) * Math.sin(yaw));
 	const beamGeo = useMemo(() => new THREE.CylinderGeometry(0.06, coneR, L, 28, 1, true).translate(0, -L / 2, 0).rotateZ(Math.PI / 2), [coneR]);
 	const cableGeo = useMemo(() => new THREE.CylinderGeometry(0.02, 0.02, 60, 6).translate(0, 31, 0), []);
 	return (
@@ -367,9 +370,9 @@ const Being: React.FC<{sh: Shared; vis: number; pos: V3; yaw: number; scale: num
 	}, []);
 	const mats = useMemo(() => {
 		const u = {...sh, uVis: {value: 1}, uGlow: {value: new THREE.Color('#5ff7ff')}} as unknown as Record<string, THREE.IUniform>;
-		const body = new THREE.ShaderMaterial({uniforms: u, vertexShader: STRUCT_VERT, fragmentShader: BEING_FRAG});
+		const body = new THREE.ShaderMaterial({uniforms: u, vertexShader: STRUCT_VERT, fragmentShader: BEING_FRAG, side: THREE.DoubleSide});
 		const limbU = {...u, uAmp: {value: 2.2}, uFreq: {value: 0.7}, uAxis: {value: 1}} as Record<string, THREE.IUniform>;
-		const limb = new THREE.ShaderMaterial({uniforms: limbU, vertexShader: SWAY_VERT, fragmentShader: BEING_FRAG});
+		const limb = new THREE.ShaderMaterial({uniforms: limbU, vertexShader: SWAY_VERT, fragmentShader: BEING_FRAG, side: THREE.DoubleSide});
 		return {body, limb};
 	}, [sh]);
 	if (vis <= 0.001) return null;
@@ -479,7 +482,7 @@ const Fish: React.FC<{sh: Shared; pos: V3; yaw: number}> = ({sh, pos, yaw}) => {
 	const geo = useMemo(() => {
 		const prof: [number, number][] = [[0, 0.16], [0.03, 0.15], [0.05, 0.1], [0.052, 0.04], [0.045, -0.04], [0.03, -0.12], [0.012, -0.2], [0.001, -0.26]];
 		const g = new THREE.LatheGeometry(prof.map(([r, y]) => new THREE.Vector2(r, y)), 24).rotateZ(Math.PI / 2);
-		const tail = new THREE.PlaneGeometry(0.12, 0.08, 6, 2).translate(-0.3, 0, 0);
+		const tail = new THREE.CircleGeometry(0.03, 12).scale(1.6, 1.0, 1).translate(0.285, 0, 0);
 		return mergeGeometries([g.toNonIndexed(), tail.toNonIndexed()]);
 	}, []);
 	const mat = useMemo(
@@ -492,7 +495,7 @@ const Fish: React.FC<{sh: Shared; pos: V3; yaw: number}> = ({sh, pos, yaw}) => {
 			}),
 		[sh],
 	);
-	return <mesh geometry={geo} material={mat} position={pos} rotation={[0, yaw, 0]} scale={2.2} />;
+	return <mesh geometry={geo} material={mat} position={pos} rotation={[0, yaw, 0]} scale={1.7} />;
 };
 
 // ---------- Deniz karı ----------
@@ -608,7 +611,7 @@ export const DeepScene: React.FC<DeepProps> = (p) => {
 	const {fps, height} = useVideoConfig();
 	const sh = useSharedUniforms();
 	const layout = useMemo(() => (p.city && p.city.show !== false ? cityLayout(p.city.seed ?? 7) : null), [p.city]);
-	const scale = p.stage?.scale ?? 0.6;
+	const scale = p.stage?.scale ?? 0.7;
 	const glow = p.city?.glow ?? '#35f2e0';
 	const rovPos = vec(frame, p.rov?.pos, [0, 20, 0]);
 	const glitch = num(frame, p.hud?.glitch, 0);
@@ -618,13 +621,13 @@ export const DeepScene: React.FC<DeepProps> = (p) => {
 	return (
 		<AbsoluteFill style={{background: '#01040a'}}>
 			<AbsoluteFill style={glitch > 0 ? {transform: `translateX(${gx}px)`, filter: `saturate(${1 - glitch * 0.5}) contrast(${1 + glitch * 0.4})`} : undefined}>
-				<Stage3D bg="#01040a" exposure={p.stage?.exposure ?? 1.0} shadows={false} scale={scale}>
+				<Stage3D bg="#01040a" exposure={p.stage?.exposure ?? 1.0} shadows={false} scale={scale} aa={false}>
 					<CameraRig spec={{shake: 0.02, ...p.camera}} />
 					<Director p={p} sh={sh} layout={layout} frame={frame} fps={fps} />
 					<GlowDir target={glowDir} />
 					<Background sh={sh} glowDir={glowDir} glow={glow} />
 					{p.seabed?.show !== false ? <Seabed sh={sh} base={p.seabed?.base ?? '#5c574f'} /> : null}
-					{layout ? <City sh={sh} layout={layout} glow={glow} frame={frame} fps={fps} /> : null}
+					{layout ? <City sh={sh} layout={layout} glow={glow} frame={frame} fps={fps} veins={(p.city as {veins?: number} | undefined)?.veins} micro={(p.city as {micro?: number} | undefined)?.micro} /> : null}
 					{p.vents?.show ? <Vents sh={sh} pos={p.vents.pos ?? [0, 0, 0]} /> : null}
 					{p.basalt?.show ? <Basalt sh={sh} pos={p.basalt.pos ?? [0, 0, 0]} /> : null}
 					{p.fish?.show ? <Fish sh={sh} pos={vec(frame, p.fish.pos, [0, 2, 0])} yaw={num(frame, p.fish.yaw, 0)} /> : null}

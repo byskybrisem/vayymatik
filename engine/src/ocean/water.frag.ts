@@ -24,7 +24,7 @@ float vn(vec2 p){ vec2 i = floor(p), f = fract(p); vec2 u = f*f*(3.-2.*f);
   return mix(mix(h21(i), h21(i+vec2(1,0)), u.x), mix(h21(i+vec2(0,1)), h21(i+vec2(1,1)), u.x), u.y); }
 float fbm(vec2 p){ float a=.5, s=0.; for(int i=0;i<4;i++){ s+=a*vn(p); p=p*2.07+9.3; a*=.5; } return s; }
 
-const vec3 K = vec3(0.42, 0.075, 0.036);   // güneş ışığının su içindeki sönümü (1/m) — kırmızı ilk kaybolur
+const vec3 K = vec3(0.40, 0.058, 0.026);   // güneş ışığının su içindeki sönümü (1/m) — kırmızı ilk kaybolur
 
 mat3 camMat(){
   float cy = cos(uYaw), sy = sin(uYaw), cp = cos(uPitch), sp = sin(uPitch), cr = cos(uRoll), sr = sin(uRoll);
@@ -52,8 +52,10 @@ void main(){
   float d = uDepth;
   vec3 sun = exp(-K * d);
   float up = dir.y;
+  float ae = clamp(0.32 / (sun.b + 0.015), 1.0, 14.0);   // kamera otomatik pozlaması (yalnız güneş ışığına)
   // su gövdesi parlaklığı: yukarı bakınca daha aydınlık
-  vec3 col = sun * vec3(0.12, 0.42, 0.62) * (0.18 + 0.82 * smoothstep(-0.35, 1.0, up)) * (0.35 + 0.65 * exp(-d * 0.004)) * (1.0 + 3.0 * exp(-d * 0.018));
+  vec3 col = sun * vec3(0.10, 0.55, 0.58) * (0.18 + 0.82 * smoothstep(-0.35, 1.0, up)) * (0.35 + 0.65 * exp(-d * 0.004)) * (1.0 + 3.0 * exp(-d * 0.018));
+  col *= ae;
   col += vec3(0.0015, 0.004, 0.007);
   // alttan görülen yüzey + Snell penceresi (~48,6°)
   if (up > 0.0 && d < 90.0) {
@@ -64,7 +66,7 @@ void main(){
     vec3 sky = mix(vec3(0.55, 0.78, 0.95), vec3(1.0), pow(rip, 3.0)) * (0.7 + 0.6 * rip);
     vec3 tir = vec3(0.05, 0.2, 0.3) * (0.6 + 0.4 * rip);
     vec3 surf = mix(tir, sky, win) * exp(-K * t * 0.6);
-    col = mix(col, surf, smoothstep(0.0, 0.25, up) * exp(-d * 0.05));
+    col = mix(col, surf * ae, smoothstep(0.0, 0.25, up) * exp(-d * 0.05));
   }
   // yüzeyden süzülen ışık huzmeleri (sığ)
   if (d < 280.0) {
@@ -77,7 +79,7 @@ void main(){
       s = pow(smoothstep(0.45, 0.85, s), 2.0);
       acc += s * exp(-t * 0.06);
     }
-    col += sun * vec3(0.5, 0.85, 1.0) * acc * 0.32 * smoothstep(-0.4, 0.6, up) * exp(-d * 0.01);
+    col += sun * ae * vec3(0.5, 0.85, 1.0) * acc * 0.32 * smoothstep(-0.4, 0.6, up) * exp(-d * 0.01);
   }
   // ROV lambaları: kameranın iki yanından ileri; hacimsel saçılma
   vec3 lampAcc = vec3(0.0);
@@ -112,7 +114,7 @@ void main(){
     float coc = clamp(abs(z - 3.0) * 0.12, 0.0, 0.45);
     float size = (0.05 + 0.04 * h21(id + 9.0)) * (1.0 + coc * 4.0);
     float a = smoothstep(size, size * (0.25 + coc), r) * keep / (1.0 + coc * 8.0);
-    float lit = 0.05 + lampCone * 1.6 * exp(-z * 0.12) + sun.b * 1.4;
+    float lit = 0.05 + lampCone * 1.6 * exp(-z * 0.12) + min(1.0, sun.b * ae) * 0.7;
     col += vec3(0.8, 0.9, 1.0) * a * lit * 0.55;
   }
   // biyolüminesans kıvılcımları (kısa, mavi-yeşil parlamalar)

@@ -79,7 +79,7 @@ const Zones: React.FC<{depth: number}> = ({depth}) => {
 	const {width: W, height: H} = useVideoConfig();
 	const land = W > H;
 	const top = land ? H * 0.12 : H * 0.18;
-	const bot = land ? H * 0.9 : H * 0.72;
+	const bot = land ? H * 0.82 : H * 0.72;
 	const x0 = land ? W * 0.42 : W * 0.3;
 	const cw = land ? W * 0.16 : W * 0.24;
 	// doğrusal olmayan ölçek (sığ bölgeler okunur kalsın)
@@ -121,8 +121,8 @@ const Tether: React.FC<{noise: number}> = ({noise}) => {
 	const {width: W, height: H} = useVideoConfig();
 	const land = W > H;
 	const sx = land ? W * 0.5 : W * 0.5;
-	const sy = H * 0.2;
-	const ry = H * 0.82;
+	const sy = H * 0.3;
+	const ry = H * 0.8;
 	const wave: string[] = [];
 	for (let i = 0; i <= 80; i++) wave.push(`${(i / 80) * W},${sy + Math.sin(i * 0.5 + frame * 0.1) * 6}`);
 	return (
@@ -409,12 +409,12 @@ export const InfoScene: React.FC<InfoProps> = (p) => {
 				{p.mode === 'facts' ? <Facts rows={p.rows ?? []} /> : null}
 				{p.mode === 'gap' ? <Gap /> : null}
 				{p.title ? (
-					<div style={{position: 'absolute', left: land ? 120 : 60, top: land ? 60 : 200, opacity: appear(frame, 2, 12), maxWidth: W - 240}}>
+					<div style={{position: 'absolute', left: land ? 120 : 60, top: land ? 86 : 200, opacity: appear(frame, 2, 12), maxWidth: W - 240}}>
 						{p.sub ? <Label size={18} color={C.cyan}>{p.sub}</Label> : null}
 						<Title size={land ? 46 : 54} style={{marginTop: 8}}>{p.title}</Title>
 					</div>
 				) : null}
-				{p.source ? <Label size={16} style={{position: 'absolute', left: land ? 120 : 60, bottom: land ? 130 : 600, opacity: 0.7}}>Kaynak: {p.source}</Label> : null}
+				{p.source ? <Label size={16} style={{position: 'absolute', right: land ? 120 : 60, top: land ? 96 : 160, opacity: 0.7}}>Kaynak: {p.source}</Label> : null}
 			</Drift>
 			{p.tag ? <Tag text={p.tag} style={{right: 80, top: 60}} /> : null}
 			<Grain opacity={0.07} />

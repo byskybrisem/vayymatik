@@ -44,7 +44,7 @@ const withShared = (shared: Shared, extra: Record<string, THREE.IUniform>) => ({
 
 export const structMat = (
 	shared: Shared,
-	o: {base?: string; glow?: string; hex?: number; veins?: number; glowAmt?: number; mode?: number; seed?: number; side?: THREE.Side; spec?: number} = {},
+	o: {base?: string; glow?: string; hex?: number; veins?: number; glowAmt?: number; mode?: number; seed?: number; side?: THREE.Side; spec?: number; fill?: number} = {},
 ) =>
 	new THREE.ShaderMaterial({
 		uniforms: withShared(shared, {
@@ -56,6 +56,8 @@ export const structMat = (
 			uMode: {value: o.mode ?? 1},
 			uSeedM: {value: o.seed ?? 1},
 			uSpec: {value: o.spec ?? 0.22},
+			uFill: {value: o.fill ?? 0},
+			uMicro: {value: 0.1},
 		}),
 		vertexShader: STRUCT_VERT,
 		fragmentShader: STRUCT_FRAG,
@@ -75,6 +77,7 @@ export const glowMat = (shared: Shared, o: {color?: string; i?: number; kind?: n
 			uColor: {value: new THREE.Color(o.color ?? '#3ff5e6')},
 			uI: {value: o.i ?? 1},
 			uKind: {value: o.kind ?? 0},
+			uAxis: {value: new THREE.Vector3(0, 1, 0)},
 		}),
 		vertexShader: GLOW_VERT,
 		fragmentShader: GLOW_FRAG,
