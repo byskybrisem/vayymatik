@@ -780,161 +780,161 @@ Teması sınırlamak, gemileri uzak tutmak,
 onları rahat bırakmak.
 
 176
-00:09:28,340 --> 00:09:32,460
+00:09:28,340 --> 00:09:32,180
 Ama bize sinyal göndermiş bir
 uygarlığı görmezden gelmek,
 
 177
-00:09:32,460 --> 00:09:34,821
+00:09:32,200 --> 00:09:34,100
 konuşmak kadar riskli olabilir.
 
 178
-00:09:35,021 --> 00:09:37,827
+00:09:34,680 --> 00:09:37,600
 Üçüncü yol: araştırmaya devam etmek.
 
 179
-00:09:37,827 --> 00:09:40,073
+00:09:37,840 --> 00:09:40,840
 Şehri incelemek, teknolojisini anlamak,
 
 180
-00:09:40,073 --> 00:09:42,057
+00:09:40,860 --> 00:09:42,480
 belki de kopyalamak.
 
 181
-00:09:42,257 --> 00:09:45,278
+00:09:42,500 --> 00:09:45,400
 Ama bu teknolojiye ilk kim ulaşırsa,
 
 182
-00:09:45,278 --> 00:09:48,598
+00:09:45,420 --> 00:09:48,400
 dünyadaki güç dengesini
 tek başına değiştirebilir.
 
 183
-00:09:48,798 --> 00:09:53,280
+00:09:48,800 --> 00:09:53,180
 Devletler anlaşamıyor. Bazıları
 ortak bir bilim misyonu istiyor.
 
 184
-00:09:53,280 --> 00:09:57,501
+00:09:53,220 --> 00:09:56,660
 Bazıları bölgeye savaş gemileri
 göndermekten söz ediyor.
 
 185
-00:09:57,701 --> 00:10:00,667
+00:09:56,860 --> 00:09:59,820
 Bilim insanları ise aynı şeyi tekrarlıyor:
 
 186
-00:10:00,667 --> 00:10:04,127
+00:09:59,900 --> 00:10:03,340
 Onlar bize zarar vermedi.
 Robota dokunmadılar bile.
 
 187
-00:10:04,127 --> 00:10:06,404
+00:10:03,460 --> 00:10:05,580
 İlk hamle, korku olmamalı.
 
 188
-00:10:06,604 --> 00:10:09,121
+00:10:06,280 --> 00:10:08,420
 Peki karar senin elinde olsaydı?
 
 189
-00:10:09,121 --> 00:10:11,135
+00:10:08,440 --> 00:10:10,520
 Konuşur muydun, bekler miydin,
 
 190
-00:10:11,135 --> 00:10:12,946
+00:10:10,540 --> 00:10:12,320
 yoksa araştırır mıydın?
 
 191
-00:10:13,146 --> 00:10:18,585
+00:10:12,520 --> 00:10:17,060
 Tartışmalar sürerken, şifre çözme
 ekibinden beklenmedik bir haber geliyor.
 
 192
-00:10:19,685 --> 00:10:21,976
+00:10:18,160 --> 00:10:20,180
 Aylar süren çalışmanın ardından,
 
 193
-00:10:21,976 --> 00:10:24,568
+00:10:20,180 --> 00:10:22,560
 sinyallerin bir bölümü çözülüyor.
 
 194
-00:10:24,768 --> 00:10:27,517
+00:10:22,580 --> 00:10:25,000
 İlk anlaşılan şey, bir harita.
 
 195
-00:10:27,517 --> 00:10:31,665
+00:10:25,020 --> 00:10:29,460
 Ekranda, Dünya'nın okyanuslarında
 yanıp sönen noktalar beliriyor.
 
 196
-00:10:31,865 --> 00:10:33,165
+00:10:29,480 --> 00:10:30,340
 Pasifik.
 
 197
-00:10:33,565 --> 00:10:34,865
+00:10:30,740 --> 00:10:31,780
 Atlantik.
 
 198
-00:10:35,265 --> 00:10:36,565
+00:10:32,180 --> 00:10:33,600
 Hint Okyanusu.
 
 199
-00:10:37,065 --> 00:10:39,310
+00:10:34,100 --> 00:10:36,040
 Keşfedilen şehir, tek değil.
 
 200
-00:10:40,410 --> 00:10:44,569
+00:10:37,140 --> 00:10:41,140
 Okyanusu dinleyen istasyonların
 eski kayıtları yeniden inceleniyor.
 
 201
-00:10:44,569 --> 00:10:46,945
+00:10:41,280 --> 00:10:42,980
 Bu noktalardan gelen sinyaller,
 
 202
-00:10:46,945 --> 00:10:51,404
+00:10:42,980 --> 00:10:47,000
 yıllardır oradaymış. Biz
 onları doğanın sesi sanmışız.
 
 203
-00:10:51,604 --> 00:10:54,104
+00:10:47,200 --> 00:10:49,940
 Sonra mesajın son kısmı çözülüyor.
 
 204
-00:10:54,104 --> 00:10:56,904
+00:10:49,980 --> 00:10:52,820
 Çevirisi tartışmalı, ama anlamı açık:
 
 205
-00:10:57,204 --> 00:10:59,796
+00:10:53,120 --> 00:10:55,920
 Biz sizi uzun zamandır izliyoruz.
 
 206
-00:11:01,896 --> 00:11:06,062
+00:10:58,020 --> 00:11:02,000
 Okyanusun dibinden yüzeye,
 yüzeyden gökyüzüne yükseldikçe,
 
 207
-00:11:06,062 --> 00:11:08,446
+00:11:02,000 --> 00:11:04,320
 gezegenimiz bambaşka görünüyor.
 
 208
-00:11:08,646 --> 00:11:09,896
+00:11:04,420 --> 00:11:06,140
 Okyanusların derinliklerinde,
 
 209
-00:11:09,896 --> 00:11:13,946
+00:11:06,140 --> 00:11:09,440
 belki binlerce yıldır yanan küçük ışıklar.
 
 210
-00:11:14,446 --> 00:11:17,811
+00:11:09,940 --> 00:11:12,480
 Belki de insanlığın en büyük keşfi,
 
 211
-00:11:17,811 --> 00:11:22,037
+00:11:12,500 --> 00:11:17,160
 yıldızların arasında değil… binlerce
 yıldır ayaklarımızın altındaydı.
 
 212
-00:11:22,937 --> 00:11:26,293
+00:11:18,060 --> 00:11:21,180
 Sen olsaydın, onlarla
 iletişim kurar mıydın?
