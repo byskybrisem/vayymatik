@@ -1,0 +1,339 @@
+{
+ "id": "gu_lookdev",
+ "output_name": "gu_lookdev",
+ "language": "tr",
+ "duration": 20,
+ "render": {
+  "width": 1920,
+  "height": 1080
+ },
+ "lines": [
+  {
+   "id": "x",
+   "text": "Deneme."
+  }
+ ],
+ "scenes": [
+  {
+   "id": "wall",
+   "type": "deep3d",
+   "start": "@start",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        311.5,
+        10.5,
+        54.5
+       ],
+       "target": [
+        305.6,
+        8.6,
+        56.0
+       ],
+       "fov": 50
+      },
+      {
+       "t": 4,
+       "pos": [
+        310.8,
+        10.2,
+        57.5
+       ],
+       "target": [
+        305.4,
+        8.8,
+        58.0
+       ],
+       "fov": 48
+      }
+     ]
+    },
+    "water": {
+     "sigma": [
+      0.12,
+      0.05,
+      0.035
+     ]
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 1.7
+    },
+    "city": {
+     "power": 0.8,
+     "glow": "#45d8d0"
+    },
+    "hud": {
+     "depth": 8012,
+     "alt": 3.1
+    }
+   }
+  },
+  {
+   "id": "reveal",
+   "type": "deep3d",
+   "start": 4,
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        720,
+        46,
+        440
+       ],
+       "target": [
+        0,
+        140,
+        0
+       ],
+       "fov": 42
+      },
+      {
+       "t": 4,
+       "pos": [
+        705,
+        75,
+        432
+       ],
+       "target": [
+        0,
+        130,
+        0
+       ],
+       "fov": 42
+      }
+     ]
+    },
+    "water": {
+     "sigma": [
+      0.007,
+      0.003,
+      0.0024
+     ],
+     "color": "#02070c"
+    },
+    "lamps": {
+     "mode": "rov",
+     "i": 7,
+     "beams": 1
+    },
+    "rov": {
+     "show": true,
+     "pos": [
+      702,
+      52,
+      425
+     ],
+     "yaw": 2.594
+    },
+    "city": {
+     "power": 1,
+     "glow": "#45d8d0"
+    }
+   }
+  },
+  {
+   "id": "tunnel",
+   "type": "deep3d",
+   "start": 8,
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        128,
+        34,
+        52
+       ],
+       "target": [
+        110,
+        22,
+        20
+       ],
+       "fov": 40
+      },
+      {
+       "t": 4,
+       "pos": [
+        118,
+        30,
+        50
+       ],
+       "target": [
+        100,
+        22,
+        18
+       ],
+       "fov": 40
+      }
+     ]
+    },
+    "water": {
+     "sigma": [
+      0.03,
+      0.012,
+      0.009
+     ]
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 4
+    },
+    "city": {
+     "power": 1,
+     "glow": "#45d8d0"
+    }
+   }
+  },
+  {
+   "id": "vents",
+   "type": "deep3d",
+   "start": 12,
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -940,
+        5,
+        312
+       ],
+       "target": [
+        -950,
+        7,
+        300
+       ],
+       "fov": 45
+      },
+      {
+       "t": 4,
+       "pos": [
+        -943,
+        5.5,
+        311
+       ],
+       "target": [
+        -950,
+        7.5,
+        300
+       ],
+       "fov": 45
+      }
+     ]
+    },
+    "water": {
+     "sigma": [
+      0.06,
+      0.025,
+      0.018
+     ]
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 6
+    },
+    "city": {
+     "show": false
+    },
+    "vents": {
+     "show": true,
+     "pos": [
+      -950,
+      0,
+      300
+     ]
+    },
+    "hud": {
+     "depth": 2480,
+     "label": "TEMSİLİ · HİDROTERMAL BACA"
+    }
+   }
+  },
+  {
+   "id": "being",
+   "type": "deep3d",
+   "start": 16,
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        640,
+        14,
+        -110
+       ],
+       "target": [
+        590,
+        20,
+        -100
+       ],
+       "fov": 42
+      },
+      {
+       "t": 4,
+       "pos": [
+        637,
+        15,
+        -109
+       ],
+       "target": [
+        590,
+        21,
+        -100
+       ],
+       "fov": 40
+      }
+     ]
+    },
+    "water": {
+     "sigma": [
+      0.02,
+      0.008,
+      0.006
+     ]
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 6
+    },
+    "city": {
+     "power": 1,
+     "period": 2.2,
+     "glow": "#45d8d0"
+    },
+    "being": {
+     "vis": 1,
+     "pos": [
+      596,
+      2,
+      -102
+     ],
+     "yaw": 0.4
+    },
+    "hud": {
+     "depth": 8034
+    }
+   }
+  }
+ ],
+ "music": {
+  "style": "rise",
+  "sections": {
+   "dark": "@start",
+   "build": 5,
+   "peak": 12,
+   "end": "@end"
+  }
+ },
+ "metadata": {
+  "title": "lookdev"
+ }
+}

@@ -8,6 +8,7 @@ import {MediaScene} from './MediaScene';
 import {KpiScene} from './KpiScene';
 import {EconScene} from './EconScene';
 import {World3DScene} from '../three/World3DScene';
+import {DeepScene} from '../ocean/DeepScene';
 
 // Sahne türü -> bileşen. Yeni sahne türü eklemek için buraya kaydedin.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,4 +22,5 @@ export const SCENES: Record<string, React.FC<any>> = {
 	kpi: KpiScene,
 	econ: EconScene, // ekonomi simülasyonu (telefon/banka/fiyat/finale)
 	world3d: World3DScene, // Three.js 3D motoru (engine/src/three)
+	deep3d: DeepScene, // derin deniz: su altı şehri, ROV, varlık, bacalar (engine/src/ocean)
 };
