@@ -438,503 +438,503 @@ Okyanus bilimcileri, güvenlik
 uzmanlarıyla aynı masaya oturuyor.
 
 99
-00:05:25,220 --> 00:05:27,522
+00:05:25,220 --> 00:05:27,600
 Uluslararası deniz hukukuna göre,
 
 100
-00:05:27,522 --> 00:05:30,974
+00:05:27,620 --> 00:05:30,640
 ülkelerin yetki alanı
 dışındaki okyanus tabanı,
 
 101
-00:05:30,974 --> 00:05:33,576
+00:05:30,760 --> 00:05:33,040
 insanlığın ortak mirası sayılıyor.
 
 102
-00:05:33,776 --> 00:05:37,258
+00:05:33,220 --> 00:05:36,660
 Peki ya orada, bizden çok
 önce yaşayan biri varsa?
 
 103
-00:05:37,258 --> 00:05:39,492
+00:05:36,980 --> 00:05:39,100
 O miras, gerçekte kime ait?
 
 104
-00:05:39,692 --> 00:05:42,609
+00:05:39,400 --> 00:05:42,160
 Bilim insanları tek bir konuda hemfikir:
 
 105
-00:05:42,609 --> 00:05:47,284
+00:05:42,260 --> 00:05:46,520
 Elimizde bu uygarlığın saldırgan
 olduğuna dair hiçbir kanıt yok.
 
 106
-00:05:47,484 --> 00:05:51,152
+00:05:46,740 --> 00:05:50,460
 Ve robot hâlâ aşağıda,
 şehrin kenarında bekliyor.
 
 107
-00:05:51,152 --> 00:05:53,548
+00:05:50,700 --> 00:05:53,020
 Sıradaki adım, merkeze yaklaşmak.
 
 108
-00:05:54,848 --> 00:05:57,752
+00:05:54,320 --> 00:05:56,960
 Robot şehrin merkezine doğru ilerliyor.
 
 109
-00:05:57,752 --> 00:06:01,537
+00:05:57,060 --> 00:06:00,420
 Işıklı tünellerin arasından,
 enerji merkezine doğru.
 
 110
-00:06:01,737 --> 00:06:04,034
+00:06:00,600 --> 00:06:02,820
 Tam o sırada sinyal değişiyor.
 
 111
-00:06:04,034 --> 00:06:08,009
+00:06:02,840 --> 00:06:06,560
 Asal sayılar susuyor, yerine
 yepyeni bir desen geliyor.
 
 112
-00:06:08,209 --> 00:06:11,033
+00:06:06,720 --> 00:06:09,000
 Bilim insanları cevap
 vermeye karar veriyor.
 
 113
-00:06:11,033 --> 00:06:12,745
+00:06:09,000 --> 00:06:10,620
 Ama hangi dille?
 
 114
-00:06:12,945 --> 00:06:15,574
+00:06:10,920 --> 00:06:13,820
 Matematik, evrensel olabilecek tek dil.
 
 115
-00:06:15,574 --> 00:06:18,203
+00:06:13,920 --> 00:06:16,480
 Bir dairenin çevresinin çapına oranı,
 
 116
-00:06:18,203 --> 00:06:20,606
+00:06:16,500 --> 00:06:18,520
 evrenin her yerinde aynıdır.
 
 117
-00:06:20,806 --> 00:06:24,239
+00:06:18,720 --> 00:06:22,760
 Robotun hoparlörlerinden aşağıya
 basit bir mesaj gönderiliyor:
 
 118
-00:06:24,239 --> 00:06:28,953
+00:06:22,920 --> 00:06:28,020
 Bir, iki, üç, beş, yedi.
 Biz de saymayı biliyoruz.
 
 119
-00:06:29,153 --> 00:06:31,189
+00:06:28,040 --> 00:06:29,920
 Saatlerce cevap gelmiyor.
 
 120
-00:06:31,389 --> 00:06:34,330
+00:06:30,040 --> 00:06:33,640
 Sonra şehir yanıt veriyor.
 Dizinin devamını gönderiyor:
 
 121
-00:06:34,330 --> 00:06:37,692
+00:06:33,660 --> 00:06:36,880
 on bir, on üç, on yedi… ve ardından,
 
 122
-00:06:37,692 --> 00:06:40,092
+00:06:36,880 --> 00:06:38,840
 çok daha karmaşık bir desen.
 
 123
-00:06:40,292 --> 00:06:44,477
+00:06:39,100 --> 00:06:42,800
 Desen, pi sayısının ilk basamaklarını
 içeriyor gibi görünüyor.
 
 124
-00:06:44,477 --> 00:06:48,439
+00:06:42,900 --> 00:06:46,200
 Ama geri kalanı, bilinen
 hiçbir kodlamaya uymuyor.
 
 125
-00:06:48,639 --> 00:06:50,800
+00:06:46,400 --> 00:06:48,400
 Bu sırada robotun kameraları,
 
 126
-00:06:50,800 --> 00:06:53,801
+00:06:48,400 --> 00:06:50,920
 karanlığın içinde bir hareket yakalıyor.
 
 127
-00:06:54,001 --> 00:06:57,195
+00:06:50,940 --> 00:06:54,520
 Işıkların hemen ötesinde,
 devasa bir silüet.
 
 128
-00:06:57,195 --> 00:06:59,092
+00:06:54,600 --> 00:06:57,520
 Durgun. Sessiz. İzliyor.
 
 129
-00:06:59,292 --> 00:07:03,459
+00:06:57,860 --> 00:07:01,400
 Bir canlı mı, bir makine
 mi, yoksa ikisi birden mi,
 
 130
-00:07:03,459 --> 00:07:07,092
+00:07:01,400 --> 00:07:05,260
 bilinmiyor. Ne kadar büyük
 olduğu bile tam anlaşılmıyor.
 
 131
-00:07:07,292 --> 00:07:11,620
+00:07:05,280 --> 00:07:09,180
 Gövdesindeki ışıklar, sinyalle
 aynı ritimde yanıp sönüyor.
 
 132
-00:07:11,820 --> 00:07:13,995
+00:07:09,280 --> 00:07:11,640
 Ve sonra… bağlantı kopuyor.
 
 133
-00:07:16,295 --> 00:07:18,795
+00:07:13,940 --> 00:07:16,640
 Dakikalar sonra görüntü geri geliyor.
 
 134
-00:07:18,795 --> 00:07:21,595
+00:07:16,740 --> 00:07:19,660
 Silüet gitmiş. Robot ise hasarsız.
 
 135
-00:07:21,795 --> 00:07:25,223
+00:07:19,900 --> 00:07:22,900
 Şimdi asıl soru şu: Böyle bir uygarlık,
 
 136
-00:07:25,223 --> 00:07:28,162
+00:07:22,900 --> 00:07:25,760
 8.000 metre derinlikte nasıl yaşayabilir?
 
 137
-00:07:28,162 --> 00:07:31,401
+00:07:26,000 --> 00:07:29,340
 Burada gerçek bilimle
 kurguyu ayırmak gerekiyor.
 
 138
-00:07:31,601 --> 00:07:33,557
+00:07:29,360 --> 00:07:31,600
 Önce enerji. Okyanus tabanında,
 
 139
-00:07:33,557 --> 00:07:38,938
+00:07:31,600 --> 00:07:36,820
 sıcaklığı 350 dereceyi aşabilen suyu
 fışkırtan hidrotermal bacalar var.
 
 140
-00:07:38,938 --> 00:07:43,151
+00:07:36,980 --> 00:07:39,980
 İlk kez 1977'de keşfedildiler.
 
 141
-00:07:43,351 --> 00:07:45,494
+00:07:40,180 --> 00:07:42,580
 Çevrelerinde güneş ışığı olmadan,
 
 142
-00:07:45,494 --> 00:07:49,244
+00:07:42,600 --> 00:07:46,320
 kimyasal enerjiyle yaşayan
 bütün bir ekosistem bulunuyor.
 
 143
-00:07:49,244 --> 00:07:51,151
+00:07:46,340 --> 00:07:47,460
 Bu kısım gerçek.
 
 144
-00:07:51,351 --> 00:07:54,855
+00:07:47,720 --> 00:07:51,660
 Ama bu ısıyı, bir şehri
 çalıştıracak ölçekte toplamak?
 
 145
-00:07:54,855 --> 00:07:57,345
+00:07:51,680 --> 00:07:53,780
 İşte o kısım tamamen kurgu.
 
 146
-00:07:57,545 --> 00:08:00,560
+00:07:54,140 --> 00:07:57,160
 Sonra yapılar. Derin deniz canlıları,
 
 147
-00:08:00,560 --> 00:08:04,782
+00:07:57,180 --> 00:08:00,840
 hücrelerini basınca karşı
 koruyan özel moleküller kullanır.
 
 148
-00:08:04,782 --> 00:08:09,303
+00:08:01,060 --> 00:08:04,720
 Kendini onaran malzemeler de bugün
 laboratuvarlarda geliştiriliyor.
 
 149
-00:08:09,503 --> 00:08:13,114
+00:08:04,920 --> 00:08:09,020
 Ama 800 atmosfere yüzyıllarca
 dayanan bir şehir?
 
 150
-00:08:13,114 --> 00:08:14,317
+00:08:09,040 --> 00:08:10,240
 Bu, kurgu.
 
 151
-00:08:14,517 --> 00:08:17,764
+00:08:10,400 --> 00:08:13,220
 Işık ise belki de en kolay kısım.
 
 152
-00:08:17,764 --> 00:08:22,402
+00:08:13,240 --> 00:08:18,400
 Canlıların kendi ışığını üretmesine
 biyolüminesans denir ve okyanusta son derece
 
 153
-00:08:22,402 --> 00:08:26,112
+00:08:18,400 --> 00:08:22,300
 yaygındır. Bütün bir şehri
 canlı ışıkla aydınlatmak ise,
 
 154
-00:08:26,112 --> 00:08:27,803
+00:08:22,300 --> 00:08:23,640
 hâlâ bir hayal.
 
 155
-00:08:28,003 --> 00:08:33,303
+00:08:23,980 --> 00:08:29,820
 Ve iletişim. Okyanusta, sesin binlerce
 kilometre taşınabildiği doğal bir kanal var:
 
 156
-00:08:33,303 --> 00:08:36,012
+00:08:29,940 --> 00:08:32,080
 SOFAR kanalı. Bu da gerçek.
 
 157
-00:08:36,212 --> 00:08:39,128
+00:08:32,280 --> 00:08:34,860
 Bir uygarlık bu kanalı kullansaydı,
 
 158
-00:08:39,128 --> 00:08:42,345
+00:08:34,880 --> 00:08:38,000
 okyanusun bir ucundan
 diğerine fısıldayabilirdi.
 
 159
-00:08:42,545 --> 00:08:46,786
+00:08:38,300 --> 00:08:42,600
 Bütün bunlar gerçek olsaydı,
 aramızdaki fark birkaç yüzyıl değil,
 
 160
-00:08:46,786 --> 00:08:49,442
+00:08:42,640 --> 00:08:44,640
 belki de binlerce yıl olurdu.
 
 161
-00:08:49,642 --> 00:08:52,266
+00:08:44,900 --> 00:08:47,160
 Tek bir enerji teknolojisi bile,
 
 162
-00:08:52,266 --> 00:08:55,414
+00:08:47,180 --> 00:08:50,680
 petrolden elektriğe bütün
 piyasaları altüst edebilirdi.
 
 163
-00:08:55,414 --> 00:08:59,387
+00:08:50,920 --> 00:08:54,020
 Tek bir patent, koca bir
 sektörü bitirebilirdi.
 
 164
-00:08:59,587 --> 00:09:05,521
+00:08:54,200 --> 00:08:59,380
 Ve bilim dünyası ilk kez, insanlığın
 Dünya'daki en gelişmiş tür olmayabileceği
 
 165
-00:09:05,521 --> 00:09:06,900
+00:08:59,380 --> 00:09:00,940
 ihtimaliyle yüzleşirdi.
 
 166
-00:09:08,200 --> 00:09:11,416
+00:09:02,240 --> 00:09:05,780
 Şimdi insanlığın vermesi
 gereken bir karar var.
 
 167
-00:09:11,416 --> 00:09:14,473
+00:09:05,880 --> 00:09:08,740
 Belki de tarihimizin en önemli kararı.
 
 168
-00:09:14,673 --> 00:09:16,964
+00:09:08,940 --> 00:09:11,300
 Birinci yol: iletişim kurmak.
 
 169
-00:09:16,964 --> 00:09:19,829
+00:09:11,320 --> 00:09:13,960
 Matematikle başlayan
 bu diyaloğu sürdürmek,
 
 170
-00:09:19,829 --> 00:09:21,848
+00:09:13,980 --> 00:09:15,740
 onları anlamaya çalışmak.
 
 171
-00:09:22,048 --> 00:09:25,288
+00:09:15,920 --> 00:09:19,080
 Ama karşımızdakinin niyetini
 bilmeden kapıyı çalmak,
 
 172
-00:09:25,288 --> 00:09:27,209
+00:09:19,080 --> 00:09:20,400
 ne kadar güvenli?
 
 173
-00:09:27,409 --> 00:09:30,504
+00:09:20,680 --> 00:09:23,780
 İkinci yol: bölgeyi koruma altına almak.
 
 174
-00:09:30,504 --> 00:09:33,083
+00:09:23,800 --> 00:09:26,600
 Teması sınırlamak, gemileri uzak tutmak,
 
 175
-00:09:33,083 --> 00:09:34,931
+00:09:26,660 --> 00:09:28,140
 onları rahat bırakmak.
 
 176
-00:09:35,131 --> 00:09:39,251
+00:09:28,340 --> 00:09:32,460
 Ama bize sinyal göndermiş bir
 uygarlığı görmezden gelmek,
 
 177
-00:09:39,251 --> 00:09:41,612
+00:09:32,460 --> 00:09:34,821
 konuşmak kadar riskli olabilir.
 
 178
-00:09:41,812 --> 00:09:44,618
+00:09:35,021 --> 00:09:37,827
 Üçüncü yol: araştırmaya devam etmek.
 
 179
-00:09:44,618 --> 00:09:46,864
+00:09:37,827 --> 00:09:40,073
 Şehri incelemek, teknolojisini anlamak,
 
 180
-00:09:46,864 --> 00:09:48,848
+00:09:40,073 --> 00:09:42,057
 belki de kopyalamak.
 
 181
-00:09:49,048 --> 00:09:52,068
+00:09:42,257 --> 00:09:45,278
 Ama bu teknolojiye ilk kim ulaşırsa,
 
 182
-00:09:52,068 --> 00:09:55,389
+00:09:45,278 --> 00:09:48,598
 dünyadaki güç dengesini
 tek başına değiştirebilir.
 
 183
-00:09:55,589 --> 00:10:00,071
+00:09:48,798 --> 00:09:53,280
 Devletler anlaşamıyor. Bazıları
 ortak bir bilim misyonu istiyor.
 
 184
-00:10:00,071 --> 00:10:04,292
+00:09:53,280 --> 00:09:57,501
 Bazıları bölgeye savaş gemileri
 göndermekten söz ediyor.
 
 185
-00:10:04,492 --> 00:10:07,458
+00:09:57,701 --> 00:10:00,667
 Bilim insanları ise aynı şeyi tekrarlıyor:
 
 186
-00:10:07,458 --> 00:10:10,918
+00:10:00,667 --> 00:10:04,127
 Onlar bize zarar vermedi.
 Robota dokunmadılar bile.
 
 187
-00:10:10,918 --> 00:10:13,195
+00:10:04,127 --> 00:10:06,404
 İlk hamle, korku olmamalı.
 
 188
-00:10:13,395 --> 00:10:15,912
+00:10:06,604 --> 00:10:09,121
 Peki karar senin elinde olsaydı?
 
 189
-00:10:15,912 --> 00:10:17,926
+00:10:09,121 --> 00:10:11,135
 Konuşur muydun, bekler miydin,
 
 190
-00:10:17,926 --> 00:10:19,737
+00:10:11,135 --> 00:10:12,946
 yoksa araştırır mıydın?
 
 191
-00:10:19,937 --> 00:10:25,376
+00:10:13,146 --> 00:10:18,585
 Tartışmalar sürerken, şifre çözme
 ekibinden beklenmedik bir haber geliyor.
 
 192
-00:10:26,476 --> 00:10:28,767
+00:10:19,685 --> 00:10:21,976
 Aylar süren çalışmanın ardından,
 
 193
-00:10:28,767 --> 00:10:31,359
+00:10:21,976 --> 00:10:24,568
 sinyallerin bir bölümü çözülüyor.
 
 194
-00:10:31,559 --> 00:10:34,308
+00:10:24,768 --> 00:10:27,517
 İlk anlaşılan şey, bir harita.
 
 195
-00:10:34,308 --> 00:10:38,456
+00:10:27,517 --> 00:10:31,665
 Ekranda, Dünya'nın okyanuslarında
 yanıp sönen noktalar beliriyor.
 
 196
-00:10:38,656 --> 00:10:39,956
+00:10:31,865 --> 00:10:33,165
 Pasifik.
 
 197
-00:10:40,356 --> 00:10:41,656
+00:10:33,565 --> 00:10:34,865
 Atlantik.
 
 198
-00:10:42,056 --> 00:10:43,356
+00:10:35,265 --> 00:10:36,565
 Hint Okyanusu.
 
 199
-00:10:43,856 --> 00:10:46,101
+00:10:37,065 --> 00:10:39,310
 Keşfedilen şehir, tek değil.
 
 200
-00:10:47,201 --> 00:10:51,360
+00:10:40,410 --> 00:10:44,569
 Okyanusu dinleyen istasyonların
 eski kayıtları yeniden inceleniyor.
 
 201
-00:10:51,360 --> 00:10:53,736
+00:10:44,569 --> 00:10:46,945
 Bu noktalardan gelen sinyaller,
 
 202
-00:10:53,736 --> 00:10:58,195
+00:10:46,945 --> 00:10:51,404
 yıllardır oradaymış. Biz
 onları doğanın sesi sanmışız.
 
 203
-00:10:58,395 --> 00:11:00,895
+00:10:51,604 --> 00:10:54,104
 Sonra mesajın son kısmı çözülüyor.
 
 204
-00:11:00,895 --> 00:11:03,695
+00:10:54,104 --> 00:10:56,904
 Çevirisi tartışmalı, ama anlamı açık:
 
 205
-00:11:03,995 --> 00:11:06,587
+00:10:57,204 --> 00:10:59,796
 Biz sizi uzun zamandır izliyoruz.
 
 206
-00:11:08,687 --> 00:11:12,853
+00:11:01,896 --> 00:11:06,062
 Okyanusun dibinden yüzeye,
 yüzeyden gökyüzüne yükseldikçe,
 
 207
-00:11:12,853 --> 00:11:15,237
+00:11:06,062 --> 00:11:08,446
 gezegenimiz bambaşka görünüyor.
 
 208
-00:11:15,437 --> 00:11:16,687
+00:11:08,646 --> 00:11:09,896
 Okyanusların derinliklerinde,
 
 209
-00:11:16,687 --> 00:11:20,737
+00:11:09,896 --> 00:11:13,946
 belki binlerce yıldır yanan küçük ışıklar.
 
 210
-00:11:21,237 --> 00:11:24,602
+00:11:14,446 --> 00:11:17,811
 Belki de insanlığın en büyük keşfi,
 
 211
-00:11:24,602 --> 00:11:28,828
+00:11:17,811 --> 00:11:22,037
 yıldızların arasında değil… binlerce
 yıldır ayaklarımızın altındaydı.
 
 212
-00:11:29,728 --> 00:11:33,084
+00:11:22,937 --> 00:11:26,293
 Sen olsaydın, onlarla
 iletişim kurar mıydın?
