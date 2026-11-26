@@ -11,6 +11,9 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 - Teknik doğruluk, kod kalitesi ve testler kısalık uğruna feda edilmez. Güvenlik uyarıları, geri alınamaz işlem onayları ve çift anlamlı cümleler düz ve tam yazılır.
 - Dil: Türkçe.
 
+## Oturum başı araçlar
+- Yeni bulut oturumunda bir kez: `./scripts/setup-tools.sh` (RTK v1.2.1 + yerel Graphify + grafik; idempotent). Caveman skill `.claude/skills/caveman` içinde, Context7 hesap bağlayıcısıdır.
+
 ## Kod arama → yerel Graphify (graphifyy CLI, kod-only, ücretsiz)
 - Cloud Graphify kotası dolu; MCP `graphify_*` araçlarını kullanma. Yerel grafik: `graphify-out/graph.json` (git'e girmez).
 - Yapı soruları için grep/dosya okuma yerine:
