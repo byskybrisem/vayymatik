@@ -12,29 +12,29 @@
   "source_topic": "gizli_uygarlik",
   "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
   "lead_in": 0.12,
-  "tail": 1.4,
-  "gap_chunk": 0.3
+  "tail": 0.8,
+  "gap_chunk": 0.15
  },
  "lines": [
   {
    "id": "s4_hook",
    "text": "Okyanusun dibindeki uygarlık bize {bir mesaj} gönderseydi ne olurdu?",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "gonder",
    "text": "Robotun hoparlörlerinden aşağıya basit bir mesaj gönderiliyor: {g:Bir}, {g:iki}, {g:üç}, {g:beş}, {g:yedi}. {Biz de saymayı biliyoruz}.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "yanit",
    "text": "Sonra şehir {yanıt veriyor}. Dizinin devamını gönderiyor: {g:on bir}, {g:on üç}, {g:on yedi}… ve ardından, çok daha karmaşık bir desen.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "siluet",
    "text": "Işıkların hemen ötesinde, {devasa bir silüet}. Durgun. Sessiz. İzliyor.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "ritim",
@@ -43,7 +43,7 @@
   {
    "id": "kopus",
    "text": "Ve sonra… {bağlantı kopuyor}.",
-   "pause_after": 0.45
+   "pause_after": 0.35
   },
   {
    "id": "s_cta",
@@ -52,7 +52,7 @@
  ],
  "scenes": [
   {
-   "id": "hareket_pov__4148",
+   "id": "hareket_pov__6080",
    "type": "deep3d",
    "start": "@start",
    "props": {
@@ -126,7 +126,7 @@
    }
   },
   {
-   "id": "degisim_spectro__1355",
+   "id": "degisim_spectro__1349",
    "type": "lab",
    "start": "@s4_hook.w5-0.20",
    "props": {
@@ -194,7 +194,7 @@
    }
   },
   {
-   "id": "gonder_send__6269",
+   "id": "gonder_send__3171",
    "type": "signal",
    "start": "@gonder.start-0.10",
    "props": {
@@ -229,7 +229,7 @@
    }
   },
   {
-   "id": "yanit_primes__461",
+   "id": "yanit_primes__5811",
    "type": "signal",
    "start": "@yanit.start-0.10",
    "props": {
@@ -255,7 +255,7 @@
    }
   },
   {
-   "id": "yanit_glyph__1825",
+   "id": "yanit_glyph__6247",
    "type": "signal",
    "start": "@yanit.w14-0.20",
    "props": {
@@ -272,7 +272,7 @@
    }
   },
   {
-   "id": "siluet_being__685",
+   "id": "siluet_being__4832",
    "type": "deep3d",
    "start": "@siluet.start-0.10",
    "props": {
@@ -345,7 +345,7 @@
    }
   },
   {
-   "id": "ritim_being__7626",
+   "id": "ritim_being__7696",
    "type": "deep3d",
    "start": "@ritim.start-0.10",
    "props": {
@@ -426,7 +426,7 @@
    }
   },
   {
-   "id": "kopus_lost__8753",
+   "id": "kopus_lost__1227",
    "type": "deep3d",
    "start": "@kopus.start-0.10",
    "props": {
@@ -522,7 +522,7 @@
    }
   },
   {
-   "id": "eskisi_far__5568",
+   "id": "eskisi_far__341",
    "type": "deep3d",
    "start": "@s_cta.start-0.20",
    "props": {

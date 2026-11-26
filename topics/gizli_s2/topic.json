@@ -12,19 +12,19 @@
   "source_topic": "gizli_uygarlik",
   "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
   "lead_in": 0.12,
-  "tail": 1.4,
-  "gap_chunk": 0.3
+  "tail": 0.8,
+  "gap_chunk": 0.15
  },
  "lines": [
   {
    "id": "s2_hook",
    "text": "Bir denizaltı okyanusun dibinde, ışıkları açık {devasa bir şehir} bulsaydı?",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "kaya",
    "text": "Bu bir kaya değil. Yüzeyi pürüzsüz. Kenarları, kusursuz {düz çizgiler} halinde uzanıyor.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "geri",
@@ -37,12 +37,12 @@
   {
    "id": "olcek",
    "text": "Kubbeler. Kilometrelerce uzanan bağlantı tünelleri. Ve şehrin ortasında yükselen, dev bir {enerji merkezi}.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "ulasim",
    "text": "Tünellerin içinde {ışıklı kapsüller} hareket ediyor. Yani bu şehir, terk edilmiş değil.",
-   "pause_after": 0.45
+   "pause_after": 0.35
   },
   {
    "id": "s_cta",
@@ -51,7 +51,7 @@
  ],
  "scenes": [
   {
-   "id": "eskisi_far__4148",
+   "id": "eskisi_far__6080",
    "type": "deep3d",
    "start": "@start",
    "props": {
@@ -110,7 +110,7 @@
    }
   },
   {
-   "id": "risk3_heart__1638",
+   "id": "risk3_heart__9850",
    "type": "deep3d",
    "start": "@s2_hook.w6-0.20",
    "props": {
@@ -169,7 +169,7 @@
    }
   },
   {
-   "id": "kaya_wall__6675",
+   "id": "kaya_wall__6163",
    "type": "deep3d",
    "start": "@kaya.start-0.20",
    "props": {
@@ -232,7 +232,7 @@
    }
   },
   {
-   "id": "desen_macro__4168",
+   "id": "desen_macro__6673",
    "type": "deep3d",
    "start": "@kaya.w6-0.10",
    "props": {
@@ -295,7 +295,7 @@
    }
   },
   {
-   "id": "geri_pullback__6203",
+   "id": "geri_pullback__524",
    "type": "deep3d",
    "start": "@geri.start-0.10",
    "props": {
@@ -389,7 +389,7 @@
    }
   },
   {
-   "id": "sehir_reveal__8811",
+   "id": "sehir_reveal__8727",
    "type": "deep3d",
    "start": "@sehir.start-0.20",
    "props": {
@@ -497,7 +497,7 @@
    }
   },
   {
-   "id": "olcek_domes__698",
+   "id": "olcek_domes__9074",
    "type": "deep3d",
    "start": "@olcek.start-0.10",
    "props": {
@@ -555,7 +555,7 @@
    }
   },
   {
-   "id": "olcek_tunnels__3651",
+   "id": "olcek_tunnels__6869",
    "type": "deep3d",
    "start": "@olcek.w1-0.10",
    "props": {
@@ -613,7 +613,7 @@
    }
   },
   {
-   "id": "olcek_heart__1337",
+   "id": "olcek_heart__5111",
    "type": "deep3d",
    "start": "@olcek.w5-0.10",
    "props": {
@@ -671,7 +671,7 @@
    }
   },
   {
-   "id": "ulasim_pods__1415",
+   "id": "ulasim_pods__4713",
    "type": "deep3d",
    "start": "@ulasim.start-0.10",
    "props": {
@@ -729,7 +729,7 @@
    }
   },
   {
-   "id": "risk1_being__3322",
+   "id": "risk1_being__1163",
    "type": "deep3d",
    "start": "@s_cta.start-0.30",
    "props": {

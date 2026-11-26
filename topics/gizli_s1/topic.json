@@ -12,44 +12,44 @@
   "source_topic": "gizli_uygarlik",
   "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
   "lead_in": 0.12,
-  "tail": 1.4,
-  "gap_chunk": 0.3
+  "tail": 0.8,
+  "gap_chunk": 0.15
  },
  "lines": [
   {
    "id": "s1_hook",
    "text": "Bilim insanları okyanusun {g:8.000 metre} altında bir sinyal yakalasaydı ne olurdu?",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "sinyal",
    "text": "Ama bir gece, sensörler yaklaşık {g:8.000 metre} derinlikten gelen {tuhaf bir sinyal} yakalıyor.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "asal",
    "text": "Atımlar rastgele değil. {g:İki} atım. Sessizlik. {g:Üç} atım. Sessizlik. Sonra {g:beş}, {g:yedi}, {g:on bir}, {g:on üç}.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "doga",
    "text": "Bilinen hiçbir doğal süreç, asal sayıları {sırayla sayamaz}.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "rov",
    "text": "Ertesi sabah karar verilir. Sinyalin kaynağına {insansız bir denizaltı} gönderilecek.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "m8000",
    "text": "{g:Sekiz bin metre}. Basınç, yaklaşık {g:800 atmosfer}.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "carpma",
    "text": "Robot yavaşlıyor. Işıklar dibe yaklaşıyor. Ve sonra… ışık, {bir şeye çarpıyor}.",
-   "pause_after": 0.45
+   "pause_after": 0.35
   },
   {
    "id": "s_cta",
@@ -58,7 +58,7 @@
  ],
  "scenes": [
   {
-   "id": "yil_storm__4148",
+   "id": "yil_storm__6080",
    "type": "ocean",
    "start": "@start",
    "props": {
@@ -128,7 +128,7 @@
    }
   },
   {
-   "id": "sinyal_storm__4031",
+   "id": "sinyal_storm__3875",
    "type": "ocean",
    "start": "@sinyal.start-0.10",
    "props": {
@@ -209,7 +209,7 @@
    }
   },
   {
-   "id": "asal_primes__9718",
+   "id": "asal_primes__2763",
    "type": "signal",
    "start": "@asal.start-0.10",
    "props": {
@@ -247,7 +247,7 @@
    }
   },
   {
-   "id": "doga_compare__9876",
+   "id": "doga_compare__409",
    "type": "signal",
    "start": "@doga.start-0.10",
    "props": {
@@ -259,7 +259,7 @@
    }
   },
   {
-   "id": "rov_dawn__2705",
+   "id": "rov_dawn__5356",
    "type": "ocean",
    "start": "@rov.start-0.15",
    "props": {
@@ -308,7 +308,7 @@
    }
   },
   {
-   "id": "m8000_water__5884",
+   "id": "m8000_water__9265",
    "type": "ocean",
    "start": "@m8000.start-0.10",
    "props": {
@@ -341,7 +341,7 @@
    }
   },
   {
-   "id": "basinc_info__8734",
+   "id": "basinc_info__570",
    "type": "info",
    "start": "@m8000.w3-0.20",
    "props": {
@@ -353,7 +353,7 @@
    }
   },
   {
-   "id": "carpma_wall__6898",
+   "id": "carpma_wall__5040",
    "type": "deep3d",
    "start": "@carpma.start-0.10",
    "props": {
@@ -434,7 +434,7 @@
    }
   },
   {
-   "id": "sehir_reveal__3322",
+   "id": "sehir_reveal__1163",
    "type": "deep3d",
    "start": "@s_cta.start-0.30",
    "props": {

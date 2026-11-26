@@ -12,14 +12,14 @@
   "source_topic": "gizli_uygarlik",
   "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
   "lead_in": 0.12,
-  "tail": 1.4,
-  "gap_chunk": 0.3
+  "tail": 0.8,
+  "gap_chunk": 0.15
  },
  "lines": [
   {
    "id": "s6_hook",
    "text": "Onları ilk kez keşfettiğimizi düşündük. Ama onlar {bizi zaten tanıyordu}.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "cozum",
@@ -48,17 +48,17 @@
   {
    "id": "kayit",
    "text": "Okyanusu dinleyen istasyonların eski kayıtları yeniden inceleniyor. Bu noktalardan gelen sinyaller, {yıllardır} oradaymış. Biz onları doğanın sesi sanmışız.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "mesaj",
    "text": "{Biz sizi uzun zamandır izliyoruz.}",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "cta",
    "text": "Sen olsaydın, onlarla {iletişim kurar mıydın}?",
-   "pause_after": 0.45
+   "pause_after": 0.35
   },
   {
    "id": "s_cta",
@@ -67,7 +67,7 @@
  ],
  "scenes": [
   {
-   "id": "uzay_earth__4148",
+   "id": "uzay_earth__6080",
    "type": "earth",
    "start": "@start",
    "props": {
@@ -84,7 +84,7 @@
       "t": 0,
       "lat": 5,
       "lon": -150,
-      "alt": 9000,
+      "alt": 8000,
       "heading": 0,
       "pitch": 90,
       "fov": 46
@@ -93,7 +93,7 @@
       "t": 14,
       "lat": 0,
       "lon": -100,
-      "alt": 32000,
+      "alt": 17500,
       "e": "inOut"
      }
     ],
@@ -102,73 +102,73 @@
       "lat": -30.5,
       "lon": -177.0,
       "from": 0.4,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": 19.8,
       "lon": -66.0,
       "from": 0.65,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": -10.3,
       "lon": 110.0,
       "from": 0.9,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": 11.3,
       "lon": 142.2,
       "from": 1.15,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": 37.0,
       "lon": 143.5,
       "from": 1.4,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": -23.0,
       "lon": -71.5,
       "from": 1.65,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": 51.0,
       "lon": -175.0,
       "from": 1.9,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": -56.0,
       "lon": -25.0,
       "from": 2.15,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": 10.5,
       "lon": 127.0,
       "from": 2.4,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": -8.0,
       "lon": -152.0,
       "from": 2.65,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": 25.0,
       "lon": -40.0,
       "from": 2.9,
-      "size": 0.65
+      "size": 0.85
      },
      {
       "lat": -40.0,
       "lon": 60.0,
       "from": 3.15,
-      "size": 0.65
+      "size": 0.85
      }
     ]
    },
@@ -178,7 +178,7 @@
    }
   },
   {
-   "id": "cozum_glyph__9687",
+   "id": "cozum_glyph__943",
    "type": "signal",
    "start": "@cozum.start-0.30",
    "props": {
@@ -195,7 +195,7 @@
    }
   },
   {
-   "id": "harita_earth__173",
+   "id": "harita_earth__9348",
    "type": "earth",
    "start": "@harita.start-0.10",
    "props": {
@@ -309,7 +309,7 @@
    }
   },
   {
-   "id": "kayit_archive__7938",
+   "id": "kayit_archive__5743",
    "type": "lab",
    "start": "@kayit.start-0.10",
    "props": {
@@ -375,7 +375,7 @@
    }
   },
   {
-   "id": "mesaj_text__3216",
+   "id": "mesaj_text__5325",
    "type": "signal",
    "start": "@mesaj.start-0.25",
    "props": {
@@ -410,7 +410,7 @@
    }
   },
   {
-   "id": "eskisi_far__5568",
+   "id": "eskisi_far__341",
    "type": "deep3d",
    "start": "@s_cta.start-0.20",
    "props": {

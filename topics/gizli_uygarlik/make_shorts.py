@@ -193,10 +193,10 @@ def build_short(sh):
         c = CHUNK_OF.get(lid)
         # aynı kayıt parçasında ardışık değilse kısa bir ara (Shorts temposu)
         if prev is not None and not (c and prev[0] == c[0] and prev[1] + 1 == c[1]):
-            lines[-1]["pause_after"] = 0.3
+            lines[-1]["pause_after"] = 0.15
         lines.append(ln)
         prev = c
-    lines[-2]["pause_after"] = 0.45
+    lines[-2]["pause_after"] = 0.35
     ids = set(sh["lines"])
     for s in sh["scenes"]:
         bad = [r for r in refs(s) if r not in ids]
@@ -209,7 +209,7 @@ def build_short(sh):
         "output_name": f"VAYYMATIK0_Gizli_Uygarlik_Shorts_0{n}",
         "language": "tr",
         "render": {"width": 1080, "height": 1920, "crf": 19},
-        "voice": {"provider": "external", "source_topic": "gizli_uygarlik", "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4", "lead_in": 0.12, "tail": 1.4, "gap_chunk": 0.3},
+        "voice": {"provider": "external", "source_topic": "gizli_uygarlik", "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4", "lead_in": 0.12, "tail": 0.8, "gap_chunk": 0.15},
         "lines": lines,
         "scenes": sh["scenes"],
         "disclaimers": [{"text": "Varsayımsal bilimkurgu senaryosu", "start": "@start", "end": S(sh["lines"][1], 0.4)}],

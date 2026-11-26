@@ -12,29 +12,29 @@
   "source_topic": "gizli_uygarlik",
   "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
   "lead_in": 0.12,
-  "tail": 1.4,
-  "gap_chunk": 0.3
+  "tail": 0.8,
+  "gap_chunk": 0.15
  },
  "lines": [
   {
    "id": "s3_hook",
    "text": "Ya Dünya'nın en gelişmiş uygarlığı {insanlar değilse}?",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "baca",
    "text": "Önce enerji. Okyanus tabanında, sıcaklığı {g:350 dereceyi} aşabilen suyu fışkırtan {hidrotermal bacalar} var. İlk kez {g:1977}'de keşfedildiler.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "enerji_kurgu",
    "text": "Ama bu ısıyı, bir şehri çalıştıracak ölçekte toplamak? İşte o kısım {tamamen kurgu}.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "sofar",
    "text": "Ve iletişim. Okyanusta, sesin {binlerce kilometre} taşınabildiği doğal bir kanal var: {SOFAR|Sofar} kanalı. Bu da gerçek.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "fisilti",
@@ -43,7 +43,7 @@
   {
    "id": "ucurum",
    "text": "Bütün bunlar gerçek olsaydı, aramızdaki fark birkaç yüzyıl değil, belki de {binlerce yıl} olurdu.",
-   "pause_after": 0.45
+   "pause_after": 0.35
   },
   {
    "id": "s_cta",
@@ -52,7 +52,7 @@
  ],
  "scenes": [
   {
-   "id": "olcek_heart__4148",
+   "id": "olcek_heart__6080",
    "type": "deep3d",
    "start": "@start",
    "props": {
@@ -110,7 +110,7 @@
    }
   },
   {
-   "id": "sehir_reveal__6502",
+   "id": "sehir_reveal__332",
    "type": "deep3d",
    "start": "@s3_hook.w5-0.20",
    "props": {
@@ -218,7 +218,7 @@
    }
   },
   {
-   "id": "baca_vents__9573",
+   "id": "baca_vents__9869",
    "type": "deep3d",
    "start": "@baca.start-0.10",
    "props": {
@@ -290,7 +290,7 @@
    }
   },
   {
-   "id": "ekosistem_worms__6422",
+   "id": "ekosistem_worms__8456",
    "type": "deep3d",
    "start": "@baca.w13-0.20",
    "props": {
@@ -299,30 +299,30 @@
       {
        "t": 0,
        "pos": [
-        -945.5,
-        2.6,
-        307
+        -939.5,
+        4.6,
+        313
        ],
        "target": [
         -950,
-        1.2,
-        301.5
+        1.6,
+        300
        ],
        "fov": 60.9
       },
       {
        "t": 7,
        "pos": [
-        -944,
-        2.4,
-        306
+        -940.5,
+        4.4,
+        312
        ],
        "target": [
-        -949.5,
-        1.2,
-        301
+        -950,
+        1.6,
+        300.5
        ],
-       "fov": 58.0
+       "fov": 60.9
       }
      ],
      "shake": 0.02
@@ -362,7 +362,7 @@
    }
   },
   {
-   "id": "enerji_kurgu_heart__7660",
+   "id": "enerji_kurgu_heart__4968",
    "type": "deep3d",
    "start": "@enerji_kurgu.start-0.10",
    "props": {
@@ -422,7 +422,7 @@
    }
   },
   {
-   "id": "sofar_info__2621",
+   "id": "sofar_info__3152",
    "type": "info",
    "start": "@sofar.start-0.10",
    "props": {
@@ -435,7 +435,7 @@
    }
   },
   {
-   "id": "fisilti_earth__328",
+   "id": "fisilti_earth__3602",
    "type": "earth",
    "start": "@fisilti.start-0.20",
    "props": {
@@ -452,7 +452,7 @@
       "t": 0,
       "lat": 5,
       "lon": -150,
-      "alt": 21000,
+      "alt": 13500,
       "heading": 0,
       "pitch": 90,
       "fov": 46
@@ -461,7 +461,7 @@
       "t": 8,
       "lat": 0,
       "lon": -120,
-      "alt": 23000,
+      "alt": 15500,
       "e": "linear"
      }
     ],
@@ -498,7 +498,7 @@
    }
   },
   {
-   "id": "ucurum_gap__4288",
+   "id": "ucurum_gap__6618",
    "type": "info",
    "start": "@ucurum.start-0.10",
    "props": {
@@ -511,7 +511,7 @@
    }
   },
   {
-   "id": "tur_city__3322",
+   "id": "tur_city__1163",
    "type": "deep3d",
    "start": "@s_cta.start-0.30",
    "props": {

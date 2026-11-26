@@ -12,29 +12,29 @@
   "source_topic": "gizli_uygarlik",
   "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
   "lead_in": 0.12,
-  "tail": 1.4,
-  "gap_chunk": 0.3
+  "tail": 0.8,
+  "gap_chunk": 0.15
  },
  "lines": [
   {
    "id": "s5_hook",
    "text": "Bu keşif bütün {dünya ekonomisini} değiştirebilirdi!",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "sizinti",
    "text": "Görüntüler resmî bir açıklamadan önce sızıyor. Birkaç saat içinde {milyarlarca ekrana} ulaşıyor.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "piyasa",
    "text": "Piyasalar sarsılıyor. Enerji, savunma ve deniz taşımacılığı hisselerinde {sert dalgalanmalar} yaşanıyor.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "ekonomi",
    "text": "Tek bir enerji teknolojisi bile, petrolden elektriğe bütün piyasaları altüst edebilirdi. Tek bir patent, koca bir sektörü {bitirebilirdi}.",
-   "pause_after": 0.3
+   "pause_after": 0.15
   },
   {
    "id": "hukuk",
@@ -43,7 +43,7 @@
   {
    "id": "miras",
    "text": "Peki ya orada, bizden çok önce yaşayan biri varsa? O miras, gerçekte {kime ait}?",
-   "pause_after": 0.45
+   "pause_after": 0.35
   },
   {
    "id": "s_cta",
@@ -62,7 +62,7 @@
    }
   },
   {
-   "id": "sizinti_phones__5131",
+   "id": "sizinti_phones__7474",
    "type": "news",
    "start": "@sizinti.start-0.20",
    "props": {
@@ -74,7 +74,7 @@
    }
   },
   {
-   "id": "piyasa_markets__3848",
+   "id": "piyasa_markets__9098",
    "type": "news",
    "start": "@piyasa.start-0.10",
    "props": {
@@ -88,7 +88,7 @@
    }
   },
   {
-   "id": "ekonomi_lab__6837",
+   "id": "ekonomi_lab__2345",
    "type": "lab",
    "start": "@ekonomi.start-0.10",
    "props": {
@@ -132,7 +132,7 @@
    }
   },
   {
-   "id": "hukuk_law__7985",
+   "id": "hukuk_law__877",
    "type": "info",
    "start": "@hukuk.start-0.10",
    "props": {
@@ -144,7 +144,7 @@
    }
   },
   {
-   "id": "miras_city__2169",
+   "id": "miras_city__4796",
    "type": "deep3d",
    "start": "@miras.start-0.10",
    "props": {
@@ -202,7 +202,7 @@
    }
   },
   {
-   "id": "toplanti_council__3322",
+   "id": "toplanti_council__1163",
    "type": "news",
    "start": "@s_cta.start-0.30",
    "props": {
