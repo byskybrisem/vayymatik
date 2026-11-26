@@ -1,0 +1,729 @@
+{
+ "id": "gizli_s4",
+ "output_name": "VAYYMATIK0_Gizli_Uygarlik_Shorts_04",
+ "language": "tr",
+ "render": {
+  "width": 1080,
+  "height": 1920,
+  "crf": 19
+ },
+ "voice": {
+  "provider": "external",
+  "source_topic": "gizli_uygarlik",
+  "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
+  "lead_in": 0.12,
+  "tail": 1.4,
+  "gap_chunk": 0.3
+ },
+ "lines": [
+  {
+   "id": "s4_hook",
+   "text": "Okyanusun dibindeki uygarlık bize {bir mesaj} gönderseydi ne olurdu?",
+   "pause_after": 0.3
+  },
+  {
+   "id": "gonder",
+   "text": "Robotun hoparlörlerinden aşağıya basit bir mesaj gönderiliyor: {g:Bir}, {g:iki}, {g:üç}, {g:beş}, {g:yedi}. {Biz de saymayı biliyoruz}.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "yanit",
+   "text": "Sonra şehir {yanıt veriyor}. Dizinin devamını gönderiyor: {g:on bir}, {g:on üç}, {g:on yedi}… ve ardından, çok daha karmaşık bir desen.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "siluet",
+   "text": "Işıkların hemen ötesinde, {devasa bir silüet}. Durgun. Sessiz. İzliyor.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "ritim",
+   "text": "Gövdesindeki ışıklar, {sinyalle aynı ritimde} yanıp sönüyor."
+  },
+  {
+   "id": "kopus",
+   "text": "Ve sonra… {bağlantı kopuyor}.",
+   "pause_after": 0.45
+  },
+  {
+   "id": "s_cta",
+   "text": "Hikâyenin tamamı, kanaldaki uzun videoda."
+  }
+ ],
+ "scenes": [
+  {
+   "id": "hareket_pov__4148",
+   "type": "deep3d",
+   "start": "@start",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        524,
+        38,
+        -150
+       ],
+       "target": [
+        420,
+        60,
+        -120
+       ],
+       "fov": 63.8
+      },
+      {
+       "t": 5,
+       "pos": [
+        522,
+        38,
+        -149
+       ],
+       "target": [
+        430,
+        52,
+        -128
+       ],
+       "fov": 63.8
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.02,
+      0.008,
+      0.006
+     ]
+    },
+    "city": {
+     "power": 0.95,
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 5
+    },
+    "hud": {
+     "depth": 8034,
+     "alt": 31,
+     "note": "HAREKET ALGILANDI",
+     "glitch": 0.05
+    },
+    "being": {
+     "vis": 0.35,
+     "pos": [
+      477,
+      12,
+      -138
+     ],
+     "yaw": 0.3
+    }
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "degisim_spectro__1355",
+   "type": "lab",
+   "start": "@s4_hook.w5-0.20",
+   "props": {
+    "panels": [
+     {
+      "kind": "spectro",
+      "x": 5,
+      "y": 15.5,
+      "w": 90,
+      "h": 41.5,
+      "title": "SPEKTROGRAM · CANLI",
+      "window": 8,
+      "beats": [
+       0.2,
+       0.5,
+       0.8,
+       1.1,
+       1.4,
+       2.0,
+       2.2,
+       2.35,
+       2.5,
+       2.6,
+       2.7,
+       2.85,
+       3.0,
+       3.1,
+       3.3,
+       3.45,
+       3.6,
+       3.7,
+       3.85,
+       4.0,
+       4.1,
+       4.3,
+       4.4,
+       4.55,
+       4.7,
+       4.85,
+       5.0,
+       5.1,
+       5.3,
+       5.4,
+       5.55,
+       5.7,
+       5.85,
+       6.0,
+       6.1,
+       6.25,
+       6.4,
+       6.5,
+       6.7
+      ],
+      "band": [
+       0.35,
+       0.78
+      ],
+      "hot": 0.9
+     }
+    ]
+   },
+   "transition": {
+    "type": "flash",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "gonder_send__6269",
+   "type": "signal",
+   "start": "@gonder.start-0.10",
+   "props": {
+    "mode": "send",
+    "sub": "Yankı → şehir",
+    "groups": [
+     {
+      "at": "@gonder.w7",
+      "n": 1
+     },
+     {
+      "at": "@gonder.w8",
+      "n": 2
+     },
+     {
+      "at": "@gonder.w9",
+      "n": 3
+     },
+     {
+      "at": "@gonder.w10",
+      "n": 5
+     },
+     {
+      "at": "@gonder.w11",
+      "n": 7
+     }
+    ]
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "yanit_primes__461",
+   "type": "signal",
+   "start": "@yanit.start-0.10",
+   "props": {
+    "mode": "primes",
+    "groups": [
+     {
+      "at": "@yanit.w7",
+      "n": 11
+     },
+     {
+      "at": "@yanit.w9",
+      "n": 13
+     },
+     {
+      "at": "@yanit.w11",
+      "n": 17
+     }
+    ]
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "yanit_glyph__1825",
+   "type": "signal",
+   "start": "@yanit.w14-0.20",
+   "props": {
+    "mode": "glyph",
+    "at": 0.1,
+    "decode": {
+     "from": 0.8,
+     "dur": 2.6
+    }
+   },
+   "transition": {
+    "type": "zoom",
+    "dur": 0.35
+   }
+  },
+  {
+   "id": "siluet_being__685",
+   "type": "deep3d",
+   "start": "@siluet.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        522,
+        40,
+        -150
+       ],
+       "target": [
+        477,
+        30,
+        -138
+       ],
+       "fov": 60.9
+      },
+      {
+       "t": 9,
+       "pos": [
+        518,
+        40,
+        -149
+       ],
+       "target": [
+        477,
+        30,
+        -138
+       ],
+       "fov": 58.0
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.02,
+      0.008,
+      0.006
+     ]
+    },
+    "city": {
+     "power": 1.0,
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 4
+    },
+    "hud": {
+     "depth": 8034,
+     "alt": 31,
+     "glitch": 0.03
+    },
+    "being": {
+     "vis": 0.9,
+     "pos": [
+      477,
+      12,
+      -138
+     ],
+     "yaw": 0.3
+    }
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "ritim_being__7626",
+   "type": "deep3d",
+   "start": "@ritim.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        510,
+        36,
+        -150
+       ],
+       "target": [
+        477,
+        32,
+        -138
+       ],
+       "fov": 55.1
+      },
+      {
+       "t": 5,
+       "pos": [
+        508,
+        36,
+        -150
+       ],
+       "target": [
+        477,
+        32,
+        -138
+       ],
+       "fov": 55.1
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.022,
+      0.009,
+      0.007
+     ]
+    },
+    "city": {
+     "power": 1.0,
+     "glow": "#45d8d0",
+     "beats": [
+      "@ritim.w1",
+      "@ritim.w2",
+      "@ritim.w3",
+      "@ritim.w4",
+      "@ritim.w5",
+      "@ritim.w6"
+     ]
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 3.5
+    },
+    "hud": {
+     "depth": 8034,
+     "alt": 31,
+     "glitch": 0.06
+    },
+    "being": {
+     "vis": 1.0,
+     "pos": [
+      477,
+      12,
+      -138
+     ],
+     "yaw": 0.3
+    }
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "kopus_lost__8753",
+   "type": "deep3d",
+   "start": "@kopus.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        510,
+        36,
+        -150
+       ],
+       "target": [
+        477,
+        32,
+        -138
+       ],
+       "fov": 55.1
+      },
+      {
+       "t": 5,
+       "pos": [
+        509,
+        36,
+        -150
+       ],
+       "target": [
+        477,
+        32,
+        -138
+       ],
+       "fov": 55.1
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.022,
+      0.009,
+      0.007
+     ]
+    },
+    "city": {
+     "power": 1.0,
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 3.5
+    },
+    "hud": {
+     "depth": 8034,
+     "alt": 31,
+     "glitch": [
+      {
+       "t": 0,
+       "v": 0.1
+      },
+      {
+       "t": 1.2,
+       "v": 0.9
+      }
+     ],
+     "lost": [
+      {
+       "t": 0,
+       "v": 0
+      },
+      {
+       "t": 1.6,
+       "v": 0
+      },
+      {
+       "t": 1.75,
+       "v": 1
+      }
+     ]
+    },
+    "being": {
+     "vis": 1.0,
+     "pos": [
+      477,
+      12,
+      -138
+     ],
+     "yaw": 0.3
+    }
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "eskisi_far__5568",
+   "type": "deep3d",
+   "start": "@s_cta.start-0.20",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -900,
+        250,
+        700
+       ],
+       "target": [
+        0,
+        80,
+        0
+       ],
+       "fov": 58.0
+      },
+      {
+       "t": 10,
+       "pos": [
+        -860,
+        232,
+        668
+       ],
+       "target": [
+        0,
+        90,
+        0
+       ],
+       "fov": 58.0
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.0042,
+      0.0018,
+      0.0015
+     ]
+    },
+    "city": {
+     "power": 1.15,
+     "glow": "#45d8d0",
+     "period": 3.0
+    },
+    "lamps": {
+     "mode": "off"
+    }
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.4
+   }
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Varsayımsal bilimkurgu senaryosu",
+   "start": "@start",
+   "end": "@gonder.start+0.40"
+  }
+ ],
+ "music": {
+  "style": "doc",
+  "seed": 24,
+  "bpm": 92,
+  "sections": {
+   "contact#1": "@start",
+   "signal#1": "@gonder.start-0.20",
+   "suspense#1": "@siluet.start-0.20",
+   "lost#1": "@s_cta.start-0.60",
+   "end": "@end"
+  },
+  "hits": [],
+  "risers": []
+ },
+ "sfx": [
+  {
+   "type": "underwater",
+   "at": "@start",
+   "gain": -8,
+   "dur": 8.5,
+   "depth": 1.0
+  },
+  {
+   "type": "ping",
+   "at": "@gonder.w7",
+   "gain": -7,
+   "pitch": 1.0
+  },
+  {
+   "type": "ping",
+   "at": "@gonder.w8",
+   "gain": -7,
+   "pitch": 1.06
+  },
+  {
+   "type": "ping",
+   "at": "@gonder.w9",
+   "gain": -7,
+   "pitch": 1.12
+  },
+  {
+   "type": "ping",
+   "at": "@gonder.w10",
+   "gain": -7,
+   "pitch": 1.19
+  },
+  {
+   "type": "ping",
+   "at": "@gonder.w11",
+   "gain": -7,
+   "pitch": 1.26
+  },
+  {
+   "type": "pulse",
+   "at": "@yanit.w7",
+   "gain": -6
+  },
+  {
+   "type": "pulse",
+   "at": "@yanit.w9",
+   "gain": -6
+  },
+  {
+   "type": "pulse",
+   "at": "@yanit.w11",
+   "gain": -6
+  },
+  {
+   "type": "glitch",
+   "at": "@yanit.w14-0.10",
+   "gain": -10
+  },
+  {
+   "type": "heartbeat",
+   "at": "@siluet.start+0.20",
+   "gain": -8
+  },
+  {
+   "type": "heartbeat",
+   "at": "@siluet.start+1.10",
+   "gain": -9
+  },
+  {
+   "type": "pulse",
+   "at": "@ritim.w1",
+   "gain": -7
+  },
+  {
+   "type": "pulse",
+   "at": "@ritim.w2",
+   "gain": -7
+  },
+  {
+   "type": "pulse",
+   "at": "@ritim.w3",
+   "gain": -7
+  },
+  {
+   "type": "pulse",
+   "at": "@ritim.w4",
+   "gain": -7
+  },
+  {
+   "type": "pulse",
+   "at": "@ritim.w5",
+   "gain": -7
+  },
+  {
+   "type": "pulse",
+   "at": "@ritim.w6",
+   "gain": -7
+  },
+  {
+   "type": "glitch",
+   "at": "@kopus.start+0.90",
+   "gain": -6
+  },
+  {
+   "type": "static",
+   "at": "@kopus.start+1.50",
+   "gain": -5,
+   "dur": 0.3
+  },
+  {
+   "type": "tv",
+   "at": "@kopus.end+0.10",
+   "gain": -12,
+   "dur": 1.6
+  }
+ ],
+ "foreign_words": [
+  "SOFAR"
+ ],
+ "metadata": {
+  "title": "İlk temas | Varsayımsal bilimkurgu",
+  "description": [],
+  "hashtags": []
+ }
+}

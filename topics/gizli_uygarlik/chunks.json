@@ -266,5 +266,54 @@
    "cta"
   ],
   "text": "Sen olsaydın, onlarla iletişim kurar mıydın?"
+ },
+ {
+  "id": "s1",
+  "lines": [
+   "s1_hook"
+  ],
+  "text": "Bilim insanları okyanusun sekiz bin metre altında bir sinyal yakalasaydı ne olurdu?"
+ },
+ {
+  "id": "s2",
+  "lines": [
+   "s2_hook"
+  ],
+  "text": "Bir denizaltı okyanusun dibinde, ışıkları açık devasa bir şehir bulsaydı?"
+ },
+ {
+  "id": "s3",
+  "lines": [
+   "s3_hook"
+  ],
+  "text": "Ya Dünyanın en gelişmiş uygarlığı insanlar değilse?"
+ },
+ {
+  "id": "s4",
+  "lines": [
+   "s4_hook"
+  ],
+  "text": "Okyanusun dibindeki uygarlık bize bir mesaj gönderseydi ne olurdu?"
+ },
+ {
+  "id": "s5",
+  "lines": [
+   "s5_hook"
+  ],
+  "text": "Bu keşif bütün dünya ekonomisini değiştirebilirdi!"
+ },
+ {
+  "id": "s6",
+  "lines": [
+   "s6_hook"
+  ],
+  "text": "Onları ilk kez keşfettiğimizi düşündük. Ama onlar bizi zaten tanıyordu."
+ },
+ {
+  "id": "sc",
+  "lines": [
+   "s_cta"
+  ],
+  "text": "Hikâyenin tamamı, kanaldaki uzun videoda."
  }
 ]

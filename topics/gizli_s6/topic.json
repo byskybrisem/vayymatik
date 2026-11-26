@@ -1,0 +1,564 @@
+{
+ "id": "gizli_s6",
+ "output_name": "VAYYMATIK0_Gizli_Uygarlik_Shorts_06",
+ "language": "tr",
+ "render": {
+  "width": 1080,
+  "height": 1920,
+  "crf": 19
+ },
+ "voice": {
+  "provider": "external",
+  "source_topic": "gizli_uygarlik",
+  "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
+  "lead_in": 0.12,
+  "tail": 1.4,
+  "gap_chunk": 0.3
+ },
+ "lines": [
+  {
+   "id": "s6_hook",
+   "text": "Onları ilk kez keşfettiğimizi düşündük. Ama onlar {bizi zaten tanıyordu}.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "cozum",
+   "text": "Aylar süren çalışmanın ardından, sinyallerin bir bölümü {çözülüyor}."
+  },
+  {
+   "id": "harita",
+   "text": "İlk anlaşılan şey, bir {harita}. Ekranda, Dünya'nın okyanuslarında yanıp sönen noktalar beliriyor."
+  },
+  {
+   "id": "pasifik",
+   "text": "{w:Pasifik}."
+  },
+  {
+   "id": "atlantik",
+   "text": "{w:Atlantik}."
+  },
+  {
+   "id": "hint",
+   "text": "{w:Hint Okyanusu}."
+  },
+  {
+   "id": "tek",
+   "text": "Keşfedilen şehir, {tek değil}."
+  },
+  {
+   "id": "kayit",
+   "text": "Okyanusu dinleyen istasyonların eski kayıtları yeniden inceleniyor. Bu noktalardan gelen sinyaller, {yıllardır} oradaymış. Biz onları doğanın sesi sanmışız.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "mesaj",
+   "text": "{Biz sizi uzun zamandır izliyoruz.}",
+   "pause_after": 0.3
+  },
+  {
+   "id": "cta",
+   "text": "Sen olsaydın, onlarla {iletişim kurar mıydın}?",
+   "pause_after": 0.45
+  },
+  {
+   "id": "s_cta",
+   "text": "Hikâyenin tamamı, kanaldaki uzun videoda."
+  }
+ ],
+ "scenes": [
+  {
+   "id": "uzay_earth__4148",
+   "type": "earth",
+   "start": "@start",
+   "props": {
+    "clouds": 0.5,
+    "stars": 0.9,
+    "exposure": 1.05,
+    "sat": 1.05,
+    "sunFollow": [
+     -20,
+     60
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "lat": 5,
+      "lon": -150,
+      "alt": 9000,
+      "heading": 0,
+      "pitch": 90,
+      "fov": 46
+     },
+     {
+      "t": 14,
+      "lat": 0,
+      "lon": -100,
+      "alt": 32000,
+      "e": "inOut"
+     }
+    ],
+    "lights": [
+     {
+      "lat": -30.5,
+      "lon": -177.0,
+      "from": 0.4,
+      "size": 0.65
+     },
+     {
+      "lat": 19.8,
+      "lon": -66.0,
+      "from": 0.65,
+      "size": 0.65
+     },
+     {
+      "lat": -10.3,
+      "lon": 110.0,
+      "from": 0.9,
+      "size": 0.65
+     },
+     {
+      "lat": 11.3,
+      "lon": 142.2,
+      "from": 1.15,
+      "size": 0.65
+     },
+     {
+      "lat": 37.0,
+      "lon": 143.5,
+      "from": 1.4,
+      "size": 0.65
+     },
+     {
+      "lat": -23.0,
+      "lon": -71.5,
+      "from": 1.65,
+      "size": 0.65
+     },
+     {
+      "lat": 51.0,
+      "lon": -175.0,
+      "from": 1.9,
+      "size": 0.65
+     },
+     {
+      "lat": -56.0,
+      "lon": -25.0,
+      "from": 2.15,
+      "size": 0.65
+     },
+     {
+      "lat": 10.5,
+      "lon": 127.0,
+      "from": 2.4,
+      "size": 0.65
+     },
+     {
+      "lat": -8.0,
+      "lon": -152.0,
+      "from": 2.65,
+      "size": 0.65
+     },
+     {
+      "lat": 25.0,
+      "lon": -40.0,
+      "from": 2.9,
+      "size": 0.65
+     },
+     {
+      "lat": -40.0,
+      "lon": 60.0,
+      "from": 3.15,
+      "size": 0.65
+     }
+    ]
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "cozum_glyph__9687",
+   "type": "signal",
+   "start": "@cozum.start-0.30",
+   "props": {
+    "mode": "glyph",
+    "at": 0.0,
+    "decode": {
+     "from": 0.3,
+     "dur": 5.0
+    }
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "harita_earth__173",
+   "type": "earth",
+   "start": "@harita.start-0.10",
+   "props": {
+    "clouds": 0.4,
+    "stars": 0.8,
+    "exposure": 1.1,
+    "sat": 1.05,
+    "sunFollow": [
+     -8,
+     30
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "lat": 10,
+      "lon": -150,
+      "alt": 26000,
+      "heading": 0,
+      "pitch": 90,
+      "fov": 46
+     },
+     {
+      "t": "@pasifik.w0-0.20",
+      "lat": -20,
+      "lon": -172,
+      "alt": 9000,
+      "e": "inOut"
+     },
+     {
+      "t": "@atlantik.w0-0.20",
+      "lat": 18,
+      "lon": -60,
+      "alt": 9500,
+      "e": "inOut"
+     },
+     {
+      "t": "@hint.w0-0.20",
+      "lat": -12,
+      "lon": 100,
+      "alt": 9500,
+      "e": "inOut"
+     },
+     {
+      "t": "@tek.end+0.60",
+      "lat": 0,
+      "lon": 30,
+      "alt": 30000,
+      "e": "inOut"
+     }
+    ],
+    "lights": [
+     {
+      "lat": -30.5,
+      "lon": -177.0,
+      "from": "@harita.w10-0.30",
+      "label": "PASİFİK"
+     },
+     {
+      "lat": 19.8,
+      "lon": -66.0,
+      "from": "@harita.w11",
+      "label": "ATLANTİK"
+     },
+     {
+      "lat": -10.3,
+      "lon": 110.0,
+      "from": "@harita.w11+0.40",
+      "label": "HİNT OKYANUSU"
+     },
+     {
+      "lat": 11.3,
+      "lon": 142.2,
+      "from": "@tek.start+0.20",
+      "size": 0.7
+     },
+     {
+      "lat": 37.0,
+      "lon": 143.5,
+      "from": "@tek.start+0.40",
+      "size": 0.7
+     },
+     {
+      "lat": -23.0,
+      "lon": -71.5,
+      "from": "@tek.start+0.60",
+      "size": 0.7
+     },
+     {
+      "lat": 51.0,
+      "lon": -175.0,
+      "from": "@tek.start+0.80",
+      "size": 0.7
+     },
+     {
+      "lat": -56.0,
+      "lon": -25.0,
+      "from": "@tek.start+1.00",
+      "size": 0.7
+     },
+     {
+      "lat": 10.5,
+      "lon": 127.0,
+      "from": "@tek.start+1.20",
+      "size": 0.7
+     }
+    ]
+   },
+   "transition": {
+    "type": "zoom",
+    "dur": 0.35
+   }
+  },
+  {
+   "id": "kayit_archive__7938",
+   "type": "lab",
+   "start": "@kayit.start-0.10",
+   "props": {
+    "tag": "KURGUSAL CANLANDIRMA",
+    "panels": [
+     {
+      "kind": "spectro",
+      "x": 5,
+      "y": 15.5,
+      "w": 90,
+      "h": 12.77,
+      "title": "ARŞİV · 2019",
+      "beats": [
+       1.0,
+       3.4,
+       5.8,
+       8.2
+      ],
+      "window": 9,
+      "hot": 0.55
+     },
+     {
+      "kind": "spectro",
+      "x": 5,
+      "y": 29.87,
+      "w": 90,
+      "h": 12.77,
+      "title": "ARŞİV · 2022",
+      "beats": [
+       0.6,
+       3.0,
+       5.4,
+       7.8,
+       10.2
+      ],
+      "window": 9,
+      "hot": 0.6,
+      "at": 6
+     },
+     {
+      "kind": "spectro",
+      "x": 5,
+      "y": 44.23,
+      "w": 90,
+      "h": 12.77,
+      "title": "ARŞİV · 2025",
+      "beats": [
+       1.4,
+       3.8,
+       6.2,
+       8.6,
+       11.0
+      ],
+      "window": 9,
+      "hot": 0.7,
+      "at": 12
+     }
+    ]
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "mesaj_text__3216",
+   "type": "signal",
+   "start": "@mesaj.start-0.25",
+   "props": {
+    "mode": "message",
+    "text": "BİZ SİZİ UZUN ZAMANDIR İZLİYORUZ.",
+    "at": 0.1
+   },
+   "transition": {
+    "type": "glitch",
+    "dur": 0.35
+   }
+  },
+  {
+   "id": "s6_sen",
+   "type": "choice",
+   "start": "@cta.start-0.20",
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   },
+   "props": {
+    "focus": [
+     {
+      "at": 0,
+      "i": 3
+     }
+    ],
+    "prompt": {
+     "at": 0.3,
+     "text": "SEN OLSAYDIN?"
+    }
+   }
+  },
+  {
+   "id": "eskisi_far__5568",
+   "type": "deep3d",
+   "start": "@s_cta.start-0.20",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -900,
+        250,
+        700
+       ],
+       "target": [
+        0,
+        80,
+        0
+       ],
+       "fov": 58.0
+      },
+      {
+       "t": 10,
+       "pos": [
+        -860,
+        232,
+        668
+       ],
+       "target": [
+        0,
+        90,
+        0
+       ],
+       "fov": 58.0
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.0042,
+      0.0018,
+      0.0015
+     ]
+    },
+    "city": {
+     "power": 1.15,
+     "glow": "#45d8d0",
+     "period": 3.0
+    },
+    "lamps": {
+     "mode": "off"
+    }
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Varsayımsal bilimkurgu senaryosu",
+   "start": "@start",
+   "end": "@cozum.start+0.40"
+  }
+ ],
+ "music": {
+  "style": "doc",
+  "seed": 26,
+  "bpm": 92,
+  "sections": {
+   "signal#1": "@start",
+   "finale#1": "@harita.start-0.20",
+   "lost#1": "@mesaj.start-0.40",
+   "outro#1": "@cta.start-0.30",
+   "end": "@end"
+  },
+  "hits": [],
+  "risers": []
+ },
+ "sfx": [
+  {
+   "type": "underwater",
+   "at": "@start",
+   "gain": -8,
+   "dur": 8.5,
+   "depth": 1.0
+  },
+  {
+   "type": "glitch",
+   "at": "@cozum.start+0.20",
+   "gain": -11
+  },
+  {
+   "type": "ping",
+   "at": "@harita.w10-0.30",
+   "gain": -8,
+   "pitch": 0.9
+  },
+  {
+   "type": "ping",
+   "at": "@harita.w11",
+   "gain": -8,
+   "pitch": 1.0
+  },
+  {
+   "type": "ping",
+   "at": "@harita.w11+0.40",
+   "gain": -8,
+   "pitch": 1.1
+  },
+  {
+   "type": "pulse",
+   "at": "@pasifik.w0",
+   "gain": -7
+  },
+  {
+   "type": "pulse",
+   "at": "@atlantik.w0",
+   "gain": -7
+  },
+  {
+   "type": "pulse",
+   "at": "@hint.w0",
+   "gain": -7
+  },
+  {
+   "type": "blips",
+   "at": "@kayit.start+0.40",
+   "gain": -12,
+   "dur": 4.0
+  },
+  {
+   "type": "glitch",
+   "at": "@mesaj.start-0.20",
+   "gain": -6
+  },
+  {
+   "type": "boom",
+   "at": "@mesaj.start+0.20",
+   "gain": -5
+  }
+ ],
+ "foreign_words": [
+  "SOFAR"
+ ],
+ "metadata": {
+  "title": "Bizi zaten tanıyorlardı | Varsayımsal bilimkurgu",
+  "description": [],
+  "hashtags": []
+ }
+}

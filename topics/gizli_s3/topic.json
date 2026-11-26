@@ -1,0 +1,640 @@
+{
+ "id": "gizli_s3",
+ "output_name": "VAYYMATIK0_Gizli_Uygarlik_Shorts_03",
+ "language": "tr",
+ "render": {
+  "width": 1080,
+  "height": 1920,
+  "crf": 19
+ },
+ "voice": {
+  "provider": "external",
+  "source_topic": "gizli_uygarlik",
+  "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
+  "lead_in": 0.12,
+  "tail": 1.4,
+  "gap_chunk": 0.3
+ },
+ "lines": [
+  {
+   "id": "s3_hook",
+   "text": "Ya Dünya'nın en gelişmiş uygarlığı {insanlar değilse}?",
+   "pause_after": 0.3
+  },
+  {
+   "id": "baca",
+   "text": "Önce enerji. Okyanus tabanında, sıcaklığı {g:350 dereceyi} aşabilen suyu fışkırtan {hidrotermal bacalar} var. İlk kez {g:1977}'de keşfedildiler.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "enerji_kurgu",
+   "text": "Ama bu ısıyı, bir şehri çalıştıracak ölçekte toplamak? İşte o kısım {tamamen kurgu}.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "sofar",
+   "text": "Ve iletişim. Okyanusta, sesin {binlerce kilometre} taşınabildiği doğal bir kanal var: {SOFAR|Sofar} kanalı. Bu da gerçek.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "fisilti",
+   "text": "Bir uygarlık bu kanalı kullansaydı, okyanusun bir ucundan diğerine {fısıldayabilirdi}."
+  },
+  {
+   "id": "ucurum",
+   "text": "Bütün bunlar gerçek olsaydı, aramızdaki fark birkaç yüzyıl değil, belki de {binlerce yıl} olurdu.",
+   "pause_after": 0.45
+  },
+  {
+   "id": "s_cta",
+   "text": "Hikâyenin tamamı, kanaldaki uzun videoda."
+  }
+ ],
+ "scenes": [
+  {
+   "id": "olcek_heart__4148",
+   "type": "deep3d",
+   "start": "@start",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        170,
+        26,
+        160
+       ],
+       "target": [
+        0,
+        175,
+        0
+       ],
+       "fov": 66.7
+      },
+      {
+       "t": 5,
+       "pos": [
+        150,
+        30,
+        140
+       ],
+       "target": [
+        0,
+        185,
+        0
+       ],
+       "fov": 66.7
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.008,
+      0.0034,
+      0.0027
+     ]
+    },
+    "city": {
+     "power": 1.2,
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "off"
+    }
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "sehir_reveal__6502",
+   "type": "deep3d",
+   "start": "@s3_hook.w5-0.20",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        720,
+        42,
+        -120
+       ],
+       "target": [
+        0,
+        110,
+        0
+       ],
+       "fov": 63.8
+      },
+      {
+       "t": 12,
+       "pos": [
+        712,
+        96,
+        -118
+       ],
+       "target": [
+        0,
+        140,
+        0
+       ],
+       "fov": 63.8
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      {
+       "t": 0,
+       "v": [
+        0.008,
+        0.0034,
+        0.0027
+       ]
+      },
+      {
+       "t": 10,
+       "v": [
+        0.0042,
+        0.0018,
+        0.0015
+       ]
+      }
+     ]
+    },
+    "city": {
+     "power": [
+      {
+       "t": 0,
+       "v": 0.85
+      },
+      {
+       "t": 4,
+       "v": 1.15
+      }
+     ],
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "rov",
+     "i": 6,
+     "beams": 1
+    },
+    "rov": {
+     "show": true,
+     "pos": [
+      {
+       "t": 0,
+       "v": [
+        708.9,
+        44.0,
+        -120.2
+       ]
+      },
+      {
+       "t": 12,
+       "v": [
+        700.9,
+        97.7,
+        -118.2
+       ],
+       "e": "cine"
+      }
+     ],
+     "yaw": -2.977
+    },
+    "grade": {
+     "vignette": 0.6
+    }
+   },
+   "transition": {
+    "type": "flash",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "baca_vents__9573",
+   "type": "deep3d",
+   "start": "@baca.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -936,
+        7,
+        316
+       ],
+       "target": [
+        -950,
+        7,
+        300
+       ],
+       "fov": 66.7
+      },
+      {
+       "t": 9,
+       "pos": [
+        -940,
+        6.5,
+        313
+       ],
+       "target": [
+        -950,
+        7.5,
+        300
+       ],
+       "fov": 63.8
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.06,
+      0.025,
+      0.018
+     ]
+    },
+    "city": {
+     "show": false
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 6
+    },
+    "hud": {
+     "depth": 2510,
+     "label": "TEMSİLİ · HİDROTERMAL BACA"
+    },
+    "vents": {
+     "show": true,
+     "pos": [
+      -950,
+      0,
+      300
+     ]
+    },
+    "tag": "GERÇEK · İLK KEŞİF 1977 (WHOI)",
+    "tagColor": "#5BE38A"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "ekosistem_worms__6422",
+   "type": "deep3d",
+   "start": "@baca.w13-0.20",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -945.5,
+        2.6,
+        307
+       ],
+       "target": [
+        -950,
+        1.2,
+        301.5
+       ],
+       "fov": 60.9
+      },
+      {
+       "t": 7,
+       "pos": [
+        -944,
+        2.4,
+        306
+       ],
+       "target": [
+        -949.5,
+        1.2,
+        301
+       ],
+       "fov": 58.0
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.06,
+      0.025,
+      0.018
+     ]
+    },
+    "city": {
+     "show": false
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 5
+    },
+    "hud": {
+     "depth": 2510,
+     "label": "TEMSİLİ · TÜP SOLUCANLARI"
+    },
+    "vents": {
+     "show": true,
+     "pos": [
+      -950,
+      0,
+      300
+     ]
+    },
+    "tag": "GERÇEK · KİMYASAL ENERJİYLE YAŞAM",
+    "tagColor": "#5BE38A"
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "enerji_kurgu_heart__7660",
+   "type": "deep3d",
+   "start": "@enerji_kurgu.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        260,
+        165,
+        -220
+       ],
+       "target": [
+        0,
+        195,
+        0
+       ],
+       "fov": 58.0
+      },
+      {
+       "t": 6,
+       "pos": [
+        240,
+        170,
+        -200
+       ],
+       "target": [
+        0,
+        197,
+        0
+       ],
+       "fov": 58.0
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.008,
+      0.0034,
+      0.0027
+     ]
+    },
+    "city": {
+     "power": 1.3,
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "off"
+    },
+    "tag": "KURGU · ŞEHİR ÖLÇEĞİNDE ENERJİ",
+    "tagColor": "#FFB347"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "sofar_info__2621",
+   "type": "info",
+   "start": "@sofar.start-0.10",
+   "props": {
+    "mode": "sofar",
+    "title": "Okyanusun doğal ses kanalı"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "fisilti_earth__328",
+   "type": "earth",
+   "start": "@fisilti.start-0.20",
+   "props": {
+    "clouds": 0.45,
+    "stars": 0.7,
+    "exposure": 1.1,
+    "sat": 1.05,
+    "sunFollow": [
+     -10,
+     35
+    ],
+    "keys": [
+     {
+      "t": 0,
+      "lat": 5,
+      "lon": -150,
+      "alt": 21000,
+      "heading": 0,
+      "pitch": 90,
+      "fov": 46
+     },
+     {
+      "t": 8,
+      "lat": 0,
+      "lon": -120,
+      "alt": 23000,
+      "e": "linear"
+     }
+    ],
+    "arcs": [
+     {
+      "from": [
+       -30.5,
+       -177.0
+      ],
+      "to": [
+       19.8,
+       -66.0
+      ],
+      "start": 0.6,
+      "dur": 2.4
+     },
+     {
+      "from": [
+       -30.5,
+       -177.0
+      ],
+      "to": [
+       -10.3,
+       110.0
+      ],
+      "start": 1.6,
+      "dur": 2.8
+     }
+    ]
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "ucurum_gap__4288",
+   "type": "info",
+   "start": "@ucurum.start-0.10",
+   "props": {
+    "mode": "gap",
+    "title": "Aradaki fark: yüzyıllar mı, binlerce yıl mı?"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "tur_city__3322",
+   "type": "deep3d",
+   "start": "@s_cta.start-0.30",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        690,
+        66,
+        214
+       ],
+       "target": [
+        0,
+        120,
+        0
+       ],
+       "fov": 58.0
+      },
+      {
+       "t": 8,
+       "pos": [
+        700,
+        72,
+        220
+       ],
+       "target": [
+        0,
+        125,
+        0
+       ],
+       "fov": 56.5
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.008,
+      0.0034,
+      0.0027
+     ]
+    },
+    "city": {
+     "power": 1.05,
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "rov",
+     "i": 5,
+     "beams": 1
+    },
+    "rov": {
+     "show": true,
+     "pos": [
+      672,
+      60,
+      206
+     ],
+     "yaw": -2.84
+    }
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.4
+   }
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Varsayımsal bilimkurgu senaryosu",
+   "start": "@start",
+   "end": "@baca.start+0.40"
+  }
+ ],
+ "music": {
+  "style": "doc",
+  "seed": 23,
+  "bpm": 92,
+  "sections": {
+   "wonder#1": "@start",
+   "tech#1": "@baca.start-0.20",
+   "contact#1": "@sofar.start-0.20",
+   "finale#1": "@ucurum.start-0.20",
+   "end": "@end"
+  },
+  "hits": [],
+  "risers": []
+ },
+ "sfx": [
+  {
+   "type": "underwater",
+   "at": "@start",
+   "gain": -8,
+   "dur": 8.5,
+   "depth": 1.0
+  },
+  {
+   "type": "underwater",
+   "at": "@baca.start-0.10",
+   "gain": -9,
+   "dur": 17.0,
+   "depth": 0.8
+  },
+  {
+   "type": "ping",
+   "at": "@fisilti.start+0.60",
+   "gain": -12,
+   "pitch": 0.6
+  },
+  {
+   "type": "ping",
+   "at": "@fisilti.start+1.60",
+   "gain": -12,
+   "pitch": 0.6
+  }
+ ],
+ "foreign_words": [
+  "SOFAR"
+ ],
+ "metadata": {
+  "title": "Bizden daha gelişmiş bir uygarlık | Varsayımsal bilimkurgu",
+  "description": [],
+  "hashtags": []
+ }
+}

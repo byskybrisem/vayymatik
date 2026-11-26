@@ -211,7 +211,9 @@ const Council: React.FC<{p: NewsProps}> = ({p}) => {
 	);
 };
 
-export const NewsScene: React.FC<NewsProps> = (p) => (
+export const NewsScene: React.FC<NewsProps> = (p) => {
+	const {width: W, height: H} = useVideoConfig();
+	return (
 	<AbsoluteFill style={{background: C.bg0}}>
 		<Drift push={0.035} amp={5} seed={p.mode}>
 			{p.mode === 'broadcast' ? <Broadcast p={p} /> : null}
@@ -220,8 +222,9 @@ export const NewsScene: React.FC<NewsProps> = (p) => (
 			{p.mode === 'split' ? <Split p={p} /> : null}
 			{p.mode === 'council' ? <Council p={p} /> : null}
 		</Drift>
-		<Tag text={p.tag ?? 'KURGUSAL CANLANDIRMA'} style={{right: 80, top: 54}} />
+		<Tag text={p.tag ?? 'KURGUSAL CANLANDIRMA'} style={{right: 80, top: W > H ? 54 : 262}} />
 		{p.chapter ? <Chapter spec={p.chapter} /> : null}
 		<Grain opacity={0.07} />
 	</AbsoluteFill>
-);
+	);
+};

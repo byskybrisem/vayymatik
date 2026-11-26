@@ -1,0 +1,303 @@
+{
+ "id": "gizli_s5",
+ "output_name": "VAYYMATIK0_Gizli_Uygarlik_Shorts_05",
+ "language": "tr",
+ "render": {
+  "width": 1080,
+  "height": 1920,
+  "crf": 19
+ },
+ "voice": {
+  "provider": "external",
+  "source_topic": "gizli_uygarlik",
+  "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
+  "lead_in": 0.12,
+  "tail": 1.4,
+  "gap_chunk": 0.3
+ },
+ "lines": [
+  {
+   "id": "s5_hook",
+   "text": "Bu keşif bütün {dünya ekonomisini} değiştirebilirdi!",
+   "pause_after": 0.3
+  },
+  {
+   "id": "sizinti",
+   "text": "Görüntüler resmî bir açıklamadan önce sızıyor. Birkaç saat içinde {milyarlarca ekrana} ulaşıyor.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "piyasa",
+   "text": "Piyasalar sarsılıyor. Enerji, savunma ve deniz taşımacılığı hisselerinde {sert dalgalanmalar} yaşanıyor.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "ekonomi",
+   "text": "Tek bir enerji teknolojisi bile, petrolden elektriğe bütün piyasaları altüst edebilirdi. Tek bir patent, koca bir sektörü {bitirebilirdi}.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "hukuk",
+   "text": "Uluslararası deniz hukukuna göre, ülkelerin yetki alanı dışındaki okyanus tabanı, {insanlığın ortak mirası} sayılıyor."
+  },
+  {
+   "id": "miras",
+   "text": "Peki ya orada, bizden çok önce yaşayan biri varsa? O miras, gerçekte {kime ait}?",
+   "pause_after": 0.45
+  },
+  {
+   "id": "s_cta",
+   "text": "Hikâyenin tamamı, kanaldaki uzun videoda."
+  }
+ ],
+ "scenes": [
+  {
+   "id": "s5_broadcast",
+   "type": "news",
+   "start": "@start",
+   "props": {
+    "mode": "broadcast",
+    "src": "gizli/city_wide.jpg",
+    "headline": "Okyanusun altında bir uygarlık mı?"
+   }
+  },
+  {
+   "id": "sizinti_phones__5131",
+   "type": "news",
+   "start": "@sizinti.start-0.20",
+   "props": {
+    "mode": "phones"
+   },
+   "transition": {
+    "type": "whip",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "piyasa_markets__3848",
+   "type": "news",
+   "start": "@piyasa.start-0.10",
+   "props": {
+    "mode": "markets",
+    "headline": "Piyasalarda sert dalgalanma",
+    "tag": "VARSAYIMSAL SENARYO"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "ekonomi_lab__6837",
+   "type": "lab",
+   "start": "@ekonomi.start-0.10",
+   "props": {
+    "tag": "VARSAYIMSAL SENARYO",
+    "panels": [
+     {
+      "kind": "counter",
+      "x": 5,
+      "y": 15.5,
+      "w": 90,
+      "h": 19.95,
+      "a": 100,
+      "b": 31,
+      "from": "@ekonomi.w5",
+      "to": "@ekonomi.w9+0.60",
+      "label": "Enerji endeksi (varsayımsal)",
+      "color": "#FF5A4A"
+     },
+     {
+      "kind": "log",
+      "x": 5,
+      "y": 37.05,
+      "w": 90,
+      "h": 19.95,
+      "title": "ETKİLENEN SEKTÖRLER",
+      "lines": [
+       "• Petrol ve doğal gaz",
+       "• Elektrik üretimi",
+       "• Malzeme bilimi",
+       "• Savunma sanayi",
+       "• Deniz taşımacılığı",
+       "• Patent ve lisans hukuku"
+      ],
+      "rate": 10
+     }
+    ]
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "hukuk_law__7985",
+   "type": "info",
+   "start": "@hukuk.start-0.10",
+   "props": {
+    "mode": "law"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "miras_city__2169",
+   "type": "deep3d",
+   "start": "@miras.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -330,
+        24,
+        280
+       ],
+       "target": [
+        0,
+        120,
+        0
+       ],
+       "fov": 55.1
+      },
+      {
+       "t": 8,
+       "pos": [
+        -318,
+        30,
+        270
+       ],
+       "target": [
+        0,
+        125,
+        0
+       ],
+       "fov": 55.1
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.008,
+      0.0034,
+      0.0027
+     ]
+    },
+    "city": {
+     "power": 1.0,
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "off"
+    }
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "toplanti_council__3322",
+   "type": "news",
+   "start": "@s_cta.start-0.30",
+   "props": {
+    "mode": "council",
+    "src": "gizli/city_wide.jpg"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Varsayımsal bilimkurgu senaryosu",
+   "start": "@start",
+   "end": "@sizinti.start+0.40"
+  }
+ ],
+ "music": {
+  "style": "doc",
+  "seed": 25,
+  "bpm": 92,
+  "sections": {
+   "news#1": "@start",
+   "somber#1": "@hukuk.start-0.20",
+   "reveal#1": "@miras.start-0.20",
+   "end": "@end"
+  },
+  "hits": [],
+  "risers": []
+ },
+ "sfx": [
+  {
+   "type": "underwater",
+   "at": "@start",
+   "gain": -8,
+   "dur": 8.5,
+   "depth": 1.0
+  },
+  {
+   "type": "pop",
+   "at": "@sizinti.start-0.10",
+   "gain": -11
+  },
+  {
+   "type": "pop",
+   "at": "@sizinti.start+0.13",
+   "gain": -11
+  },
+  {
+   "type": "pop",
+   "at": "@sizinti.start+0.36",
+   "gain": -11
+  },
+  {
+   "type": "pop",
+   "at": "@sizinti.start+0.59",
+   "gain": -11
+  },
+  {
+   "type": "pop",
+   "at": "@sizinti.start+0.82",
+   "gain": -11
+  },
+  {
+   "type": "pop",
+   "at": "@sizinti.start+1.05",
+   "gain": -11
+  },
+  {
+   "type": "ticks",
+   "at": "@piyasa.start+0.20",
+   "gain": -14,
+   "dur": 3.0
+  },
+  {
+   "type": "underwater",
+   "at": "@miras.start-0.20",
+   "gain": -10,
+   "dur": 8.0
+  },
+  {
+   "type": "ticks",
+   "at": "@ekonomi.start+0.40",
+   "gain": -13,
+   "dur": 3.5
+  }
+ ],
+ "foreign_words": [
+  "SOFAR"
+ ],
+ "metadata": {
+  "title": "Dünyanın en büyük keşfi | Varsayımsal bilimkurgu",
+  "description": [],
+  "hashtags": []
+ }
+}

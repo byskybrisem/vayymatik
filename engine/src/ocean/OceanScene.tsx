@@ -125,7 +125,7 @@ export const OceanScene: React.FC<OceanProps> = (p) => {
 			<GLCanvas frag={p.mode === 'storm' ? STORM_FRAG : WATER_FRAG} uniforms={uniforms} width={width} height={height} scale={scale} />
 			<Grade spec={p.grade} lamp={p.mode === 'water' ? Math.min(1, num(frame, p.lamp, 1)) : 0} />
 			{p.hud ? <Hud spec={p.hud} /> : null}
-			{p.tag ? <Tag text={p.tag} color={p.tagColor} style={{right: 80, top: p.hud ? 150 : 56}} /> : null}
+			{p.tag ? <Tag text={p.tag} color={p.tagColor} style={{right: 80, top: height > width ? 430 : p.hud ? 150 : 56}} /> : null}
 			{p.chapter ? <Chapter spec={p.chapter} /> : null}
 			{p.titles ? <Titles titles={p.titles} /> : null}
 		</AbsoluteFill>

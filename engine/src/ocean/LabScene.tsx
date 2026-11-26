@@ -410,13 +410,13 @@ export const LabScene: React.FC<LabProps> = ({panels, title, sub, tag, push = 0.
 					);
 				})}
 				{title ? (
-					<div style={{position: 'absolute', left: 80, top: 58, opacity: appear(frame, 4, 14)}}>
+					<div style={{position: 'absolute', left: W > H ? 80 : 60, top: W > H ? 58 : 280, opacity: appear(frame, 4, 14), maxWidth: W - 120}}>
 						<Label size={18} color={C.cyan}>{sub ?? 'AR-GE GEMİSİ MERİDYEN · AKUSTİK LABORATUVARI'}</Label>
-						<Title size={46} style={{marginTop: 8}}>{title}</Title>
+						<Title size={W > H ? 46 : 54} style={{marginTop: 8}}>{title}</Title>
 					</div>
 				) : null}
 			</Drift>
-			{tag ? <Tag text={tag} style={{right: 80, top: 60}} /> : null}
+			{tag ? <Tag text={tag} style={{right: 80, top: W > H ? 60 : 262}} /> : null}
 			<Grain opacity={0.07} />
 		</AbsoluteFill>
 	);

@@ -299,15 +299,16 @@ const GlyphV: React.FC<{p: SignalProps}> = ({p}) => {
 	const frame = useCurrentFrame();
 	const {width: W, height: H} = useVideoConfig();
 	const dec = p.decode ? Math.max(0, Math.min(1, (frame - p.decode.from) / Math.max(1, p.decode.dur))) : 0;
-	const size = H * 0.7;
+	const land = W > H;
+	const size = land ? H * 0.7 : W * 0.82;
 	const build = appear(frame, p.at ?? 0, 30);
 	const digits = p.digits ?? '3 · 1 · 4 · 1 · 5 · 9 · 2 · 6';
 	return (
 		<>
-			<div style={{position: 'absolute', left: W * 0.08, top: (H - size) / 2, opacity: build, transform: `scale(${0.85 + 0.15 * build})`}}>
+			<div style={{position: 'absolute', left: land ? W * 0.08 : (W - size) / 2, top: land ? (H - size) / 2 : H * 0.2, opacity: build, transform: `scale(${0.85 + 0.15 * build})`}}>
 				<GlyphSvg size={size} decoded={dec} rot={frame * 0.12} />
 			</div>
-			<div style={{position: 'absolute', left: W * 0.55, top: H * 0.3, width: W * 0.38}}>
+			<div style={{position: 'absolute', left: land ? W * 0.55 : 70, top: land ? H * 0.3 : H * 0.2 + size + 20, width: land ? W * 0.38 : W - 140}}>
 				<Label size={20} color={C.cyan}>Gelen desen · çözümleme</Label>
 				<div style={{fontFamily: FONTS.mono, fontSize: 46, color: C.green, marginTop: 18, opacity: appear(frame, (p.decode?.from ?? 0) + 20, 12)}}>{digits}</div>
 				<div style={{fontFamily: FONTS.mono, fontSize: 30, color: C.amber, marginTop: 16, opacity: appear(frame, (p.decode?.from ?? 0) + 40, 12), whiteSpace: 'nowrap'}}>
@@ -365,7 +366,7 @@ const SendV: React.FC<{p: SignalProps}> = ({p}) => {
 
 export const SignalScene: React.FC<SignalProps> = (p) => {
 	const frame = useCurrentFrame();
-	const {width: W} = useVideoConfig();
+	const {width: W, height: H} = useVideoConfig();
 	return (
 		<AbsoluteFill style={{background: C.bg0}}>
 			<Drift push={0.04} amp={6} seed={p.mode}>
@@ -379,13 +380,13 @@ export const SignalScene: React.FC<SignalProps> = (p) => {
 				{p.mode === 'message' ? <MessageV p={p} /> : null}
 				{p.mode === 'send' ? <SendV p={p} /> : null}
 				{p.title ? (
-					<div style={{position: 'absolute', left: W > 1200 ? 120 : 70, top: 70, opacity: appear(frame, 2, 12)}}>
+					<div style={{position: 'absolute', left: W > H ? 120 : 70, top: W > H ? 70 : 290, opacity: appear(frame, 2, 12), maxWidth: W - 140}}>
 						<Label size={18} color={C.cyan}>{p.sub ?? 'Sinyal analizi'}</Label>
 						<Title size={W > 1200 ? 50 : 56} style={{marginTop: 8}}>{p.title}</Title>
 					</div>
 				) : null}
 			</Drift>
-			{p.tag ? <Tag text={p.tag} style={{right: 80, top: 60}} /> : null}
+			{p.tag ? <Tag text={p.tag} style={{right: 80, top: W > H ? 60 : 262}} /> : null}
 			<Grain opacity={0.07} />
 		</AbsoluteFill>
 	);

@@ -1,0 +1,907 @@
+{
+ "id": "gizli_s1",
+ "output_name": "VAYYMATIK0_Gizli_Uygarlik_Shorts_01",
+ "language": "tr",
+ "render": {
+  "width": 1080,
+  "height": 1920,
+  "crf": 19
+ },
+ "voice": {
+  "provider": "external",
+  "source_topic": "gizli_uygarlik",
+  "name": "ElevenLabs · Furkan (Dzgub2SzfGvifooR4JMV) · eleven_v4",
+  "lead_in": 0.12,
+  "tail": 1.4,
+  "gap_chunk": 0.3
+ },
+ "lines": [
+  {
+   "id": "s1_hook",
+   "text": "Bilim insanları okyanusun {g:8.000 metre} altında bir sinyal yakalasaydı ne olurdu?",
+   "pause_after": 0.3
+  },
+  {
+   "id": "sinyal",
+   "text": "Ama bir gece, sensörler yaklaşık {g:8.000 metre} derinlikten gelen {tuhaf bir sinyal} yakalıyor.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "asal",
+   "text": "Atımlar rastgele değil. {g:İki} atım. Sessizlik. {g:Üç} atım. Sessizlik. Sonra {g:beş}, {g:yedi}, {g:on bir}, {g:on üç}.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "doga",
+   "text": "Bilinen hiçbir doğal süreç, asal sayıları {sırayla sayamaz}.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "rov",
+   "text": "Ertesi sabah karar verilir. Sinyalin kaynağına {insansız bir denizaltı} gönderilecek.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "m8000",
+   "text": "{g:Sekiz bin metre}. Basınç, yaklaşık {g:800 atmosfer}.",
+   "pause_after": 0.3
+  },
+  {
+   "id": "carpma",
+   "text": "Robot yavaşlıyor. Işıklar dibe yaklaşıyor. Ve sonra… ışık, {bir şeye çarpıyor}.",
+   "pause_after": 0.45
+  },
+  {
+   "id": "s_cta",
+   "text": "Hikâyenin tamamı, kanaldaki uzun videoda."
+  }
+ ],
+ "scenes": [
+  {
+   "id": "yil_storm__4148",
+   "type": "ocean",
+   "start": "@start",
+   "props": {
+    "mode": "storm",
+    "cam": {
+     "pos": [
+      {
+       "t": 0,
+       "v": [
+        -140,
+        16,
+        80
+       ]
+      },
+      {
+       "t": 9,
+       "v": [
+        -126,
+        17,
+        71
+       ]
+      }
+     ],
+     "yaw": 1.051,
+     "pitch": -0.06,
+     "fov": 56.0
+    },
+    "ship": {
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "yaw": 0.0
+    },
+    "flashes": [
+     0.15,
+     1.5
+    ]
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "s1_sonar",
+   "type": "lab",
+   "start": "@s1_hook.w3-0.15",
+   "transition": {
+    "type": "flash",
+    "dur": 0.2
+   },
+   "props": {
+    "panels": [
+     {
+      "kind": "sonar",
+      "title": "SONAR",
+      "contact": 8000,
+      "range": 10000,
+      "x": 5,
+      "w": 90,
+      "y": 15.5,
+      "h": 41.5
+     }
+    ]
+   }
+  },
+  {
+   "id": "sinyal_storm__4031",
+   "type": "ocean",
+   "start": "@sinyal.start-0.10",
+   "props": {
+    "mode": "storm",
+    "cam": {
+     "pos": [
+      {
+       "t": 0,
+       "v": [
+        -120,
+        9,
+        75
+       ]
+      },
+      {
+       "t": 4,
+       "v": [
+        -112,
+        9.5,
+        70
+       ]
+      }
+     ],
+     "yaw": 1.012,
+     "pitch": -0.02,
+     "fov": 44.8
+    },
+    "ship": {
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "yaw": 0.0
+    },
+    "flashes": [
+     "@sinyal.w2+0.10"
+    ],
+    "rain": 1.2
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "s1_spectro",
+   "type": "lab",
+   "start": "@sinyal.w9-0.15",
+   "props": {
+    "panels": [
+     {
+      "kind": "spectro",
+      "x": 5,
+      "y": 15.5,
+      "w": 90,
+      "h": 41.5,
+      "title": "SPEKTROGRAM · 0–200 Hz",
+      "beats": [
+       0.5,
+       1.7,
+       2.9,
+       4.1,
+       5.3,
+       6.5,
+       7.7,
+       8.9,
+       10.1,
+       11.3,
+       12.5,
+       13.7,
+       14.9,
+       16.1
+      ],
+      "window": 10
+     }
+    ]
+   }
+  },
+  {
+   "id": "asal_primes__9718",
+   "type": "signal",
+   "start": "@asal.start-0.10",
+   "props": {
+    "mode": "primes",
+    "groups": [
+     {
+      "at": "@asal.w3",
+      "n": 2
+     },
+     {
+      "at": "@asal.w6",
+      "n": 3
+     },
+     {
+      "at": "@asal.w10",
+      "n": 5
+     },
+     {
+      "at": "@asal.w11",
+      "n": 7
+     },
+     {
+      "at": "@asal.w12",
+      "n": 11
+     },
+     {
+      "at": "@asal.w14",
+      "n": 13
+     }
+    ]
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "doga_compare__9876",
+   "type": "signal",
+   "start": "@doga.start-0.10",
+   "props": {
+    "mode": "compare"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "rov_dawn__2705",
+   "type": "ocean",
+   "start": "@rov.start-0.15",
+   "props": {
+    "mode": "storm",
+    "cam": {
+     "pos": [
+      {
+       "t": 0,
+       "v": [
+        -180,
+        7,
+        -60
+       ]
+      },
+      {
+       "t": 8,
+       "v": [
+        -170,
+        8,
+        -56
+       ]
+      }
+     ],
+     "yaw": 1.893,
+     "pitch": 0.0,
+     "fov": 47.6
+    },
+    "ship": {
+     "pos": [
+      0,
+      0,
+      0
+     ],
+     "yaw": 0.0,
+     "rovY": 9.5,
+     "motion": 0.4
+    },
+    "amp": 1.0,
+    "storm": 0.2,
+    "dawn": 1,
+    "rain": 0
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "m8000_water__5884",
+   "type": "ocean",
+   "start": "@m8000.start-0.10",
+   "props": {
+    "mode": "water",
+    "depth": 8000,
+    "cam": {
+     "pitch": -0.2,
+     "fov": 75.6
+    },
+    "lamp": 1,
+    "snow": 0.55,
+    "descent": 0.5,
+    "hud": {
+     "depth": [
+      {
+       "t": 0,
+       "v": 7980
+      },
+      {
+       "t": 3,
+       "v": 8003
+      }
+     ],
+     "temp": 1.9
+    }
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "basinc_info__8734",
+   "type": "info",
+   "start": "@m8000.w3-0.20",
+   "props": {
+    "mode": "pressure"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "carpma_wall__6898",
+   "type": "deep3d",
+   "start": "@carpma.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        611.93,
+        24.53,
+        69.69
+       ],
+       "target": [
+        594.33,
+        15.25,
+        67.69
+       ],
+       "fov": 72.5
+      },
+      {
+       "t": 5.5,
+       "pos": [
+        598.38,
+        17.38,
+        68.15
+       ],
+       "target": [
+        594.33,
+        15.25,
+        67.69
+       ],
+       "fov": 69.6
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.11,
+      0.045,
+      0.032
+     ]
+    },
+    "city": {
+     "power": 0.0,
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "cam",
+     "i": 1.6
+    },
+    "hud": {
+     "depth": [
+      {
+       "t": 0,
+       "v": 8040
+      },
+      {
+       "t": 5,
+       "v": 8046
+      }
+     ],
+     "alt": [
+      {
+       "t": 0,
+       "v": 9.0
+      },
+      {
+       "t": 5,
+       "v": 3.4
+      }
+     ]
+    }
+   },
+   "transition": {
+    "type": "cut",
+    "dur": 0
+   }
+  },
+  {
+   "id": "sehir_reveal__3322",
+   "type": "deep3d",
+   "start": "@s_cta.start-0.30",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        720,
+        42,
+        -120
+       ],
+       "target": [
+        0,
+        110,
+        0
+       ],
+       "fov": 63.8
+      },
+      {
+       "t": 12,
+       "pos": [
+        712,
+        96,
+        -118
+       ],
+       "target": [
+        0,
+        140,
+        0
+       ],
+       "fov": 63.8
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      {
+       "t": 0,
+       "v": [
+        0.008,
+        0.0034,
+        0.0027
+       ]
+      },
+      {
+       "t": 10,
+       "v": [
+        0.0042,
+        0.0018,
+        0.0015
+       ]
+      }
+     ]
+    },
+    "city": {
+     "power": [
+      {
+       "t": 0,
+       "v": 0.85
+      },
+      {
+       "t": 4,
+       "v": 1.15
+      }
+     ],
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "rov",
+     "i": 6,
+     "beams": 1
+    },
+    "rov": {
+     "show": true,
+     "pos": [
+      {
+       "t": 0,
+       "v": [
+        708.9,
+        44.0,
+        -120.2
+       ]
+      },
+      {
+       "t": 12,
+       "v": [
+        700.9,
+        97.7,
+        -118.2
+       ],
+       "e": "cine"
+      }
+     ],
+     "yaw": -2.977
+    },
+    "grade": {
+     "vignette": 0.6
+    }
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.4
+   }
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Varsayımsal bilimkurgu senaryosu",
+   "start": "@start",
+   "end": "@sinyal.start+0.40"
+  }
+ ],
+ "music": {
+  "style": "doc",
+  "seed": 21,
+  "bpm": 92,
+  "sections": {
+   "mystery#1": "@start",
+   "signal#1": "@asal.start-0.30",
+   "descent#1": "@rov.start-0.30",
+   "suspense#1": "@carpma.start-0.20",
+   "reveal#1": "@s_cta.start-0.30",
+   "end": "@end"
+  },
+  "hits": [],
+  "risers": []
+ },
+ "sfx": [
+  {
+   "type": "underwater",
+   "at": "@start",
+   "gain": -8,
+   "dur": 8.5,
+   "depth": 1.0
+  },
+  {
+   "type": "rain",
+   "at": "@sinyal.start-0.20",
+   "gain": -10,
+   "dur": 4.5,
+   "heavy": 1.2
+  },
+  {
+   "type": "thunder",
+   "at": "@sinyal.w2+0.15",
+   "gain": -7
+  },
+  {
+   "type": "ping",
+   "at": "@sinyal.w9+0.10",
+   "gain": -6
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+0.50",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+1.70",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+2.90",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+4.10",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+5.30",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+6.50",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+7.70",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+8.90",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+10.10",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+11.30",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+12.50",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@sinyal.w9+13.70",
+   "gain": -15
+  },
+  {
+   "type": "pulse",
+   "at": "@asal.w3",
+   "gain": -9
+  },
+  {
+   "type": "pulse",
+   "at": "@asal.w6",
+   "gain": -9
+  },
+  {
+   "type": "pulse",
+   "at": "@asal.w10",
+   "gain": -9
+  },
+  {
+   "type": "pulse",
+   "at": "@asal.w11",
+   "gain": -9
+  },
+  {
+   "type": "pulse",
+   "at": "@asal.w12",
+   "gain": -9
+  },
+  {
+   "type": "pulse",
+   "at": "@asal.w14",
+   "gain": -9
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w3",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w3+0.10",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w6",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w6+0.10",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w6+0.20",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w10",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w10+0.10",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w10+0.20",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w10+0.30",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w10+0.40",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w11",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w11+0.10",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w11+0.20",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w11+0.30",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w11+0.40",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w11+0.50",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w11+0.60",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.10",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.20",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.30",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.40",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.50",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.60",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.70",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.80",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+0.90",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w12+1.00",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.10",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.20",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.30",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.40",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.50",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.60",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.70",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.80",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+0.90",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+1.00",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+1.10",
+   "gain": -12
+  },
+  {
+   "type": "tick",
+   "at": "@asal.w14+1.20",
+   "gain": -12
+  },
+  {
+   "type": "creak",
+   "at": "@m8000.start+0.60",
+   "gain": -6,
+   "pitch": 0.85
+  },
+  {
+   "type": "boom",
+   "at": "@carpma.end",
+   "gain": -2
+  }
+ ],
+ "foreign_words": [
+  "SOFAR"
+ ],
+ "metadata": {
+  "title": "8.000 metreden gelen sinyal | Varsayımsal bilimkurgu",
+  "description": [],
+  "hashtags": []
+ }
+}

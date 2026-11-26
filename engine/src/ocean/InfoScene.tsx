@@ -409,14 +409,14 @@ export const InfoScene: React.FC<InfoProps> = (p) => {
 				{p.mode === 'facts' ? <Facts rows={p.rows ?? []} /> : null}
 				{p.mode === 'gap' ? <Gap /> : null}
 				{p.title ? (
-					<div style={{position: 'absolute', left: land ? 120 : 60, top: land ? 86 : 200, opacity: appear(frame, 2, 12), maxWidth: W - 240}}>
+					<div style={{position: 'absolute', left: land ? 120 : 60, top: land ? 86 : 290, opacity: appear(frame, 2, 12), maxWidth: W - (land ? 240 : 120)}}>
 						{p.sub ? <Label size={18} color={C.cyan}>{p.sub}</Label> : null}
 						<Title size={land ? 46 : 54} style={{marginTop: 8}}>{p.title}</Title>
 					</div>
 				) : null}
-				{p.source ? <Label size={16} style={{position: 'absolute', right: land ? 120 : 60, top: land ? 96 : 160, opacity: 0.7}}>Kaynak: {p.source}</Label> : null}
+				{p.source ? <Label size={16} style={{position: 'absolute', right: land ? 120 : 60, top: land ? 96 : 1330, opacity: 0.7, whiteSpace: land ? 'nowrap' : 'normal', maxWidth: land ? undefined : W - 120, textAlign: 'right'}}>Kaynak: {p.source}</Label> : null}
 			</Drift>
-			{p.tag ? <Tag text={p.tag} style={{right: 80, top: 60}} /> : null}
+			{p.tag ? <Tag text={p.tag} style={{right: 80, top: land ? 60 : 262}} /> : null}
 			<Grain opacity={0.07} />
 		</AbsoluteFill>
 	);

@@ -608,7 +608,7 @@ const Director: React.FC<{p: DeepProps; sh: Shared; layout: CityLayout | null; f
 
 export const DeepScene: React.FC<DeepProps> = (p) => {
 	const frame = useCurrentFrame();
-	const {fps, height} = useVideoConfig();
+	const {fps, width, height} = useVideoConfig();
 	const sh = useSharedUniforms();
 	const layout = useMemo(() => (p.city && p.city.show !== false ? cityLayout(p.city.seed ?? 7) : null), [p.city]);
 	const scale = p.stage?.scale ?? 0.7;
@@ -650,7 +650,7 @@ export const DeepScene: React.FC<DeepProps> = (p) => {
 			</AbsoluteFill>
 			<Grade spec={p.grade} lamp={p.lamps?.mode === 'cam' ? num(frame, p.lamps?.i, 7) / 7 : 0} />
 			{p.hud ? <Hud spec={p.hud} /> : null}
-			{p.tag ? <Tag text={p.tag} color={p.tagColor} style={{right: 80, top: p.hud ? 150 : 56}} /> : null}
+			{p.tag ? <Tag text={p.tag} color={p.tagColor} style={{right: 80, top: height > width ? 430 : p.hud ? 150 : 56}} /> : null}
 			{p.chapter ? <Chapter spec={p.chapter} /> : null}
 			{p.titles ? <Titles titles={p.titles} /> : null}
 		</AbsoluteFill>
