@@ -46,12 +46,57 @@ const Word: React.FC<{w: CaptionWord; pageFrom: number}> = ({w, pageFrom}) => {
 	);
 };
 
+// Belgesel altyazısı (16:9): cümle düzeni, alt orta, yarı saydam plaka, söylenen kelime vurgusu (zıplama yok)
+const DocCaptions: React.FC<{page: CaptionPage}> = ({page}) => {
+	const frame = useCurrentFrame();
+	const brand = useBrand();
+	const cfg = brand.captions;
+	const a = interpolate(frame, [page.from, page.from + 4, page.to - 4, page.to], [0, 1, 1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+	return (
+		<div
+			data-safe="caption"
+			style={{
+				position: 'absolute',
+				left: '50%',
+				top: cfg.centerY,
+				maxWidth: cfg.maxWidth,
+				transform: 'translate(-50%, -50%)',
+				textAlign: 'center',
+				fontFamily: FONTS.sans,
+				fontWeight: 700,
+				fontSize: cfg.fontSize,
+				lineHeight: 1.25,
+				letterSpacing: 0.2,
+				opacity: a,
+				background: 'rgba(2,8,14,0.52)',
+				borderRadius: 10,
+				padding: '8px 22px 10px',
+				boxShadow: '0 6px 24px rgba(0,0,0,0.35)',
+				whiteSpace: 'pre-wrap',
+			}}
+		>
+			{page.words.map((w, i) => {
+				const spoken = frame >= w.from;
+				const emph = w.style === 'accent' || w.style === 'gold';
+				const col = emph ? (w.style === 'gold' ? brand.colors.gold : brand.colors.accentDoc ?? '#6FF2E6') : '#FFFFFF';
+				return (
+					<span key={i} style={{color: spoken ? col : 'rgba(235,242,248,0.78)', textShadow: '0 2px 6px rgba(0,0,0,0.8)'}}>
+						{w.text}
+						{i < page.words.length - 1 ? ' ' : ''}
+					</span>
+				);
+			})}
+		</div>
+	);
+};
+
 export const Captions: React.FC<{pages: CaptionPage[]}> = ({pages}) => {
 	const frame = useCurrentFrame();
 	const brand = useBrand();
 	const page = pages.find((p) => frame >= p.from && frame < p.to);
 	if (!page) return null;
 	const cfg = brand.captions;
+	if ((cfg as {style?: string}).style === 'doc') return <DocCaptions page={page} />;
 	const outP = interpolate(frame, [page.to - 4, page.to], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 	return (
 		<div
