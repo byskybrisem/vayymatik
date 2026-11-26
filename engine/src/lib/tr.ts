@@ -7,12 +7,19 @@ const FOREIGN = new Set<string>([
 	'pharmaceutical', 'utah', 'mexico', 'formula',
 ]);
 
+let LANG = 'tr';
+export const setLanguage = (l?: string) => {
+	LANG = l ?? 'tr';
+};
+
 export const registerForeignWords = (words: string[] = []) => words.forEach((w) => FOREIGN.add(w.toLowerCase()));
 
 const basicTrUpper = (s: string): string => s.replace(/i/g, 'İ').replace(/ı/g, 'I').toUpperCase();
 
 export const trUpper = (s: string): string =>
-	s
+	LANG !== 'tr'
+		? s.toUpperCase()
+		: s
 		.split(/(\s+)/)
 		.map((tok) => {
 			if (!tok.trim()) return tok;

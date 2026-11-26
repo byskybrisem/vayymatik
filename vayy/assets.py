@@ -18,6 +18,7 @@ VOICE_SOURCES = {
 
 SHARED_PUBLIC = {
     "shared/earth_bmng_5400.jpg": ASSETS / "textures" / "bmng_200407_topo_bathy_5400x2700.jpg",
+    "shared/moon_lroc_2k.jpg": ASSETS / "textures" / "lroc_color_poles_2k.jpg",
     "shared/detail_newmexico.jpg": ASSETS / "textures" / "bmng_200407_newmexico_240ppd.jpg",
 }
 

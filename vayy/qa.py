@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import difflib
 import json
+import os
 import re
 import subprocess
 import time
@@ -42,7 +43,7 @@ def asr_words(wav: Path, model_size: str = "small") -> list[dict]:
     g = gcd(16000, sr)
     x = resample_poly(x, 16000 // g, sr // g).astype(np.float32)  # PyAV'a bağımlı olmadan 16 kHz mono
     model = WhisperModel(model_size, device="cpu", compute_type="int8", cpu_threads=4)
-    segs, _ = model.transcribe(x, language="tr", word_timestamps=True, beam_size=5, vad_filter=False,
+    segs, _ = model.transcribe(x, language=os.environ.get("VAYY_ASR_LANG", "tr"), word_timestamps=True, beam_size=5, vad_filter=False,
                                condition_on_previous_text=False)
     out = []
     for s in segs:
@@ -177,6 +178,7 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
 
     t0 = time.time()
     topic, brand = load_topic(topic_id)
+    os.environ["VAYY_ASR_LANG"] = topic.get("language", "tr")
     bdir, ddir = build_dir(topic_id), deliver_dir(topic_id)
     video = ddir / f"{topic['output_name']}.mp4"
     meta = json.loads((bdir / "build_meta.json").read_text(encoding="utf-8"))

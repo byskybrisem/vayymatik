@@ -7,6 +7,8 @@ import {FlapScene} from './FlapScene';
 import {MediaScene} from './MediaScene';
 import {KpiScene} from './KpiScene';
 import {EconScene} from './EconScene';
+import {MoonSpaceScene} from './MoonSpaceScene';
+import {MoonSkyScene} from './MoonSkyScene';
 import {World3DScene} from '../three/World3DScene';
 
 // Sahne türü -> bileşen. Yeni sahne türü eklemek için buraya kaydedin.
@@ -20,5 +22,7 @@ export const SCENES: Record<string, React.FC<any>> = {
 	media: MediaScene,
 	kpi: KpiScene,
 	econ: EconScene, // ekonomi simülasyonu (telefon/banka/fiyat/finale)
+	moonspace: MoonSpaceScene, // Ay/Dünya uzay sahnesi (WebGL)
+	moonsky: MoonSkyScene, // yer seviyesi dev Ay + şehir/liman (WebGL)
 	world3d: World3DScene, // Three.js 3D motoru (engine/src/three)
 };

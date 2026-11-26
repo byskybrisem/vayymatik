@@ -46,7 +46,7 @@ def _resample(x: np.ndarray, sr: int) -> np.ndarray:
     return resample_poly(x, SR_OUT // g, sr // g).astype(np.float32)
 
 
-def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dict]]:
+def _external_line(path: Path, parsed: ParsedLine, align_asr: bool = False) -> tuple[np.ndarray, list[dict]]:
     """Harici (ör. ElevenLabs) ses dosyası: 48 kHz'e çevir, baş/son sessizliği bul, kelime
     zamanlarını heceye (ünlü sayısı) + virgül duraklarına göre konuşma aralığına dağıt."""
     import subprocess, tempfile
@@ -60,6 +60,18 @@ def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dic
     e = np.convolve(env, np.ones(win) / win, mode="same")
     on = np.where(e > max(0.02 * e.max(), 1e-4))[0]
     t0, t1 = (on[0] / SR_OUT, on[-1] / SR_OUT) if len(on) else (0.0, len(audio) / SR_OUT)
+    if align_asr:
+        try:
+            from .qa import asr_words
+            import tempfile as _tf
+            with _tf.TemporaryDirectory() as td2:
+                wav2 = Path(td2) / "a.wav"
+                sf.write(wav2, audio, SR_OUT)
+                aw = asr_words(wav2, "small")
+            if len(aw) == len(parsed.spoken):
+                return audio, [{"text": w, "start": round(a["start"], 4), "end": round(a["end"], 4)} for w, a in zip(parsed.spoken, aw)]
+        except Exception as e:  # ASR yoksa sezgisel dağıtıma dön
+            print(f"  [ses] ASR hizalama atlandı: {e}")
     weights = []
     for w in parsed.spoken:
         syl = max(1, sum(ch in "aeıioöuüAEIİOÖUÜ" for ch in w))
@@ -89,7 +101,7 @@ def synth_lines(topic: dict, cache_dir: Path, log=print) -> list[LineAudio]:
         for line in topic["lines"]:
             parsed = parse_line(line["text"])
             src = TOPICS / topic["id"] / "voice" / f"{line['id']}.mp3"
-            audio, words = _external_line(src, parsed)
+            audio, words = _external_line(src, parsed, bool(v.get("align_asr")))
             out.append(LineAudio(id=line["id"], parsed=parsed, audio=audio, words=words, pause_after=line.get("pause_after", v.get("gap", 0.25))))
         log(f"  [ses] harici ses ({v.get('name', 'external')}): {len(out)} satır")
         return out

@@ -20,3 +20,6 @@ kullanıma **uygun değil**), espeak-ng (GPL yazılım, çıktı serbest; roboti
 ## 3D motor varlıkları
 `engine/src/three` altındaki tüm geometri, karakter, şehir, banknot ("VAYY" kurgusal tasarım) ve dokular koddan üretilir; dış görsel/model dosyası yoktur.
 Three.js (MIT), @react-three/fiber (MIT), @remotion/three (Remotion lisansı: bireyler/≤3 kişilik şirketler ücretsiz).
+
+## Ay dokusu (2026-11-25)
+| `textures/lroc_color_poles_2k.jpg` | NASA Scientific Visualization Studio, "Moon: LROC Color Mosaic" (`lroc_color_poles_2k.tif`, svs.gsfc.nasa.gov/4720), JPEG'e çevrildi | Kamu malı (NASA / LRO) | — |

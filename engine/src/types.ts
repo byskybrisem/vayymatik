@@ -52,6 +52,7 @@ export type Timeline = {
 	audioSrc?: string | null;
 	scenes: SceneSpec[];
 	captions: CaptionPage[];
+	language?: string;
 	disclaimer?: {text: string; from: number; to: number}[];
 	foreignWords?: string[];
 };

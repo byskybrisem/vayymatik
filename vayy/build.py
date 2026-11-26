@@ -141,6 +141,7 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         "captions": cap_json,
         "disclaimer": disclaimers,
         "foreignWords": topic.get("foreign_words", []),
+        "language": topic.get("language", "tr"),
     }
 
     # 3) Müzik

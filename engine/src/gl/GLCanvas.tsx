@@ -143,6 +143,7 @@ export const GLCanvas: React.FC<{
 			else if (v.length === 2) gl.uniform2fv(l, v);
 			else if (v.length === 3) gl.uniform3fv(l, v);
 			else if (v.length === 4) gl.uniform4fv(l, v);
+			else if (v.length > 4 && v.length % 4 === 0) gl.uniform4fv(l, v); // vec4 dizisi (ör. uF[20])
 		}
 		gl.drawArrays(gl.TRIANGLES, 0, 3);
 		gl.finish();

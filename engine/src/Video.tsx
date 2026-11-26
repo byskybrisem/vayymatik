@@ -9,11 +9,12 @@ import {Disclaimers, GlobalFX, Watermark} from './components/Overlays';
 import {Audit} from './components/Audit';
 import {FlashLayer} from './components/FlashLayer';
 import './lib/fonts';
-import {registerForeignWords} from './lib/tr';
+import {registerForeignWords, setLanguage} from './lib/tr';
 
 export const Short: React.FC<ShortProps> = ({timeline, audit}) => {
 	if (!timeline) return <AbsoluteFill style={{background: '#000'}} />;
 	const brand = {...DEFAULT_BRAND, ...timeline.brand};
+	setLanguage(timeline.language);
 	registerForeignWords(timeline.foreignWords);
 	return (
 		<BrandCtx.Provider value={brand}>
