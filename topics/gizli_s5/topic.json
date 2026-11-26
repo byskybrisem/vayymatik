@@ -62,7 +62,7 @@
    }
   },
   {
-   "id": "sizinti_phones__7474",
+   "id": "sizinti_phones__3021",
    "type": "news",
    "start": "@sizinti.start-0.20",
    "props": {
@@ -74,7 +74,7 @@
    }
   },
   {
-   "id": "piyasa_markets__9098",
+   "id": "piyasa_markets__2519",
    "type": "news",
    "start": "@piyasa.start-0.10",
    "props": {
@@ -88,7 +88,7 @@
    }
   },
   {
-   "id": "ekonomi_lab__2345",
+   "id": "ekonomi_lab__213",
    "type": "lab",
    "start": "@ekonomi.start-0.10",
    "props": {
@@ -132,7 +132,7 @@
    }
   },
   {
-   "id": "hukuk_law__877",
+   "id": "hukuk_law__2041",
    "type": "info",
    "start": "@hukuk.start-0.10",
    "props": {
@@ -144,7 +144,7 @@
    }
   },
   {
-   "id": "miras_city__4796",
+   "id": "miras_city__1315",
    "type": "deep3d",
    "start": "@miras.start-0.10",
    "props": {
@@ -202,7 +202,7 @@
    }
   },
   {
-   "id": "toplanti_council__1163",
+   "id": "toplanti_council__8792",
    "type": "news",
    "start": "@s_cta.start-0.30",
    "props": {

@@ -52,7 +52,7 @@
  ],
  "scenes": [
   {
-   "id": "hareket_pov__6080",
+   "id": "hareket_pov__5500",
    "type": "deep3d",
    "start": "@start",
    "props": {
@@ -126,7 +126,7 @@
    }
   },
   {
-   "id": "degisim_spectro__1349",
+   "id": "degisim_spectro__1279",
    "type": "lab",
    "start": "@s4_hook.w5-0.20",
    "props": {
@@ -194,7 +194,7 @@
    }
   },
   {
-   "id": "gonder_send__3171",
+   "id": "gonder_send__5542",
    "type": "signal",
    "start": "@gonder.start-0.10",
    "props": {
@@ -229,9 +229,85 @@
    }
   },
   {
-   "id": "yanit_primes__5811",
-   "type": "signal",
+   "id": "yanit_city__3344",
+   "type": "deep3d",
    "start": "@yanit.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        552,
+        40,
+        -46
+       ],
+       "target": [
+        430,
+        62,
+        -24
+       ],
+       "fov": 58.0
+      },
+      {
+       "t": 6,
+       "pos": [
+        540,
+        42,
+        -42
+       ],
+       "target": [
+        415,
+        66,
+        -20
+       ],
+       "fov": 55.1
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.008,
+      0.0034,
+      0.0027
+     ]
+    },
+    "city": {
+     "power": 1.15,
+     "glow": "#45d8d0",
+     "beats": [
+      "@yanit.w2-0.10",
+      "@yanit.w3",
+      "@yanit.w4"
+     ]
+    },
+    "lamps": {
+     "mode": "rov",
+     "i": 6,
+     "beams": 1
+    },
+    "rov": {
+     "show": true,
+     "pos": [
+      524,
+      32,
+      -40
+     ],
+     "yaw": -2.97
+    },
+    "tag": "ŞEHİR YANIT VERİYOR",
+    "tagColor": "#62F0E4"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "yanit_primes__6356",
+   "type": "signal",
+   "start": "@yanit.w7-0.45",
    "props": {
     "mode": "primes",
     "groups": [
@@ -255,7 +331,7 @@
    }
   },
   {
-   "id": "yanit_glyph__6247",
+   "id": "yanit_glyph__6870",
    "type": "signal",
    "start": "@yanit.w14-0.20",
    "props": {
@@ -272,7 +348,7 @@
    }
   },
   {
-   "id": "siluet_being__4832",
+   "id": "siluet_being__3340",
    "type": "deep3d",
    "start": "@siluet.start-0.10",
    "props": {
@@ -345,7 +421,7 @@
    }
   },
   {
-   "id": "ritim_being__7696",
+   "id": "ritim_being__2819",
    "type": "deep3d",
    "start": "@ritim.start-0.10",
    "props": {
@@ -426,7 +502,7 @@
    }
   },
   {
-   "id": "kopus_lost__1227",
+   "id": "kopus_lost__5214",
    "type": "deep3d",
    "start": "@kopus.start-0.10",
    "props": {
@@ -522,7 +598,7 @@
    }
   },
   {
-   "id": "eskisi_far__341",
+   "id": "eskisi_far__963",
    "type": "deep3d",
    "start": "@s_cta.start-0.20",
    "props": {

@@ -3298,9 +3298,85 @@
    }
   },
   {
+   "id": "yanit_city",
+   "type": "deep3d",
+   "start": "@yanit.start-0.10",
+   "props": {
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        552,
+        40,
+        -46
+       ],
+       "target": [
+        430,
+        62,
+        -24
+       ],
+       "fov": 40
+      },
+      {
+       "t": 6,
+       "pos": [
+        540,
+        42,
+        -42
+       ],
+       "target": [
+        415,
+        66,
+        -20
+       ],
+       "fov": 38
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      0.008,
+      0.0034,
+      0.0027
+     ]
+    },
+    "city": {
+     "power": 1.15,
+     "glow": "#45d8d0",
+     "beats": [
+      "@yanit.w2-0.10",
+      "@yanit.w3",
+      "@yanit.w4"
+     ]
+    },
+    "lamps": {
+     "mode": "rov",
+     "i": 6,
+     "beams": 1
+    },
+    "rov": {
+     "show": true,
+     "pos": [
+      524,
+      32,
+      -40
+     ],
+     "yaw": -2.97
+    },
+    "tag": "ŞEHİR YANIT VERİYOR",
+    "tagColor": "#62F0E4"
+   },
+   "transition": {
+    "type": "fade",
+    "dur": 0.3
+   }
+  },
+  {
    "id": "yanit_primes",
    "type": "signal",
-   "start": "@yanit.start-0.10",
+   "start": "@yanit.w7-0.45",
    "props": {
     "mode": "primes",
     "title": "Şehir yanıt veriyor",

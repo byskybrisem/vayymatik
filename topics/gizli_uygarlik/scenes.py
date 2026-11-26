@@ -260,7 +260,11 @@ SCENES = [
     sc("bekle_wait", "lab", S("bekle", -0.2), {"title": "Bekleniyor…", "panels": [
         {"kind": "counter", "x": 18, "y": 24, "w": 64, "h": 34, "a": 0, "b": 6, "from": 0.2, "to": 2.6, "unit": "saat", "label": "Yanıtsız geçen süre"},
         {"kind": "scope", "x": 18, "y": 62, "w": 64, "h": 28, "title": "GELEN KANAL", "window": 6}]}),
-    sc("yanit_primes", "signal", S("yanit", -0.1), {"mode": "primes", "title": "Şehir yanıt veriyor", "groups": [
+    sc("yanit_city", "deep3d", S("yanit", -0.1), deep(
+        [K(0, [552, 40, -46], [430, 62, -24], 40), K(6, [540, 42, -42], [415, 66, -20], 38)], sigma=WIDE,
+        lamps={"mode": "rov", "i": 6, "beams": 1}, rov={"show": True, "pos": [524, 32, -40], "yaw": -2.97}, power=1.15,
+        beats=[W("yanit", "yanıt", off=-0.1), W("yanit", "veriyor"), W("yanit", "Dizinin")], tag="ŞEHİR YANIT VERİYOR", tagColor="#62F0E4"), ("fade", 0.3)),
+    sc("yanit_primes", "signal", W("yanit", "on", 1, -0.45), {"mode": "primes", "title": "Şehir yanıt veriyor", "groups": [
         {"at": W("yanit", "on", 1), "n": 11}, {"at": W("yanit", "on", 2), "n": 13}, {"at": W("yanit", "on", 3), "n": 17}]}, ("fade", 0.2)),
     sc("yanit_glyph", "signal", W("yanit", "ardından", off=-0.2), {"mode": "glyph", "title": "Çok daha karmaşık bir desen", "at": 0.1, "decode": {"from": E("pi", -2.0), "dur": 2.5}}, ("zoom", 0.35)),
     sc("hareket_pov", "deep3d", S("hareket", -0.1), deep(

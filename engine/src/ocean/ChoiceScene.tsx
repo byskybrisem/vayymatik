@@ -59,7 +59,7 @@ export const ChoiceScene: React.FC<ChoiceProps> = (p) => {
 					const y = land ? H * 0.24 : 330 + i * (chh + 40);
 					const risk = (p.risks ?? []).filter((r) => r.i === i && frame >= r.at).pop();
 					return (
-						<div key={i} style={{position: 'absolute', left: x, top: y, width: cw, height: chh, opacity: a * dim * (1 - promptA * 0.6), transform: `translateY(${(1 - a) * 30}px) scale(${on ? 1.03 : 1})`, borderRadius: 18, background: on ? `linear-gradient(180deg, ${o.c}1f, rgba(3,12,22,0.92))` : 'rgba(3,12,22,0.85)', border: `2px solid ${on ? o.c : C.line}`, boxShadow: on ? `0 0 50px ${o.c}33` : 'none', padding: land ? 36 : 26, display: 'flex', flexDirection: land ? 'column' : 'row', gap: 24, alignItems: land ? 'flex-start' : 'center'}}>
+						<div key={i} style={{position: 'absolute', left: x, top: y, width: cw, height: chh, opacity: a * dim * (1 - promptA * 0.93), transform: `translateY(${(1 - a) * 30}px) scale(${on ? 1.03 : 1})`, borderRadius: 18, background: on ? `linear-gradient(180deg, ${o.c}1f, rgba(3,12,22,0.92))` : 'rgba(3,12,22,0.85)', border: `2px solid ${on ? o.c : C.line}`, boxShadow: on ? `0 0 50px ${o.c}33` : 'none', padding: land ? 36 : 26, display: 'flex', flexDirection: land ? 'column' : 'row', gap: 24, alignItems: land ? 'flex-start' : 'center'}}>
 							<Icon i={i} c={o.c} f={frame} />
 							<div>
 								<Label size={18} color={o.c}>{['1. yol', '2. yol', '3. yol'][i]}</Label>

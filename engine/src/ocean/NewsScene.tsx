@@ -30,12 +30,12 @@ const Broadcast: React.FC<{p: NewsProps}> = ({p}) => {
 	return (
 		<>
 			<Backdrop tint="#0a1730" grid={false} />
-			<Feed src={p.src ?? 'gizli/city_wide.jpg'} label="CANLI · YANKI KAMERA 1" style={land ? {left: 80, top: 150, width: W * 0.62, height: H * 0.62} : {left: 60, top: 420, width: W - 120, height: H * 0.34}} />
-			<div style={{position: 'absolute', ...(land ? {left: W * 0.62 + 120, top: 170, width: W * 0.3} : {left: 70, top: 1120, width: W - 140})}}>
+			<Feed src={p.src ?? 'gizli/city_wide.jpg'} label="CANLI · YANKI KAMERA 1" style={land ? {left: 80, top: 150, width: W * 0.62, height: H * 0.62} : {left: 60, top: 310, width: W - 120, height: 520}} />
+			<div style={{position: 'absolute', ...(land ? {left: W * 0.62 + 120, top: 170, width: W * 0.3} : {left: 70, top: 855, width: W - 140})}}>
 				<div style={{display: 'inline-block', background: C.red, color: '#fff', fontFamily: FONTS.sans, fontWeight: 900, fontSize: 30, padding: '6px 16px', letterSpacing: 2, opacity: frame % 40 < 30 ? 1 : 0.75}}>SON DAKİKA</div>
-				<Title size={land ? 48 : 56} style={{marginTop: 22}}>{p.headline ?? 'Okyanusun 8.000 metre altında ışıklı yapılar'}</Title>
-				<Label size={20} style={{marginTop: 16, whiteSpace: 'normal', lineHeight: 1.5}}>{p.sub ?? 'Pasifik · insansız denizaltı görüntüleri'}</Label>
-				<div style={{marginTop: 36, display: 'flex', gap: 30}}>
+				<Title size={land ? 48 : 46} style={{marginTop: land ? 22 : 14}}>{p.headline ?? 'Okyanusun 8.000 metre altında ışıklı yapılar'}</Title>
+				{land ? <Label size={20} style={{marginTop: 16, whiteSpace: 'normal', lineHeight: 1.5}}>{p.sub ?? 'Pasifik · insansız denizaltı görüntüleri'}</Label> : null}
+				<div style={{marginTop: 36, display: land ? 'flex' : 'none', gap: 30}}>
 					{[
 						['İZLENME', fmtTR(Math.floor(interpolate(frame, [0, 240], [120e6, 2.4e9], {extrapolateRight: 'clamp'})))],
 						['ÜLKE', String(Math.min(194, Math.floor(40 + frame * 0.9)))],
@@ -47,7 +47,7 @@ const Broadcast: React.FC<{p: NewsProps}> = ({p}) => {
 					))}
 				</div>
 			</div>
-			<div style={{position: 'absolute', left: 0, right: 0, bottom: land ? 120 : 560, height: 58, background: 'rgba(5,12,24,0.92)', borderTop: `2px solid ${C.red}`, overflow: 'hidden'}}>
+			<div style={{position: 'absolute', left: 0, right: 0, bottom: land ? 120 : 790, height: 58, background: 'rgba(5,12,24,0.92)', borderTop: `2px solid ${C.red}`, overflow: 'hidden'}}>
 				<div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: 210, background: C.red, color: '#fff', fontFamily: FONTS.sans, fontWeight: 900, fontSize: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2}}>OKYANUS HABER</div>
 				<div style={{position: 'absolute', left: 230 + tx + W, top: 12, whiteSpace: 'nowrap', fontFamily: FONTS.ui, fontSize: 28, color: C.white}}>{tick}</div>
 			</div>
@@ -110,16 +110,16 @@ const Markets: React.FC<{p: NewsProps}> = ({p}) => {
 		{n: 'DENİZ TAŞIMACILIĞI', d: -0.21, s: 3},
 		{n: 'MALZEME TEKNOLOJİSİ', d: 0.37, s: 4},
 	];
-	const cw = land ? (W - 260) / 2 : W - 140;
-	const chh = land ? (H - 380) / 2 : 300;
+	const cw = land ? (W - 260) / 2 : (W - 160) / 2;
+	const chh = land ? (H - 380) / 2 : 230;
 	return (
 		<>
 			<Backdrop tint="#081624" />
 			{series.map((s, i) => {
-				const c = land ? i % 2 : 0;
-				const r = land ? Math.floor(i / 2) : i;
-				const x0 = (land ? 110 : 70) + c * (cw + 40);
-				const y0 = (land ? 200 : 380) + r * (chh + (land ? 40 : 30));
+				const c = i % 2;
+				const r = Math.floor(i / 2);
+				const x0 = (land ? 110 : 70) + c * (cw + (land ? 40 : 20));
+				const y0 = (land ? 200 : 470) + r * (chh + (land ? 40 : 20));
 				const N = 90;
 				const prog = Math.min(1, frame / 150);
 				const pts: string[] = [];
@@ -144,8 +144,8 @@ const Markets: React.FC<{p: NewsProps}> = ({p}) => {
 					</div>
 				);
 			})}
-			<div style={{position: 'absolute', left: land ? 110 : 70, top: land ? 90 : 220}}>
-				<Title size={land ? 46 : 54}>{p.headline ?? 'Piyasalarda sert dalgalanma'}</Title>
+			<div style={{position: 'absolute', left: land ? 110 : 70, top: land ? 90 : 300, maxWidth: W - 140}}>
+				<Title size={land ? 46 : 52}>{p.headline ?? 'Piyasalarda sert dalgalanma'}</Title>
 			</div>
 		</>
 	);
@@ -204,7 +204,7 @@ const Council: React.FC<{p: NewsProps}> = ({p}) => {
 			{Array.from({length: land ? 12 : 6}, (_, i) => (
 				<div key={i} style={{position: 'absolute', bottom: land ? 28 : 270, left: ((i + 0.5) / (land ? 12 : 6)) * W - 6, width: 12, height: 12, borderRadius: 99, background: [C.green, C.amber, C.red][Math.floor(hash(i * 5.1 + Math.floor(frame / 45)) * 3)], boxShadow: '0 0 10px currentColor', opacity: appear(frame, 20 + i * 4, 8)}} />
 			))}
-			<div style={{position: 'absolute', left: land ? 80 : 60, top: land ? 30 : 230}}>
+			<div style={{position: 'absolute', left: land ? 80 : 60, top: land ? 30 : 300}}>
 				<Label size={20} color={C.amber}>{p.sub ?? 'ULUSLARARASI ACİL TOPLANTI'}</Label>
 			</div>
 		</>

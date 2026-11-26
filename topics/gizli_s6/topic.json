@@ -67,110 +67,107 @@
  ],
  "scenes": [
   {
-   "id": "uzay_earth__6080",
-   "type": "earth",
+   "id": "sehir_reveal__5500",
+   "type": "deep3d",
    "start": "@start",
    "props": {
-    "clouds": 0.5,
-    "stars": 0.9,
-    "exposure": 1.05,
-    "sat": 1.05,
-    "sunFollow": [
-     -20,
-     60
-    ],
-    "keys": [
-     {
-      "t": 0,
-      "lat": 5,
-      "lon": -150,
-      "alt": 8000,
-      "heading": 0,
-      "pitch": 90,
-      "fov": 46
-     },
-     {
-      "t": 14,
-      "lat": 0,
-      "lon": -100,
-      "alt": 17500,
-      "e": "inOut"
-     }
-    ],
-    "lights": [
-     {
-      "lat": -30.5,
-      "lon": -177.0,
-      "from": 0.4,
-      "size": 0.85
-     },
-     {
-      "lat": 19.8,
-      "lon": -66.0,
-      "from": 0.65,
-      "size": 0.85
-     },
-     {
-      "lat": -10.3,
-      "lon": 110.0,
-      "from": 0.9,
-      "size": 0.85
-     },
-     {
-      "lat": 11.3,
-      "lon": 142.2,
-      "from": 1.15,
-      "size": 0.85
-     },
-     {
-      "lat": 37.0,
-      "lon": 143.5,
-      "from": 1.4,
-      "size": 0.85
-     },
-     {
-      "lat": -23.0,
-      "lon": -71.5,
-      "from": 1.65,
-      "size": 0.85
-     },
-     {
-      "lat": 51.0,
-      "lon": -175.0,
-      "from": 1.9,
-      "size": 0.85
-     },
-     {
-      "lat": -56.0,
-      "lon": -25.0,
-      "from": 2.15,
-      "size": 0.85
-     },
-     {
-      "lat": 10.5,
-      "lon": 127.0,
-      "from": 2.4,
-      "size": 0.85
-     },
-     {
-      "lat": -8.0,
-      "lon": -152.0,
-      "from": 2.65,
-      "size": 0.85
-     },
-     {
-      "lat": 25.0,
-      "lon": -40.0,
-      "from": 2.9,
-      "size": 0.85
-     },
-     {
-      "lat": -40.0,
-      "lon": 60.0,
-      "from": 3.15,
-      "size": 0.85
-     }
-    ]
+    "camera": {
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        720,
+        42,
+        -120
+       ],
+       "target": [
+        0,
+        110,
+        0
+       ],
+       "fov": 63.8
+      },
+      {
+       "t": 12,
+       "pos": [
+        712,
+        96,
+        -118
+       ],
+       "target": [
+        0,
+        140,
+        0
+       ],
+       "fov": 63.8
+      }
+     ],
+     "shake": 0.02
+    },
+    "water": {
+     "sigma": [
+      {
+       "t": 0,
+       "v": [
+        0.008,
+        0.0034,
+        0.0027
+       ]
+      },
+      {
+       "t": 10,
+       "v": [
+        0.0042,
+        0.0018,
+        0.0015
+       ]
+      }
+     ]
+    },
+    "city": {
+     "power": [
+      {
+       "t": 0,
+       "v": 0.85
+      },
+      {
+       "t": 4,
+       "v": 1.15
+      }
+     ],
+     "glow": "#45d8d0"
+    },
+    "lamps": {
+     "mode": "rov",
+     "i": 6,
+     "beams": 1
+    },
+    "rov": {
+     "show": true,
+     "pos": [
+      {
+       "t": 0,
+       "v": [
+        708.9,
+        44.0,
+        -120.2
+       ]
+      },
+      {
+       "t": 12,
+       "v": [
+        700.9,
+        97.7,
+        -118.2
+       ],
+       "e": "cine"
+      }
+     ],
+     "yaw": -2.977
+    },
+    "grade": {
+     "vignette": 0.6
+    }
    },
    "transition": {
     "type": "cut",
@@ -178,7 +175,7 @@
    }
   },
   {
-   "id": "cozum_glyph__943",
+   "id": "cozum_glyph__2518",
    "type": "signal",
    "start": "@cozum.start-0.30",
    "props": {
@@ -195,7 +192,7 @@
    }
   },
   {
-   "id": "harita_earth__9348",
+   "id": "harita_earth__9562",
    "type": "earth",
    "start": "@harita.start-0.10",
    "props": {
@@ -309,7 +306,7 @@
    }
   },
   {
-   "id": "kayit_archive__5743",
+   "id": "kayit_archive__9196",
    "type": "lab",
    "start": "@kayit.start-0.10",
    "props": {
@@ -320,7 +317,7 @@
       "x": 5,
       "y": 15.5,
       "w": 90,
-      "h": 12.77,
+      "h": 21.45,
       "title": "ARŞİV · 2019",
       "beats": [
        1.0,
@@ -329,14 +326,15 @@
        8.2
       ],
       "window": 9,
-      "hot": 0.55
+      "hot": 0.55,
+      "at": 0
      },
      {
       "kind": "spectro",
       "x": 5,
-      "y": 29.87,
+      "y": 38.55,
       "w": 90,
-      "h": 12.77,
+      "h": 21.45,
       "title": "ARŞİV · 2022",
       "beats": [
        0.6,
@@ -347,25 +345,7 @@
       ],
       "window": 9,
       "hot": 0.6,
-      "at": 6
-     },
-     {
-      "kind": "spectro",
-      "x": 5,
-      "y": 44.23,
-      "w": 90,
-      "h": 12.77,
-      "title": "ARŞİV · 2025",
-      "beats": [
-       1.4,
-       3.8,
-       6.2,
-       8.6,
-       11.0
-      ],
-      "window": 9,
-      "hot": 0.7,
-      "at": 12
+      "at": 18
      }
     ]
    },
@@ -375,7 +355,7 @@
    }
   },
   {
-   "id": "mesaj_text__5325",
+   "id": "mesaj_text__2776",
    "type": "signal",
    "start": "@mesaj.start-0.25",
    "props": {
@@ -410,7 +390,7 @@
    }
   },
   {
-   "id": "eskisi_far__341",
+   "id": "eskisi_far__963",
    "type": "deep3d",
    "start": "@s_cta.start-0.20",
    "props": {
