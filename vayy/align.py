@@ -13,8 +13,8 @@ from pathlib import Path
 
 import numpy as np
 
-# Whisper kelime başlangıçları duyulan başlangıçtan biraz erkendir; altyazıyı ~60 ms geciktirerek ASR ile ölçülen sapma ortalanır
-ASR_LAG = 0.06
+# Whisper kelime başlangıçları duyulan başlangıçtan ASR ile ölçülen sapmayı ortalamak için ayar (yerleşimde ses de aynı miktarda kaydığından etkisi 2 katıdır)
+ASR_LAG = -0.03
 _TR = str.maketrans("çğıöşüâîûÇĞİÖŞÜÂÎÛ", "cgiosuaiucgiosuaiu")
 
 
