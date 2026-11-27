@@ -116,6 +116,11 @@ def visual_events(scenes: list[dict], fps: int) -> list[float]:
             ev.add((s["from"] + k) / fps)
         for t in s["props"].get("titles", []):
             ev.add((s["from"] + t["from"]) / fps)
+        cam = s["props"].get("camera")  # 3D sahne: kamera anahtar kareleri = yeni görsel bilgi
+        if isinstance(cam, dict):
+            for k in (cam.get("keys") or [])[1:]:
+                if isinstance(k.get("t"), (int, float)):
+                    ev.add((s["from"] + k["t"]) / fps)
         keys = s["props"].get("keys", [])
         for k in keys[1:]:
             ev.add((s["from"] + k["t"]) / fps)

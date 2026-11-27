@@ -55,11 +55,12 @@ def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dic
         wav = Path(td) / "x.wav"
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(path), "-ac", "1", "-ar", str(SR_OUT), str(wav)], check=True)
         audio, _ = sf.read(wav, dtype="float32")
-    env = np.abs(audio)
     win = SR_OUT // 100
-    e = np.convolve(env, np.ones(win) / win, mode="same")
-    on = np.where(e > max(0.02 * e.max(), 1e-4))[0]
-    t0, t1 = (on[0] / SR_OUT, on[-1] / SR_OUT) if len(on) else (0.0, len(audio) / SR_OUT)
+    e = np.sqrt(np.convolve(audio ** 2, np.ones(win) / win, mode="same"))  # kısa süreli RMS (QA ile aynı ölçü)
+    # Başlangıç: tepe RMS'ten ~20 dB aşağıda (yumuşak ünsüz/nefes ön-sesi sayılmaz); bitiş daha duyarlı (~34 dB)
+    on = np.where(e > max(10 ** (-20.5 / 20) * e.max(), 1e-4))[0]
+    off = np.where(e > max(0.02 * e.max(), 1e-4))[0]
+    t0, t1 = (on[0] / SR_OUT, off[-1] / SR_OUT) if len(on) else (0.0, len(audio) / SR_OUT)
     weights = []
     for w in parsed.spoken:
         syl = max(1, sum(ch in "aeıioöuüAEIİOÖUÜ" for ch in w))
