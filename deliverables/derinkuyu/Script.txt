@@ -27,11 +27,11 @@ SENARYO (zaman kodlu, seslendirme ile birebir)
 SAHNE LİSTESİ
 ============================================================
 00:00.00 – 00:10.60  kesit           [world3d]  geçiş: cut  Kapadokya üzerinden dalış, toprak katmanları açılır, derinlik göstergesi 85 m
-00:10.30 – 00:14.37  yasam           [world3d]  geçiş: whip  Canlı yeraltı: koridorlar, merdivenler, insanlar
-00:14.20 – 00:15.40  mutfak          [world3d]  geçiş: whip  Mutfak
-00:15.23 – 00:16.53  depo            [world3d]  geçiş: whip  Erzak deposu
-00:16.37 – 00:17.40  ahir            [world3d]  geçiş: whip  Ahır
-00:17.23 – 00:18.93  oda             [world3d]  geçiş: whip  Yaşam alanı
+00:10.30 – 00:14.30  yasam           [world3d]  geçiş: whip  Canlı yeraltı: koridorlar, merdivenler, insanlar
+00:14.13 – 00:15.33  mutfak          [world3d]  geçiş: whip  Mutfak
+00:15.17 – 00:16.47  depo            [world3d]  geçiş: whip  Erzak deposu
+00:16.30 – 00:17.33  ahir            [world3d]  geçiş: whip  Ahır
+00:17.17 – 00:18.93  oda             [world3d]  geçiş: whip  Yaşam alanı
 00:18.73 – 00:22.63  koridor         [world3d]  geçiş: fade  Dar koridor boyunca meşale ışığı, ileride baca ışığı
 00:22.40 – 00:24.20  baca            [world3d]  geçiş: blur  Baca altından yukarı bakış, gökyüzü ışığı ve akan hava
 00:24.00 – 00:25.97  akis            [world3d]  geçiş: zoom  Havalandırma şeması (temsili)
@@ -43,4 +43,4 @@ SES
 ============================================================
 Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
 Müzik: özgün prosedürel kompozisyon · 84 BPM · Re minör
-Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.6, "voice_lufs": -16.0, "music_under_voice_db": 8.3}
+Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.63, "voice_lufs": -16.0, "music_under_voice_db": 8.3}

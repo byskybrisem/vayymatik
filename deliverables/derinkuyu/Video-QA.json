@@ -1,6 +1,6 @@
 {
   "video": "Derinkuyu_Yeralti_Sehri_Shorts.mp4",
-  "generated_at": "2026-11-27T21:45:04Z",
+  "generated_at": "2026-11-27T22:15:41Z",
   "overall_pass": false,
   "summary": {
     "total": 22,
@@ -14,8 +14,8 @@
     "width": 1080,
     "height": 1920,
     "fps": 30.0,
-    "video_bitrate_kbps": 7283,
-    "size_mb": 40.71
+    "video_bitrate_kbps": 7275,
+    "size_mb": 40.66
   },
   "checks": [
     {
@@ -98,8 +98,8 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "mean_frame_diff": 10.87,
-        "min_1s_window": 3.19,
+        "mean_frame_diff": 10.78,
+        "min_1s_window": 3.17,
         "windows_below_0.6": 0,
         "windows": 42
       }
@@ -159,9 +159,9 @@
         "match_ratio": 0.96,
         "wer": 0.054,
         "sync_pairs": 72,
-        "offset_median_ms": -183.0,
-        "offset_abs_median_ms": 183.0,
-        "offset_abs_p90_ms": 371.5
+        "offset_median_ms": -26.5,
+        "offset_abs_median_ms": 87.0,
+        "offset_abs_p90_ms": 217.7
       }
     },
     {
@@ -187,8 +187,8 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "max_abs_ms": 60.0,
-        "median_abs_ms": 58.0,
+        "max_abs_ms": 35.0,
+        "median_abs_ms": 32.0,
         "lines": 9
       }
     },
@@ -217,7 +217,7 @@
       "pass": true,
       "critical": false,
       "detail": {
-        "mean_abs_diff": 22.08
+        "mean_abs_diff": 22.07
       }
     }
   ],
@@ -261,5 +261,5 @@
     39.26,
     41.64
   ],
-  "qa_seconds": 892.8
+  "qa_seconds": 1001.4
 }
