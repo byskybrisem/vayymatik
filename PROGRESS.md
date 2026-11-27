@@ -1,3 +1,9 @@
+## [2026-11-27] Savaş uçağı fırlatma Shorts'u (branch `claude/jet-ejection-shorts-video-z704iv`)
+- [x] `engine/src/three/aero/`: Jet (loft gövde, panel dokusu, kanopi, art yakıcı), Pilot, EjectionSeat (kesit/parlama/roket/stabilizasyon), Anatomy (yarı saydam iskelet + omurga yükü), Airflow (akış çizgileri), Parachute, Clouds/SkyEnv (PMREM), Hud — `registry.tsx`'e kayıtlı
+- [x] `topics/jet/topic.json`: 6 sahne (kanca, yan ağır çekim, omurga, hava akımı, kesit, paraşüt), 36 sn, ses zamanlarına bağlı
+- Not: görünüm stilize/yarı gerçekçi 3B; fotogerçekçi değil (GPU'suz swangle, koddan üretim). Kaynaklar: PubMed 12024887, 9731384.
+- Render ≈ 1,2 kare/sn (4 çekirdek) → 36 sn ≈ 15 dk
+
 # PROGRESS — VAYYMATİK Shorts üretim merkezi
 
 ## [2026-11-24] 3D video motoru (branch `claude/vayymatik-3d-video-engine-4yfwk6`, temel: friendly-mayer)
