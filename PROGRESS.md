@@ -63,3 +63,10 @@ sunFollow (küre uçuşlarında aydınlık taraf), hook başlığı "NEDEN?", ro
 12 Zirvede, YouTube'da 8 milyondan fazla eş zamanlı canlı yayın izlendi.
 13 Sonuç? 2025'te yaklaşık 14 milyar kutu, 12,2 milyar avro ciro.
 14 Red Bull sadece bir içecek satmadı. 15 İnsanların izlemek istediği bir dünya kurdu.
+
+## [2026-11-27] derinkuyu — Derinkuyu Yeraltı Şehri Shorts (branch `claude/derinkuyu-underground-city-shorts-1d6tul`)
+- [x] `topics/derinkuyu/topic.json` — 12 sahne `world3d`, 42,4 sn, 1080×1920, 30 fps; ses: ElevenLabs Furkan – Bilingual Turkish Narrator (`Dzgub2SzfGvifooR4JMV`, milyon ile aynı), cümle başına `voice/<satır>.mp3`
+- [x] Yeni 3D nesneler: `cappadocia`, `cityCut` (+`shaftBeam`, `zoneGlow`), `tunnel`, `stoneDoor`, `villager`, `flame`, `airflow`, `burst`, `farLight`; derinlik göstergesi (`hud.depth`), `grade.iris`, kamera `kicks`
+- [x] Ses: `vayy align <konu>` (Whisper medium → `<satır>.asr.json`), yeni SFX (surface_air, descent, rock_crumble, stone_roll, door_slam, footsteps, torch, murmur, shaft_wind, drip, mystery_drone), müzik `style: "mystery"`
+- [x] QA 22/22 (`deliverables/derinkuyu/Video-QA.json`); kesitler açıklayıcı canlandırmadır, kat planı iddiası yok
+- Not: render ≈ 12 dk (4 çekirdek), QA ≈ 15 dk (Whisper medium CPU). ElevenLabs ücretsiz kota: 2 üretim (≈1.170 karakter) harcandı.

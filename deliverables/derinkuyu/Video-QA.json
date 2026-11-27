@@ -1,21 +1,19 @@
 {
   "video": "Derinkuyu_Yeralti_Sehri_Shorts.mp4",
-  "generated_at": "2026-11-27T22:15:41Z",
-  "overall_pass": false,
+  "generated_at": "2026-11-27T22:48:47Z",
+  "overall_pass": true,
   "summary": {
     "total": 22,
-    "passed": 21,
-    "critical_failed": [
-      "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)"
-    ]
+    "passed": 22,
+    "critical_failed": []
   },
   "specs": {
-    "duration_s": 42.833,
+    "duration_s": 42.367,
     "width": 1080,
     "height": 1920,
     "fps": 30.0,
-    "video_bitrate_kbps": 7275,
-    "size_mb": 40.66
+    "video_bitrate_kbps": 7304,
+    "size_mb": 40.48
   },
   "checks": [
     {
@@ -32,7 +30,7 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "seconds": 42.833
+        "seconds": 42.367
       }
     },
     {
@@ -98,8 +96,8 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "mean_frame_diff": 10.78,
-        "min_1s_window": 3.17,
+        "mean_frame_diff": 11.04,
+        "min_1s_window": 3.69,
         "windows_below_0.6": 0,
         "windows": 42
       }
@@ -109,7 +107,7 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "max_gap_s": 3.8,
+        "max_gap_s": 3.77,
         "events": 42
       }
     },
@@ -118,8 +116,8 @@
       "pass": true,
       "critical": false,
       "detail": {
-        "cuts": 6,
-        "max_gap_s": 14.83
+        "cuts": 5,
+        "max_gap_s": 16.13
       }
     },
     {
@@ -129,7 +127,7 @@
       "detail": {
         "integrated_lufs": -14.0,
         "lra_lu": 2.2,
-        "true_peak_dbfs": -1.6
+        "true_peak_dbfs": -1.7
       }
     },
     {
@@ -137,7 +135,7 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "true_peak_dbtp": -1.6
+        "true_peak_dbtp": -1.7
       }
     },
     {
@@ -150,7 +148,7 @@
     },
     {
       "check": "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)",
-      "pass": false,
+      "pass": true,
       "critical": true,
       "detail": {
         "script_tokens": 74,
@@ -159,9 +157,9 @@
         "match_ratio": 0.96,
         "wer": 0.054,
         "sync_pairs": 72,
-        "offset_median_ms": -26.5,
-        "offset_abs_median_ms": 87.0,
-        "offset_abs_p90_ms": 217.7
+        "offset_median_ms": -5.0,
+        "offset_abs_median_ms": 14.0,
+        "offset_abs_p90_ms": 84.0
       }
     },
     {
@@ -187,8 +185,8 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "max_abs_ms": 35.0,
-        "median_abs_ms": 32.0,
+        "max_abs_ms": 6.0,
+        "median_abs_ms": 1.0,
         "lines": 9
       }
     },
@@ -206,7 +204,7 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "frames_checked": 429,
+        "frames_checked": 424,
         "issues": 0,
         "frames": [],
         "examples": []
@@ -217,7 +215,7 @@
       "pass": true,
       "critical": false,
       "detail": {
-        "mean_abs_diff": 22.07
+        "mean_abs_diff": 17.88
       }
     }
   ],
@@ -242,24 +240,24 @@
     }
   ],
   "frame_samples_s": [
-    1.19,
-    3.57,
-    5.95,
-    8.33,
-    10.71,
-    13.09,
-    15.47,
-    17.85,
-    20.23,
-    22.61,
-    24.99,
-    27.37,
-    29.75,
-    32.12,
-    34.5,
-    36.88,
-    39.26,
-    41.64
+    1.18,
+    3.53,
+    5.88,
+    8.24,
+    10.59,
+    12.95,
+    15.3,
+    17.65,
+    20.01,
+    22.36,
+    24.71,
+    27.07,
+    29.42,
+    31.78,
+    34.13,
+    36.48,
+    38.84,
+    41.19
   ],
-  "qa_seconds": 1001.4
+  "qa_seconds": 908.9
 }
