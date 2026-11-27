@@ -13,6 +13,8 @@ from pathlib import Path
 
 import numpy as np
 
+# Whisper kelime başlangıçları duyulan başlangıçtan biraz erkendir; altyazıyı ~60 ms geciktirerek ASR ile ölçülen sapma ortalanır
+ASR_LAG = 0.06
 _TR = str.maketrans("çğıöşüâîûÇĞİÖŞÜÂÎÛ", "cgiosuaiucgiosuaiu")
 
 
@@ -87,6 +89,6 @@ def words_from_asr(spoken: list[str], tokens: list[dict], t0: float, t1: float) 
     for w, (s, e) in zip(spoken, raw):
         s2 = max(prev, t0 + (s - ta) * k)
         e2 = max(s2 + 0.05, t0 + (e - ta) * k)
-        words.append({"text": w, "start": round(s2, 4), "end": round(min(e2, t1), 4)})
+        words.append({"text": w, "start": round(s2 + ASR_LAG, 4), "end": round(min(e2, t1) + ASR_LAG, 4)})
         prev = words[-1]["end"]
     return words
