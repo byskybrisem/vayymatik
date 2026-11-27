@@ -1,0 +1,257 @@
+{
+  "video": "VAYYMATIK0_Jet_Ejection.mp4",
+  "generated_at": "2026-11-27T14:54:30Z",
+  "overall_pass": true,
+  "summary": {
+    "total": 22,
+    "passed": 21,
+    "critical_failed": []
+  },
+  "specs": {
+    "duration_s": 36.2,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "video_bitrate_kbps": 9848,
+    "size_mb": 46.08
+  },
+  "checks": [
+    {
+      "check": "Çözünürlük 1080×1920 (9:16)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "check": "Süre 35–40 sn",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "seconds": 36.2
+      }
+    },
+    {
+      "check": "FPS 30 veya 60",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "fps": 30.0
+      }
+    },
+    {
+      "check": "Video codec H.264 yuv420p",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "codec": "h264",
+        "pix_fmt": "yuv420p",
+        "profile": "High"
+      }
+    },
+    {
+      "check": "Ses akışı AAC 48 kHz stereo",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "codec": "aac",
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    },
+    {
+      "check": "faststart (moov başta)",
+      "pass": true,
+      "critical": false,
+      "detail": {}
+    },
+    {
+      "check": "Baştan sona tam çözme (oynatılabilirlik)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "errors": ""
+      }
+    },
+    {
+      "check": "Siyah kare yok",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "black_segments": []
+      }
+    },
+    {
+      "check": "Donmuş görüntü yok (>1,2 sn)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "freezes": []
+      }
+    },
+    {
+      "check": "Statik slayt değil (her 1 sn'de hareket)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "mean_frame_diff": 14.3,
+        "min_1s_window": 1.32,
+        "windows_below_0.6": 0,
+        "windows": 36
+      }
+    },
+    {
+      "check": "Anlamlı görsel değişim aralığı ≤ 4 sn (zaman çizelgesi)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "max_gap_s": 1.8,
+        "events": 286
+      }
+    },
+    {
+      "check": "Ölçülen sahne kesmeleri (ffmpeg scene>0.18)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "cuts": 7,
+        "max_gap_s": 10.53
+      }
+    },
+    {
+      "check": "Loudness −14 LUFS ±1",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "integrated_lufs": -14.0,
+        "lra_lu": 1.1,
+        "true_peak_dbfs": -1.7
+      }
+    },
+    {
+      "check": "Gerçek tepe ≤ −1,0 dBTP",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "true_peak_dbtp": -1.7
+      }
+    },
+    {
+      "check": "Müzik konuşmanın en az 8 dB altında",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "music_under_voice_db": 11.5
+      }
+    },
+    {
+      "check": "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "script_tokens": 84,
+        "asr_tokens": 85,
+        "matched_tokens": 80,
+        "match_ratio": 0.947,
+        "wer": 0.06,
+        "sync_pairs": 80,
+        "offset_median_ms": 7.5,
+        "offset_abs_median_ms": 28.5,
+        "offset_abs_p90_ms": 123.9
+      }
+    },
+    {
+      "check": "Seslendirme anlaşılırlığı (ASR WER ≤ %25, kuru ses)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "wer": 0.06,
+        "match_ratio": 0.947
+      }
+    },
+    {
+      "check": "Müzik altında anlaşılırlık (ASR WER, final miks)",
+      "pass": true,
+      "critical": false,
+      "detail": {
+        "wer_mix": 0.071,
+        "wer_dry": 0.06
+      }
+    },
+    {
+      "check": "Satır başı zamanları ses enerjisiyle uyumlu (≤ 100 ms)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "max_abs_ms": 60.0,
+        "median_abs_ms": 36.0,
+        "lines": 8
+      }
+    },
+    {
+      "check": "Altyazı sayfaları kelime zamanlarını kapsıyor",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "words": 82,
+        "outside": 0
+      }
+    },
+    {
+      "check": "Taşan/güvenli alan dışı metin yok (yerleşmiş karelerde)",
+      "pass": true,
+      "critical": true,
+      "detail": {
+        "frames_checked": 362,
+        "issues": 0,
+        "frames": [],
+        "examples": []
+      }
+    },
+    {
+      "check": "Tekrar izleme döngüsü (ilk/son kare benzerliği)",
+      "pass": false,
+      "critical": false,
+      "detail": {
+        "mean_abs_diff": 33.92
+      }
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Fırlatma sırasındaki ivmenin omurga yaralanmalarına yol açabileceği (olası risk)",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/12024887/",
+      "accessed": "2026-11-27",
+      "status": "doğrulandı"
+    },
+    {
+      "claim": "Fırlatmalarda baş, boyun, omurga ve uzuv yaralanmalarının olası riskler olduğu",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/9731384/",
+      "accessed": "2026-11-27",
+      "status": "doğrulandı"
+    }
+  ],
+  "frame_samples_s": [
+    1.01,
+    3.02,
+    5.03,
+    7.04,
+    9.05,
+    11.06,
+    13.07,
+    15.08,
+    17.09,
+    19.11,
+    21.12,
+    23.13,
+    25.14,
+    27.15,
+    29.16,
+    31.17,
+    33.18,
+    35.19
+  ],
+  "qa_seconds": 1448.2
+}
