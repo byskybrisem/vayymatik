@@ -1,46 +1,46 @@
 Derinkuyu Yeraltı Şehri: Türkiye'nin Altındaki Gizli Şehir
-VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 44.0 sn
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 42.8 sn
 
 SENARYO (zaman kodlu, seslendirme ile birebir)
 ============================================================
-[00:00.25 – 00:03.26]  Türkiye’nin altında koca bir şehir olduğunu biliyor muydun?
+[00:00.25 – 00:03.25]  Türkiye’nin altında koca bir şehir olduğunu biliyor muydun?
       sahne: kesit — Kapadokya üzerinden dalış, toprak katmanları açılır, derinlik göstergesi 85 m
       okunuş (TTS): Türkiyenin altında koca bir şehir olduğunu biliyor muydun?
-[00:03.81 – 00:10.07]  Nevşehir’deki Derinkuyu, kuyuları da hesaba katıldığında yaklaşık 85 metre derinliğe ulaşıyor.
+[00:03.80 – 00:10.06]  Nevşehir’deki Derinkuyu, kuyuları da hesaba katıldığında yaklaşık 85 metre derinliğe ulaşıyor.
       sahne: kesit — Kapadokya üzerinden dalış, toprak katmanları açılır, derinlik göstergesi 85 m
       okunuş (TTS): Nevşehirdeki Derinkuyu, kuyuları da hesaba katıldığında yaklaşık seksen beş metre derinliğe ulaşıyor.
-[00:10.57 – 00:13.18]  Üstelik burası sadece bir sığınak değil.
+[00:10.56 – 00:12.93]  Üstelik burası sadece bir sığınak değil.
       sahne: yasam — Canlı yeraltı: koridorlar, merdivenler, insanlar
-[00:13.63 – 00:18.91]  Kayaların içine mutfaklar, erzak depoları, ahırlar ve yaşam alanları yapılmış.
+[00:13.38 – 00:18.50]  Kayaların içine mutfaklar, erzak depoları, ahırlar ve yaşam alanları yapılmış.
       sahne: yasam — Canlı yeraltı: koridorlar, merdivenler, insanlar
-[00:19.41 – 00:22.57]  Peki insanlar yerin altında nasıl nefes alıyordu?
+[00:19.00 – 00:22.16]  Peki insanlar yerin altında nasıl nefes alıyordu?
       sahne: koridor — Dar koridor boyunca meşale ışığı, ileride baca ışığı
-[00:23.02 – 00:25.90]  Yeryüzüne uzanan havalandırma bacaları sayesinde.
+[00:22.61 – 00:25.48]  Yeryüzüne uzanan havalandırma bacaları sayesinde.
       sahne: baca — Baca altından yukarı bakış, gökyüzü ışığı ve akan hava
-[00:26.40 – 00:31.61]  Tehlike anında ise dar geçitler büyük, yuvarlak taş kapılarla kapatılabiliyordu.
+[00:25.98 – 00:30.96]  Tehlike anında ise dar geçitler büyük, yuvarlak taş kapılarla kapatılabiliyordu.
       sahne: kapi — Dar geçitte köylüler geçer; yuvarlak taş kapı nişten yuvarlanıp geçidi kapatır
-[00:32.86 – 00:37.12]  Bugün bu yeraltı dünyasının yalnızca bir bölümü ziyaret edilebiliyor.
+[00:32.21 – 00:36.17]  Bugün bu yeraltı dünyasının yalnızca bir bölümü ziyaret edilebiliyor.
       sahne: kesif — Geri çekilme: tüm yeraltı şehri
-[00:38.07 – 00:41.10]  Peki sen burada yaşamaya cesaret edebilir miydin?
+[00:37.12 – 00:39.90]  Peki sen burada yaşamaya cesaret edebilir miydin?
       sahne: final — Karanlık geçide ilerleyiş; son kare ilk sahnedeki aydınlık halkayla birleşir
 
 SAHNE LİSTESİ
 ============================================================
-00:00.00 – 00:10.63  kesit           [world3d]  geçiş: cut  Kapadokya üzerinden dalış, toprak katmanları açılır, derinlik göstergesi 85 m
-00:10.33 – 00:14.57  yasam           [world3d]  geçiş: whip  Canlı yeraltı: koridorlar, merdivenler, insanlar
-00:14.40 – 00:15.63  mutfak          [world3d]  geçiş: whip  Mutfak
-00:15.47 – 00:16.83  depo            [world3d]  geçiş: whip  Erzak deposu
-00:16.67 – 00:17.70  ahir            [world3d]  geçiş: whip  Ahır
-00:17.53 – 00:19.33  oda             [world3d]  geçiş: whip  Yaşam alanı
-00:19.13 – 00:23.07  koridor         [world3d]  geçiş: fade  Dar koridor boyunca meşale ışığı, ileride baca ışığı
-00:22.83 – 00:24.60  baca            [world3d]  geçiş: blur  Baca altından yukarı bakış, gökyüzü ışığı ve akan hava
-00:24.40 – 00:26.40  akis            [world3d]  geçiş: zoom  Havalandırma şeması (temsili)
-00:26.20 – 00:33.03  kapi            [world3d]  geçiş: fade  Dar geçitte köylüler geçer; yuvarlak taş kapı nişten yuvarlanıp geçidi kapatır
-00:32.73 – 00:38.37  kesif           [world3d]  geçiş: blur  Geri çekilme: tüm yeraltı şehri
-00:37.87 – 00:44.03  final           [world3d]  geçiş: fade  Karanlık geçide ilerleyiş; son kare ilk sahnedeki aydınlık halkayla birleşir
+00:00.00 – 00:10.60  kesit           [world3d]  geçiş: cut  Kapadokya üzerinden dalış, toprak katmanları açılır, derinlik göstergesi 85 m
+00:10.30 – 00:14.30  yasam           [world3d]  geçiş: whip  Canlı yeraltı: koridorlar, merdivenler, insanlar
+00:14.13 – 00:15.33  mutfak          [world3d]  geçiş: whip  Mutfak
+00:15.17 – 00:16.47  depo            [world3d]  geçiş: whip  Erzak deposu
+00:16.30 – 00:17.33  ahir            [world3d]  geçiş: whip  Ahır
+00:17.17 – 00:18.93  oda             [world3d]  geçiş: whip  Yaşam alanı
+00:18.73 – 00:22.63  koridor         [world3d]  geçiş: fade  Dar koridor boyunca meşale ışığı, ileride baca ışığı
+00:22.40 – 00:24.20  baca            [world3d]  geçiş: blur  Baca altından yukarı bakış, gökyüzü ışığı ve akan hava
+00:24.00 – 00:25.97  akis            [world3d]  geçiş: zoom  Havalandırma şeması (temsili)
+00:25.77 – 00:32.40  kapi            [world3d]  geçiş: fade  Dar geçitte köylüler geçer; yuvarlak taş kapı nişten yuvarlanıp geçidi kapatır
+00:32.10 – 00:37.43  kesif           [world3d]  geçiş: blur  Geri çekilme: tüm yeraltı şehri
+00:36.93 – 00:42.83  final           [world3d]  geçiş: fade  Karanlık geçide ilerleyiş; son kare ilk sahnedeki aydınlık halkayla birleşir
 
 SES
 ============================================================
 Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
 Müzik: özgün prosedürel kompozisyon · 84 BPM · Re minör
-Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.57, "voice_lufs": -16.0, "music_under_voice_db": 8.4}
+Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.63, "voice_lufs": -16.0, "music_under_voice_db": 8.3}

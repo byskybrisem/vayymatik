@@ -1,53 +1,53 @@
 1
-00:00:00,250 --> 00:00:03,557
+00:00:00,250 --> 00:00:03,555
 Türkiye’nin altında koca bir
 şehir olduğunu biliyor muydun?
 
 2
-00:00:03,807 --> 00:00:09,608
+00:00:03,805 --> 00:00:09,644
 Nevşehir’deki Derinkuyu, kuyuları da hesaba
 katıldığında yaklaşık 85 metre derinliğe
 
 3
-00:00:09,608 --> 00:00:10,368
+00:00:09,664 --> 00:00:10,364
 ulaşıyor.
 
 4
-00:00:10,568 --> 00:00:13,481
+00:00:10,564 --> 00:00:13,234
 Üstelik burası sadece bir sığınak değil.
 
 5
-00:00:13,631 --> 00:00:16,862
+00:00:13,384 --> 00:00:16,554
 Kayaların içine mutfaklar, erzak depoları,
 
 6
-00:00:16,862 --> 00:00:19,215
+00:00:16,574 --> 00:00:18,802
 ahırlar ve yaşam alanları yapılmış.
 
 7
-00:00:19,415 --> 00:00:22,874
+00:00:19,002 --> 00:00:22,459
 Peki insanlar yerin altında
 nasıl nefes alıyordu?
 
 8
-00:00:23,024 --> 00:00:26,201
+00:00:22,609 --> 00:00:25,779
 Yeryüzüne uzanan havalandırma
 bacaları sayesinde.
 
 9
-00:00:26,401 --> 00:00:29,171
+00:00:25,979 --> 00:00:28,667
 Tehlike anında ise dar geçitler büyük,
 
 10
-00:00:29,171 --> 00:00:31,908
+00:00:28,687 --> 00:00:31,256
 yuvarlak taş kapılarla kapatılabiliyordu.
 
 11
-00:00:32,858 --> 00:00:37,424
+00:00:32,206 --> 00:00:36,470
 Bugün bu yeraltı dünyasının yalnızca
 bir bölümü ziyaret edilebiliyor.
 
 12
-00:00:38,074 --> 00:00:41,403
+00:00:37,120 --> 00:00:40,204
 Peki sen burada yaşamaya
 cesaret edebilir miydin?
