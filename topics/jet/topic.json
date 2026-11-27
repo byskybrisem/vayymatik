@@ -6,7 +6,8 @@
   "provider": "external",
   "name": "ElevenLabs · Furkan - Bilingual Turkish Narrator (Dzgub2SzfGvifooR4JMV)",
   "lead_in": 0.12,
-  "tail": 0.7
+  "tail": 0.7,
+  "word_offset": 0.1
  },
  "foreign_words": [],
  "lines": [

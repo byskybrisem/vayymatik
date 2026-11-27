@@ -90,6 +90,9 @@ def synth_lines(topic: dict, cache_dir: Path, log=print) -> list[LineAudio]:
             parsed = parse_line(line["text"])
             src = TOPICS / topic["id"] / "voice" / f"{line['id']}.mp3"
             audio, words = _external_line(src, parsed)
+            off = float(v.get("word_offset", 0.0))  # harici ses: sezgisel kelime zamanlarına sabit ofset (sn), ASR ölçümüyle ayarlanır
+            if off:
+                words = [{**w, "start": round(w["start"] + off, 4), "end": round(w["end"] + off, 4)} for w in words]
             out.append(LineAudio(id=line["id"], parsed=parsed, audio=audio, words=words, pause_after=line.get("pause_after", v.get("gap", 0.25))))
         log(f"  [ses] harici ses ({v.get('name', 'external')}): {len(out)} satır")
         return out
