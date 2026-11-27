@@ -3,46 +3,47 @@
  "output_name": "VAYYMATIK0_Jet_Ejection",
  "language": "tr",
  "voice": {
-  "lead_in": 0.15,
-  "tail": 0.8,
-  "length_scale": 1.0
+  "provider": "external",
+  "name": "ElevenLabs · Furkan - Bilingual Turkish Narrator (Dzgub2SzfGvifooR4JMV)",
+  "lead_in": 0.12,
+  "tail": 0.7
  },
  "foreign_words": [],
  "lines": [
   {
    "id": "soru",
    "text": "Saatte {g:960} {kilometre} hızla giden bir savaş uçağından fırlatılsaydın, vücuduna ne olurdu?",
-   "pause_after": 0.35
+   "pause_after": 0.22
   },
   {
    "id": "koltuk",
    "text": "Koltuk seni yukarı doğru {büyük} bir {ivmeyle} fırlatırdı. Bu sırada {omurgan} ciddi bir baskıya maruz kalabilirdi.",
-   "pause_after": 0.35
+   "pause_after": 0.22
   },
   {
    "id": "tehlike",
    "text": "Ancak kokpitten çıktığın anda, başka bir {tehlikeyle} karşılaşırdın.",
-   "pause_after": 0.3
+   "pause_after": 0.22
   },
   {
    "id": "hava",
    "text": "Saatte yüzlerce kilometre hızla üzerine gelen {hava}!",
-   "pause_after": 0.35
+   "pause_after": 0.22
   },
   {
    "id": "akim",
    "text": "Bu şiddetli hava akımı başına, boynuna ve uzuvlarına zarar verebilirdi.",
-   "pause_after": 0.35
+   "pause_after": 0.22
   },
   {
    "id": "sistem",
    "text": "Modern fırlatma koltukları, pilotu sabitleyen ve dengeli tutmaya yardımcı olan {güvenlik} sistemleriyle bu riskleri azaltıyor.",
-   "pause_after": 0.35
+   "pause_after": 0.22
   },
   {
    "id": "para",
    "text": "Ardından uygun koşullarda {paraşüt} açılıyor.",
-   "pause_after": 0.4
+   "pause_after": 0.22
   },
   {
    "id": "son",
@@ -3353,16 +3354,16 @@
      "contrast": 1.12,
      "flash": [
       {
-       "t": 3.5,
+       "t": "@hava.start",
        "v": 0
       },
       {
-       "t": 3.56,
+       "t": "@hava.start+0.06",
        "v": 0.2,
        "e": "out"
       },
       {
-       "t": 3.95,
+       "t": "@hava.start+0.45",
        "v": 0
       }
      ]
@@ -3400,7 +3401,7 @@
        "fov": 34
       },
       {
-       "t": 3.4,
+       "t": "@hava.start",
        "pos": [
         3.2,
         0.9,
@@ -3414,7 +3415,7 @@
        "fov": 34
       },
       {
-       "t": 5.2,
+       "t": "@hava.start+1.8",
        "pos": [
         3.0,
         0.8,
@@ -3428,7 +3429,7 @@
        "fov": 32
       },
       {
-       "t": 6.8,
+       "t": "@akim.start",
        "pos": [
         2.5,
         0.9,
@@ -3442,7 +3443,7 @@
        "fov": 30
       },
       {
-       "t": 7.6,
+       "t": "@akim.word:başına-0.1",
        "pos": [
         1.3,
         1.0,
@@ -3456,7 +3457,7 @@
        "fov": 26
       },
       {
-       "t": 8.3,
+       "t": "@akim.word:boynuna",
        "pos": [
         1.5,
         0.95,
@@ -3470,7 +3471,7 @@
        "fov": 26
       },
       {
-       "t": 9.1,
+       "t": "@akim.word:uzuvlarına",
        "pos": [
         3.4,
         0.8,
@@ -3484,7 +3485,7 @@
        "fov": 32
       },
       {
-       "t": 10.5,
+       "t": "@akim.word:uzuvlarına+1.4",
        "pos": [
         3.9,
         0.9,
@@ -4038,19 +4039,19 @@
           "v": 0
          },
          {
-          "t": 3.6,
+          "t": "@hava.start",
           "v": 0
          },
          {
-          "t": 4.6,
+          "t": "@hava.start+1.0",
           "v": 0.9
          },
          {
-          "t": 9.4,
+          "t": "@akim.word:uzuvlarına+1.4",
           "v": 0.85
          },
          {
-          "t": 10.5,
+          "t": "@sistem.start-0.1",
           "v": 0.55
          }
         ],
@@ -4060,15 +4061,15 @@
           "v": 0
          },
          {
-          "t": 3.6,
+          "t": "@hava.start",
           "v": 0
          },
          {
-          "t": 4.1,
+          "t": "@hava.start+0.5",
           "v": 0.8
          },
          {
-          "t": 9.4,
+          "t": "@akim.word:uzuvlarına+1.4",
           "v": 0.5
          }
         ]
@@ -4095,15 +4096,15 @@
           "v": 0
          },
          {
-          "t": 3.3,
+          "t": "@hava.start-0.3",
           "v": 0
          },
          {
-          "t": 4.4,
+          "t": "@hava.start+0.8",
           "v": 0.6
          },
          {
-          "t": 10.5,
+          "t": "@sistem.start-0.1",
           "v": 0.55
          }
         ],
@@ -5299,7 +5300,7 @@
         },
         {
          "t": 4.8,
-         "v": 0.8
+         "v": 0.25
         }
        ],
        "rocket": [
@@ -5309,7 +5310,7 @@
         },
         {
          "t": 4.8,
-         "v": 0.7
+         "v": 0.45
         }
        ]
       }
@@ -7891,21 +7892,17 @@
  },
  "sources": [
   {
-   "claim": "Fırlatma sırasındaki ivmenin omurga yaralanmalarına yol açabileceği (olası risk)",
-   "title": "Spinal injuries caused by the acceleration of ejection (J R Army Med Corps, 2002) — PubMed 12024887",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/12024887/",
-   "accessed": "2026-11-27"
+   "title": "PubMed 12024887",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/12024887/"
   },
   {
-   "claim": "Fırlatmalarda baş, boyun, omurga ve uzuv yaralanmalarının olası riskler olduğu",
-   "title": "Review of major injuries and fatalities in USAF ejections, 1981-1995 (Biomed Sci Instrum, 1997) — PubMed 9731384",
-   "url": "https://pubmed.ncbi.nlm.nih.gov/9731384/",
-   "accessed": "2026-11-27"
+   "title": "PubMed 9731384",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/9731384/"
   }
  ],
  "assets_credits": [
   "3B sahneler (savaş uçağı, pilot, fırlatma koltuğu, anatomi, paraşüt, bulutlar): VAYYMATİK motorunda koddan üretilmiş özgün içerik (Three.js, MIT).",
-  "Seslendirme: Piper TTS (MIT/GPL-3.0 yazılım), tr_TR-fahrettin-medium ses modeli (CC0 veri seti).",
+  "Seslendirme: ElevenLabs — 'Furkan - Bilingual Turkish Narrator' (kullanıcının mevcut hesabı); sessizlikler kırpıldı, hız 1,15×.",
   "Müzik ve ses efektleri: VAYYMATİK üretim hattında prosedürel olarak sentezlenmiş özgün içerik.",
   "Yazı tipleri: Anton, Montserrat (SIL Open Font License)."
  ]
