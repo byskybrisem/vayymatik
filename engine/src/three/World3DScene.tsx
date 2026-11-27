@@ -13,6 +13,7 @@ import {Animated, Transform} from './objects/Animated';
 import {OBJECTS} from './registry';
 import {num, NumKey} from './core/math';
 import {Titles, TitleSpec} from '../components/Titles';
+import {DepthGauge, DepthGaugeSpec} from '../components/DepthGauge';
 
 export type ObjectSpec = Transform & {kind: string; id?: string; children?: ObjectSpec[]; [k: string]: unknown};
 export type ColorKey = {t: number; v: string};
@@ -25,7 +26,9 @@ export type World3DProps = {
 	objects?: ObjectSpec[];
 	titles?: TitleSpec[];
 	/** Renk düzenleme + ışık sızıntısı (2D katman, ucuz) */
-	grade?: {saturate?: number; contrast?: number; leak?: string; leakOpacity?: number | NumKey[]; flash?: NumKey[]};
+	grade?: {saturate?: number; contrast?: number; leak?: string; leakOpacity?: number | NumKey[]; flash?: NumKey[]; iris?: number | NumKey[]; fade?: number | NumKey[]};
+	/** derinlik göstergesi (sol kenar) */
+	hud?: {depth?: DepthGaugeSpec};
 };
 
 const color = (frame: number, c: string | ColorKey[]) => {
@@ -65,7 +68,7 @@ const Obj: React.FC<{o: ObjectSpec}> = ({o}) => {
 	);
 };
 
-export const World3DScene: React.FC<World3DProps> = ({stage, fog, camera, lights = [], objects = [], titles, grade}) => {
+export const World3DScene: React.FC<World3DProps> = ({stage, fog, camera, lights = [], objects = [], titles, grade, hud}) => {
 	const frame = useCurrentFrame();
 	const leak = grade?.leak;
 	const flash = grade?.flash ? num(frame, grade.flash, 0) : 0;
@@ -92,6 +95,16 @@ export const World3DScene: React.FC<World3DProps> = ({stage, fog, camera, lights
 				/>
 			) : null}
 			{flash > 0 ? <AbsoluteFill style={{background: '#fff6e0', opacity: flash, pointerEvents: 'none'}} /> : null}
+			{grade?.iris !== undefined ? (
+				<AbsoluteFill
+					style={{
+						background: `radial-gradient(circle at 50% 46%, rgba(0,0,0,0) ${Math.max(0, num(frame, grade.iris, 2) * 880 - 70)}px, rgba(0,0,0,1) ${num(frame, grade.iris, 2) * 880 + 40}px)`,
+						pointerEvents: 'none',
+					}}
+				/>
+			) : null}
+			{grade?.fade !== undefined ? <AbsoluteFill style={{background: '#000', opacity: num(frame, grade.fade, 0), pointerEvents: 'none'}} /> : null}
+			{hud?.depth ? <DepthGauge spec={hud.depth} /> : null}
 			{titles ? <Titles titles={titles} /> : null}
 		</AbsoluteFill>
 	);

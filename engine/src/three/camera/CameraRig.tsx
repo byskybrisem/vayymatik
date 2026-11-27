@@ -17,6 +17,8 @@ export type CameraSpec = {
 	shake?: number;
 	/** Yol ölçeği / ofseti: aynı hareketi başka sahnede yeniden kullanmak için */
 	offset?: V3;
+	/** Darbe sarsıntıları (kare cinsinden t, genlik metre, süre kare): kapı çarpması gibi anlar */
+	kicks?: {t: number; amp: number; dur: number}[];
 };
 
 const sample = (keys: CamKey[], frame: number, e: (x: number) => number) => {
@@ -46,8 +48,18 @@ export const CameraRig: React.FC<{spec: CameraSpec}> = ({spec}) => {
 	const s = sample(spec.keys, frame, easeFn(spec.ease ?? 'cine'));
 	const sh = spec.shake ?? 0.012;
 	const o = spec.offset ?? [0, 0, 0];
-	const jx = noise2D('camx', frame * 0.035, 0) * sh;
-	const jy = noise2D('camy', frame * 0.035, 3) * sh;
+	let jy = noise2D('camy', frame * 0.035, 3) * sh;
+	let kx = 0;
+	let ky = 0;
+	for (const k of spec.kicks ?? []) {
+		const f = frame - k.t;
+		if (f < 0 || f > k.dur) continue;
+		const d = Math.exp((-f / k.dur) * 4.5);
+		kx += noise2D('kx', frame * 1.7, 2) * k.amp * d;
+		ky += noise2D('ky', frame * 1.9, 5) * k.amp * d;
+	}
+	jy += ky;
+	const jx = noise2D('camx', frame * 0.035, 0) * sh + kx;
 	// Render öncesi senkron güncelleme (ThreeCanvas her karede yeniden çizer)
 	camera.position.set(s.pos[0] + o[0] + jx, s.pos[1] + o[1] + jy, s.pos[2] + o[2]);
 	camera.up.set(Math.sin(s.roll), Math.cos(s.roll), 0);

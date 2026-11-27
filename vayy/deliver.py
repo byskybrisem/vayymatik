@@ -53,6 +53,11 @@ def deliver(topic_id: str, thumbnail: bool = True) -> None:
     desc = "\n".join(md["description"]) + "\n\n" + " ".join(md["hashtags"]) + "\n"
     (ddir / "Description.txt").write_text(desc, encoding="utf-8")
     (ddir / "Hashtags.txt").write_text(" ".join(md["hashtags"]) + "\n", encoding="utf-8")
+    if md.get("tags"):
+        (ddir / "Tags.txt").write_text(", ".join(md["tags"]) + "\n", encoding="utf-8")
+    if md.get("tiktok"):
+        tk = md["tiktok"]
+        (ddir / "TikTok.txt").write_text(tk["caption"] + "\n\n" + " ".join(tk["hashtags"]) + "\n", encoding="utf-8")
 
     src = ["# Kaynaklar ve doğrulama — " + md["title"], "",
            "Tüm sayısal ve tarihsel iddialar aşağıdaki kaynaklardan doğrulanmıştır (erişim tarihleri belirtilmiştir).", "",

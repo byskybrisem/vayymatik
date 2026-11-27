@@ -7,6 +7,13 @@ import {City, Tower} from './env/City';
 import {Sky} from './env/Sky';
 import {Dust, LightCone, MoneySwirl} from './fx/Particles';
 import {GrowthChart3D} from './charts/GrowthChart3D';
+import {Villager} from './character/Villager';
+import {Flame} from './fx/Flame';
+import {Airflow, Burst} from './fx/Airflow';
+import {Cappadocia} from './env/Cappadocia';
+import {CityCut, ShaftBeam, ZoneGlow} from './env/CityCut';
+import {FarLight, Tunnel} from './env/Tunnel';
+import {StoneDoor} from './objects/StoneDoor';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const OBJECTS: Record<string, React.FC<any>> = {
@@ -31,4 +38,16 @@ export const OBJECTS: Record<string, React.FC<any>> = {
 	moneySwirl: MoneySwirl,
 	lightCone: LightCone,
 	chart: GrowthChart3D,
+	// Derinkuyu (açıklayıcı canlandırma)
+	villager: Villager,
+	flame: Flame,
+	airflow: Airflow,
+	burst: Burst,
+	cappadocia: Cappadocia,
+	cityCut: CityCut,
+	shaftBeam: ShaftBeam,
+	zoneGlow: ZoneGlow,
+	tunnel: Tunnel,
+	farLight: FarLight,
+	stoneDoor: StoneDoor,
 };

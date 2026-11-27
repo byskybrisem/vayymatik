@@ -351,6 +351,76 @@ class Music:
             self.riser(t_end, dur, -6)
         self.arc = [(S["dark"], -3.0), (S["build"], -2.0), (S["peak"], 1.0), (S["end"] - 0.6, 0.0), (S["end"], -2.0)]
 
+    def arrange_mystery(self, sections: dict[str, float], hits: list[tuple[float, str]], risers: list[tuple[float, float]]):
+        """Gizemli, gerilimli, sinematik yeraltı müziği (Re frigien/minör, yavaş nabız). Anlatıcıyı bastırmaz: seyrek, düşük yoğunluk.
+        Bölümler: intro · descent · life · vent · door · reveal · final · end"""
+        S = sections
+        B, b = self.bar, self.beat
+        D = 50  # D3
+        # intro: rüzgâr gibi pad + tek ses
+        a, e = S["intro"], S["descent"]
+        self.sub(a, e - a + 0.5, 26, -9)
+        self.pad(a, e - a + 0.5, [50, 57, 62], -12, bright=500, attack=0.9)
+        self.reverse_swell(e + 0.2, min(2.2, e - a), 57, -9)
+        # descent: derinleşen nabız (60 bpm kalp atışı gibi) + frigien çekirdek
+        a, e = S["descent"], S["life"]
+        for i, tt in enumerate(np.arange(a, e, 1.0)):
+            self.kick(tt, -14 + 3 * (tt - a) / max(1e-3, e - a))
+            self.kick(tt + 0.3, -20)
+        self.pad(a, e - a + 0.5, [38, 45, 50, 51], -10, bright=700, attack=0.8)  # Re–La–Re–Mi♭ (küçük ikili gerilim)
+        for i, tt in enumerate(np.arange(a + 0.6, e - 0.5, 1.9)):
+            self.pluck(tt, [62, 63, 65, 69, 65, 63][i % 6] - 12, -12, decay=1.0, pan_=-0.3 if i % 2 else 0.3)
+        # life: sıcak ama gizemli, hafif tınılar
+        a, e = S["life"], S["vent"]
+        self.sub(a, e - a, 26, -9)
+        prog = [(38, [50, 53, 57]), (34, [50, 53, 58]), (38, [50, 53, 57]), (36, [48, 52, 55])]
+        seg = (e - a) / 4
+        for i, (root, notes) in enumerate(prog):
+            self.pad(a + i * seg, seg + 0.4, notes, -9, bright=900, attack=0.6)
+        for i, tt in enumerate(np.arange(a + 0.5, e - 0.4, b * 1.5)):
+            self.pluck(tt, PENTA[[0, 2, 4, 3, 1, 2][i % 6]], -11, decay=0.7, pan_=-0.35 if i % 2 else 0.35)
+        for tt in np.arange(a + 1.0, e - 0.5, 3.0):
+            self.bell(tt, 74, -17)
+        # vent: hava akışı — açık, soğuk, hafif yükselen
+        a, e = S["vent"], S["door"]
+        self.sub(a, e - a, 26, -9)
+        self.pad(a, e - a + 0.4, [45, 52, 57, 62], -9, bright=1300, attack=0.8)
+        self.choir(a + 0.8, e - a - 0.6, [62, 69, 74], -16)
+        for i, tt in enumerate(np.arange(a + 0.4, e - 0.3, b)):
+            self.pluck(tt, PENTA[[4, 3, 1, 2][i % 4]] + 12, -14, decay=0.5, pan_=0.45 if i % 2 else -0.45)
+        # door: gerilim — alçak tom/kalp, yükselen sertlik; çarpmada braam
+        a, e = S["door"], S["reveal"]
+        hit = next((t for t, k in hits if k == "braam"), a + (e - a) * 0.8)
+        self.sub(a, hit - a + 0.3, 26, -8)
+        self.pad(a, hit - a + 0.3, [38, 45, 50, 51], -8, bright=800, attack=0.4)
+        for i, tt in enumerate(np.arange(a + 0.2, hit - 0.2, b * 0.75)):
+            k = (tt - a) / max(1e-3, hit - a)
+            self.tom(tt, -14 + 7 * k, pitch=0.8 + 0.2 * (i % 2))
+        self.reverse_swell(hit, min(1.6, hit - a), 50, -8)
+        self.braam(hit, 26, -7, dur=3.0)
+        self.kick(hit, -7, big=True)
+        # reveal: genişleyen pad + koro + çan arpej
+        a, e = S["reveal"], S["final"]
+        self.sub(a, e - a, 29, -10)
+        self.pad(a, e - a + 0.5, [41, 48, 53, 57, 60], -8, bright=1800, attack=1.0)
+        self.choir(a + 0.4, e - a, [65, 69, 72], -12)
+        for i, tt in enumerate(np.arange(a + 0.6, e - 0.4, b * 1.5)):
+            self.bell(tt, [72, 77, 81, 84, 81, 77][i % 6], -14)
+        # final: ağır, boşluk bırakan, merak uyandıran; son nota ilk sahneye bağlanır (rüzgâr/pedin devamı)
+        a, e = S["final"], S["end"]
+        self.sub(a, e - a, 26, -9)
+        self.pad(a, e - a + 0.2, [38, 45, 50], -10, bright=650, attack=1.2)
+        for i, tt in enumerate(np.arange(a + 0.9, e - 1.2, 1.7)):
+            self.pluck(tt, [62, 63, 57][i % 3], -13, decay=1.4, pan_=0.3 if i % 2 else -0.3)
+        self.bell(a + 1.5, 69, -16)
+        self.reverse_swell(e - 0.05, 1.8, 62, -10)
+        for t, kind in hits:
+            if kind == "impact":
+                self.impact(t, -6)
+        for t_end, dur in risers:
+            self.riser(t_end, dur, -9)
+        self.arc = [(S["intro"], -3.0), (S["descent"], -2.0), (S["life"], -3.0), (S["vent"], -2.5), (S["door"], -2.0), (S["reveal"], 0.0), (S["final"], -2.0), (S["end"] - 0.5, -1.5), (S["end"], -3.0)]
+
     def mix(self) -> np.ndarray:
         g = {"drums": 0.0, "bass": -1.0, "pads": 0.0, "keys": -1.0, "fx": 0.0, "lead": 0.0}
         out = sum(self.stems[k] * 10 ** (g[k] / 20) for k in self.stems)
@@ -375,5 +445,5 @@ class Music:
 def compose(total: float, sections: dict[str, float], hits, risers, bpm=120.0, seed=7, style: str = "story") -> np.ndarray:
     """style: 'story' (8 bölümlü anlatı, 30–60 sn) · 'rise' (kısa sinematik yükseliş: dark/build/peak/end)."""
     m = Music(total, bpm=bpm, seed=seed)
-    (m.arrange_rise if style == "rise" else m.arrange)(sections, hits, risers)
+    {"rise": m.arrange_rise, "mystery": m.arrange_mystery}.get(style, m.arrange)(sections, hits, risers)
     return m.mix()

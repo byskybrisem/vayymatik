@@ -67,6 +67,13 @@ def _external_line(path: Path, parsed: ParsedLine) -> tuple[np.ndarray, list[dic
         if w.rstrip().endswith((",", ";", ":")):
             weights.append(0.0)  # duraklama yeri aşağıda ayrı eklenir
     # duraklama ağırlığı: virgüllü kelimeden sonra ~0.12 sn eşdeğeri
+    asr = path.with_suffix(".asr.json")
+    if asr.exists():
+        import json as _json
+        from .align import words_from_asr
+        w = words_from_asr(parsed.spoken, _json.loads(asr.read_text(encoding="utf-8")), t0, t1)
+        if w:
+            return audio, w
     total_syl_rate = max(1e-6, sum(weights)) / max(0.1, (t1 - t0))
     words, t = [], t0
     span = t1 - t0

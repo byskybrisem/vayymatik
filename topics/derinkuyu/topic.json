@@ -1,0 +1,3768 @@
+{
+ "id": "derinkuyu",
+ "output_name": "Derinkuyu_Yeralti_Sehri_Shorts",
+ "language": "tr",
+ "voice": {
+  "provider": "external",
+  "name": "ElevenLabs – Furkan (Deep, Natural and Clear)",
+  "lead_in": 0.25,
+  "tail": 2.9
+ },
+ "foreign_words": [],
+ "lines": [
+  {
+   "id": "hook",
+   "text": "Türkiye’nin altında koca bir {şehir} olduğunu biliyor muydun?",
+   "pause_after": 0.55
+  },
+  {
+   "id": "derinlik",
+   "text": "Nevşehir’deki {Derinkuyu}, kuyuları da hesaba katıldığında yaklaşık {g:85 metre|seksen beş metre} derinliğe ulaşıyor.",
+   "pause_after": 0.5
+  },
+  {
+   "id": "siginak",
+   "text": "Üstelik burası sadece bir {sığınak} değil.",
+   "pause_after": 0.45
+  },
+  {
+   "id": "yasam",
+   "text": "Kayaların içine {mutfaklar}, {erzak depoları}, {ahırlar} ve {yaşam alanları} yapılmış.",
+   "pause_after": 0.5
+  },
+  {
+   "id": "nefes",
+   "text": "Peki insanlar yerin altında nasıl {nefes} alıyordu?",
+   "pause_after": 0.45
+  },
+  {
+   "id": "baca",
+   "text": "Yeryüzüne uzanan {havalandırma bacaları} sayesinde.",
+   "pause_after": 0.5
+  },
+  {
+   "id": "kapi",
+   "text": "Tehlike anında ise dar geçitler büyük, {yuvarlak taş kapılarla} kapatılabiliyordu.",
+   "pause_after": 1.25
+  },
+  {
+   "id": "bugun",
+   "text": "Bugün bu yeraltı dünyasının yalnızca {bir bölümü} ziyaret edilebiliyor.",
+   "pause_after": 0.95
+  },
+  {
+   "id": "soru",
+   "text": "Peki sen burada {yaşamaya} cesaret edebilir miydin?"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "kesit",
+   "type": "world3d",
+   "start": "@start",
+   "note": "Kapadokya üzerinden dalış, toprak katmanları açılır, derinlik göstergesi 85 m",
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": true
+    },
+    "fog": {
+     "color": [
+      {
+       "t": 0,
+       "v": "#e8bf94"
+      },
+      {
+       "t": 3.0,
+       "v": "#5a4638"
+      },
+      {
+       "t": 8,
+       "v": "#0f0b09"
+      }
+     ],
+     "near": [
+      {
+       "t": 0,
+       "v": 120
+      },
+      {
+       "t": 3.4,
+       "v": 28
+      }
+     ],
+     "far": [
+      {
+       "t": 0,
+       "v": 760
+      },
+      {
+       "t": 3.4,
+       "v": 300
+      },
+      {
+       "t": 8,
+       "v": 175
+      }
+     ]
+    },
+    "camera": {
+     "ease": "linear",
+     "shake": 0.012,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -7,
+        12,
+        72
+       ],
+       "target": [
+        0,
+        5,
+        -70
+       ],
+       "fov": 44
+      },
+      {
+       "t": 1.0,
+       "pos": [
+        -3,
+        9,
+        60
+       ],
+       "target": [
+        0,
+        -4,
+        0
+       ],
+       "fov": 42
+      },
+      {
+       "t": 2.3,
+       "pos": [
+        0,
+        2,
+        50
+       ],
+       "target": [
+        0,
+        -4,
+        0
+       ],
+       "fov": 38
+      },
+      {
+       "t": 3.4,
+       "pos": [
+        0,
+        0,
+        44
+       ],
+       "target": [
+        0,
+        -3,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": 4.4,
+       "pos": [
+        0,
+        -16,
+        44
+       ],
+       "target": [
+        0,
+        -16,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": 5.6,
+       "pos": [
+        0,
+        -38,
+        44
+       ],
+       "target": [
+        0,
+        -38,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": 6.8,
+       "pos": [
+        0,
+        -60,
+        44
+       ],
+       "target": [
+        0,
+        -60,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": 7.8,
+       "pos": [
+        0,
+        -76,
+        44
+       ],
+       "target": [
+        0,
+        -76,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": 8.6,
+       "pos": [
+        0,
+        -79,
+        44
+       ],
+       "target": [
+        0,
+        -79,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": 9.3,
+       "pos": [
+        0,
+        -80.5,
+        38
+       ],
+       "target": [
+        0,
+        -80.5,
+        0
+       ],
+       "fov": 35
+      },
+      {
+       "t": 10.4,
+       "pos": [
+        0,
+        -81,
+        34
+       ],
+       "target": [
+        0,
+        -81,
+        0
+       ],
+       "fov": 34
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#8fa0c8",
+      "ground": "#4a4038",
+      "intensity": [
+       {
+        "t": 0,
+        "v": 1.0
+       },
+       {
+        "t": 3.4,
+        "v": 0.5
+       },
+       {
+        "t": 8,
+        "v": 0.42
+       }
+      ]
+     },
+     {
+      "type": "dir",
+      "color": "#ffd9a8",
+      "pos": [
+       40,
+       50,
+       60
+      ],
+      "target": [
+       0,
+       -10,
+       0
+      ],
+      "intensity": [
+       {
+        "t": 0,
+        "v": 3.6
+       },
+       {
+        "t": 3.2,
+        "v": 1.6
+       },
+       {
+        "t": 5,
+        "v": 0.5
+       }
+      ],
+      "castShadow": true,
+      "shadowSize": 60,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ffe2c6",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -7,
+         12,
+         16
+        ]
+       },
+       {
+        "t": 1.0,
+        "v": [
+         -3,
+         9,
+         16
+        ]
+       },
+       {
+        "t": 2.3,
+        "v": [
+         0,
+         2,
+         16
+        ]
+       },
+       {
+        "t": 3.4,
+        "v": [
+         0,
+         0,
+         16
+        ]
+       },
+       {
+        "t": 4.4,
+        "v": [
+         0,
+         -16,
+         16
+        ]
+       },
+       {
+        "t": 5.6,
+        "v": [
+         0,
+         -38,
+         16
+        ]
+       },
+       {
+        "t": 6.8,
+        "v": [
+         0,
+         -60,
+         16
+        ]
+       },
+       {
+        "t": 7.8,
+        "v": [
+         0,
+         -76,
+         16
+        ]
+       },
+       {
+        "t": 8.6,
+        "v": [
+         0,
+         -79,
+         16
+        ]
+       },
+       {
+        "t": 9.3,
+        "v": [
+         0,
+         -80.5,
+         16
+        ]
+       },
+       {
+        "t": 10.4,
+        "v": [
+         0,
+         -81,
+         16
+        ]
+       }
+      ],
+      "intensity": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 3.0,
+        "v": 0
+       },
+       {
+        "t": 4.2,
+        "v": 60
+       }
+      ],
+      "distance": 70,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ff9a52",
+      "pos": [
+       -11,
+       -10,
+       2
+      ],
+      "intensity": 0,
+      "distance": 25,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "sky",
+      "top": "#27447f",
+      "horizon": "#f6b57c",
+      "horizonFar": "#8ea4c9",
+      "bottom": "#0b0a0c",
+      "sun": "#ffdca4",
+      "sunDir": [
+       0.12,
+       0.16,
+       -1
+      ],
+      "sunSize": 2.2,
+      "opacity": [
+       {
+        "t": 0,
+        "v": 1
+       },
+       {
+        "t": 3.2,
+        "v": 1
+       },
+       {
+        "t": 3.6,
+        "v": 0
+       }
+      ]
+     },
+     {
+      "kind": "cappadocia"
+     },
+     {
+      "kind": "cityCut",
+      "plates": true,
+      "reveal": [
+       {
+        "t": 0.8,
+        "v": 0
+       },
+       {
+        "t": 2.6,
+        "v": 1
+       }
+      ]
+     },
+     {
+      "kind": "shaftBeam",
+      "x": 0,
+      "top": 0,
+      "bottom": -60,
+      "width": 3.2,
+      "opacity": [
+       {
+        "t": 2.6,
+        "v": 0
+       },
+       {
+        "t": 3.6,
+        "v": 0.06
+       },
+       {
+        "t": 7,
+        "v": 0.035
+       }
+      ]
+     },
+     {
+      "kind": "burst",
+      "pos": [
+       -16,
+       -4,
+       2
+      ],
+      "from": "@start+1.1",
+      "life": 55,
+      "count": 110,
+      "speed": 5,
+      "size": 1.1,
+      "spread": [
+       2,
+       1.5,
+       1
+      ]
+     },
+     {
+      "kind": "burst",
+      "pos": [
+       16,
+       -17,
+       2
+      ],
+      "from": "@start+1.4",
+      "life": 55,
+      "count": 110,
+      "speed": 5,
+      "size": 1.1,
+      "spread": [
+       2,
+       1.5,
+       1
+      ],
+      "seed": 9
+     },
+     {
+      "kind": "burst",
+      "pos": [
+       -16,
+       -36,
+       2
+      ],
+      "from": "@start+1.7",
+      "life": 55,
+      "count": 110,
+      "speed": 5,
+      "size": 1.1,
+      "spread": [
+       2,
+       1.5,
+       1
+      ],
+      "seed": 12
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         0,
+         0,
+         8
+        ]
+       },
+       {
+        "t": 3.4,
+        "v": [
+         0,
+         0,
+         8
+        ]
+       },
+       {
+        "t": 9.3,
+        "v": [
+         0,
+         -86,
+         8
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 260,
+        "size": [
+         26,
+         44,
+         18
+        ],
+        "color": "#ffe2b4",
+        "opacity": [
+         {
+          "t": 0,
+          "v": 0
+         },
+         {
+          "t": 3,
+          "v": 0.5
+         }
+        ],
+        "scale": 0.12,
+        "rise": 0.2,
+        "seed": 4
+       }
+      ]
+     }
+    ],
+    "titles": [
+     {
+      "text": "Derinkuyu",
+      "sub": "Yeraltı Şehri",
+      "kind": "slam",
+      "from": 0.15,
+      "dur": 2.5,
+      "y": 400,
+      "size": 150,
+      "color": "white",
+      "subColor": "gold",
+      "maxWidth": 860
+     }
+    ],
+    "hud": {
+     "depth": {
+      "depth": [
+       {
+        "t": 3.4,
+        "v": 0
+       },
+       {
+        "t": 4.4,
+        "v": 16
+       },
+       {
+        "t": 5.6,
+        "v": 38
+       },
+       {
+        "t": 6.8,
+        "v": 60
+       },
+       {
+        "t": 7.8,
+        "v": 76
+       },
+       {
+        "t": 8.6,
+        "v": 85
+       }
+      ],
+      "max": 85,
+      "from": 3.2,
+      "to": "@siginak.start-0.45",
+      "note": "yaklaşık · kuyular dahil",
+      "at": "@derinlik.word:85-0.1",
+      "top": 330,
+      "bottom": 1060
+     }
+    },
+    "grade": {
+     "saturate": 1.0,
+     "contrast": 1.1,
+     "leak": "rgba(255,170,80,0.5)",
+     "leakOpacity": [
+      {
+       "t": 0,
+       "v": 0.35
+      },
+      {
+       "t": 3,
+       "v": 0.1
+      },
+      {
+       "t": 4,
+       "v": 0
+      }
+     ],
+     "iris": [
+      {
+       "t": 0,
+       "v": 0.4
+      },
+      {
+       "t": 0.3,
+       "v": 0.46
+      },
+      {
+       "t": 1.0,
+       "v": 2.2
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "yasam",
+   "type": "world3d",
+   "start": "@siginak.start-0.25",
+   "note": "Canlı yeraltı: koridorlar, merdivenler, insanlar",
+   "transition": {
+    "type": "whip",
+    "dir": "up",
+    "dur": 0.3
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#120d0a",
+     "near": 30,
+     "far": 190
+    },
+    "camera": {
+     "ease": "linear",
+     "shake": 0.014,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        2,
+        -12,
+        44
+       ],
+       "target": [
+        0,
+        -14,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": 4.1,
+       "pos": [
+        -1,
+        -17,
+        36
+       ],
+       "target": [
+        -2,
+        -18,
+        0
+       ],
+       "fov": 36
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#8fa0c8",
+      "ground": "#4a4038",
+      "intensity": 0.62
+     },
+     {
+      "type": "dir",
+      "color": "#ffd9a8",
+      "pos": [
+       40,
+       50,
+       60
+      ],
+      "target": [
+       0,
+       -10,
+       0
+      ],
+      "intensity": 0.5,
+      "castShadow": false,
+      "shadowSize": 60,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ffe2c6",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         2,
+         -12,
+         16
+        ]
+       },
+       {
+        "t": 4.1,
+        "v": [
+         -1,
+         -17,
+         16
+        ]
+       }
+      ],
+      "intensity": 60,
+      "distance": 70,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ff9a52",
+      "pos": [
+       -11,
+       -10,
+       2
+      ],
+      "intensity": 8,
+      "distance": 25,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "cityCut",
+      "people": true,
+      "reveal": 1
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         2,
+         -12,
+         10
+        ]
+       },
+       {
+        "t": 4.1,
+        "v": [
+         -1,
+         -17,
+         10
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 140,
+        "size": [
+         14,
+         22,
+         12
+        ],
+        "color": "#ffd9a0",
+        "opacity": 0.55,
+        "scale": 0.09,
+        "rise": 0.25,
+        "seed": 4
+       }
+      ]
+     }
+    ],
+    "grade": {
+     "saturate": 0.9,
+     "contrast": 1.12,
+     "leak": "rgba(255,150,60,0.4)",
+     "leakOpacity": 0.25
+    }
+   }
+  },
+  {
+   "id": "mutfak",
+   "type": "world3d",
+   "start": "@yasam.word:mutfaklar-0.22",
+   "note": "Mutfak",
+   "transition": {
+    "type": "whip",
+    "dir": "left",
+    "dur": 0.16
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#120d0a",
+     "near": 30,
+     "far": 190
+    },
+    "camera": {
+     "ease": "linear",
+     "shake": 0.014,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -11.8,
+        -12.5,
+        16.5
+       ],
+       "target": [
+        -11.8,
+        -12.5,
+        -3
+       ],
+       "fov": 38
+      },
+      {
+       "t": 1.8,
+       "pos": [
+        -10.2,
+        -12.5,
+        13
+       ],
+       "target": [
+        -10.2,
+        -12.5,
+        -3
+       ],
+       "fov": 38
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#8fa0c8",
+      "ground": "#4a4038",
+      "intensity": 0.7
+     },
+     {
+      "type": "dir",
+      "color": "#ffd9a8",
+      "pos": [
+       40,
+       50,
+       60
+      ],
+      "target": [
+       0,
+       -10,
+       0
+      ],
+      "intensity": 0.5,
+      "castShadow": false,
+      "shadowSize": 60,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ffe2c6",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -11.8,
+         -12.5,
+         16
+        ]
+       },
+       {
+        "t": 1.8,
+        "v": [
+         -10.2,
+         -12.5,
+         16
+        ]
+       }
+      ],
+      "intensity": 70,
+      "distance": 70,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ff9a52",
+      "pos": [
+       -11,
+       -9.5,
+       -1
+      ],
+      "intensity": 8,
+      "distance": 25,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "cityCut",
+      "people": true,
+      "reveal": 1
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -11.8,
+         -12.5,
+         10
+        ]
+       },
+       {
+        "t": 1.8,
+        "v": [
+         -10.2,
+         -12.5,
+         10
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 140,
+        "size": [
+         14,
+         22,
+         12
+        ],
+        "color": "#ffd9a0",
+        "opacity": 0.55,
+        "scale": 0.09,
+        "rise": 0.25,
+        "seed": 6
+       }
+      ]
+     }
+    ],
+    "grade": {
+     "saturate": 0.9,
+     "contrast": 1.12,
+     "leak": "rgba(255,150,60,0.4)",
+     "leakOpacity": 0.25
+    },
+    "titles": [
+     {
+      "text": "Mutfak",
+      "kind": "rise",
+      "from": 0.0,
+      "dur": 1.6,
+      "y": 380,
+      "size": 92,
+      "color": "gold",
+      "maxWidth": 860
+     }
+    ]
+   }
+  },
+  {
+   "id": "depo",
+   "type": "world3d",
+   "start": "@yasam.word:erzak-0.16",
+   "note": "Erzak deposu",
+   "transition": {
+    "type": "whip",
+    "dir": "left",
+    "dur": 0.16
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#120d0a",
+     "near": 30,
+     "far": 190
+    },
+    "camera": {
+     "ease": "linear",
+     "shake": 0.014,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        8.799999999999999,
+        -12.5,
+        16.5
+       ],
+       "target": [
+        8.799999999999999,
+        -12.5,
+        -3
+       ],
+       "fov": 38
+      },
+      {
+       "t": 1.8,
+       "pos": [
+        10.4,
+        -12.5,
+        13
+       ],
+       "target": [
+        10.4,
+        -12.5,
+        -3
+       ],
+       "fov": 38
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#8fa0c8",
+      "ground": "#4a4038",
+      "intensity": 0.7
+     },
+     {
+      "type": "dir",
+      "color": "#ffd9a8",
+      "pos": [
+       40,
+       50,
+       60
+      ],
+      "target": [
+       0,
+       -10,
+       0
+      ],
+      "intensity": 0.5,
+      "castShadow": false,
+      "shadowSize": 60,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ffe2c6",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         8.799999999999999,
+         -12.5,
+         16
+        ]
+       },
+       {
+        "t": 1.8,
+        "v": [
+         10.4,
+         -12.5,
+         16
+        ]
+       }
+      ],
+      "intensity": 70,
+      "distance": 70,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ff9a52",
+      "pos": [
+       9.6,
+       -9.5,
+       -1
+      ],
+      "intensity": 8,
+      "distance": 25,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "cityCut",
+      "people": true,
+      "reveal": 1
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         8.799999999999999,
+         -12.5,
+         10
+        ]
+       },
+       {
+        "t": 1.8,
+        "v": [
+         10.4,
+         -12.5,
+         10
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 140,
+        "size": [
+         14,
+         22,
+         12
+        ],
+        "color": "#ffd9a0",
+        "opacity": 0.55,
+        "scale": 0.09,
+        "rise": 0.25,
+        "seed": 6
+       }
+      ]
+     }
+    ],
+    "grade": {
+     "saturate": 0.9,
+     "contrast": 1.12,
+     "leak": "rgba(255,150,60,0.4)",
+     "leakOpacity": 0.25
+    },
+    "titles": [
+     {
+      "text": "Erzak deposu",
+      "kind": "rise",
+      "from": 0.0,
+      "dur": 1.6,
+      "y": 380,
+      "size": 92,
+      "color": "gold",
+      "maxWidth": 860
+     }
+    ]
+   }
+  },
+  {
+   "id": "ahir",
+   "type": "world3d",
+   "start": "@yasam.word:ahırlar-0.2",
+   "note": "Ahır",
+   "transition": {
+    "type": "whip",
+    "dir": "down",
+    "dur": 0.16
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#120d0a",
+     "near": 30,
+     "far": 190
+    },
+    "camera": {
+     "ease": "linear",
+     "shake": 0.014,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -11.4,
+        -26.0,
+        16.5
+       ],
+       "target": [
+        -11.4,
+        -26.0,
+        -3
+       ],
+       "fov": 38
+      },
+      {
+       "t": 1.8,
+       "pos": [
+        -9.799999999999999,
+        -26.0,
+        13
+       ],
+       "target": [
+        -9.799999999999999,
+        -26.0,
+        -3
+       ],
+       "fov": 38
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#8fa0c8",
+      "ground": "#4a4038",
+      "intensity": 0.7
+     },
+     {
+      "type": "dir",
+      "color": "#ffd9a8",
+      "pos": [
+       40,
+       50,
+       60
+      ],
+      "target": [
+       0,
+       -10,
+       0
+      ],
+      "intensity": 0.5,
+      "castShadow": false,
+      "shadowSize": 60,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ffe2c6",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -11.4,
+         -26.0,
+         16
+        ]
+       },
+       {
+        "t": 1.8,
+        "v": [
+         -9.799999999999999,
+         -26.0,
+         16
+        ]
+       }
+      ],
+      "intensity": 70,
+      "distance": 70,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ff9a52",
+      "pos": [
+       -10.6,
+       -23,
+       -1
+      ],
+      "intensity": 8,
+      "distance": 25,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "cityCut",
+      "people": true,
+      "reveal": 1
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -11.4,
+         -26.0,
+         10
+        ]
+       },
+       {
+        "t": 1.8,
+        "v": [
+         -9.799999999999999,
+         -26.0,
+         10
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 140,
+        "size": [
+         14,
+         22,
+         12
+        ],
+        "color": "#ffd9a0",
+        "opacity": 0.55,
+        "scale": 0.09,
+        "rise": 0.25,
+        "seed": 6
+       }
+      ]
+     }
+    ],
+    "grade": {
+     "saturate": 0.9,
+     "contrast": 1.12,
+     "leak": "rgba(255,150,60,0.4)",
+     "leakOpacity": 0.25
+    },
+    "titles": [
+     {
+      "text": "Ahır",
+      "kind": "rise",
+      "from": 0.0,
+      "dur": 1.6,
+      "y": 380,
+      "size": 92,
+      "color": "gold",
+      "maxWidth": 860
+     }
+    ]
+   }
+  },
+  {
+   "id": "oda",
+   "type": "world3d",
+   "start": "@yasam.word:yaşam-0.1",
+   "note": "Yaşam alanı",
+   "transition": {
+    "type": "whip",
+    "dir": "right",
+    "dur": 0.16
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#120d0a",
+     "near": 30,
+     "far": 190
+    },
+    "camera": {
+     "ease": "linear",
+     "shake": 0.014,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        9.399999999999999,
+        -26.0,
+        16.5
+       ],
+       "target": [
+        9.399999999999999,
+        -26.0,
+        -3
+       ],
+       "fov": 38
+      },
+      {
+       "t": 1.8,
+       "pos": [
+        11.0,
+        -26.0,
+        13
+       ],
+       "target": [
+        11.0,
+        -26.0,
+        -3
+       ],
+       "fov": 38
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#8fa0c8",
+      "ground": "#4a4038",
+      "intensity": 0.7
+     },
+     {
+      "type": "dir",
+      "color": "#ffd9a8",
+      "pos": [
+       40,
+       50,
+       60
+      ],
+      "target": [
+       0,
+       -10,
+       0
+      ],
+      "intensity": 0.5,
+      "castShadow": false,
+      "shadowSize": 60,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ffe2c6",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         9.399999999999999,
+         -26.0,
+         16
+        ]
+       },
+       {
+        "t": 1.8,
+        "v": [
+         11.0,
+         -26.0,
+         16
+        ]
+       }
+      ],
+      "intensity": 70,
+      "distance": 70,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ff9a52",
+      "pos": [
+       10.2,
+       -23,
+       -1
+      ],
+      "intensity": 8,
+      "distance": 25,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "cityCut",
+      "people": true,
+      "reveal": 1
+     },
+     {
+      "kind": "group",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         9.399999999999999,
+         -26.0,
+         10
+        ]
+       },
+       {
+        "t": 1.8,
+        "v": [
+         11.0,
+         -26.0,
+         10
+        ]
+       }
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 140,
+        "size": [
+         14,
+         22,
+         12
+        ],
+        "color": "#ffd9a0",
+        "opacity": 0.55,
+        "scale": 0.09,
+        "rise": 0.25,
+        "seed": 6
+       }
+      ]
+     }
+    ],
+    "grade": {
+     "saturate": 0.9,
+     "contrast": 1.12,
+     "leak": "rgba(255,150,60,0.4)",
+     "leakOpacity": 0.25
+    },
+    "titles": [
+     {
+      "text": "Yaşam alanı",
+      "kind": "rise",
+      "from": 0.0,
+      "dur": 1.6,
+      "y": 380,
+      "size": 92,
+      "color": "gold",
+      "maxWidth": 860
+     }
+    ]
+   }
+  },
+  {
+   "id": "koridor",
+   "type": "world3d",
+   "start": "@nefes.start-0.28",
+   "note": "Dar koridor boyunca meşale ışığı, ileride baca ışığı",
+   "transition": {
+    "type": "fade",
+    "dur": 0.2
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#0a0807",
+     "near": 3,
+     "far": 26
+    },
+    "camera": {
+     "ease": "inOut",
+     "shake": 0.01,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        16,
+        1.5,
+        0.05
+       ],
+       "target": [
+        8,
+        1.3,
+        0
+       ],
+       "fov": 48
+      },
+      {
+       "t": 3.6,
+       "pos": [
+        -3.5,
+        1.55,
+        0.05
+       ],
+       "target": [
+        -12,
+        1.45,
+        0
+       ],
+       "fov": 48
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#6a7a9a",
+      "ground": "#2a1f18",
+      "intensity": 0.5
+     },
+     {
+      "type": "point",
+      "color": "#ffd6a8",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         16.6,
+         1.6,
+         0.1
+        ]
+       },
+       {
+        "t": 3.6,
+        "v": [
+         -2.9,
+         1.6,
+         0.1
+        ]
+       }
+      ],
+      "intensity": 6,
+      "distance": 10,
+      "decay": 2,
+      "flicker": 0.3
+     },
+     {
+      "type": "point",
+      "color": "#bcd8ff",
+      "pos": [
+       -9,
+       9.0,
+       0
+      ],
+      "intensity": [
+       {
+        "t": 0,
+        "v": 1
+       },
+       {
+        "t": 3.6,
+        "v": 9
+       }
+      ],
+      "distance": 22,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "tunnel",
+      "length": 48,
+      "rx": 0.95,
+      "h": 2.5,
+      "seed": 9,
+      "shaft": {
+       "x": -9,
+       "r": 0.9,
+       "height": 26
+      },
+      "torches": [
+       {
+        "x": 16,
+        "side": -1,
+        "y": 1.55
+       },
+       {
+        "x": 10,
+        "side": 1,
+        "y": 1.55
+       },
+       {
+        "x": 4,
+        "side": -1,
+        "y": 1.55
+       },
+       {
+        "x": -2,
+        "side": 1,
+        "y": 1.55
+       },
+       {
+        "x": -8,
+        "side": -1,
+        "y": 1.55
+       },
+       {
+        "x": -14,
+        "side": 1,
+        "y": 1.55
+       }
+      ]
+     },
+     {
+      "kind": "villager",
+      "action": "torch",
+      "tunic": "#8c4a3a",
+      "scarf": "#d8c7a6",
+      "phase": 0.4,
+      "speed": 1.5,
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         4,
+         0,
+         0.1
+        ]
+       },
+       {
+        "t": 3.6,
+        "v": [
+         -7.5,
+         0,
+         0.1
+        ]
+       }
+      ],
+      "rot": [
+       0,
+       -1.5708,
+       0
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0,
+       0
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 90,
+        "size": [
+         40,
+         2.6,
+         1.8
+        ],
+        "color": "#ffcf90",
+        "opacity": 0.5,
+        "scale": 0.045,
+        "rise": 0.05,
+        "seed": 8
+       }
+      ]
+     }
+    ],
+    "grade": {
+     "saturate": 0.92,
+     "contrast": 1.12,
+     "leak": "rgba(255,150,60,0.35)",
+     "leakOpacity": 0.2
+    }
+   }
+  },
+  {
+   "id": "baca",
+   "type": "world3d",
+   "start": "@baca.start-0.2",
+   "note": "Baca altından yukarı bakış, gökyüzü ışığı ve akan hava",
+   "transition": {
+    "type": "blur",
+    "dur": 0.22
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#0a0807",
+     "near": 6,
+     "far": 45
+    },
+    "camera": {
+     "ease": "inOut",
+     "shake": 0.008,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        -8.2,
+        1.3,
+        0.05
+       ],
+       "target": [
+        -9,
+        11,
+        0
+       ],
+       "fov": 54
+      },
+      {
+       "t": 1.9,
+       "pos": [
+        -9,
+        1.6,
+        0.05
+       ],
+       "target": [
+        -9,
+        25,
+        0
+       ],
+       "fov": 56
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#6a7a9a",
+      "ground": "#2a1f18",
+      "intensity": 0.5
+     },
+     {
+      "type": "point",
+      "color": "#ffd6a8",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         -7.6,
+         1.6,
+         0.1
+        ]
+       },
+       {
+        "t": 1.9,
+        "v": [
+         -8.4,
+         1.6,
+         0.1
+        ]
+       }
+      ],
+      "intensity": 1.6,
+      "distance": 10,
+      "decay": 2,
+      "flicker": 0.3
+     },
+     {
+      "type": "point",
+      "color": "#bcd8ff",
+      "pos": [
+       -9,
+       9.0,
+       0
+      ],
+      "intensity": 1.5,
+      "distance": 22,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "tunnel",
+      "length": 48,
+      "rx": 0.95,
+      "h": 2.5,
+      "seed": 9,
+      "shaft": {
+       "x": -9,
+       "r": 0.9,
+       "height": 26
+      },
+      "torches": [
+       {
+        "x": 16,
+        "side": -1,
+        "y": 1.55
+       },
+       {
+        "x": 10,
+        "side": 1,
+        "y": 1.55
+       },
+       {
+        "x": 4,
+        "side": -1,
+        "y": 1.55
+       },
+       {
+        "x": -14,
+        "side": 1,
+        "y": 1.55
+       }
+      ]
+     },
+     {
+      "kind": "airflow",
+      "paths": [
+       [
+        [
+         -9.2,
+         28,
+         0.05
+        ],
+        [
+         -9,
+         12,
+         0
+        ],
+        [
+         -9,
+         3,
+         0
+        ],
+        [
+         -8,
+         1.0,
+         0.1
+        ],
+        [
+         -1,
+         0.9,
+         0.1
+        ],
+        [
+         8,
+         0.9,
+         0.05
+        ]
+       ],
+       [
+        [
+         -8.7,
+         28,
+         -0.1
+        ],
+        [
+         -9,
+         12,
+         0
+        ],
+        [
+         -9,
+         3,
+         0
+        ],
+        [
+         -10,
+         1.1,
+         -0.1
+        ],
+        [
+         -18,
+         1.0,
+         0
+        ]
+       ]
+      ],
+      "count": 120,
+      "speed": 0.45,
+      "size": 0.07,
+      "color": "#bfe8ff",
+      "spread": 0.5,
+      "seed": 3,
+      "opacity": [
+       {
+        "t": 0,
+        "v": 0.0
+       },
+       {
+        "t": 0.4,
+        "v": 0.7
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -9,
+       12,
+       0
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 90,
+        "size": [
+         1.6,
+         26,
+         1.6
+        ],
+        "color": "#e8f2ff",
+        "opacity": 0.55,
+        "scale": 0.07,
+        "rise": -0.6,
+        "seed": 12
+       }
+      ]
+     }
+    ],
+    "titles": [
+     {
+      "text": "Havalandırma bacaları",
+      "kind": "rise",
+      "from": 0.15,
+      "dur": 1.7,
+      "y": 380,
+      "size": 84,
+      "color": "#9fdcff",
+      "maxWidth": 880
+     }
+    ],
+    "grade": {
+     "saturate": 1.05,
+     "contrast": 1.1
+    }
+   }
+  },
+  {
+   "id": "akis",
+   "type": "world3d",
+   "start": "@baca.word:havalandırma>end-0.5",
+   "note": "Havalandırma şeması (temsili)",
+   "transition": {
+    "type": "zoom",
+    "dur": 0.2
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#120d0a",
+     "near": 30,
+     "far": 190
+    },
+    "camera": {
+     "ease": "linear",
+     "shake": 0.014,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        0,
+        -14,
+        86
+       ],
+       "target": [
+        0,
+        -13,
+        0
+       ],
+       "fov": 36
+      },
+      {
+       "t": 1.5,
+       "pos": [
+        0,
+        -14,
+        70
+       ],
+       "target": [
+        0,
+        -13,
+        0
+       ],
+       "fov": 36
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#8fa0c8",
+      "ground": "#4a4038",
+      "intensity": 0.8
+     },
+     {
+      "type": "dir",
+      "color": "#ffd9a8",
+      "pos": [
+       40,
+       50,
+       60
+      ],
+      "target": [
+       0,
+       -10,
+       0
+      ],
+      "intensity": 0.5,
+      "castShadow": false,
+      "shadowSize": 60,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ffe2c6",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         0,
+         -14,
+         16
+        ]
+       },
+       {
+        "t": 1.5,
+        "v": [
+         0,
+         -14,
+         16
+        ]
+       }
+      ],
+      "intensity": 140,
+      "distance": 70,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ff9a52",
+      "pos": [
+       0,
+       -12,
+       6
+      ],
+      "intensity": 8,
+      "distance": 25,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "cityCut",
+      "people": true,
+      "reveal": 1
+     },
+     {
+      "kind": "airflow",
+      "paths": [
+       [
+        [
+         -11,
+         3,
+         -1.2
+        ],
+        [
+         -11,
+         -7,
+         -1.2
+        ],
+        [
+         -11,
+         -10,
+         -3
+        ],
+        [
+         -8,
+         -12.2,
+         -3
+        ],
+        [
+         -3,
+         -12.2,
+         -1.5
+        ],
+        [
+         0,
+         -12.2,
+         -1.3
+        ]
+       ],
+       [
+        [
+         11.2,
+         3,
+         -1.2
+        ],
+        [
+         11.2,
+         -7,
+         -1.2
+        ],
+        [
+         11.2,
+         -10,
+         -3
+        ],
+        [
+         8,
+         -12.2,
+         -3
+        ],
+        [
+         3,
+         -12.2,
+         -1.5
+        ],
+        [
+         0,
+         -12.2,
+         -1.3
+        ]
+       ],
+       [
+        [
+         -11,
+         -10,
+         -3
+        ],
+        [
+         -14.4,
+         -13.4,
+         -2
+        ],
+        [
+         -14.4,
+         -21,
+         -2
+        ],
+        [
+         -14.4,
+         -24,
+         -3
+        ]
+       ],
+       [
+        [
+         11.2,
+         -10,
+         -3
+        ],
+        [
+         13.6,
+         -13.4,
+         -2
+        ],
+        [
+         13.6,
+         -21.2,
+         -2
+        ],
+        [
+         13.6,
+         -24,
+         -3
+        ]
+       ]
+      ],
+      "count": 200,
+      "speed": 0.5,
+      "size": 1.0,
+      "color": "#9fe0ff",
+      "spread": 0.45,
+      "seed": 2,
+      "opacity": 0.95
+     },
+     {
+      "kind": "airflow",
+      "paths": [
+       [
+        [
+         0,
+         -26,
+         -1.3
+        ],
+        [
+         0,
+         -12.2,
+         -1.3
+        ],
+        [
+         0,
+         -3,
+         -1.3
+        ],
+        [
+         0,
+         8,
+         -1.3
+        ]
+       ]
+      ],
+      "count": 70,
+      "speed": 0.45,
+      "size": 1.0,
+      "color": "#ffb36a",
+      "spread": 0.7,
+      "seed": 8,
+      "opacity": 0.85
+     }
+    ],
+    "grade": {
+     "saturate": 0.9,
+     "contrast": 1.12,
+     "leak": "rgba(255,150,60,0.4)",
+     "leakOpacity": 0.25
+    },
+    "titles": [
+     {
+      "text": "Hava akışı (temsili)",
+      "kind": "rise",
+      "from": 0.0,
+      "dur": 1.5,
+      "y": 380,
+      "size": 78,
+      "color": "#9fdcff",
+      "maxWidth": 880
+     }
+    ]
+   }
+  },
+  {
+   "id": "kapi",
+   "type": "world3d",
+   "start": "@kapi.start-0.2",
+   "note": "Dar geçitte köylüler geçer; yuvarlak taş kapı nişten yuvarlanıp geçidi kapatır",
+   "transition": {
+    "type": "fade",
+    "dur": 0.2
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#080605",
+     "near": 2,
+     "far": 22
+    },
+    "camera": {
+     "ease": "inOut",
+     "shake": 0.012,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        6.8,
+        1.12,
+        -0.3
+       ],
+       "target": [
+        -6,
+        1.05,
+        0
+       ],
+       "fov": 50
+      },
+      {
+       "t": 2.6,
+       "pos": [
+        5.2,
+        1.1,
+        -0.28
+       ],
+       "target": [
+        -3,
+        1.0,
+        0
+       ],
+       "fov": 50
+      },
+      {
+       "t": 6.5,
+       "pos": [
+        3.4,
+        1.1,
+        -0.2
+       ],
+       "target": [
+        -1,
+        1.0,
+        0
+       ],
+       "fov": 48
+      }
+     ],
+     "kicks": [
+      {
+       "t": "@kapi.word:kapatıl+0.55",
+       "amp": 0.11,
+       "dur": 0.8
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#6a7a9a",
+      "ground": "#2a1f18",
+      "intensity": 0.4
+     },
+     {
+      "type": "point",
+      "color": "#ffbf80",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         6.5,
+         1.7,
+         0.2
+        ]
+       },
+       {
+        "t": 6.5,
+        "v": [
+         3.2,
+         1.7,
+         0.2
+        ]
+       }
+      ],
+      "intensity": 14,
+      "distance": 14,
+      "decay": 2,
+      "flicker": 0.25
+     },
+     {
+      "type": "point",
+      "color": "#ffb36a",
+      "pos": [
+       -4,
+       1.8,
+       0.1
+      ],
+      "intensity": [
+       {
+        "t": 0,
+        "v": 18
+       },
+       {
+        "t": 4.9,
+        "v": 18
+       },
+       {
+        "t": 5.3,
+        "v": 6
+       }
+      ],
+      "distance": 12,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "tunnel",
+      "length": 40,
+      "rx": 0.9,
+      "h": 1.98,
+      "seed": 15,
+      "niche": {
+       "x": 0,
+       "side": 1,
+       "w": 2.4,
+       "depth": 2.6
+      },
+      "torches": [
+       {
+        "x": 7,
+        "side": -1,
+        "y": 1.45
+       },
+       {
+        "x": 2.3,
+        "side": 1,
+        "y": 1.45
+       },
+       {
+        "x": -5,
+        "side": -1,
+        "y": 1.45
+       },
+       {
+        "x": -10,
+        "side": 1,
+        "y": 1.45
+       }
+      ]
+     },
+     {
+      "kind": "stoneDoor",
+      "r": 0.93,
+      "thick": 0.5,
+      "x": 0,
+      "z": [
+       {
+        "t": 0,
+        "v": 1.55
+       },
+       {
+        "t": 3.0199999999999987,
+        "v": 1.55
+       },
+       {
+        "t": 3.469999999999999,
+        "v": 1.4,
+        "e": "in"
+       },
+       {
+        "t": 4.333000000000001,
+        "v": 0.55,
+        "e": "in"
+       },
+       {
+        "t": 5.033000000000001,
+        "v": -0.06,
+        "e": "in"
+       },
+       {
+        "t": 5.233000000000001,
+        "v": 0.03,
+        "e": "out"
+       },
+       {
+        "t": 5.483000000000001,
+        "v": 0.0
+       }
+      ]
+     },
+     {
+      "kind": "villager",
+      "action": "push",
+      "tunic": "#6b5a3a",
+      "scarf": "#d1c4a3",
+      "phase": 0.3,
+      "speed": 1.2,
+      "from": "@kapi.word:yuvarlak-0.1",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         0.38,
+         0,
+         2.6500000000000004
+        ]
+       },
+       {
+        "t": 3.0199999999999987,
+        "v": [
+         0.38,
+         0,
+         2.6500000000000004
+        ]
+       },
+       {
+        "t": 3.469999999999999,
+        "v": [
+         0.38,
+         0,
+         2.5
+        ],
+        "e": "in"
+       },
+       {
+        "t": 4.333000000000001,
+        "v": [
+         0.38,
+         0,
+         1.6500000000000001
+        ],
+        "e": "in"
+       },
+       {
+        "t": 5.033000000000001,
+        "v": [
+         0.38,
+         0,
+         1.04
+        ],
+        "e": "in"
+       },
+       {
+        "t": 5.233000000000001,
+        "v": [
+         0.38,
+         0,
+         1.1300000000000001
+        ],
+        "e": "out"
+       },
+       {
+        "t": 5.483000000000001,
+        "v": [
+         0.38,
+         0,
+         1.1
+        ]
+       }
+      ],
+      "rot": [
+       0,
+       3.1416,
+       0
+      ]
+     },
+     {
+      "kind": "villager",
+      "action": "torch",
+      "tunic": "#8c4a3a",
+      "scarf": "#d8c7a6",
+      "phase": 0.0,
+      "speed": 3.4,
+      "pos": [
+       {
+        "t": 0.0,
+        "v": [
+         -6,
+         0,
+         0.12
+        ]
+       },
+       {
+        "t": 2.4,
+        "v": [
+         9,
+         0,
+         0.12
+        ],
+        "e": "linear"
+       }
+      ],
+      "rot": [
+       0,
+       1.5708,
+       0
+      ]
+     },
+     {
+      "kind": "villager",
+      "action": "torch",
+      "tunic": "#4f6b57",
+      "scarf": "#b65a3c",
+      "phase": 1.1,
+      "speed": 3.4,
+      "pos": [
+       {
+        "t": 0.0,
+        "v": [
+         -8,
+         0,
+         -0.18
+        ]
+       },
+       {
+        "t": 2.6,
+        "v": [
+         8.5,
+         0,
+         -0.18
+        ],
+        "e": "linear"
+       }
+      ],
+      "rot": [
+       0,
+       1.5708,
+       0
+      ]
+     },
+     {
+      "kind": "villager",
+      "action": "torch",
+      "tunic": "#6b5a8a",
+      "scarf": "#e1c27a",
+      "phase": 2.0,
+      "speed": 3.4,
+      "pos": [
+       {
+        "t": 0.1,
+        "v": [
+         -9.5,
+         0,
+         0.22
+        ]
+       },
+       {
+        "t": 2.7,
+        "v": [
+         8,
+         0,
+         0.22
+        ],
+        "e": "linear"
+       }
+      ],
+      "rot": [
+       0,
+       1.5708,
+       0
+      ]
+     },
+     {
+      "kind": "burst",
+      "pos": [
+       0,
+       0.1,
+       0
+      ],
+      "from": "@kapi.word:kapatıl+0.55",
+      "life": 70,
+      "count": 260,
+      "speed": 3.2,
+      "size": 0.24,
+      "color": "#c8b595",
+      "spread": [
+       0.6,
+       0.5,
+       2.4
+      ],
+      "up": 0.8,
+      "seed": 5
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0,
+       0
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 100,
+        "size": [
+         26,
+         2,
+         1.7
+        ],
+        "color": "#ffcf90",
+        "opacity": 0.5,
+        "scale": 0.04,
+        "rise": 0.04,
+        "seed": 2
+       }
+      ]
+     }
+    ],
+    "titles": [
+     {
+      "text": "Taş kapı",
+      "kind": "rise",
+      "from": "@kapi.word:yuvarlak-0.1",
+      "dur": 2.6,
+      "y": 380,
+      "size": 88,
+      "color": "gold",
+      "maxWidth": 880
+     }
+    ],
+    "grade": {
+     "saturate": 0.92,
+     "contrast": 1.14,
+     "leak": "rgba(255,150,60,0.3)",
+     "leakOpacity": 0.2
+    }
+   }
+  },
+  {
+   "id": "kesif",
+   "type": "world3d",
+   "start": "@bugun.start-0.12",
+   "note": "Geri çekilme: tüm yeraltı şehri",
+   "transition": {
+    "type": "blur",
+    "dur": 0.3
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#0c0908",
+     "near": 60,
+     "far": 420
+    },
+    "camera": {
+     "ease": "inOut",
+     "shake": 0.014,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        1.5,
+        -52,
+        46
+       ],
+       "target": [
+        1.5,
+        -52,
+        -2
+       ],
+       "fov": 34
+      },
+      {
+       "t": 1.0,
+       "pos": [
+        1.2,
+        -50,
+        60
+       ],
+       "target": [
+        0.8,
+        -50,
+        -2
+       ],
+       "fov": 35
+      },
+      {
+       "t": 4.8,
+       "pos": [
+        0,
+        -42,
+        138
+       ],
+       "target": [
+        0,
+        -44,
+        0
+       ],
+       "fov": 36
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#8fa0c8",
+      "ground": "#4a4038",
+      "intensity": 0.85
+     },
+     {
+      "type": "dir",
+      "color": "#ffd9a8",
+      "pos": [
+       40,
+       50,
+       60
+      ],
+      "target": [
+       0,
+       -10,
+       0
+      ],
+      "intensity": 0.5,
+      "castShadow": false,
+      "shadowSize": 60,
+      "mapSize": 2048
+     },
+     {
+      "type": "point",
+      "color": "#ffe2c6",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         1.5,
+         -52,
+         16
+        ]
+       },
+       {
+        "t": 1.0,
+        "v": [
+         1.2,
+         -50,
+         16
+        ]
+       },
+       {
+        "t": 4.8,
+        "v": [
+         0,
+         -42,
+         16
+        ]
+       }
+      ],
+      "intensity": [
+       {
+        "t": 0,
+        "v": 50
+       },
+       {
+        "t": 3,
+        "v": 150
+       },
+       {
+        "t": 4.8,
+        "v": 420
+       }
+      ],
+      "distance": 70,
+      "decay": 2
+     },
+     {
+      "type": "point",
+      "color": "#ff9a52",
+      "pos": [
+       0,
+       -58,
+       6
+      ],
+      "intensity": 8,
+      "distance": 25,
+      "decay": 2,
+      "flicker": 0.5
+     }
+    ],
+    "objects": [
+     {
+      "kind": "cityCut",
+      "people": true,
+      "reveal": 1
+     },
+     {
+      "kind": "stoneDoor",
+      "r": 0.93,
+      "thick": 0.5,
+      "x": 2.2,
+      "y": -58.05,
+      "z": -1.7
+     },
+     {
+      "kind": "zoneGlow",
+      "rect": [
+       -17,
+       -31,
+       17,
+       -3
+      ],
+      "color": "#ffd58a",
+      "z": 0.4,
+      "opacity": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": "@bugun.word:ziyaret-0.2",
+        "v": 0
+       },
+       {
+        "t": "@bugun.word:ziyaret+0.4",
+        "v": 0.55
+       },
+       {
+        "t": 4.8,
+        "v": 0.4
+       }
+      ]
+     },
+     {
+      "kind": "shaftBeam",
+      "x": 0,
+      "top": 0,
+      "bottom": -84,
+      "width": 3,
+      "opacity": 0.05
+     }
+    ],
+    "grade": {
+     "saturate": 0.9,
+     "contrast": 1.12,
+     "leak": "rgba(255,150,60,0.4)",
+     "leakOpacity": 0.25
+    }
+   }
+  },
+  {
+   "id": "final",
+   "type": "world3d",
+   "start": "@soru.start-0.2",
+   "note": "Karanlık geçide ilerleyiş; son kare ilk sahnedeki aydınlık halkayla birleşir",
+   "transition": {
+    "type": "fade",
+    "dur": 0.5
+   },
+   "props": {
+    "stage": {
+     "bg": "#07060a",
+     "exposure": 1.12,
+     "shadows": false
+    },
+    "fog": {
+     "color": "#050403",
+     "near": 2,
+     "far": [
+      {
+       "t": 0,
+       "v": 30
+      },
+      {
+       "t": 6.5,
+       "v": 19
+      }
+     ]
+    },
+    "camera": {
+     "ease": "inOut",
+     "shake": 0.01,
+     "keys": [
+      {
+       "t": 0,
+       "pos": [
+        14,
+        1.5,
+        0.05
+       ],
+       "target": [
+        4,
+        1.4,
+        0
+       ],
+       "fov": 48
+      },
+      {
+       "t": 6.5,
+       "pos": [
+        -15.5,
+        1.5,
+        0.05
+       ],
+       "target": [
+        -23,
+        1.4,
+        0
+       ],
+       "fov": 48
+      }
+     ]
+    },
+    "lights": [
+     {
+      "type": "hemi",
+      "color": "#5a6a8a",
+      "ground": "#1a130e",
+      "intensity": 0.3
+     },
+     {
+      "type": "point",
+      "color": "#ffbf80",
+      "pos": [
+       {
+        "t": 0,
+        "v": [
+         14.6,
+         1.7,
+         0.1
+        ]
+       },
+       {
+        "t": 6.5,
+        "v": [
+         -14.9,
+         1.7,
+         0.1
+        ]
+       }
+      ],
+      "intensity": [
+       {
+        "t": 0,
+        "v": 10
+       },
+       {
+        "t": 6.5,
+        "v": 3
+       }
+      ],
+      "distance": 10,
+      "decay": 2,
+      "flicker": 0.35
+     },
+     {
+      "type": "point",
+      "color": "#fff0d0",
+      "pos": [
+       -20,
+       1.5,
+       0
+      ],
+      "intensity": [
+       {
+        "t": 0,
+        "v": 0
+       },
+       {
+        "t": 6.5,
+        "v": 8
+       }
+      ],
+      "distance": 16,
+      "decay": 2
+     }
+    ],
+    "objects": [
+     {
+      "kind": "tunnel",
+      "length": 46,
+      "rx": 0.95,
+      "h": 2.5,
+      "seed": 23,
+      "torches": [
+       {
+        "x": 10,
+        "side": -1,
+        "y": 1.55
+       },
+       {
+        "x": 3,
+        "side": 1,
+        "y": 1.55
+       },
+       {
+        "x": -5,
+        "side": -1,
+        "y": 1.55
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       -22.6,
+       1.5,
+       0
+      ],
+      "children": [
+       {
+        "kind": "farLight",
+        "size": 3.0,
+        "color": "#ffe9c2",
+        "opacity": [
+         {
+          "t": 0,
+          "v": 0.0
+         },
+         {
+          "t": 2.5,
+          "v": 0.35
+         },
+         {
+          "t": 6.5,
+          "v": 1.0
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "kind": "group",
+      "pos": [
+       0,
+       0,
+       0
+      ],
+      "children": [
+       {
+        "kind": "dust",
+        "count": 100,
+        "size": [
+         40,
+         2.6,
+         1.8
+        ],
+        "color": "#ffcf90",
+        "opacity": 0.45,
+        "scale": 0.04,
+        "rise": 0.04,
+        "seed": 21
+       }
+      ]
+     }
+    ],
+    "titles": [
+     {
+      "text": "Yorumlara yaz: kalır mıydın?",
+      "kind": "rise",
+      "from": "@soru.word:cesaret",
+      "dur": 3.2,
+      "y": 420,
+      "size": 74,
+      "color": "gold",
+      "font": "sans",
+      "maxWidth": 860,
+      "upper": false
+     }
+    ],
+    "grade": {
+     "saturate": 0.95,
+     "contrast": 1.14,
+     "iris": [
+      {
+       "t": 4.7,
+       "v": 2.2
+      },
+      {
+       "t": 6.3,
+       "v": 0.46
+      },
+      {
+       "t": 6.6,
+       "v": 0.4
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "disclaimers": [
+  {
+   "text": "Açıklayıcı canlandırma",
+   "start": "@start",
+   "end": "@end"
+  }
+ ],
+ "music": {
+  "style": "mystery",
+  "bpm": 84,
+  "seed": 5,
+  "sections": {
+   "intro": "@start",
+   "descent": 3.4,
+   "life": "@siginak.start-0.25",
+   "vent": "@nefes.start-0.28",
+   "door": "@kapi.start-0.2",
+   "reveal": "@bugun.start-0.12",
+   "final": "@soru.start-0.2",
+   "end": "@end"
+  },
+  "hits": [
+   {
+    "at": "@kapi.word:kapatıl+0.55",
+    "kind": "braam"
+   }
+  ],
+  "risers": []
+ },
+ "sfx": [
+  {
+   "type": "surface_air",
+   "at": 0.0,
+   "dur": 3.8,
+   "gain": -12
+  },
+  {
+   "type": "rock_crumble",
+   "at": 0.8,
+   "dur": 1.9,
+   "gain": -9
+  },
+  {
+   "type": "descent",
+   "at": 0.9,
+   "dur": 3.0,
+   "gain": -5
+  },
+  {
+   "type": "impact",
+   "at": 2.65,
+   "size": 0.5,
+   "gain": -11
+  },
+  {
+   "type": "shaft_wind",
+   "at": 3.2,
+   "dur": 6.4,
+   "curve": [
+    [
+     0,
+     0.3
+    ],
+    [
+     3,
+     0.8
+    ],
+    [
+     6.4,
+     0.5
+    ]
+   ],
+   "gain": -16
+  },
+  {
+   "type": "drip",
+   "at": 6.6,
+   "times": [
+    0,
+    1.3,
+    2.5
+   ],
+   "gain": -17
+  },
+  {
+   "type": "impact",
+   "at": "@derinlik.word:85+0.35",
+   "size": 0.45,
+   "gain": -14
+  },
+  {
+   "type": "murmur",
+   "at": "@siginak.start-0.25",
+   "dur": 9.0,
+   "gain": -19
+  },
+  {
+   "type": "torch",
+   "at": "@siginak.start-0.25",
+   "dur": 9.0,
+   "gain": -17
+  },
+  {
+   "type": "footsteps",
+   "at": "@siginak.start+0.3",
+   "times": [
+    0,
+    0.62,
+    1.24,
+    1.9
+   ],
+   "gain": -19
+  },
+  {
+   "type": "whoosh",
+   "at": "@yasam.word:mutfaklar-0.22",
+   "dur": 0.28,
+   "gain": -16
+  },
+  {
+   "type": "whoosh",
+   "at": "@yasam.word:erzak-0.16",
+   "dur": 0.28,
+   "gain": -16
+  },
+  {
+   "type": "whoosh",
+   "at": "@yasam.word:ahırlar-0.2",
+   "dur": 0.28,
+   "up": false,
+   "gain": -16
+  },
+  {
+   "type": "whoosh",
+   "at": "@yasam.word:yaşam-0.1",
+   "dur": 0.28,
+   "gain": -16
+  },
+  {
+   "type": "torch",
+   "at": "@yasam.word:mutfaklar-0.1",
+   "dur": 1.2,
+   "seed": 51,
+   "gain": -14
+  },
+  {
+   "type": "footsteps",
+   "at": "@nefes.start-0.130",
+   "times": [
+    0,
+    0.64,
+    1.28,
+    1.92,
+    2.56,
+    3.2
+   ],
+   "decay": 2.0,
+   "gain": -13
+  },
+  {
+   "type": "torch",
+   "at": "@nefes.start-0.28",
+   "dur": 3.7,
+   "seed": 53,
+   "gain": -19
+  },
+  {
+   "type": "drip",
+   "at": "@nefes.start+0.120",
+   "times": [
+    0,
+    1.4,
+    2.7
+   ],
+   "gain": -19
+  },
+  {
+   "type": "shaft_wind",
+   "at": "@nefes.start+1.220",
+   "dur": 3.5,
+   "curve": [
+    [
+     0,
+     0.1
+    ],
+    [
+     3.5,
+     0.85
+    ]
+   ],
+   "gain": -17
+  },
+  {
+   "type": "shaft_wind",
+   "at": "@baca.start-0.2",
+   "dur": 2.0,
+   "curve": [
+    [
+     0,
+     0.5
+    ],
+    [
+     2.0,
+     1.0
+    ]
+   ],
+   "gain": -10
+  },
+  {
+   "type": "whoosh",
+   "at": "@baca.start-0.100",
+   "dur": 1.4,
+   "up": false,
+   "gain": -15
+  },
+  {
+   "type": "whoosh",
+   "at": "@baca.word:havalandırma>end-0.5",
+   "dur": 1.2,
+   "gain": -14
+  },
+  {
+   "type": "shaft_wind",
+   "at": "@baca.word:havalandırma>end-0.5",
+   "dur": 1.7,
+   "curve": [
+    [
+     0,
+     0.6
+    ],
+    [
+     1.7,
+     0.5
+    ]
+   ],
+   "gain": -13
+  },
+  {
+   "type": "footsteps",
+   "at": "@kapi.start-0.150",
+   "times": [
+    0.0,
+    0.26,
+    0.52,
+    0.78,
+    1.04,
+    1.3,
+    1.56,
+    1.82,
+    2.08,
+    2.34,
+    2.6
+   ],
+   "decay": 1.5,
+   "seed": 61,
+   "gain": -9
+  },
+  {
+   "type": "footsteps",
+   "at": "@kapi.start-0.020",
+   "times": [
+    0.0,
+    0.27,
+    0.54,
+    0.81,
+    1.08,
+    1.35,
+    1.62,
+    1.89,
+    2.16,
+    2.43
+   ],
+   "decay": 1.5,
+   "seed": 62,
+   "gain": -12
+  },
+  {
+   "type": "torch",
+   "at": "@kapi.start-0.2",
+   "dur": 6.5,
+   "seed": 63,
+   "gain": -18
+  },
+  {
+   "type": "heartbeat",
+   "at": "@kapi.start+1.600",
+   "gain": -16
+  },
+  {
+   "type": "stone_roll",
+   "at": "@kapi.word:yuvarlak+0.05",
+   "dur": 2.0130000000000026,
+   "gain": -6
+  },
+  {
+   "type": "door_slam",
+   "at": "@kapi.word:kapatıl+0.55",
+   "gain": -4
+  },
+  {
+   "type": "rock_crumble",
+   "at": "@kapi.word:kapatıl+0.6",
+   "dur": 1.5,
+   "seed": 71,
+   "gain": -13
+  },
+  {
+   "type": "murmur",
+   "at": "@bugun.start-0.12",
+   "dur": 5.0,
+   "seed": 72,
+   "gain": -24
+  },
+  {
+   "type": "shaft_wind",
+   "at": "@bugun.start-0.12",
+   "dur": 5.0,
+   "curve": [
+    [
+     0,
+     0.2
+    ],
+    [
+     5.0,
+     0.6
+    ]
+   ],
+   "gain": -22
+  },
+  {
+   "type": "mystery_drone",
+   "at": "@soru.start-0.2",
+   "dur": 6.5,
+   "gain": -9
+  },
+  {
+   "type": "footsteps",
+   "at": "@soru.start+1.000",
+   "times": [
+    0,
+    1.15,
+    2.3
+   ],
+   "decay": 2.6,
+   "seed": 81,
+   "gain": -23
+  },
+  {
+   "type": "drip",
+   "at": "@soru.start+1.700",
+   "times": [
+    0,
+    1.7
+   ],
+   "gain": -22
+  },
+  {
+   "type": "surface_air",
+   "at": "@end-1.7",
+   "dur": 1.7,
+   "gain": -20
+  }
+ ],
+ "metadata": {
+  "title": "Derinkuyu Yeraltı Şehri: Türkiye'nin Altındaki Gizli Şehir",
+  "title_alternatives": [
+   "Derinkuyu Yeraltı Şehri Nasıl Nefes Alıyordu? Taş Kapılar ve Havalandırma Bacaları",
+   "Türkiye'nin Altında Koca Bir Şehir Var: Derinkuyu Yeraltı Şehri",
+   "Derinkuyu: Kayaya Oyulmuş 85 Metrelik Yeraltı Şehri (Nevşehir)"
+  ],
+  "description": [
+   "Türkiye'nin altında koca bir şehir olduğunu biliyor muydun? 🕳️ Nevşehir'deki Derinkuyu Yeraltı Şehri, kuyuları da hesaba katıldığında yaklaşık 85 metre derinliğe ulaşıyor.",
+   "",
+   "Bu Shorts'ta Derinkuyu'yu 3D açıklayıcı canlandırmayla anlattık:",
+   "• Kayaların içine mutfaklar, erzak depoları, ahırlar ve yaşam alanları yapılmış.",
+   "• Yeryüzüne uzanan havalandırma bacaları sayesinde yeraltında nefes almak mümkündü.",
+   "• Tehlike anında dar geçitler büyük, yuvarlak taş kapılarla kapatılabiliyordu.",
+   "• Bugün bu yeraltı dünyasının yalnızca bir bölümü ziyaret edilebiliyor.",
+   "",
+   "👇 Sen burada yaşamaya cesaret edebilir miydin? Yorumlara yaz.",
+   "",
+   "ℹ️ Videodaki kesitler, mekânlar ve insan figürleri tarihsel anlatımı görselleştiren açıklayıcı canlandırmadır; doğrulanmış kat planı veya arkeolojik ölçü değildir. İnşa tarihi, nüfus ve kat sayısı gibi kesin olmayan bilgiler kasıtlı olarak verilmemiştir.",
+   "",
+   "Kaynaklar:",
+   "• T.C. Kültür ve Turizm Bakanlığı – Derinkuyu Yeraltı Şehri: https://kapadokyaalan-arsiv.ktb.gov.tr/TR-288407/derinkuyu-yeralti-sehri.html",
+   "• Derinkuyu Belediyesi: https://derinkuyu.gov.tr/icerik-1",
+   "• Derinkuyu Yeraltı Şehri – T.C. Kültür ve Turizm Bakanlığı Müzeler: https://www.muze.gov.tr/muze-detay?DistId=DKY&SectionId=DKY01",
+   "",
+   "Seslendirme: ElevenLabs (Furkan). Müzik ve ses efektleri: VAYYMATİK için özgün üretim.",
+   "",
+   "🔔 Türkiye'nin gizli yerleri ve tarih için VAYYMATİK'i takip et."
+  ],
+  "hashtags": [
+   "#Derinkuyu",
+   "#YeraltıŞehri",
+   "#Kapadokya",
+   "#Nevşehir",
+   "#TarihiYerler",
+   "#GizemliYerler",
+   "#Shorts",
+   "#VAYYMATİK"
+  ],
+  "tags": [
+   "derinkuyu",
+   "derinkuyu yeraltı şehri",
+   "yeraltı şehri",
+   "derinkuyu yeraltı şehri nasıl yapıldı",
+   "kapadokya yeraltı şehri",
+   "nevşehir derinkuyu",
+   "derinkuyu 85 metre",
+   "yuvarlak taş kapı",
+   "havalandırma bacaları",
+   "kapadokya",
+   "nevşehir gezilecek yerler",
+   "türkiye'nin gizemli yerleri",
+   "yeraltı şehri belgesel",
+   "tarihi yerler",
+   "gezilecek yerler",
+   "3d animasyon",
+   "shorts"
+  ],
+  "tiktok": {
+   "caption": "Türkiye'nin altında koca bir şehir var 🕳️ Derinkuyu Yeraltı Şehri kuyularla birlikte yaklaşık 85 metre derinliğe ulaşıyor. Mutfaklar, ahırlar, havalandırma bacaları ve yuvarlak taş kapılar… Sen burada yaşamaya cesaret eder miydin? 👇 (açıklayıcı canlandırma)",
+   "hashtags": [
+    "#derinkuyu",
+    "#yeraltısehri",
+    "#kapadokya",
+    "#nevşehir",
+    "#tarih",
+    "#gizemliyerler",
+    "#keşfet",
+    "#fyp",
+    "#türkiye",
+    "#belgesel"
+   ]
+  },
+  "thumbnail": {
+   "scene": "kesif",
+   "frame": 115,
+   "kicker": "Yeraltı Şehri",
+   "lines": [
+    {
+     "text": "Derinkuyu"
+    },
+    {
+     "text": "85 metre",
+     "color": "gold"
+    }
+   ],
+   "badge": "kuyular dahil · yaklaşık"
+  }
+ },
+ "sources": [
+  {
+   "claim": "Derinkuyu Yeraltı Şehri: Nevşehir'de, kuyuları da kapsayan yaklaşık 85 m derinlik; mutfak, depo, ahır ve yaşam alanları; havalandırma bacaları; yuvarlak taş kapılar",
+   "title": "KTB Kapadokya Alan Başkanlığı – Derinkuyu Yeraltı Şehri",
+   "url": "https://kapadokyaalan-arsiv.ktb.gov.tr/TR-288407/derinkuyu-yeralti-sehri.html",
+   "accessed": "2026-11-27"
+  },
+  {
+   "claim": "Derinkuyu hakkında genel bilgi (yerel yönetim kaynağı)",
+   "title": "Derinkuyu Belediyesi",
+   "url": "https://derinkuyu.gov.tr/icerik-1",
+   "accessed": "2026-11-27"
+  },
+  {
+   "claim": "Müze/ziyaret bilgisi: yeraltı şehrinin yalnızca bir bölümü ziyarete açık",
+   "title": "T.C. Kültür ve Turizm Bakanlığı – Müzeler: Derinkuyu Yeraltı Şehri",
+   "url": "https://www.muze.gov.tr/muze-detay?DistId=DKY&SectionId=DKY01",
+   "accessed": "2026-11-27"
+  }
+ ],
+ "assets_credits": [
+  "3D sahneler, karakterler, kaya dokuları, Kapadokya arazisi, kesit ve animasyonlar: VAYYMATİK motorunda koddan üretilmiş özgün içerik (Three.js, MIT).",
+  "Seslendirme: ElevenLabs – Furkan (Bilingual Turkish Narrator); metin kullanıcı tarafından verilmiştir.",
+  "Müzik ve ses efektleri: VAYYMATİK üretim hattında prosedürel olarak sentezlenmiş özgün içerik (telif sorunu yoktur).",
+  "Yazı tipleri: Anton, Montserrat (SIL Open Font License)."
+ ]
+}
