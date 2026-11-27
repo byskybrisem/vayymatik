@@ -19,7 +19,7 @@ Tüm sayısal ve tarihsel iddialar aşağıdaki kaynaklardan doğrulanmıştır 
 ## Görsel, ses ve yazı tipi lisansları
 
 - 3B sahneler (savaş uçağı, pilot, fırlatma koltuğu, anatomi, paraşüt, bulutlar): VAYYMATİK motorunda koddan üretilmiş özgün içerik (Three.js, MIT).
-- Seslendirme: Piper TTS (MIT/GPL-3.0 yazılım), tr_TR-fahrettin-medium ses modeli (CC0 veri seti).
+- Seslendirme: ElevenLabs — 'Furkan - Bilingual Turkish Narrator' (kullanıcının mevcut hesabı); sessizlikler kırpıldı, hız 1,15×.
 - Müzik ve ses efektleri: VAYYMATİK üretim hattında prosedürel olarak sentezlenmiş özgün içerik.
 - Yazı tipleri: Anton, Montserrat (SIL Open Font License).
 

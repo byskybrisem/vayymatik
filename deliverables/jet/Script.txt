@@ -1,37 +1,37 @@
 960 km/sa Hızla Giden Savaş Uçağından Fırlatılsaydın Vücuduna Ne Olurdu?
-VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 36.2 sn
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 37.3 sn
 
 SENARYO (zaman kodlu, seslendirme ile birebir)
 ============================================================
-[00:00.15 – 00:05.29]  Saatte 960 kilometre hızla giden bir savaş uçağından fırlatılsaydın, vücuduna ne olurdu?
+[00:00.12 – 00:05.40]  Saatte 960 kilometre hızla giden bir savaş uçağından fırlatılsaydın, vücuduna ne olurdu?
       sahne: kanca
       okunuş (TTS): Saatte dokuz yüz altmış kilometre hızla giden bir savaş uçağından fırlatılsaydın, vücuduna ne olurdu?
-[00:05.64 – 00:11.08]  Koltuk seni yukarı doğru büyük bir ivmeyle fırlatırdı. Bu sırada omurgan ciddi bir baskıya maruz kalabilirdi.
+[00:05.62 – 00:11.58]  Koltuk seni yukarı doğru büyük bir ivmeyle fırlatırdı. Bu sırada omurgan ciddi bir baskıya maruz kalabilirdi.
       sahne: yan
-[00:11.43 – 00:15.01]  Ancak kokpitten çıktığın anda, başka bir tehlikeyle karşılaşırdın.
+[00:11.80 – 00:15.40]  Ancak kokpitten çıktığın anda, başka bir tehlikeyle karşılaşırdın.
       sahne: omurga
-[00:15.31 – 00:17.86]  Saatte yüzlerce kilometre hızla üzerine gelen hava!
+[00:15.62 – 00:18.61]  Saatte yüzlerce kilometre hızla üzerine gelen hava!
       sahne: hava
-[00:18.21 – 00:22.04]  Bu şiddetli hava akımı başına, boynuna ve uzuvlarına zarar verebilirdi.
+[00:18.83 – 00:23.11]  Bu şiddetli hava akımı başına, boynuna ve uzuvlarına zarar verebilirdi.
       sahne: hava
-[00:22.39 – 00:28.63]  Modern fırlatma koltukları, pilotu sabitleyen ve dengeli tutmaya yardımcı olan güvenlik sistemleriyle bu riskleri azaltıyor.
+[00:23.33 – 00:29.88]  Modern fırlatma koltukları, pilotu sabitleyen ve dengeli tutmaya yardımcı olan güvenlik sistemleriyle bu riskleri azaltıyor.
       sahne: kesit
-[00:28.98 – 00:31.12]  Ardından uygun koşullarda paraşüt açılıyor.
+[00:30.10 – 00:32.49]  Ardından uygun koşullarda paraşüt açılıyor.
       sahne: parasut
-[00:31.52 – 00:35.37]  Çünkü fırlatma koltuğunun amacı konfor değil, pilotun hayatını kurtarmak.
+[00:32.71 – 00:36.59]  Çünkü fırlatma koltuğunun amacı konfor değil, pilotun hayatını kurtarmak.
       sahne: parasut
 
 SAHNE LİSTESİ
 ============================================================
-00:00.00 – 00:03.50  kanca           [world3d]  geçiş: cut  
-00:03.20 – 00:08.63  yan             [world3d]  geçiş: whip  
-00:08.30 – 00:12.03  omurga          [world3d]  geçiş: blur  
-00:11.73 – 00:22.63  hava            [world3d]  geçiş: whip  
-00:22.30 – 00:29.23  kesit           [world3d]  geçiş: blur  
-00:28.83 – 00:36.20  parasut         [world3d]  geçiş: fade  
+00:00.00 – 00:03.57  kanca           [world3d]  geçiş: cut  
+00:03.27 – 00:08.67  yan             [world3d]  geçiş: whip  
+00:08.33 – 00:12.33  omurga          [world3d]  geçiş: blur  
+00:12.03 – 00:23.57  hava            [world3d]  geçiş: whip  
+00:23.23 – 00:30.33  kesit           [world3d]  geçiş: blur  
+00:29.93 – 00:37.30  parasut         [world3d]  geçiş: fade  
 
 SES
 ============================================================
 Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
 Müzik: özgün prosedürel kompozisyon · 112 BPM · Re minör
-Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.66, "voice_lufs": -16.0, "music_under_voice_db": 11.5}
+Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.58, "voice_lufs": -16.0, "music_under_voice_db": 10.6}
