@@ -14,7 +14,7 @@ from pathlib import Path
 import numpy as np
 
 # Whisper kelime başlangıçları duyulan başlangıçtan ASR ile ölçülen sapmayı ortalamak için ayar (yerleşimde ses de aynı miktarda kaydığından etkisi 2 katıdır)
-ASR_LAG = -0.03
+ASR_LAG = 0.0
 _TR = str.maketrans("çğıöşüâîûÇĞİÖŞÜÂÎÛ", "cgiosuaiucgiosuaiu")
 
 
@@ -22,7 +22,7 @@ def _norm(s: str) -> str:
     return re.sub(r"[^a-z0-9]", "", s.translate(_TR).lower())
 
 
-def transcribe(mp3: Path, model_size: str = "small") -> list[dict]:
+def transcribe(mp3: Path, model_size: str = "medium") -> list[dict]:
     from faster_whisper import WhisperModel
 
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(mp3), "-f", "f32le", "-ac", "1", "-ar", "16000", "-"], capture_output=True, check=True).stdout
@@ -32,7 +32,7 @@ def transcribe(mp3: Path, model_size: str = "small") -> list[dict]:
     return [{"w": w.word.strip(), "s": round(float(w.start), 3), "e": round(float(w.end), 3)} for s in segs for w in s.words]
 
 
-def align_topic(topic_id: str, model_size: str = "small") -> None:
+def align_topic(topic_id: str, model_size: str = "medium") -> None:
     from .paths import TOPICS
 
     vdir = TOPICS / topic_id / "voice"
@@ -82,13 +82,15 @@ def words_from_asr(spoken: list[str], tokens: list[dict], t0: float, t1: float) 
         n = len(_norm(w))
         raw.append((t_at(pos), t_at(pos + n)))
         pos += n
-    ta, tb = raw[0][0], raw[-1][1]
-    k = (t1 - t0) / max(1e-3, tb - ta)  # ASR aralığını enerji aralığına oturt
+    # Kelime sınırları doğrudan ASR damgalarından; yalnızca satırın ilk kelimesi enerji başlangıcına (t0) çekilir
+    # (yumuşak ünsüz/nefes ön-sesi altyazıyı erkene almasın), son kelime enerji bitişini (t1) aşmaz.
     words = []
     prev = t0
-    for w, (s, e) in zip(spoken, raw):
-        s2 = max(prev, t0 + (s - ta) * k)
-        e2 = max(s2 + 0.05, t0 + (e - ta) * k)
-        words.append({"text": w, "start": round(s2 + ASR_LAG, 4), "end": round(min(e2, t1) + ASR_LAG, 4)})
+    for k, (w, (s, e)) in enumerate(zip(spoken, raw)):
+        s2 = max(prev, s + ASR_LAG, t0 if k == 0 else 0.0)
+        e2 = max(s2 + 0.05, e + ASR_LAG)
+        if k == len(spoken) - 1:
+            e2 = max(s2 + 0.05, min(e2, t1))
+        words.append({"text": w, "start": round(s2, 4), "end": round(e2, 4)})
         prev = words[-1]["end"]
     return words
