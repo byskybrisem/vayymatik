@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Freeze} from 'remotion';
+import {AbsoluteFill, Sequence} from 'remotion';
 import {SCENES} from './scenes/registry';
 import {BrandCtx, DEFAULT_BRAND, FONTS} from './lib/theme';
 import {EarthScene} from './scenes/EarthScene';
@@ -23,9 +23,9 @@ export const Thumbnail: React.FC<ShortProps & {thumb?: ThumbSpec}> = ({timeline,
 		<BrandCtx.Provider value={brand}>
 			<AbsoluteFill style={{background: '#000'}}>
 				{BG && bgScene ? (
-					<Freeze frame={thumb?.frame ?? 0}>
-						<BG {...(bgScene.props as object)} titles={[]} />
-					</Freeze>
+					<Sequence from={-(thumb?.frame ?? 0)}>
+						<BG {...(bgScene.props as object)} titles={[]} hud={undefined} />
+					</Sequence>
 				) : null}
 				{hook ? <EarthScene {...(hook.props as object)} keys={[{t: 0, lat: 33.4, lon: -104.5, alt: 39, heading: 75, pitch: t.pitch ?? 6, roll: -4, fov: 100, fisheye: 0.85}]} titles={[]} labels={[]} /> : null}
 				<AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.0) 45%, rgba(0,0,0,0.0) 60%, rgba(0,0,0,0.8) 100%)'}} />
