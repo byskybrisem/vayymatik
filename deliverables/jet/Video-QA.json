@@ -1,19 +1,21 @@
 {
   "video": "VAYYMATIK0_Jet_Ejection.mp4",
-  "generated_at": "2026-11-27T14:54:30Z",
-  "overall_pass": true,
+  "generated_at": "2026-11-27T16:13:12Z",
+  "overall_pass": false,
   "summary": {
     "total": 22,
-    "passed": 21,
-    "critical_failed": []
+    "passed": 20,
+    "critical_failed": [
+      "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)"
+    ]
   },
   "specs": {
-    "duration_s": 36.2,
+    "duration_s": 37.3,
     "width": 1080,
     "height": 1920,
     "fps": 30.0,
-    "video_bitrate_kbps": 9848,
-    "size_mb": 46.08
+    "video_bitrate_kbps": 9821,
+    "size_mb": 47.37
   },
   "checks": [
     {
@@ -30,7 +32,7 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "seconds": 36.2
+        "seconds": 37.3
       }
     },
     {
@@ -96,10 +98,10 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "mean_frame_diff": 14.3,
-        "min_1s_window": 1.32,
+        "mean_frame_diff": 14.22,
+        "min_1s_window": 1.9,
         "windows_below_0.6": 0,
-        "windows": 36
+        "windows": 37
       }
     },
     {
@@ -108,7 +110,7 @@
       "critical": true,
       "detail": {
         "max_gap_s": 1.8,
-        "events": 286
+        "events": 287
       }
     },
     {
@@ -116,8 +118,8 @@
       "pass": true,
       "critical": false,
       "detail": {
-        "cuts": 7,
-        "max_gap_s": 10.53
+        "cuts": 8,
+        "max_gap_s": 11.17
       }
     },
     {
@@ -126,7 +128,7 @@
       "critical": true,
       "detail": {
         "integrated_lufs": -14.0,
-        "lra_lu": 1.1,
+        "lra_lu": 2.1,
         "true_peak_dbfs": -1.7
       }
     },
@@ -143,23 +145,23 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "music_under_voice_db": 11.5
+        "music_under_voice_db": 10.6
       }
     },
     {
       "check": "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)",
-      "pass": true,
+      "pass": false,
       "critical": true,
       "detail": {
         "script_tokens": 84,
-        "asr_tokens": 85,
-        "matched_tokens": 80,
-        "match_ratio": 0.947,
-        "wer": 0.06,
-        "sync_pairs": 80,
-        "offset_median_ms": 7.5,
-        "offset_abs_median_ms": 28.5,
-        "offset_abs_p90_ms": 123.9
+        "asr_tokens": 84,
+        "matched_tokens": 83,
+        "match_ratio": 0.988,
+        "wer": 0.012,
+        "sync_pairs": 83,
+        "offset_median_ms": 106.0,
+        "offset_abs_median_ms": 120.0,
+        "offset_abs_p90_ms": 220.2
       }
     },
     {
@@ -167,8 +169,8 @@
       "pass": true,
       "critical": false,
       "detail": {
-        "wer": 0.06,
-        "match_ratio": 0.947
+        "wer": 0.012,
+        "match_ratio": 0.988
       }
     },
     {
@@ -176,8 +178,8 @@
       "pass": true,
       "critical": false,
       "detail": {
-        "wer_mix": 0.071,
-        "wer_dry": 0.06
+        "wer_mix": 0.012,
+        "wer_dry": 0.012
       }
     },
     {
@@ -185,8 +187,8 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "max_abs_ms": 60.0,
-        "median_abs_ms": 36.0,
+        "max_abs_ms": 19.0,
+        "median_abs_ms": 9.0,
         "lines": 8
       }
     },
@@ -204,7 +206,7 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "frames_checked": 362,
+        "frames_checked": 373,
         "issues": 0,
         "frames": [],
         "examples": []
@@ -234,24 +236,24 @@
     }
   ],
   "frame_samples_s": [
-    1.01,
-    3.02,
-    5.03,
-    7.04,
-    9.05,
-    11.06,
-    13.07,
-    15.08,
-    17.09,
-    19.11,
-    21.12,
-    23.13,
-    25.14,
-    27.15,
-    29.16,
-    31.17,
-    33.18,
-    35.19
+    1.04,
+    3.11,
+    5.18,
+    7.25,
+    9.32,
+    11.4,
+    13.47,
+    15.54,
+    17.61,
+    19.69,
+    21.76,
+    23.83,
+    25.9,
+    27.97,
+    30.05,
+    32.12,
+    34.19,
+    36.26
   ],
-  "qa_seconds": 1448.2
+  "qa_seconds": 1536.5
 }
