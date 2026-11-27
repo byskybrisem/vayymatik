@@ -1,13 +1,11 @@
 {
   "video": "VAYYMATIK0_Jet_Ejection.mp4",
-  "generated_at": "2026-11-27T16:52:01Z",
-  "overall_pass": false,
+  "generated_at": "2026-11-27T17:17:15Z",
+  "overall_pass": true,
   "summary": {
     "total": 22,
-    "passed": 20,
-    "critical_failed": [
-      "Gerçek tepe ≤ −1,0 dBTP"
-    ]
+    "passed": 21,
+    "critical_failed": []
   },
   "specs": {
     "duration_s": 37.3,
@@ -128,16 +126,16 @@
       "critical": true,
       "detail": {
         "integrated_lufs": -14.0,
-        "lra_lu": 2.2,
-        "true_peak_dbfs": 0.4
+        "lra_lu": 2.1,
+        "true_peak_dbfs": -1.7
       }
     },
     {
       "check": "Gerçek tepe ≤ −1,0 dBTP",
-      "pass": false,
+      "pass": true,
       "critical": true,
       "detail": {
-        "true_peak_dbtp": 0.4
+        "true_peak_dbtp": -1.7
       }
     },
     {
@@ -255,5 +253,5 @@
     34.19,
     36.26
   ],
-  "qa_seconds": 1478.1
+  "qa_seconds": 1442.8
 }
