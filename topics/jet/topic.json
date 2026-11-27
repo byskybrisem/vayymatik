@@ -7910,5 +7910,8 @@
   "Seslendirme: ElevenLabs — 'Furkan - Bilingual Turkish Narrator' (kullanıcının mevcut hesabı); sessizlikler kırpıldı, hız 1,15×.",
   "Müzik ve ses efektleri: VAYYMATİK üretim hattında prosedürel olarak sentezlenmiş özgün içerik.",
   "Yazı tipleri: Anton, Montserrat (SIL Open Font License)."
- ]
+ ],
+ "mix": {
+  "ceiling_db": -4.0
+ }
 }

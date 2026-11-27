@@ -1,12 +1,12 @@
 {
   "video": "VAYYMATIK0_Jet_Ejection.mp4",
-  "generated_at": "2026-11-27T16:13:12Z",
+  "generated_at": "2026-11-27T16:52:01Z",
   "overall_pass": false,
   "summary": {
     "total": 22,
     "passed": 20,
     "critical_failed": [
-      "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)"
+      "Gerçek tepe ≤ −1,0 dBTP"
     ]
   },
   "specs": {
@@ -15,7 +15,7 @@
     "height": 1920,
     "fps": 30.0,
     "video_bitrate_kbps": 9821,
-    "size_mb": 47.37
+    "size_mb": 47.38
   },
   "checks": [
     {
@@ -128,16 +128,16 @@
       "critical": true,
       "detail": {
         "integrated_lufs": -14.0,
-        "lra_lu": 2.1,
-        "true_peak_dbfs": -1.7
+        "lra_lu": 2.2,
+        "true_peak_dbfs": 0.4
       }
     },
     {
       "check": "Gerçek tepe ≤ −1,0 dBTP",
-      "pass": true,
+      "pass": false,
       "critical": true,
       "detail": {
-        "true_peak_dbtp": -1.7
+        "true_peak_dbtp": 0.4
       }
     },
     {
@@ -150,7 +150,7 @@
     },
     {
       "check": "Altyazı–ses senkronu (ASR: medyan |sapma| ≤ 80 ms, p90 ≤ 400 ms)",
-      "pass": false,
+      "pass": true,
       "critical": true,
       "detail": {
         "script_tokens": 84,
@@ -159,9 +159,9 @@
         "match_ratio": 0.988,
         "wer": 0.012,
         "sync_pairs": 83,
-        "offset_median_ms": 106.0,
-        "offset_abs_median_ms": 120.0,
-        "offset_abs_p90_ms": 220.2
+        "offset_median_ms": 1.0,
+        "offset_abs_median_ms": 77.0,
+        "offset_abs_p90_ms": 206.8
       }
     },
     {
@@ -187,8 +187,8 @@
       "pass": true,
       "critical": true,
       "detail": {
-        "max_abs_ms": 19.0,
-        "median_abs_ms": 9.0,
+        "max_abs_ms": 95.0,
+        "median_abs_ms": 91.0,
         "lines": 8
       }
     },
@@ -255,5 +255,5 @@
     34.19,
     36.26
   ],
-  "qa_seconds": 1536.5
+  "qa_seconds": 1478.1
 }
