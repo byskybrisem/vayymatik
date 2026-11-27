@@ -34,4 +34,4 @@ SES
 ============================================================
 Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
 Müzik: özgün prosedürel kompozisyon · 112 BPM · Re minör
-Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.58, "voice_lufs": -16.0, "music_under_voice_db": 10.6}
+Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.76, "voice_lufs": -16.0, "music_under_voice_db": 10.6}
