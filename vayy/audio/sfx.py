@@ -200,13 +200,21 @@ def tv_static(dur=0.6, seed=18):
     return dsp.stereo(x)
 
 
-def ball_contact():
+def ball_contact(seed=72):
     n = n_of(.075)
-    click = dsp.bp(dsp.noise(n, 72), 400, 3800) * dsp.expdec(n, .008)
+    click = dsp.bp(dsp.noise(n, seed), 400, 3800) * dsp.expdec(n, .008)
     return dsp.stereo(.4 * click + .5 * dsp.sine(155, n) * dsp.expdec(n, .018))
 
 
+def footstep(seed=20):
+    n = n_of(.14)
+    sole = dsp.bp(dsp.noise(n, seed), 700, 3000) * dsp.expdec(n, .014)
+    heel = dsp.sine(93, n) * dsp.expdec(n, .031)
+    return dsp.stereo(.36 * sole + .46 * heel)
+
+
 SFX = {
+    "footstep": footstep,
     "ball_contact": ball_contact,
     "whoosh": whoosh, "impact": impact, "riser": riser, "wind": wind, "engine": engine_flyby,
     "engine_idle": engine_idle, "light": light_clunk, "tick": tick, "ticks": ticks, "flaps": flap_clicks,

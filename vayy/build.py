@@ -27,8 +27,12 @@ def log(msg: str) -> None:
 
 
 def load_topic(topic_id: str) -> tuple[dict, dict]:
-    topic = json.loads((TOPICS / topic_id / "topic.json").read_text(encoding="utf-8"))
+    topic = json.loads((TOPICS / topic_id.removesuffix("@wide") / "topic.json").read_text(encoding="utf-8"))
     brand = json.loads((BRAND / "brand.json").read_text(encoding="utf-8"))
+    if topic_id.endswith("@wide"):
+        brand["render"].update(width=1920, height=1080)
+        brand["safe"].update(top=90, bottom=88, left=110, right=110)
+        brand["captions"].update(centerY=870, maxWidth=1440, fontSize=60)
     v = dict(brand["voice"])
     v.update(topic.get("voice", {}))
     topic["voice"] = v
@@ -164,13 +168,8 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         events.append(e)
     sfx = render_sfx(events, total)
 
-    event_sync = []
-    for event in baked_events:
-        isolated = render_sfx([dict(event, t=0)], .09)
-        mono = np.max(np.abs(isolated), axis=1)
-        audible = np.flatnonzero(mono > max(1e-5, mono.max() * .02))
-        event_sync.append({"visual_frame": round(event["t"] * fps),
-                           "offset_ms": float(audible[0]) * 1000 / SR_OUT if audible.size else None})
+    event_sync = [{"type": event["type"], "visual_frame": round(event["t"] * fps),
+                   "parameters": {"seed": event["seed"]}} for event in baked_events]
     # 5) Miks
     log("5/8 Miks + loudness")
     voice = render_voice_track(lines, total)
@@ -224,7 +223,11 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     log("7/8 Render (Remotion + WebGL)")
     raw = bdir / "video_noaudio.mp4"
     cmd = ["node", "render.mjs", "--out", str(raw), "--concurrency", str(concurrency), "--crf", str(crf or brand["render"]["crf"]), "--preset", brand["render"].get("preset", "slow"), "--log", str(bdir / "render_log.json")]
-    subprocess.run(cmd, cwd=ENGINE, check=True)
+    if topic.get("checkpoints"):
+        from .studio.checkpoint import render_chunks
+        render_chunks(cmd, timeline, bdir / "checkpoints", raw)
+    else:
+        subprocess.run(cmd, cwd=ENGINE, check=True)
 
     # 8) Mux
     out["video"] = str(mux(topic_id))

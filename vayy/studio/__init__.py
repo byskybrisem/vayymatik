@@ -31,8 +31,10 @@ def check_clip(path, job):
 
 
 def render(props, width, height, fps, frames):
-    if props.get("template") != "rotor-section":
-        raise ValueError("Desteklenen Blender şablonu: rotor-section")
+    catalog = asset_catalog()
+    template = props.get("template")
+    if template not in catalog:
+        raise ValueError(f"Bilinmeyen Blender şablonu: {template}")
     blender = shutil.which("blender")
     if not blender:
         raise RuntimeError("Bu sahne Blender gerektiriyor. Ortamda blender bulunamadı.")
@@ -41,12 +43,13 @@ def render(props, width, height, fps, frames):
                samples=int(props.get("samples", 16)), seed=int(props.get("seed", 7)))
     if min(width, height, frames, fps, job["samples"]) < 1 or width % 2 or height % 2:
         raise ValueError("Boyutlar pozitif ve çift, örnek ve kare sayıları pozitif olmalı")
-    limits = asset_catalog()[props["template"]]["parameters"]["teeth"]
-    teeth = props.get("teeth", limits["default"])
-    if type(teeth) is not int or not limits["min"] <= teeth <= limits["max"]:
-        raise ValueError(f"Rotor diş sayısı {limits['min']}–{limits['max']} arasında bir tam sayı olmalı")
-    job["teeth"] = teeth
-    sources = SCRIPT.read_bytes() + SCRIPT.with_name("mechanical.py").read_bytes()
+    job["template"] = template
+    for name, limits in catalog[template]["parameters"].items():
+        value = props.get(name, limits["default"])
+        if type(value) is not int or not limits["min"] <= value <= limits["max"]:
+            raise ValueError(f"{name}: {limits['min']}–{limits['max']} arasında bir tam sayı gerekli")
+        job[name] = value
+    sources = b"".join(SCRIPT.with_name(name).read_bytes() for name in catalog[template]["dependencies"])
     key = hashlib.sha256(sources + CATALOG.read_bytes() + version.encode() +
                          json.dumps(job, sort_keys=True).encode()).hexdigest()
     cache = CACHE / "cinema"

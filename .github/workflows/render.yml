@@ -14,7 +14,7 @@ on:
     paths: ["topics/**", "engine/**", "vayy/**", "brand/**", "assets/**", ".github/workflows/render.yml"]
 
 concurrency:
-  group: render-${{ github.ref }}
+  group: render-${{ github.ref }}-${{ github.event.inputs.topic || 'redbull' }}
   cancel-in-progress: true
 
 jobs:
@@ -42,7 +42,7 @@ jobs:
 
       - name: Blender gereksinimi
         run: |
-          if python -c 'import json,os,sys; from pathlib import Path; topic=json.loads((Path("topics") / os.environ["TOPIC"] / "topic.json").read_text()); sys.exit(0 if any(s["type"] == "cinematic" for s in topic["scenes"]) else 1)'; then
+          if python -c 'import json,os,sys; from pathlib import Path; topic=json.loads((Path("topics") / os.environ["TOPIC"].removesuffix("@wide") / "topic.json").read_text()); sys.exit(0 if any(s["type"] == "cinematic" for s in topic["scenes"]) else 1)'; then
             sudo apt-get install -y --no-install-recommends blender
             blender --version | head -n 1
           fi
@@ -69,8 +69,26 @@ jobs:
           mkdir -p "deliverables/$TOPIC"
           python -m vayy.studio.doctor > "deliverables/$TOPIC/Environment.json"
 
+      - name: Render cache regression
+        run: PYTHONPATH=. python tests/checkpoint_regression.py
+
+      - name: Önceki kare aralıklarını geri al
+        if: startsWith(env.TOPIC, 'atolye')
+        uses: actions/cache/restore@v4
+        with:
+          path: build/${{ env.TOPIC }}/checkpoints
+          key: shots-v1-${{ runner.os }}-${{ env.TOPIC }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: shots-v1-${{ runner.os }}-${{ env.TOPIC }}-
+
       - name: Video üret (tek komut) + QA
         run: python -m vayy build "$TOPIC" --concurrency "$(nproc)"
+
+      - name: Tamamlanan kare aralıklarını sakla
+        if: always() && startsWith(env.TOPIC, 'atolye')
+        uses: actions/cache/save@v4
+        with:
+          path: build/${{ env.TOPIC }}/checkpoints
+          key: shots-v1-${{ runner.os }}-${{ env.TOPIC }}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Teslim dosyalarını yükle
         if: always()

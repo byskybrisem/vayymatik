@@ -29,19 +29,29 @@ steel = alloy("Machined steel", (.33, .41, .48), .91, .23)
 slate = alloy("Graphite", (.025, .044, .058), .35, .38)
 
 
-ring("Sectioned housing", 1.36, 1.18, .87, .12, slate, arc=math.pi*1.23)
-ring("Lower bearing", 1.22, .31, .13, .06, steel)
-for index in range(3):
-    z = .24 + index * .22
-    rotor = ring("Rotor %d" % index, 1.02, .41, .14, z, brass if index%2==0 else steel, job["teeth"])
-    rotor.rotation_euler.z = index * .13
-    rotor.keyframe_insert(data_path="rotation_euler", frame=1)
-    rotor.keyframe_insert(data_path="location", frame=1)
-    rotor.location.z += index * .31
-    rotor.rotation_euler.z += (index + 1) * .38
-    rotor.keyframe_insert(data_path="rotation_euler", frame=scene.frame_end)
-    rotor.keyframe_insert(data_path="location", frame=scene.frame_end)
-ring("Hollow shaft", .39, .24, 1.45, .07, steel)
+if job["template"] == "underground-section":
+    from underground import build
+    build()
+elif job["template"] == "fracture":
+    from experiment import fracture
+    fracture(scene, brass)
+elif job["template"] in ("water-baffle", "fire-plume"):
+    from experiment import fluid
+    fluid(scene, job, job["template"] == "water-baffle", alloy("Water", (.03,.30,.51),.08,.16))
+else:
+    ring("Sectioned housing", 1.36, 1.18, .87, .12, slate, arc=math.pi*1.23)
+    ring("Lower bearing", 1.22, .31, .13, .06, steel)
+    for index in range(3):
+        z = .24 + index * .22
+        rotor = ring("Rotor %d" % index, 1.02, .41, .14, z, brass if index%2==0 else steel, job["teeth"])
+        rotor.rotation_euler.z = index * .13
+        rotor.keyframe_insert(data_path="rotation_euler", frame=1)
+        rotor.keyframe_insert(data_path="location", frame=1)
+        rotor.location.z += index * .31
+        rotor.rotation_euler.z += (index + 1) * .38
+        rotor.keyframe_insert(data_path="rotation_euler", frame=scene.frame_end)
+        rotor.keyframe_insert(data_path="location", frame=scene.frame_end)
+    ring("Hollow shaft", .39, .24, 1.45, .07, steel)
 bpy.ops.mesh.primitive_plane_add(size=200)
 bpy.context.object.data.materials.append(slate)
 

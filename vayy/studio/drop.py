@@ -28,9 +28,18 @@ def bake_drop(height, radius, fps, frames, restitution=.53):
 
 
 def expand(scene, fps, events, spec):
+    props = scene["props"]
+    for actor in props.get("objects", []):
+        gait = actor.get("contact")
+        if actor.get("kind") == "character" and gait:
+            for step in range(1, gait["steps"] + 1):
+                frame = round(step * gait["stepTime"] * fps)
+                if frame < scene["dur"]:
+                    props.setdefault("beats", []).append(frame)
+                    events.append({"type": "footstep", "t": (scene["from"] + frame) / fps,
+                                   "seed": 100 + step, "gain": -15})
     if not spec:
         return
-    props = scene["props"]
     ball = next(o for o in props["objects"] if o["kind"] == "dropBench")
     last = ball["track"][-1]
     x, height, z = last["v"]
@@ -42,4 +51,4 @@ def expand(scene, fps, events, spec):
         when = release + frame
         props.setdefault("beats", []).append(when)
         events.append({"type": "ball_contact", "t": (scene["from"] + when)/fps,
-                       "gain": -18 + 10*math.log10(speed)})
+                       "seed": 72 + frame, "gain": -18 + 10*math.log10(speed)})

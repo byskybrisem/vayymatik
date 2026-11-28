@@ -74,6 +74,11 @@ def deliver(topic_id: str, thumbnail: bool = True) -> None:
         src += ["", "Temsili sahneler (stratosfer POV, kapsül, F1 pisti, otoyol, ürün kutusu, spor siluetleri, izleyici noktaları) videoda **\"TEMSİLİ\"** etiketiyle işaretlenmiştir; gerçek arşiv görüntüsü olarak sunulmamıştır. Red Bull logosu veya ticari görselleri kullanılmamıştır.", ""]
     (ddir / "Sources.md").write_text("\n".join(src), encoding="utf-8")
 
+    import shutil
+    manifest_file = bdir / "scene-manifest.json"
+    if manifest_file.exists():
+        shutil.copyfile(manifest_file, ddir / "Scene-manifest.json")
+
     if thumbnail:
         props = {"topic": "current", "thumb": md.get("thumbnail")}
         pf = bdir / "thumb_props.json"

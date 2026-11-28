@@ -122,3 +122,18 @@ topu tutma, kaldırma, bırakma ve masaya dönme aynı rig'i kullanır. Dikey se
 düşme + esnek olmayan sekme metre/saniye birimleriyle bake edilir. İzole Foley
 başlangıç kayması QA'ya kaydedilir. Bu kayıt final miks üzerinden ölçüm değildir.
 Kabul için ayrı workflow_dispatch sonucu ve gerçek kare incelemesi gerekir.
+
+### Atölye, doğrulanmış ilk dikey teslim
+- CI 46121917786, commit 857aabf. İndirilen MP4 23,00 saniye, 1080×1920, 30 FPS, H.264 + AAC. Gerçek render ölçeği 1. QA 23/23. ASR 32/34 kelime, medyan mutlak fark 22 ms, p90 73,4 ms. Aynı commit'in mevcut konu regresyonu da geçti. [MP4 ve QA paketi](https://github.com/byskybrisem/vayymatik/actions/runs/46121917786/artifacts/15254119854)
+- Yerelde özgün çözünürlükte 90, 268, 377. kareler incelendi. Karakter stilize ve köşeli. Düşüş yakın planında tezgâh ve bacak topu kısmen örtüyor. Fotogerçekçilik doğrulanmadı.
+- Sonraki sürüm, 120 karelik doğrulanmış parçaları içerik özetiyle korur. Gerçek FFmpeg regresyonunda soğuk/ılık/bozuk parça için çağrı sırası 0,3,6,3. Yeni QA, ayak/top temas dalga biçimini teslim AAC’sinde arar. 'python -m vayy build atolye@wide' aynı planla yatay paket oluşturur.
+- Yer altı şablonu için 1080×1920 üç kare, kırılma ve su engeli için 288×384 36 kare, 30 FPS Cycles CPU testleri üretildi. Blender 4.3.2 Debian Mantaflow ile çöktü; su bake'i resmi Blender 4.2.5 LTS ile çalıştı. Ateş/duman henüz doğrulanmadı.
+
+### Referans görüntü incelemesi
+Zack D. Films kanalının üç erişilebilir arşiv kopyasında iki saniye aralıklı kareler incelendi. Saniyeler yaklaşık; kamera gözlemleri örneklenen karelere dayanır.
+
+| Video | Hareket ve kamera | Atölye ile kurgu farkı |
+|---|---|---|
+| [Da Vinci köprüsü, 37 sn](https://www.youtube.com/watch?v=0Mg4fjj5nrQ) | İlk 8 sn çubuklar üst üste binerken kamera masanın etrafında açı değiştiriyor. Sonra yükü geniş planda görüyoruz. | Masa modeli, halka ve dış mekân arasında ölçek değişiyor. Atölye tek mekânda kalıyor. |
+| [Kalemtıraş, 35 sn](https://www.youtube.com/watch?v=RQ6-QBj-tYE) | İlk 2 sn içinde el ve kalemden iç dişlilere yaklaşıyor. Hareket eden parça çoğunlukla kadrajı dolduruyor. | İç ve dış planlara dönüşler hızlı. Atölyede kavrama birkaç saniye boyunca aynı planda. |
+| [Zincir çarkı, 25 sn](https://www.youtube.com/watch?v=OL9V0tvT9UU) | İlk bölümde halka ve makara, ortada baklaya yakın plan, sonda bütünü gösteren yanal açı var. Yön okları dönüşü görünür kılıyor. | Arka plan sabitken ölçek değişiyor. Atölyede top temasını izlemek için bakışı aşağı kaydırmak gerekiyor. |

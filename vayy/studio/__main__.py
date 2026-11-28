@@ -1,10 +1,10 @@
 """Render an isolated preview without invoking narration."""
 import argparse
 import shutil
-from . import render
+from . import asset_catalog, render
 
 p = argparse.ArgumentParser()
-p.add_argument("template", choices=["rotor-section"])
+p.add_argument("template", choices=sorted(asset_catalog()))
 p.add_argument("output")
 p.add_argument("--width", type=int, default=384)
 p.add_argument("--height", type=int, default=216)

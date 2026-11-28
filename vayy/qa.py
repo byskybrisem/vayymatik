@@ -193,7 +193,7 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     a = next((s for s in info["streams"] if s["codec_type"] == "audio"), None)
     dur = float(info["format"]["duration"])
     num, den = map(int, v["r_frame_rate"].split("/"))
-    add("Çözünürlük 1080×1920 (9:16)", v["width"] == 1080 and v["height"] == 1920, {"width": v["width"], "height": v["height"]})
+    add("Format ile çözünürlük eşleşiyor", v["width"] == brand["render"]["width"] and v["height"] == brand["render"]["height"], {"width": v["width"], "height": v["height"]})
     if topic.get("duration"):  # sabit süreli video (ör. 8 sn demo): ±1 kare
         want = float(topic["duration"])
         add(f"Süre {want:g} sn (±1 kare)", abs(dur - want) <= 1 / 30 + 1e-3, {"seconds": round(dur, 3)})
@@ -230,9 +230,11 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     add("Müzik konuşmanın en az 8 dB altında", (meta["audio"].get("music_under_voice_db") or 0) >= 8, {"music_under_voice_db": meta["audio"].get("music_under_voice_db")})
 
     if meta.get("event_sync"):
-        offsets = [row["offset_ms"] for row in meta["event_sync"]]
-        add("Temas karesi ile izole Foley başlangıcı (≤1 kare)",
-            all(x is not None and abs(x) <= 1000/fps for x in offsets), meta["event_sync"])
+        from .studio.sync import measure
+        measured = measure(video, meta["event_sync"], fps)
+        add("Temas karesi ile teslim AAC içindeki Foley (≤1 kare)",
+            all(row["offset_ms"] is not None and abs(row["offset_ms"]) <= 1000/fps for row in measured),
+            measured)
 
     # ASR senkronu
     script_words = [w for l in meta["lines"] for w in l["words"]]
