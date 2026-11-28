@@ -27,8 +27,12 @@ def log(msg: str) -> None:
 
 
 def load_topic(topic_id: str) -> tuple[dict, dict]:
-    topic = json.loads((TOPICS / topic_id / "topic.json").read_text(encoding="utf-8"))
+    topic = json.loads((TOPICS / topic_id.removesuffix("@wide") / "topic.json").read_text(encoding="utf-8"))
     brand = json.loads((BRAND / "brand.json").read_text(encoding="utf-8"))
+    if topic_id.endswith("@wide"):
+        brand["render"].update(width=1920, height=1080)
+        brand["safe"].update(top=90, bottom=88, left=110, right=110)
+        brand["captions"].update(centerY=870, maxWidth=1440, fontSize=60)
     v = dict(brand["voice"])
     v.update(topic.get("voice", {}))
     topic["voice"] = v
@@ -80,8 +84,8 @@ def _inject_talk(obj, lines_by_id: dict, scene_start: float):
     if isinstance(obj, dict):
         lid = obj.pop("talkFromLine", None)
         if lid:
-            la = lines_by_id[lid]
-            obj["talk"] = [{"from": round(la.start + w["start"] - scene_start, 3), "to": round(la.start + w["end"] - scene_start, 3)} for w in la.words]
+            selected = lid if isinstance(lid, list) else [lid]
+            obj["talk"] = [{"from": round(la.start + w["start"] - scene_start, 3), "to": round(la.start + w["end"] - scene_start, 3)} for key in selected for la in [lines_by_id[key]] for w in la.words]
         for v in obj.values():
             _inject_talk(v, lines_by_id, scene_start)
     elif isinstance(obj, list):
@@ -143,6 +147,17 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         "foreignWords": topic.get("foreign_words", []),
     }
 
+    ensure_public()
+    cur = ENGINE_PUBLIC / "current"
+    if cur.exists():
+        shutil.rmtree(cur)
+    cur.mkdir(parents=True)
+    physics = {"fracture", "water-baffle", "fire-plume"}
+    if any(s["type"] == "cinematic" and
+           (render or stills or s["props"].get("template") in physics) for s in scenes):
+        from .studio import prepare
+        prepare(timeline, cur)
+
     # 3) Müzik
     log("3/8 Müzik (prosedürel, özgün)")
     m = topic["music"]
@@ -154,12 +169,23 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     # 4) Efektler
     log("4/8 Ses efektleri")
     events = []
+    from .studio.drop import expand
+    for scene, source in zip(scenes, scenes_src):
+        expand(scene, fps, events, source.get("drop"))
+        for beat in scene["props"].get("bakedEvents", []):
+            frame = beat["frame"]
+            scene["props"].setdefault("beats", []).append(frame)
+            events.append({"type": beat["type"], "t": (scene["from"] + frame) / fps,
+                           "seed": frame + 42, "gain": -16})
+    baked_events = list(events)
     for e in topic.get("sfx", []):
         e = dict(e)
         e["t"] = res.abs(e.pop("at"))
         events.append(e)
     sfx = render_sfx(events, total)
 
+    event_sync = [{"type": event["type"], "visual_frame": round(event["t"] * fps),
+                   "parameters": {"seed": event["seed"]}} for event in baked_events]
     # 5) Miks
     log("5/8 Miks + loudness")
     voice = render_voice_track(lines, total)
@@ -171,11 +197,6 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
 
     # 6) Motor girdileri
     log("6/8 Motor girdileri (engine/public/current)")
-    ensure_public()
-    cur = ENGINE_PUBLIC / "current"
-    if cur.exists():
-        shutil.rmtree(cur)
-    cur.mkdir(parents=True)
     geo = topic.get("geo", {})
     make_mask(cur / "geo_mask.png", geo.get("highlight_a"), geo.get("highlight_b"))
     shutil.copy2(bdir / "mix.wav", cur / "mix.wav")
@@ -186,10 +207,14 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         "lines": [{"id": l.id, "start": l.speech_start, "end": l.speech_end, "text": l.parsed.plain_text, "tts": l.parsed.tts_text, "words": [{"text": w["text"], "start": round(l.start + w["start"], 3), "end": round(l.start + w["end"], 3)} for w in l.words]} for l in lines],
         "visual_events": visual_events(scenes, fps),
         "audio": astats,
+        "event_sync": event_sync,
         "sfx_events": [{"type": e["type"], "t": round(e["t"], 3)} for e in events],
         "sections": sections,
     }
     (bdir / "build_meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+    from .studio.manifest import manifest
+    plan = manifest(topic, timeline, meta["lines"], meta["sfx_events"])
+    (bdir / "scene-manifest.json").write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
 
     # Altyazı/metin teslimleri (render'dan bağımsız)
     (ddir / "Subtitles.srt").write_text(cap.srt(lines), encoding="utf-8")
@@ -206,7 +231,11 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     log("7/8 Render (Remotion + WebGL)")
     raw = bdir / "video_noaudio.mp4"
     cmd = ["node", "render.mjs", "--out", str(raw), "--concurrency", str(concurrency), "--crf", str(crf or brand["render"]["crf"]), "--preset", brand["render"].get("preset", "slow"), "--log", str(bdir / "render_log.json")]
-    subprocess.run(cmd, cwd=ENGINE, check=True)
+    if topic.get("checkpoints"):
+        from .studio.checkpoint import render_chunks
+        render_chunks(cmd, timeline, bdir / "checkpoints", raw)
+    else:
+        subprocess.run(cmd, cwd=ENGINE, check=True)
 
     # 8) Mux
     out["video"] = str(mux(topic_id))

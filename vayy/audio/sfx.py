@@ -200,7 +200,42 @@ def tv_static(dur=0.6, seed=18):
     return dsp.stereo(x)
 
 
+def ball_contact(seed=72):
+    n = n_of(.075)
+    click = dsp.bp(dsp.noise(n, seed), 400, 3800) * dsp.expdec(n, .008)
+    return dsp.stereo(.4 * click + .5 * dsp.sine(155, n) * dsp.expdec(n, .018))
+
+
+def footstep(seed=20):
+    n = n_of(.14)
+    sole = dsp.bp(dsp.noise(n, seed), 700, 3000) * dsp.expdec(n, .014)
+    heel = dsp.sine(93, n) * dsp.expdec(n, .031)
+    return dsp.stereo(.36 * sole + .46 * heel)
+
+
+def tile_impact(seed=42):
+    n = n_of(.25)
+    grit = dsp.bp(dsp.noise(n, seed), 600, 6100) * dsp.expdec(n, .024)
+    ring = dsp.sine(1840, n) * dsp.expdec(n, .05)
+    return dsp.stereo(.45 * grit + .13 * ring)
+
+
+def water_baffle(seed=42):
+    n = n_of(.32)
+    water = dsp.bp(dsp.noise(n, seed), 400, 4400) * dsp.expdec(n, .07)
+    return dsp.stereo(.38 * water)
+
+
+def ignition(seed=42):
+    n = n_of(.46)
+    flame = dsp.bp(dsp.noise(n, seed), 250, 3600)
+    return dsp.stereo(.35 * flame * dsp.expdec(n, .10))
+
+
 SFX = {
+    "tile_impact": tile_impact, "water_baffle": water_baffle, "ignition": ignition,
+    "footstep": footstep,
+    "ball_contact": ball_contact,
     "whoosh": whoosh, "impact": impact, "riser": riser, "wind": wind, "engine": engine_flyby,
     "engine_idle": engine_idle, "light": light_clunk, "tick": tick, "ticks": ticks, "flaps": flap_clicks,
     "shutter": shutter, "pop": ui_pop, "heartbeat": heartbeat, "crowd": crowd, "static": static_burst,

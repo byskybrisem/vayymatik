@@ -1,0 +1,94 @@
+{
+  "rotor-section": {
+    "version": 1,
+    "units": "scene-unit",
+    "housing_diameter": 2.72,
+    "shaft_height": 1.45,
+    "materials": [
+      "Satin brass",
+      "Machined steel",
+      "Graphite"
+    ],
+    "parameters": {
+      "teeth": {
+        "default": 24,
+        "min": 8,
+        "max": 64
+      }
+    },
+    "dependencies": [
+      "mechanical.py",
+      "blender_scene.py",
+      "cinematography.py"
+    ]
+  },
+  "underground-section": {
+    "version": 1,
+    "units": "scene-unit",
+    "width": 2.95,
+    "height": 1.48,
+    "bore_diameter": 0.78,
+    "materials": [
+      "sediment",
+      "concrete"
+    ],
+    "parameters": {},
+    "dependencies": [
+      "underground.py",
+      "mechanical.py",
+      "blender_scene.py",
+      "cinematography.py"
+    ]
+  },
+  "fracture": {
+    "version": 1,
+    "units": "metres",
+    "parameters": {},
+    "dependencies": [
+      "experiment.py",
+      "mechanical.py",
+      "blender_scene.py",
+      "cinematography.py"
+    ]
+  },
+  "water-baffle": {
+    "version": 1,
+    "units": "metres",
+    "parameters": {},
+    "dependencies": [
+      "experiment.py",
+      "mechanical.py",
+      "blender_scene.py",
+      "cinematography.py"
+    ]
+  },
+  "fire-plume": {
+    "version": 1,
+    "units": "metres",
+    "parameters": {},
+    "dependencies": [
+      "experiment.py",
+      "mechanical.py",
+      "blender_scene.py",
+      "cinematography.py"
+    ]
+  },
+  "factory-bay": {
+    "version": 1,
+    "units": "metres",
+    "parameters": {
+      "bays": {
+        "default": 3,
+        "min": 1,
+        "max": 6
+      }
+    },
+    "dependencies": [
+      "factory.py",
+      "experiment.py",
+      "mechanical.py",
+      "blender_scene.py",
+      "cinematography.py"
+    ]
+  }
+}

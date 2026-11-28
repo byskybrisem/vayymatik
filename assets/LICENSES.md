@@ -20,3 +20,5 @@ kullanıma **uygun değil**), espeak-ng (GPL yazılım, çıktı serbest; roboti
 ## 3D motor varlıkları
 `engine/src/three` altındaki tüm geometri, karakter, şehir, banknot ("VAYY" kurgusal tasarım) ve dokular koddan üretilir; dış görsel/model dosyası yoktur.
 Three.js (MIT), @react-three/fiber (MIT), @remotion/three (Remotion lisansı: bireyler/≤3 kişilik şirketler ücretsiz).
+
+Atölye karakter hareketleri, top ve tezgâh, kırılma/su/yanma örnekleri, tünel, fabrika, ses efektleri ve kamera hareketleri depo koduyla prosedürel üretilir. Referans videolardan görsel veya ses alınmaz.

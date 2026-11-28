@@ -41,11 +41,11 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 - 3D motor: `engine/src/three/` (sahne türü `world3d`), belge: `engine/src/three/README.md`. Diğer sahne türleri: `engine/src/scenes/registry.ts`.
 - Ayrıntılı ajan rehberi: `AGENTS.md`. Mimari/komutlar: `README.md`. Durum: `PROGRESS.md`.
 - Hızlı görsel kontrol: `python3 -m vayy stills <konu> 0,60,120` → `build/<konu>/stills/` (tam render'dan önce).
-- MP4/WAV/build çıktıları git'e girmez (`.gitignore`). Gizli anahtar yok; ücretli API kullanma.
+- MP4/WAV/build çıktıları git'e girmez (`.gitignore`). ElevenLabs yalnızca seslendirme için izinlidir. Milyon konusunun Furkan kayıtlarını koru. Anahtarı istemciye, loglara veya depoya koyma. Piper yedektir. Diğer ücretli API’leri kullanma.
 
 ## Video skill'leri — otomatik kullanım
 - Kullanıcı video istediğinde konuya göre ilgili proje skill'lerini kendin çağır; slash komutu veya ayrıca izin isteme: `shorts-script-to-scenes` (senaryo/konu), `three-scene-builder` (3D), `remotion-video-creation` (Remotion kodu/animasyon), `render-qa` (render/teslim).
-- Skill aracı yoksa ilgili `.claude/skills/<ad>/SKILL.md` dosyasını oku. Yalnız gereken skill ve referansları yükle; mevcut JSON motorunu tercih et, gereksiz paket/ajan/ücretli API kullanma.
+- Skill aracı yoksa ilgili `.claude/skills/<ad>/SKILL.md` dosyasını oku. Yalnız gereken skill ve referansları yükle; mevcut JSON motorunu tercih et, gereksiz paket ve ajan kullanma. Ses sağlayıcısı için yukarıdaki kural geçerlidir.
 - Referans videonun metnini/karakterini kopyalama. Render ve QA gerçek çıktılarla doğrulanmadan tamamlandı deme.
 
 
@@ -58,3 +58,25 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 - Asla `rtk` ile çalıştırma: `ffmpeg`, `ffprobe`, `npx remotion` (render/bundle), `python3 -m vayy build|audio|remux|qa|stills`, Piper ve diğer render/ses/QA komutları. Bunların hata kayıtları ve çıktıları eksiksiz görünmeli.
 - Exit code ≠ 0, test kırmızı, çıktı boş/çelişkili/bozuk ise: `rtk bypass <cmd>` ile ham çıktıyı al veya komutu `rtk`siz yeniden çalıştır. Hata metnini özetleme; kritik satırları birebir aktar.
 - Telemetri kapalı tut (`rtk telemetry status` → enabled: no). Global hook (`rtk init -g`) kurma.
+
+## Blender kesitleri
+Mekanik rotor kesiti için mevcut konu JSON'unda sahne türünü `cinematic`, props'u
+`{"template":"rotor-section","seed":7,"samples":16}` seç. Diğer konularda kayıtlı
+sahne türlerini kullan. Sahnenin amacını, ortamını ve kontrol edilecek ayrıntıları
+`direction` nesnesine yaz. Çözülmüş anlatım, altyazı ve efekt zamanları
+`build/<konu>/scene-manifest.json` içinde saklanır. Normal build komutu ses profilini
+ve miks yolunu korur. Blender gerekli olan sahnelerde PATH'te bulunmalıdır.
+Hızlı sessiz önizleme: `python -m vayy.studio rotor-section /tmp/rotor.mp4`.
+Başarıyla çözülen sahneler .cache/cinema altında yeniden kullanılır.
+Ortam envanteri: `python -m vayy.studio.doctor`. Blender/FFmpeg sürümlerini,
+CPU/RAM kotasını ve boş diski kontrol et. Tarayıcı tespiti WebGL testi yerine geçmez.
+Sesli mekanik benchmark: `python -m vayy build rotor-benchmark --concurrency 2`.
+Bu test Blender kaynağını 270×480 üretir ve Shorts kompozisyonunda birleştirir.
+Yayın kaynak kalitesi için `renderScale` varsayılanı 1'dir.
+Karakter kabul konusu: `python -m vayy build atolye`. Normal teslim kanalı
+GitHub Actions render.yml çalışmasının konu isimli artifact'idir. MP4, altyazı,
+kapak, ortam ve QA kayıtları aynı arşivdedir. İndirme GitHub oturumu gerektirebilir.
+
+Yatay kopya için `python -m vayy build atolye@wide` aynı konunun 1920×1080 paketini ayrı bir dizine yazar. Dikey komut `python -m vayy build atolye` olarak kalır. Aynı çalışma kopyasında iki build sırayla çalışmalı (engine/public/current ortaktır). CI ayrı runner kullanır. Kesilen karakter render'ını aynı komutla sürdür. Sonuçta Video-QA.json içinde hem ASR hem teslim AAC’sindeki temas farklarına bak.
+
+Blender sahnesinde props.template için fracture, water-baffle, fire-plume, underground-section, factory-bay veya rotor-section seçilebilir. cameraProfile seçenekleri original, short-orbit, dolly ve handheld. Fabrikanın bays değeri 1–6. Kırılma hazır eklem çizgileri olan karo, su ve yanma kaba çözünürlüklü Mantaflow örnekleridir. Render workflow'unda konu olarak studio-benchmarks seçildiğinde sabitlenmiş Blender LTS kurulur, altı kısa test ve ölçüm raporu artifact olarak teslim edilir.

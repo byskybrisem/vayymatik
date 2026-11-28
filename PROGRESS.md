@@ -63,3 +63,94 @@ sunFollow (küre uçuşlarında aydınlık taraf), hook başlığı "NEDEN?", ro
 12 Zirvede, YouTube'da 8 milyondan fazla eş zamanlı canlı yayın izlendi.
 13 Sonuç? 2025'te yaklaşık 14 milyar kutu, 12,2 milyar avro ciro.
 14 Red Bull sadece bir içecek satmadı. 15 İnsanların izlemek istediği bir dünya kurdu.
+
+## V2 geliştirme kontrol noktası • studio/cinematic-v2
+Temel sürüm 47bd48b. Mevcut ses sağlayıcısı ve Three/Remotion yolu korunur.
+İlk dilim: eski zirve sahnesinin referans kareleri, rotor kesiti, CPU Cycles,
+içerik adresli klip önbelleği, Remotion klip bileşeni ve çözülmüş sahne manifestosu.
+Saatlik çalışmada önce dal ve açık PR ile devam eden işleri kontrol et. Aşağıdaki
+sırayı kullan. Bir aşamayı ancak gerçek çıktı ve test kaydından sonra kapat.
+
+1. Referans videoları örnekle, mimari ve kapasiteleri Claude ortamında da ölç.
+2. Hibrit hattın uçtan uca sesli benchmark'ı, sahne yönlendirme ve ortam doktoru.
+3. Parametrik asset metadata/kütüphane, ortak çevre, malzemeler ve kamera profilleri.
+4. İnsan rig/IK ve nesne etkileşimi; yürüyüş, ayak teması ve anatomik sınırlar.
+5. Fizik benchmark'ları: kırılma, engelde su, ateş/duman; bake ve olay zamanları.
+6. Yer altı kesiti ve fizik olayına bağlı Foley; mevcut ses profilini koru.
+7. Dikey/yatay kurgu ve teslim paketi, referansla karşılaştırmalı görsel/teknik QA.
+8. Üç denemeyle sınırlı sahne onarımı, kesinti-resume ve cache regression testi.
+9. Claude skill'leri, kısa birleşik demo, erişilebilir çıktılar ve incelenebilir PR.
+
+### Hibrit doğrulama
+- PR #8 üzerindeki ilk Shorts render CI çalışması başarılı (46085533360).
+- Codex ortamında Blender 4.3.2, FFmpeg 7.1.5, Chromium 156, Python 3.12.14,
+  Node 24.22.3, cgroup 2 CPU / 8 GiB. Cycles yalnız CPU aygıtı bildirdi.
+- Rotor animasyonu 384×216, 15 FPS, 30 kare. Üç kare görsel olarak incelendi.
+  Önbellek isabeti sonrası kopya MP4 bayt düzeyinde eşleşti.
+- Rotor klibi Remotion üzerinden 30 kare işlendi ve mevcut Piper miksinin ilk
+  iki saniyesi AAC olarak birleştirildi. FFmpeg baştan sona çözdü. Bu smoke testi
+  sahneyle ilgili yeni anlatım/Foley veya semantik A/V senkronu doğrulamaz.
+- `python -m vayy.studio.doctor` ortam envanteri verir. Claude çalışma ortamında
+  yeniden çalıştırılmalı. GitHub release ek dosyası yüklemesi HTTP 401 verdi.
+- Sonraki aşama: sürümlü parametrik asset kütüphanesi ve tekrar üretilebilir
+  benchmark konusu. Referans kanalları ve diğer kabul sahneleri henüz incelenmedi.
+
+### Parametrik mekanik varlık
+- `vayy/studio/mechanical.py` kapalı halka/dişli mesh ve PBR malzeme üretimini sahneden ayırır.
+- `assets.json` sürümü, boyutları, malzemeleri ve diş sayısı sınırlarını saklar.
+  Sahne, model kaynakları ve katalog değişiklikleri klip önbelleğini geçersiz kılar.
+- `python -m vayy.studio rotor-section rotor.mp4 --teeth 32 --frames 6 --fps 6` ile
+  Blender 4.3.2 CPU üzerinde gerçek 384×216 kesit üretildi. Baş ve son kare
+  görsel olarak incelendi. FFmpeg çözme testi ve önbellek bayt karşılaştırması
+  başarılı. Aralık dışı 7 diş reddedildi.
+- Önceki PR commit'inin Shorts render CI koşusu başarılı (46110377280).
+- Sonraki aşama: tekrar üretilebilir sesli benchmark konusu ve ek varlık aileleri.
+
+### Sesli rotor benchmark'ı
+- `python -m vayy build rotor-benchmark --concurrency 2` standart giriş noktasından
+  150 kare Blender Cycles, Remotion altyazı, Piper miks ve FFmpeg MP4 üretir.
+- Düşük maliyetli teknik test 270×480 kaynak, 1080×1920 teslim ve 30 FPS kullanır.
+  Yerel örnek karede model ve altyazı okunaklı. Gren görünür.
+- GitHub Actions 46119209382: QA 22/22, ASR 9/9 eşleşme, medyan ofset 18 ms.
+  Çıktı: https://github.com/byskybrisem/vayymatik/actions/runs/46119209382/artifacts/15253245662
+- Sonraki aşama: rotor dışında parametrik çevre varlığı ve rig/IK.
+
+### Atölye kabul videosu (çalışma sürüyor)
+Önceki rotor artifact'i ve CI başarısı doğrulandı. Yeni konu: atolye, 23 saniye,
+30 FPS, ThreeCanvas ölçeği 1. Yürüyüşte ayak hedefleri ve iki kemikli IK,
+topu tutma, kaldırma, bırakma ve masaya dönme aynı rig'i kullanır. Dikey serbest
+düşme + esnek olmayan sekme metre/saniye birimleriyle bake edilir. İzole Foley
+başlangıç kayması QA'ya kaydedilir. Bu kayıt final miks üzerinden ölçüm değildir.
+Kabul için ayrı workflow_dispatch sonucu ve gerçek kare incelemesi gerekir.
+
+### Atölye, doğrulanmış ilk dikey teslim
+- CI 46121917786, commit 857aabf. İndirilen MP4 23,00 saniye, 1080×1920, 30 FPS, H.264 + AAC. Gerçek render ölçeği 1. QA 23/23. ASR 32/34 kelime, medyan mutlak fark 22 ms, p90 73,4 ms. Aynı commit'in mevcut konu regresyonu da geçti. [MP4 ve QA paketi](https://github.com/byskybrisem/vayymatik/actions/runs/46121917786/artifacts/15254119854)
+- Yerelde özgün çözünürlükte 90, 268, 377. kareler incelendi. Karakter stilize ve köşeli. Düşüş yakın planında tezgâh ve bacak topu kısmen örtüyor. Fotogerçekçilik doğrulanmadı.
+- Sonraki sürüm, 120 karelik doğrulanmış parçaları içerik özetiyle korur. Gerçek FFmpeg regresyonunda soğuk/ılık/bozuk parça için çağrı sırası 0,3,6,3. Yeni QA, ayak/top temas dalga biçimini teslim AAC’sinde arar. 'python -m vayy build atolye@wide' aynı planla yatay paket oluşturur.
+- Yer altı şablonu için 1080×1920 üç kare, kırılma ve su engeli için 288×384 36 kare, 30 FPS Cycles CPU testleri üretildi. Blender 4.3.2 Debian Mantaflow ile çöktü; su bake'i resmi Blender 4.2.5 LTS ile çalıştı. Ateş/duman henüz doğrulanmadı.
+
+### Referans görüntü incelemesi
+Zack D. Films kanalının üç erişilebilir arşiv kopyasında iki saniye aralıklı kareler incelendi. Saniyeler yaklaşık; kamera gözlemleri örneklenen karelere dayanır.
+
+| Video | Hareket ve kamera | Atölye ile kurgu farkı |
+|---|---|---|
+| [Da Vinci köprüsü, 37 sn](https://www.youtube.com/watch?v=0Mg4fjj5nrQ) | İlk 8 sn çubuklar üst üste binerken kamera masanın etrafında açı değiştiriyor. Sonra yükü geniş planda görüyoruz. | Masa modeli, halka ve dış mekân arasında ölçek değişiyor. Atölye tek mekânda kalıyor. |
+| [Kalemtıraş, 35 sn](https://www.youtube.com/watch?v=RQ6-QBj-tYE) | İlk 2 sn içinde el ve kalemden iç dişlilere yaklaşıyor. Hareket eden parça çoğunlukla kadrajı dolduruyor. | İç ve dış planlara dönüşler hızlı. Atölyede kavrama birkaç saniye boyunca aynı planda. |
+| [Zincir çarkı, 25 sn](https://www.youtube.com/watch?v=OL9V0tvT9UU) | İlk bölümde halka ve makara, ortada baklaya yakın plan, sonda bütünü gösteren yanal açı var. Yön okları dönüşü görünür kılıyor. | Arka plan sabitken ölçek değişiyor. Atölyede top temasını izlemek için bakışı aşağı kaydırmak gerekiyor. |
+
+### Fizik ve Foley kontrol noktası
+- Codex üzerinde resmi Blender 4.2.5 LTS SHA-256 doğrulandı. Akış ve engeli domain kurulumundan önce oluşturarak ateş/duman testi üçüncü çalıştırmada render edildi. 36 gerçek karede hacim büyüyor; alev ile duman arasındaki kontrast düşük. Su klibinde sütun yayılıp baffle'ı aşarak duvara çarpıyor. İki klipte başlangıç, orta ve son kare incelendi.
+- Bake sonrası su yüzeyinin engele ulaşması (7. kare), gaz alanında alevin ilk görülmesi (0. kare) ve karonun zemin temasından Foley olayları çıkarılıyor. Manifest kayıtları sıfır tabanlıdır. Kareler ve olay JSON'ları cache'de birlikte doğrulanır. Ham Mantaflow alanları geçicidir; kamera değişimi yeniden bake gerektirir.
+- Güncellenmiş 23 sn AAC'yi ilk teslimin H.264 görüntüsüyle yerelde mux ettik. Kodlanmış AAC'de 6 adım ve 5 sekme, 11/11 dalga biçimi eşleşmesi; kareye göre en büyük ölçülen kayma 0 ms. Olayın görüntü zamanı bake/rig karesinden gelir, pikselden otomatik hareket takibi yapılmadı.
+- Tam yatay/dikey paket ve Blender test paketi CI sonuçları ayrı kaydedilecek. Claude çalışma ortamında doğrudan koşum yapılmadı.
+
+### Karakter temasının son kadrajı
+- İlk kadraj incelemesine göre düşüş tarafına geçildi. 210, 375 ve 540. kareler 1080×1920 yerel PNG olarak tekrar incelendi: top avuç yanında, ilk sekme kadrajda görünür, uzanan parmak uçları tabla hizasında. Kavrama/bırakma için parmak kapanışı ve bilek telafisi JSON'a bağlandı. İlk iki saniye yürüyüş sırasında karaktere ayrılıyor.
+- 90 yürüyüş karesinde ileri kinematik testi destek ayağında 0 m kayma ve azami 1,6×10⁻¹⁶ m hedef hatası ölçtü. Bu test zemin düz ve hareket tek eksenli iken geçerli. Rig diz/dirsekte 2,55 radyan bükülme sınırı kullanıyor. Omurga temas sırasında dik tutuluyor; genel amaçlı anatomik çözücü bulunmuyor.
+- QA kodlanan kare sayısını doğrular. İsteğe bağlı Event-captions.vtt, bake ve adım olaylarından Türkçe ses açıklaması üretir. doctor RAM ve Cycles aygıt envanterini raporlar.
+
+Kırılma testi, buzlu cam malzemeli önceden çizilmiş 12 parçalı bir levha kullanıyor. 36 karelik yerel Cycles çıktısında düşüş, 15. karede temas ve sonda ayrılan parçalar görüldü. Çatlak yayılımı simüle edilmiyor. 72 ms yapay gecikme içeren negatif kontrolü AAC eşleştiricisi 11/11 olayda 72 ms olarak ölçtü.
+
+### Yatay kurgu düzeltmesi
+- 2b1e145 sürümünde dikey çıktı 23/23 geçti. Yatayda aynı 23 kontrolden 22’si geçti; 18–21. saniyelerde birer saniyelik dört pencerede hareket yetersizdi. Eşik değiştirilmedi.
+- Son planda kamera tezgâhtaki parmaklardan duran topa iniyor. Bırakma/sekme anlatımı olay zamanına yaklaştırıldı ve kapanış repliği eklendi. Yatay 1920×1080 yerel kare 540, 615 ve 675 incelendi. Yeni miksin son repliği 21,44 sn’de bitiyor. Tam video ve ASR sonucu ayrıca doğrulanacak.

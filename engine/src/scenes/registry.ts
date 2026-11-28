@@ -1,3 +1,4 @@
+import {Cinematic} from "./Cinematic";
 import type React from 'react';
 import {EarthScene} from './EarthScene';
 import {RoadScene} from './RoadScene';
@@ -12,6 +13,7 @@ import {World3DScene} from '../three/World3DScene';
 // Sahne türü -> bileşen. Yeni sahne türü eklemek için buraya kaydedin.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const SCENES: Record<string, React.FC<any>> = {
+	cinematic: Cinematic,
 	earth: EarthScene,
 	road: RoadScene,
 	title: TitleScene,

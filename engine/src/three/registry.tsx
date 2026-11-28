@@ -1,3 +1,4 @@
+import {DropBench} from "./objects/DropBench";
 // 3D nesne türü kayıt defteri: JSON'daki "kind" → bileşen. Yeni nesne eklemek için buraya bir satır ekleyin.
 import type React from 'react';
 import {Character} from './character/Character';
@@ -10,6 +11,7 @@ import {GrowthChart3D} from './charts/GrowthChart3D';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const OBJECTS: Record<string, React.FC<any>> = {
+	dropBench: DropBench,
 	character: Character,
 	desk: Desk,
 	chair: Chair,
