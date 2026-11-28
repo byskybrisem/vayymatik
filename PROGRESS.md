@@ -94,3 +94,14 @@ sırayı kullan. Bir aşamayı ancak gerçek çıktı ve test kaydından sonra k
   yeniden çalıştırılmalı. GitHub release ek dosyası yüklemesi HTTP 401 verdi.
 - Sonraki aşama: sürümlü parametrik asset kütüphanesi ve tekrar üretilebilir
   benchmark konusu. Referans kanalları ve diğer kabul sahneleri henüz incelenmedi.
+
+### Parametrik mekanik varlık
+- `vayy/studio/mechanical.py` kapalı halka/dişli mesh ve PBR malzeme üretimini sahneden ayırır.
+- `assets.json` sürümü, boyutları, malzemeleri ve diş sayısı sınırlarını saklar.
+  Sahne, model kaynakları ve katalog değişiklikleri klip önbelleğini geçersiz kılar.
+- `python -m vayy.studio rotor-section rotor.mp4 --teeth 32 --frames 6 --fps 6` ile
+  Blender 4.3.2 CPU üzerinde gerçek 384×216 kesit üretildi. Baş ve son kare
+  görsel olarak incelendi. FFmpeg çözme testi ve önbellek bayt karşılaştırması
+  başarılı. Aralık dışı 7 diş reddedildi.
+- Önceki PR commit'inin Shorts render CI koşusu başarılı (46110377280).
+- Sonraki aşama: tekrar üretilebilir sesli benchmark konusu ve ek varlık aileleri.

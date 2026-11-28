@@ -11,7 +11,8 @@ p.add_argument("--height", type=int, default=216)
 p.add_argument("--frames", type=int, default=30)
 p.add_argument("--fps", type=int, default=15)
 p.add_argument("--samples", type=int, default=8)
+p.add_argument("--teeth", type=int, default=24)
 args = p.parse_args()
-clip = render({"template": args.template, "samples": args.samples}, args.width,
+clip = render({"template": args.template, "samples": args.samples, "teeth": args.teeth}, args.width,
               args.height, args.fps, args.frames)
 shutil.copyfile(clip, args.output)

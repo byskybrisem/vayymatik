@@ -9,6 +9,11 @@ from pathlib import Path
 from ..paths import CACHE
 
 SCRIPT = Path(__file__).with_name("blender_scene.py")
+CATALOG = SCRIPT.with_name("assets.json")
+
+
+def asset_catalog():
+    return json.loads(CATALOG.read_text(encoding="utf-8"))
 
 
 def check_clip(path, job):
@@ -36,7 +41,13 @@ def render(props, width, height, fps, frames):
                samples=int(props.get("samples", 16)), seed=int(props.get("seed", 7)))
     if min(width, height, frames, fps, job["samples"]) < 1 or width % 2 or height % 2:
         raise ValueError("Boyutlar pozitif ve çift, örnek ve kare sayıları pozitif olmalı")
-    key = hashlib.sha256(SCRIPT.read_bytes() + version.encode() +
+    limits = asset_catalog()[props["template"]]["parameters"]["teeth"]
+    teeth = props.get("teeth", limits["default"])
+    if type(teeth) is not int or not limits["min"] <= teeth <= limits["max"]:
+        raise ValueError(f"Rotor diş sayısı {limits['min']}–{limits['max']} arasında bir tam sayı olmalı")
+    job["teeth"] = teeth
+    sources = SCRIPT.read_bytes() + SCRIPT.with_name("mechanical.py").read_bytes()
+    key = hashlib.sha256(sources + CATALOG.read_bytes() + version.encode() +
                          json.dumps(job, sort_keys=True).encode()).hexdigest()
     cache = CACHE / "cinema"
     cache.mkdir(parents=True, exist_ok=True)

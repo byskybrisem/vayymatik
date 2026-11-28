@@ -1,0 +1,13 @@
+{
+  "rotor-section": {
+    "version": 1,
+    "units": "scene-unit",
+    "housing_diameter": 2.72,
+    "shaft_height": 1.45,
+    "materials": ["Satin brass", "Machined steel", "Graphite"],
+    "parameters": {
+      "teeth": {"default": 24, "min": 8, "max": 64}
+    },
+    "dependencies": ["mechanical.py", "blender_scene.py"]
+  }
+}
