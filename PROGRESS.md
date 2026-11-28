@@ -80,3 +80,17 @@ sırayı kullan. Bir aşamayı ancak gerçek çıktı ve test kaydından sonra k
 7. Dikey/yatay kurgu ve teslim paketi, referansla karşılaştırmalı görsel/teknik QA.
 8. Üç denemeyle sınırlı sahne onarımı, kesinti-resume ve cache regression testi.
 9. Claude skill'leri, kısa birleşik demo, erişilebilir çıktılar ve incelenebilir PR.
+
+### Hibrit doğrulama
+- PR #8 üzerindeki ilk Shorts render CI çalışması başarılı (46085533360).
+- Codex ortamında Blender 4.3.2, FFmpeg 7.1.5, Chromium 156, Python 3.12.14,
+  Node 24.22.3, cgroup 2 CPU / 8 GiB. Cycles yalnız CPU aygıtı bildirdi.
+- Rotor animasyonu 384×216, 15 FPS, 30 kare. Üç kare görsel olarak incelendi.
+  Önbellek isabeti sonrası kopya MP4 bayt düzeyinde eşleşti.
+- Rotor klibi Remotion üzerinden 30 kare işlendi ve mevcut Piper miksinin ilk
+  iki saniyesi AAC olarak birleştirildi. FFmpeg baştan sona çözdü. Bu smoke testi
+  sahneyle ilgili yeni anlatım/Foley veya semantik A/V senkronu doğrulamaz.
+- `python -m vayy.studio.doctor` ortam envanteri verir. Claude çalışma ortamında
+  yeniden çalıştırılmalı. GitHub release ek dosyası yüklemesi HTTP 401 verdi.
+- Sonraki aşama: sürümlü parametrik asset kütüphanesi ve tekrar üretilebilir
+  benchmark konusu. Referans kanalları ve diğer kabul sahneleri henüz incelenmedi.

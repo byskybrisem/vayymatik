@@ -68,3 +68,5 @@ sahne türlerini kullan. Sahnenin amacını, ortamını ve kontrol edilecek ayr�
 ve miks yolunu korur. Blender gerekli olan sahnelerde PATH'te bulunmalıdır.
 Hızlı sessiz önizleme: `python -m vayy.studio rotor-section /tmp/rotor.mp4`.
 Başarıyla çözülen sahneler .cache/cinema altında yeniden kullanılır.
+Ortam envanteri: `python -m vayy.studio.doctor`. Blender/FFmpeg sürümlerini,
+CPU/RAM kotasını ve boş diski kontrol et. Tarayıcı tespiti WebGL testi yerine geçmez.
