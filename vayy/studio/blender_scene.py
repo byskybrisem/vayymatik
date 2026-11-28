@@ -38,7 +38,11 @@ elif job["template"] == "factory-bay":
     build(job["bays"])
 elif job["template"] == "fracture":
     from experiment import fracture
-    events = fracture(scene, brass)
+    glass = alloy("Frosted safety glass", (.34,.71,.70), 0, .23)
+    shader = glass.node_tree.nodes.get("Principled BSDF")
+    shader.inputs["IOR"].default_value = 1.52
+    shader.inputs["Transmission Weight"].default_value = .77
+    events = fracture(scene, glass)
 elif job["template"] in ("water-baffle", "fire-plume"):
     from experiment import fluid
     events = fluid(scene, job, job["template"] == "water-baffle", alloy("Water", (.03,.30,.51),.08,.16))
@@ -58,7 +62,7 @@ else:
     ring("Hollow shaft", .39, .24, 1.45, .07, steel)
 Path(job["prefix"]).with_suffix(".json").write_text(json.dumps(events))
 scene.frame_set(1)
-bpy.ops.mesh.primitive_plane_add(size=200)
+bpy.ops.mesh.primitive_plane_add(size=200, location=(0,0,-.125 if job["template"] == "fracture" else 0))
 bpy.context.object.data.materials.append(slate)
 
 

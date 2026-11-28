@@ -25,15 +25,19 @@ def rigid(obj, passive=False):
 def fracture(scene, material):
     """Pre-scored tile assembled from solids linked by breakable fixed joints."""
     floor = box("Impact slab", (4,3,.12), (0,0,-.06))
+    from mechanical import alloy
+    floor.data.materials.append(alloy("Impact slab", (.12,.16,.18),.1,.72))
     rigid(floor, True)
     pieces = {}
     for row in range(3):
         for col in range(4):
             local_x = (col-1.5)*.25
-            obj = box("Ceramic segment", (.248,.27,.12),
+            obj = box("Scored glass segment", (.248,.27,.12),
                       (local_x*math.cos(.32),(row-1)*.272,1.35-local_x*math.sin(.32)))
             obj.rotation_euler.y = .32
             obj.data.materials.append(material)
+            bevel = obj.modifiers.new("Scored glass edges", "BEVEL")
+            bevel.width, bevel.segments = .007, 2
             rigid(obj)
             obj.rigid_body.mass = .14
             obj.rigid_body.collision_margin = .001
