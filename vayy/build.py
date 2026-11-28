@@ -80,8 +80,8 @@ def _inject_talk(obj, lines_by_id: dict, scene_start: float):
     if isinstance(obj, dict):
         lid = obj.pop("talkFromLine", None)
         if lid:
-            la = lines_by_id[lid]
-            obj["talk"] = [{"from": round(la.start + w["start"] - scene_start, 3), "to": round(la.start + w["end"] - scene_start, 3)} for w in la.words]
+            selected = lid if isinstance(lid, list) else [lid]
+            obj["talk"] = [{"from": round(la.start + w["start"] - scene_start, 3), "to": round(la.start + w["end"] - scene_start, 3)} for key in selected for la in [lines_by_id[key]] for w in la.words]
         for v in obj.values():
             _inject_talk(v, lines_by_id, scene_start)
     elif isinstance(obj, list):
@@ -154,12 +154,23 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     # 4) Efektler
     log("4/8 Ses efektleri")
     events = []
+    from .studio.drop import expand
+    for scene, source in zip(scenes, scenes_src):
+        expand(scene, fps, events, source.get("drop"))
+    baked_events = list(events)
     for e in topic.get("sfx", []):
         e = dict(e)
         e["t"] = res.abs(e.pop("at"))
         events.append(e)
     sfx = render_sfx(events, total)
 
+    event_sync = []
+    for event in baked_events:
+        isolated = render_sfx([dict(event, t=0)], .09)
+        mono = np.max(np.abs(isolated), axis=1)
+        audible = np.flatnonzero(mono > max(1e-5, mono.max() * .02))
+        event_sync.append({"visual_frame": round(event["t"] * fps),
+                           "offset_ms": float(audible[0]) * 1000 / SR_OUT if audible.size else None})
     # 5) Miks
     log("5/8 Miks + loudness")
     voice = render_voice_track(lines, total)
@@ -189,6 +200,7 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         "lines": [{"id": l.id, "start": l.speech_start, "end": l.speech_end, "text": l.parsed.plain_text, "tts": l.parsed.tts_text, "words": [{"text": w["text"], "start": round(l.start + w["start"], 3), "end": round(l.start + w["end"], 3)} for w in l.words]} for l in lines],
         "visual_events": visual_events(scenes, fps),
         "audio": astats,
+        "event_sync": event_sync,
         "sfx_events": [{"type": e["type"], "t": round(e["t"], 3)} for e in events],
         "sections": sections,
     }

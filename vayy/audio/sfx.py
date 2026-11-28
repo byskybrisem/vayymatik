@@ -200,7 +200,14 @@ def tv_static(dur=0.6, seed=18):
     return dsp.stereo(x)
 
 
+def ball_contact():
+    n = n_of(.075)
+    click = dsp.bp(dsp.noise(n, 72), 400, 3800) * dsp.expdec(n, .008)
+    return dsp.stereo(.4 * click + .5 * dsp.sine(155, n) * dsp.expdec(n, .018))
+
+
 SFX = {
+    "ball_contact": ball_contact,
     "whoosh": whoosh, "impact": impact, "riser": riser, "wind": wind, "engine": engine_flyby,
     "engine_idle": engine_idle, "light": light_clunk, "tick": tick, "ticks": ticks, "flaps": flap_clicks,
     "shutter": shutter, "pop": ui_pop, "heartbeat": heartbeat, "crowd": crowd, "static": static_burst,

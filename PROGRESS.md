@@ -114,3 +114,11 @@ sırayı kullan. Bir aşamayı ancak gerçek çıktı ve test kaydından sonra k
 - GitHub Actions 46119209382: QA 22/22, ASR 9/9 eşleşme, medyan ofset 18 ms.
   Çıktı: https://github.com/byskybrisem/vayymatik/actions/runs/46119209382/artifacts/15253245662
 - Sonraki aşama: rotor dışında parametrik çevre varlığı ve rig/IK.
+
+### Atölye kabul videosu (çalışma sürüyor)
+Önceki rotor artifact'i ve CI başarısı doğrulandı. Yeni konu: atolye, 23 saniye,
+30 FPS, ThreeCanvas ölçeği 1. Yürüyüşte ayak hedefleri ve iki kemikli IK,
+topu tutma, kaldırma, bırakma ve masaya dönme aynı rig'i kullanır. Dikey serbest
+düşme + esnek olmayan sekme metre/saniye birimleriyle bake edilir. İzole Foley
+başlangıç kayması QA'ya kaydedilir. Bu kayıt final miks üzerinden ölçüm değildir.
+Kabul için ayrı workflow_dispatch sonucu ve gerçek kare incelemesi gerekir.

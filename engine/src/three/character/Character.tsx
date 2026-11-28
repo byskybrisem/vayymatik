@@ -8,6 +8,9 @@ import {mat, PALETTE} from '../core/materials';
 import {StateKey, stateWeights, VecKey, vec} from '../core/math';
 import {applyWalk, blendExpr, blendPose, blink, talkAmount, TalkWord, WalkSpec} from './rig';
 
+import {gait, solve} from './contact';
+
+export type ContactMotion = {steps: number; stepTime: number; stride: number; hand: VecKey[]};
 export type Outfit = {skin?: string; hair?: string; suit?: string; shirt?: string; tie?: string; pants?: string; shoes?: string; beard?: boolean};
 
 export type CharacterProps = {
@@ -15,6 +18,7 @@ export type CharacterProps = {
 	expr?: StateKey[] | string;
 	talk?: TalkWord[];
 	walk?: WalkSpec;
+	contact?: ContactMotion;
 	/** Bakış ofseti [pitch, yaw, roll] (radyan) anahtar kareleri */
 	look?: VecKey[];
 	outfit?: Outfit;
@@ -86,7 +90,7 @@ const Hand: React.FC<{side: 1 | -1; curl: number; point: number; m: {skin: THREE
 	);
 };
 
-export const Character: React.FC<CharacterProps> = ({pose = 'stand', expr = 'neutral', talk, walk, look, outfit = {}, seed = 1, idle = 1}) => {
+export const Character: React.FC<CharacterProps> = ({pose = 'stand', expr = 'neutral', talk, walk, contact, look, outfit = {}, seed = 1, idle = 1}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 	const m = useMemo(
@@ -109,13 +113,30 @@ export const Character: React.FC<CharacterProps> = ({pose = 'stand', expr = 'neu
 	);
 
 	const p = applyWalk(blendPose(stateWeights(frame, pose, 'stand', 10)), frame, fps, walk);
+	let advance = 0;
+	if (contact) {
+		const {feet, root} = gait(frame / fps, contact.steps, contact.stepTime, contact.stride);
+		advance = root;
+		p.rootY = .935;
+		for (const [i, side] of (['L', 'R'] as const).entries()) {
+			const [hip, knee] = solve(p.rootY - .04 - .0575 - feet[i][1], feet[i][0] - root, .44, .44, 1);
+			p[`hip${side}X`] = hip;
+			p[`hip${side}Z`] = 0;
+			p[`kn${side}X`] = knee;
+			p[`ank${side}X`] = -hip - knee;
+		}
+		const wrist = vec(frame, contact.hand, [.215, 1.02, .15]);
+		[p.shLX, p.elLX] = solve(p.rootY + .54 - wrist[1], wrist[2] - root, .29, .26, -1);
+		p.shLZ = p.shLY = p.elLY = p.spineX = p.spineY = p.chestX = p.chestY = 0;
+		p.fingerL = .72;
+	}
 	const e = blendExpr(stateWeights(frame, expr, 'neutral', 8));
 	const t = talkAmount(frame, talk);
 	const bl = blink(frame, seed);
 	const lk = vec(frame, look, [0, 0, 0]);
 
 	// boşta hareket: nefes + mikro kafa hareketi
-	const breath = Math.sin((frame / fps) * Math.PI * 0.5) * 0.012 * idle;
+	const breath = Math.sin((frame / fps) * Math.PI * 0.5) * 0.012 * (contact ? 0 : idle);
 	const hx = noise2D('hx' + seed, frame * 0.02, 0) * 0.03 * idle + t.accent * 0.05;
 	const hy = noise2D('hy' + seed, frame * 0.018, 2) * 0.04 * idle;
 
@@ -126,7 +147,7 @@ export const Character: React.FC<CharacterProps> = ({pose = 'stand', expr = 'neu
 	return (
 		<group>
 			{/* PELVIS (kök) */}
-			<group position={[0, p.rootY, 0]}>
+			<group position={[0, p.rootY, advance]}>
 				<mesh geometry={G.pelvis} material={m.pants} position={[0, 0, 0]} castShadow receiveShadow />
 				{/* GÖVDE */}
 				<group position={[0, 0.07, 0]} rotation={[p.spineX, p.spineY, 0]}>

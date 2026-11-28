@@ -229,6 +229,11 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     add("Gerçek tepe ≤ −1,0 dBTP", loud["true_peak_dbfs"] is not None and loud["true_peak_dbfs"] <= -1.0, {"true_peak_dbtp": loud["true_peak_dbfs"]})
     add("Müzik konuşmanın en az 8 dB altında", (meta["audio"].get("music_under_voice_db") or 0) >= 8, {"music_under_voice_db": meta["audio"].get("music_under_voice_db")})
 
+    if meta.get("event_sync"):
+        offsets = [row["offset_ms"] for row in meta["event_sync"]]
+        add("Temas karesi ile izole Foley başlangıcı (≤1 kare)",
+            all(x is not None and abs(x) <= 1000/fps for x in offsets), meta["event_sync"])
+
     # ASR senkronu
     script_words = [w for l in meta["lines"] for w in l["words"]]
     try:
@@ -242,7 +247,7 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
         add("Müzik altında anlaşılırlık (ASR WER, final miks)", rep_mix["wer"] <= rep["wer"] + 0.10, {"wer_mix": rep_mix["wer"], "wer_dry": rep["wer"]}, crit=False)
         (bdir / "asr_transcript.txt").write_text(rep["asr_text"] + "\n\n[MIX]\n" + rep_mix["asr_text"], encoding="utf-8")
     except Exception as e:  # ASR modeli indirilemezse
-        add("Altyazı–ses senkronu (ASR)", False, {"error": str(e)[:200]}, crit=False)
+        add("Altyazı–ses senkronu (ASR)", False, {"error": str(e)[:200]}, crit=topic.get("qa", {}).get("require_asr", False))
 
     # satır başlangıçları ile ses enerjisi başlangıcı (fonem sürelerinden gelen zamanların doğrulaması)
     import soundfile as sf

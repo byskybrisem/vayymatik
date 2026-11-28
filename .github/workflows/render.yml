@@ -64,6 +64,11 @@ jobs:
         working-directory: engine
         run: npx remotion browser ensure
 
+      - name: Render ortamını kaydet
+        run: |
+          mkdir -p "deliverables/$TOPIC"
+          python -m vayy.studio.doctor > "deliverables/$TOPIC/Environment.json"
+
       - name: Video üret (tek komut) + QA
         run: python -m vayy build "$TOPIC" --concurrency "$(nproc)"
 

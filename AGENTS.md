@@ -35,6 +35,6 @@ python3 -m vayy qa zirve           # QA raporu → deliverables/zirve/Video-QA.j
 ## Kurallar
 - Kare bazlı deterministik animasyon: `useCurrentFrame()`; Three.js'te `useFrame` kullanma; rastgelelik `rng(seed)`.
 - GPU yok varsay: `gl: swangle`. Gölgeli ışık ≤ 2, ışık sayısı sabit, geometrileri `useMemo`/modül düzeyinde oluştur.
-- Ücretli API yok. Görseller koddan veya kamu malı; müzik/SFX prosedürel. Yeni varlık eklersen `assets/LICENSES.md`'ye yaz.
+- Seslendirme için mevcut ElevenLabs hesabı ve Furkan profili kullanılabilir. Diğer ücretli API’ler yasaktır. Piper ücretsiz yedektir. Anahtar yalnızca ortam değişkeninden veya CI secret üzerinden okunur. Görseller koddan veya kamu malı; müzik/SFX prosedürel. Yeni varlık eklersen `assets/LICENSES.md`'ye yaz.
 - MP4/WAV/`build/` commit edilmez. `main`'e doğrudan push/merge yok; branch + PR.
 - Değişiklikten sonra: `cd engine && npx tsc --noEmit` ve en az birkaç `stills` karesine bak.

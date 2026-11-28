@@ -1,0 +1,396 @@
+{
+  "id": "atolye",
+  "output_name": "Atolye",
+  "language": "tr",
+  "duration": 23,
+  "lines": [
+    {
+      "id": "s0",
+      "text": "Usta tezgâha yaklaşıyor. Turuncu topa dikkat edin.",
+      "pause_after": 0.72
+    },
+    {
+      "id": "s1",
+      "text": "Elini uzatıyor ve topu masanın kenarından kaldırıyor.",
+      "pause_after": 0.72
+    },
+    {
+      "id": "s2",
+      "text": "Şimdi parmakları açılacak. Topun düşeceği yere bakın.",
+      "pause_after": 0.72
+    },
+    {
+      "id": "s3",
+      "text": "Her sekmede biraz daha az yükseliyor.",
+      "pause_after": 0.72
+    },
+    {
+      "id": "s4",
+      "text": "Top durdu. Ustanın eli yeniden tezgâha dönüyor.",
+      "pause_after": 0.72
+    }
+  ],
+  "scenes": [
+    {
+      "id": "deney",
+      "type": "world3d",
+      "start": 0,
+      "drop": true,
+      "props": {
+        "stage": {
+          "scale": 1,
+          "shadows": true,
+          "bg": "#1c2932"
+        },
+        "camera": {
+          "keys": [
+            {
+              "t": 0,
+              "pos": [
+                2.9,
+                1.7,
+                3.1
+              ],
+              "target": [
+                0,
+                1,
+                0.55
+              ],
+              "fov": 38
+            },
+            {
+              "t": 3,
+              "pos": [
+                2.8,
+                1.45,
+                3.4
+              ],
+              "target": [
+                0,
+                1,
+                1.2
+              ],
+              "fov": 38
+            },
+            {
+              "t": 6,
+              "pos": [
+                1.8,
+                1.4,
+                2.65
+              ],
+              "target": [
+                0.1,
+                1.18,
+                1.48
+              ],
+              "fov": 38
+            },
+            {
+              "t": 9,
+              "pos": [
+                2,
+                1.65,
+                2.9
+              ],
+              "target": [
+                0.1,
+                1.3,
+                1.5
+              ],
+              "fov": 38
+            },
+            {
+              "t": 12,
+              "pos": [
+                2.65,
+                1.2,
+                2.9
+              ],
+              "target": [
+                0.1,
+                0.95,
+                1.46
+              ],
+              "fov": 38
+            },
+            {
+              "t": 14,
+              "pos": [
+                1.8,
+                0.75,
+                2.65
+              ],
+              "target": [
+                0.1,
+                0.55,
+                1.45
+              ],
+              "fov": 38
+            },
+            {
+              "t": 17,
+              "pos": [
+                2.7,
+                1.45,
+                3.2
+              ],
+              "target": [
+                0.1,
+                1.1,
+                1.5
+              ],
+              "fov": 38
+            },
+            {
+              "t": 23,
+              "pos": [
+                2.4,
+                1.65,
+                3.4
+              ],
+              "target": [
+                0.1,
+                1.22,
+                1.5
+              ],
+              "fov": 38
+            }
+          ],
+          "ease": "linear",
+          "shake": 0.002
+        },
+        "lights": [
+          {
+            "type": "hemi",
+            "color": "#fff6dd",
+            "ground": "#7894a0",
+            "intensity": 1.8
+          },
+          {
+            "type": "dir",
+            "color": "#ffdfaa",
+            "pos": [
+              3,
+              6,
+              4
+            ],
+            "intensity": 3,
+            "castShadow": true,
+            "mapSize": 1024
+          }
+        ],
+        "objects": [
+          {
+            "kind": "room",
+            "w": 10,
+            "d": 7,
+            "wall": "#49727b",
+            "floor": "#766651",
+            "rug": ""
+          },
+          {
+            "kind": "character",
+            "contact": {
+              "steps": 6,
+              "stepTime": 0.5,
+              "stride": 0.24,
+              "hand": [
+                {
+                  "t": 0,
+                  "v": [
+                    0.215,
+                    1.02,
+                    0.12
+                  ]
+                },
+                {
+                  "t": 3,
+                  "v": [
+                    0.215,
+                    1.02,
+                    1.42
+                  ]
+                },
+                {
+                  "t": 4,
+                  "v": [
+                    0.215,
+                    1.08,
+                    1.68
+                  ]
+                },
+                {
+                  "t": 6,
+                  "v": [
+                    0.215,
+                    1.08,
+                    1.68
+                  ]
+                },
+                {
+                  "t": 9,
+                  "v": [
+                    0.215,
+                    1.275,
+                    1.47
+                  ]
+                },
+                {
+                  "t": 12,
+                  "v": [
+                    0.215,
+                    1.275,
+                    1.47
+                  ]
+                },
+                {
+                  "t": 14,
+                  "v": [
+                    0.215,
+                    1.02,
+                    1.43
+                  ]
+                },
+                {
+                  "t": 17,
+                  "v": [
+                    0.215,
+                    1.06,
+                    1.62
+                  ]
+                },
+                {
+                  "t": 20,
+                  "v": [
+                    0.215,
+                    1.06,
+                    1.62
+                  ]
+                }
+              ]
+            },
+            "talkFromLine": [
+              "s0",
+              "s1",
+              "s2",
+              "s3",
+              "s4"
+            ],
+            "expr": "focused",
+            "look": [
+              {
+                "t": 0,
+                "v": [
+                  0.04,
+                  0.1,
+                  0
+                ]
+              },
+              {
+                "t": 12,
+                "v": [
+                  0.29,
+                  0.22,
+                  0
+                ]
+              },
+              {
+                "t": 16,
+                "v": [
+                  0.4,
+                  0.18,
+                  0
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "dropBench",
+            "track": [
+              {
+                "t": 0,
+                "v": [
+                  0.215,
+                  1.025,
+                  1.68
+                ]
+              },
+              {
+                "t": 6,
+                "v": [
+                  0.215,
+                  1.025,
+                  1.68
+                ]
+              },
+              {
+                "t": 9,
+                "v": [
+                  0.215,
+                  1.22,
+                  1.47
+                ]
+              },
+              {
+                "t": 12,
+                "v": [
+                  0.215,
+                  1.22,
+                  1.47
+                ]
+              }
+            ]
+          }
+        ],
+        "beats": [
+          3,
+          6,
+          9,
+          12,
+          15,
+          18,
+          21
+        ]
+      }
+    }
+  ],
+  "music": {
+    "style": "rise",
+    "seed": 7,
+    "sections": {
+      "dark": 0,
+      "build": 4,
+      "peak": 12,
+      "end": 20
+    }
+  },
+  "sfx": [],
+  "metadata": {
+    "title": "Atölyede bir topun yolculuğu",
+    "description": [
+      "Yürüyüş, kavrama ve sekme deneyi."
+    ],
+    "hashtags": [
+      "#Animasyon",
+      "#Fizik"
+    ],
+    "thumbnail": {
+      "scene": "deney",
+      "frame": 230,
+      "kicker": "ATÖLYE",
+      "lines": [
+        {
+          "text": "Sekme"
+        }
+      ]
+    }
+  },
+  "sources": [],
+  "assets_credits": [
+    "VAYYMATİK prosedürel karakter, ortam, animasyon ve ses tasarımı."
+  ],
+  "qa": {
+    "require_asr": true
+  }
+}

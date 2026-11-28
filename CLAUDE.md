@@ -41,11 +41,11 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 - 3D motor: `engine/src/three/` (sahne türü `world3d`), belge: `engine/src/three/README.md`. Diğer sahne türleri: `engine/src/scenes/registry.ts`.
 - Ayrıntılı ajan rehberi: `AGENTS.md`. Mimari/komutlar: `README.md`. Durum: `PROGRESS.md`.
 - Hızlı görsel kontrol: `python3 -m vayy stills <konu> 0,60,120` → `build/<konu>/stills/` (tam render'dan önce).
-- MP4/WAV/build çıktıları git'e girmez (`.gitignore`). Gizli anahtar yok; ücretli API kullanma.
+- MP4/WAV/build çıktıları git'e girmez (`.gitignore`). ElevenLabs yalnızca seslendirme için izinlidir. Milyon konusunun Furkan kayıtlarını koru. Anahtarı istemciye, loglara veya depoya koyma. Piper yedektir. Diğer ücretli API’leri kullanma.
 
 ## Video skill'leri — otomatik kullanım
 - Kullanıcı video istediğinde konuya göre ilgili proje skill'lerini kendin çağır; slash komutu veya ayrıca izin isteme: `shorts-script-to-scenes` (senaryo/konu), `three-scene-builder` (3D), `remotion-video-creation` (Remotion kodu/animasyon), `render-qa` (render/teslim).
-- Skill aracı yoksa ilgili `.claude/skills/<ad>/SKILL.md` dosyasını oku. Yalnız gereken skill ve referansları yükle; mevcut JSON motorunu tercih et, gereksiz paket/ajan/ücretli API kullanma.
+- Skill aracı yoksa ilgili `.claude/skills/<ad>/SKILL.md` dosyasını oku. Yalnız gereken skill ve referansları yükle; mevcut JSON motorunu tercih et, gereksiz paket ve ajan kullanma. Ses sağlayıcısı için yukarıdaki kural geçerlidir.
 - Referans videonun metnini/karakterini kopyalama. Render ve QA gerçek çıktılarla doğrulanmadan tamamlandı deme.
 
 
@@ -73,3 +73,6 @@ CPU/RAM kotasını ve boş diski kontrol et. Tarayıcı tespiti WebGL testi yeri
 Sesli mekanik benchmark: `python -m vayy build rotor-benchmark --concurrency 2`.
 Bu test Blender kaynağını 270×480 üretir ve Shorts kompozisyonunda birleştirir.
 Yayın kaynak kalitesi için `renderScale` varsayılanı 1'dir.
+Karakter kabul konusu: `python -m vayy build atolye`. Normal teslim kanalı
+GitHub Actions render.yml çalışmasının konu isimli artifact'idir. MP4, altyazı,
+kapak, ortam ve QA kayıtları aynı arşivdedir. İndirme GitHub oturumu gerektirebilir.
