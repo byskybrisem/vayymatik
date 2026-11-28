@@ -105,3 +105,12 @@ sırayı kullan. Bir aşamayı ancak gerçek çıktı ve test kaydından sonra k
   başarılı. Aralık dışı 7 diş reddedildi.
 - Önceki PR commit'inin Shorts render CI koşusu başarılı (46110377280).
 - Sonraki aşama: tekrar üretilebilir sesli benchmark konusu ve ek varlık aileleri.
+
+### Sesli rotor benchmark'ı
+- `python -m vayy build rotor-benchmark --concurrency 2` standart giriş noktasından
+  150 kare Blender Cycles, Remotion altyazı, Piper miks ve FFmpeg MP4 üretir.
+- Düşük maliyetli teknik test 270×480 kaynak, 1080×1920 teslim ve 30 FPS kullanır.
+  Yerel örnek karede model ve altyazı okunaklı. Gren görünür.
+- GitHub Actions 46119209382: QA 22/22, ASR 9/9 eşleşme, medyan ofset 18 ms.
+  Çıktı: https://github.com/byskybrisem/vayymatik/actions/runs/46119209382/artifacts/15253245662
+- Sonraki aşama: rotor dışında parametrik çevre varlığı ve rig/IK.
