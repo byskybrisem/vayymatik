@@ -6,6 +6,7 @@ import {Room} from './env/Room';
 import {City, Tower} from './env/City';
 import {Sky} from './env/Sky';
 import {Dust, LightCone, MoneySwirl} from './fx/Particles';
+import {Elevator, GlowBurst, Label3D, Sparks, SpeedStreaks} from './objects/elevator';
 import {GrowthChart3D} from './charts/GrowthChart3D';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,4 +32,9 @@ export const OBJECTS: Record<string, React.FC<any>> = {
 	moneySwirl: MoneySwirl,
 	lightCone: LightCone,
 	chart: GrowthChart3D,
+	elevator: Elevator,
+	sparks: Sparks,
+	glowBurst: GlowBurst,
+	streaks: SpeedStreaks,
+	label: Label3D,
 };
