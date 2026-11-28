@@ -7,27 +7,32 @@
     {
       "id": "s0",
       "text": "Usta tezgâha yaklaşıyor. Turuncu topa dikkat edin.",
-      "pause_after": 0.72
+      "pause_after": 1.02
     },
     {
       "id": "s1",
       "text": "Elini uzatıyor ve topu masanın kenarından kaldırıyor.",
-      "pause_after": 0.72
+      "pause_after": 1.58
     },
     {
       "id": "s2",
       "text": "Şimdi parmakları açılacak. Topun düşeceği yere bakın.",
-      "pause_after": 0.72
+      "pause_after": 1.15
     },
     {
       "id": "s3",
       "text": "Her sekmede biraz daha az yükseliyor.",
-      "pause_after": 0.72
+      "pause_after": 1.35
     },
     {
       "id": "s4",
       "text": "Top durdu. Ustanın eli yeniden tezgâha dönüyor.",
-      "pause_after": 0.72
+      "pause_after": 1.1
+    },
+    {
+      "id": "s5",
+      "text": "Yakından bakın. Top artık zeminde hareketsiz.",
+      "pause_after": 0.2
     }
   ],
   "scenes": [
@@ -143,18 +148,46 @@
               "fov": 38
             },
             {
-              "t": 23,
+              "t": 19,
               "pos": [
-                2.4,
-                1.65,
-                3.4
+                2.15,
+                1.39,
+                2.38
               ],
               "target": [
-                0.1,
-                1.22,
+                0.215,
+                1.04,
+                1.62
+              ],
+              "fov": 36
+            },
+            {
+              "t": 21,
+              "pos": [
+                1.7,
+                0.84,
                 1.5
               ],
-              "fov": 38
+              "target": [
+                0.215,
+                0.43,
+                1.51
+              ],
+              "fov": 36
+            },
+            {
+              "t": 23,
+              "pos": [
+                1.04,
+                0.46,
+                1.18
+              ],
+              "target": [
+                0.215,
+                0.13,
+                1.47
+              ],
+              "fov": 34
             }
           ],
           "ease": "linear",
@@ -261,11 +294,19 @@
                   ]
                 },
                 {
-                  "t": 20,
+                  "t": 19,
                   "v": [
                     0.215,
                     1.0995,
                     1.66
+                  ]
+                },
+                {
+                  "t": 21,
+                  "v": [
+                    0.215,
+                    1.04,
+                    1.4
                   ]
                 }
               ],
@@ -301,7 +342,8 @@
               "s1",
               "s2",
               "s3",
-              "s4"
+              "s4",
+              "s5"
             ],
             "expr": "focused",
             "look": [
@@ -326,6 +368,22 @@
                 "v": [
                   0.4,
                   0.18,
+                  0
+                ]
+              },
+              {
+                "t": 19,
+                "v": [
+                  0.12,
+                  0.22,
+                  0
+                ]
+              },
+              {
+                "t": 21.5,
+                "v": [
+                  0.45,
+                  0.28,
                   0
                 ]
               }

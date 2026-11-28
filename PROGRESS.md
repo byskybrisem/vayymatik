@@ -150,3 +150,7 @@ Zack D. Films kanalının üç erişilebilir arşiv kopyasında iki saniye aral�
 - QA kodlanan kare sayısını doğrular. İsteğe bağlı Event-captions.vtt, bake ve adım olaylarından Türkçe ses açıklaması üretir. doctor RAM ve Cycles aygıt envanterini raporlar.
 
 Kırılma testi, buzlu cam malzemeli önceden çizilmiş 12 parçalı bir levha kullanıyor. 36 karelik yerel Cycles çıktısında düşüş, 15. karede temas ve sonda ayrılan parçalar görüldü. Çatlak yayılımı simüle edilmiyor. 72 ms yapay gecikme içeren negatif kontrolü AAC eşleştiricisi 11/11 olayda 72 ms olarak ölçtü.
+
+### Yatay kurgu düzeltmesi
+- 2b1e145 sürümünde dikey çıktı 23/23 geçti. Yatayda aynı 23 kontrolden 22’si geçti; 18–21. saniyelerde birer saniyelik dört pencerede hareket yetersizdi. Eşik değiştirilmedi.
+- Son planda kamera tezgâhtaki parmaklardan duran topa iniyor. Bırakma/sekme anlatımı olay zamanına yaklaştırıldı ve kapanış repliği eklendi. Yatay 1920×1080 yerel kare 540, 615 ve 675 incelendi. Yeni miksin son repliği 21,44 sn’de bitiyor. Tam video ve ASR sonucu ayrıca doğrulanacak.
