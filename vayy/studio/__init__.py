@@ -81,7 +81,13 @@ def render(props, width, height, fps, frames):
 def prepare(timeline, current):
     for scene in timeline["scenes"]:
         if scene["type"] == "cinematic":
-            clip = render(scene["props"], timeline["width"], timeline["height"],
-                          timeline["fps"], scene["dur"])
+            props = scene["props"]
+            scale = props.get("renderScale", 1)
+            if not isinstance(scale, (int, float)) or isinstance(scale, bool) or not 0.25 <= scale <= 1:
+                raise ValueError("Blender renderScale, 0.25–1 arasında olmalı")
+            width = 2 * round(timeline["width"] * scale / 2)
+            height = 2 * round(timeline["height"] * scale / 2)
+            clip = render(props, width, height, timeline["fps"], scene["dur"])
+            props["sourceSize"] = [width, height]
             shutil.copyfile(clip, current / clip.name)
             scene["props"]["src"] = "current/" + clip.name

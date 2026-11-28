@@ -70,3 +70,6 @@ Hızlı sessiz önizleme: `python -m vayy.studio rotor-section /tmp/rotor.mp4`.
 Başarıyla çözülen sahneler .cache/cinema altında yeniden kullanılır.
 Ortam envanteri: `python -m vayy.studio.doctor`. Blender/FFmpeg sürümlerini,
 CPU/RAM kotasını ve boş diski kontrol et. Tarayıcı tespiti WebGL testi yerine geçmez.
+Sesli mekanik benchmark: `python -m vayy build rotor-benchmark --concurrency 2`.
+Bu test Blender kaynağını 270×480 üretir ve Shorts kompozisyonunda birleştirir.
+Yayın kaynak kalitesi için `renderScale` varsayılanı 1'dir.

@@ -1,0 +1,28 @@
+{
+  "id": "rotor-benchmark",
+  "output_name": "Vayymatik_Rotor_Benchmark",
+  "language": "tr",
+  "duration": 5,
+  "lines": [
+    {"id": "rotor", "text": "Bu kesitte, üç {g:dişli halka} aynı milin çevresinde yükseliyor."}
+  ],
+  "scenes": [
+    {
+      "id": "rotor",
+      "type": "cinematic",
+      "start": 0,
+      "direction": {"purpose": "Kurgusal düzeneğin iç bileşenlerini açığa çıkar", "camera": "Kısa yörünge", "qa": ["Halkalar ve mil kadrajda"]},
+      "props": {"template": "rotor-section", "seed": 7, "teeth": 32, "samples": 10, "renderScale": 0.25, "beats": [2.5]}
+    }
+  ],
+  "music": {"style": "rise", "seed": 7, "sections": {"dark": 0, "build": 1, "peak": 3, "end": 4.5}},
+  "sfx": [],
+  "metadata": {
+    "title": "Rotor Kesiti — VAYYMATİK Render Testi",
+    "description": ["Halkaları açılan kurgusal bir rotor düzeneğinin kısa teknik gösterimi."],
+    "hashtags": ["#VAYYMATIK", "#3DAnimasyon"],
+    "thumbnail": {"scene": "rotor", "frame": 120, "kicker": "VAYYMATİK", "lines": [{"text": "Rotor"}, {"text": "Kesiti", "color": "gold"}]}
+  },
+  "sources": [],
+  "assets_credits": ["Rotor modeli ve ses tasarımı VAYYMATİK üretim hattında oluşturulmuştur."]
+}
