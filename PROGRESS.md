@@ -63,3 +63,20 @@ sunFollow (küre uçuşlarında aydınlık taraf), hook başlığı "NEDEN?", ro
 12 Zirvede, YouTube'da 8 milyondan fazla eş zamanlı canlı yayın izlendi.
 13 Sonuç? 2025'te yaklaşık 14 milyar kutu, 12,2 milyar avro ciro.
 14 Red Bull sadece bir içecek satmadı. 15 İnsanların izlemek istediği bir dünya kurdu.
+
+## V2 geliştirme kontrol noktası • studio/cinematic-v2
+Temel sürüm 47bd48b. Mevcut ses sağlayıcısı ve Three/Remotion yolu korunur.
+İlk dilim: eski zirve sahnesinin referans kareleri, rotor kesiti, CPU Cycles,
+içerik adresli klip önbelleği, Remotion klip bileşeni ve çözülmüş sahne manifestosu.
+Saatlik çalışmada önce dal ve açık PR ile devam eden işleri kontrol et. Aşağıdaki
+sırayı kullan. Bir aşamayı ancak gerçek çıktı ve test kaydından sonra kapat.
+
+1. Referans videoları örnekle, mimari ve kapasiteleri Claude ortamında da ölç.
+2. Hibrit hattın uçtan uca sesli benchmark'ı, sahne yönlendirme ve ortam doktoru.
+3. Parametrik asset metadata/kütüphane, ortak çevre, malzemeler ve kamera profilleri.
+4. İnsan rig/IK ve nesne etkileşimi; yürüyüş, ayak teması ve anatomik sınırlar.
+5. Fizik benchmark'ları: kırılma, engelde su, ateş/duman; bake ve olay zamanları.
+6. Yer altı kesiti ve fizik olayına bağlı Foley; mevcut ses profilini koru.
+7. Dikey/yatay kurgu ve teslim paketi, referansla karşılaştırmalı görsel/teknik QA.
+8. Üç denemeyle sınırlı sahne onarımı, kesinti-resume ve cache regression testi.
+9. Claude skill'leri, kısa birleşik demo, erişilebilir çıktılar ve incelenebilir PR.

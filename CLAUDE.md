@@ -58,3 +58,13 @@ Amaç: en az token ile en doğru iş. Bu dosya her oturumda yüklenir; kısa tut
 - Asla `rtk` ile çalıştırma: `ffmpeg`, `ffprobe`, `npx remotion` (render/bundle), `python3 -m vayy build|audio|remux|qa|stills`, Piper ve diğer render/ses/QA komutları. Bunların hata kayıtları ve çıktıları eksiksiz görünmeli.
 - Exit code ≠ 0, test kırmızı, çıktı boş/çelişkili/bozuk ise: `rtk bypass <cmd>` ile ham çıktıyı al veya komutu `rtk`siz yeniden çalıştır. Hata metnini özetleme; kritik satırları birebir aktar.
 - Telemetri kapalı tut (`rtk telemetry status` → enabled: no). Global hook (`rtk init -g`) kurma.
+
+## Blender kesitleri
+Mekanik rotor kesiti için mevcut konu JSON'unda sahne türünü `cinematic`, props'u
+`{"template":"rotor-section","seed":7,"samples":16}` seç. Diğer konularda kayıtlı
+sahne türlerini kullan. Sahnenin amacını, ortamını ve kontrol edilecek ayrıntıları
+`direction` nesnesine yaz. Çözülmüş anlatım, altyazı ve efekt zamanları
+`build/<konu>/scene-manifest.json` içinde saklanır. Normal build komutu ses profilini
+ve miks yolunu korur. Blender gerekli olan sahnelerde PATH'te bulunmalıdır.
+Hızlı sessiz önizleme: `python -m vayy.studio rotor-section /tmp/rotor.mp4`.
+Başarıyla çözülen sahneler .cache/cinema altında yeniden kullanılır.

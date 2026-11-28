@@ -176,6 +176,9 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     if cur.exists():
         shutil.rmtree(cur)
     cur.mkdir(parents=True)
+    if (render or stills) and any(s["type"] == "cinematic" for s in scenes):
+        from .studio import prepare
+        prepare(timeline, cur)
     geo = topic.get("geo", {})
     make_mask(cur / "geo_mask.png", geo.get("highlight_a"), geo.get("highlight_b"))
     shutil.copy2(bdir / "mix.wav", cur / "mix.wav")
@@ -190,6 +193,9 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         "sections": sections,
     }
     (bdir / "build_meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+    from .studio.manifest import manifest
+    plan = manifest(topic, timeline, meta["lines"], meta["sfx_events"])
+    (bdir / "scene-manifest.json").write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
 
     # Altyazı/metin teslimleri (render'dan bağımsız)
     (ddir / "Subtitles.srt").write_text(cap.srt(lines), encoding="utf-8")
