@@ -7,7 +7,8 @@
   "name": "ElevenLabs · Furkan - Bilingual Turkish Narrator (Dzgub2SzfGvifooR4JMV)",
   "lead_in": 0.12,
   "tail": 1.2,
-  "gap": 0.2
+  "gap": 0.2,
+  "word_offset": 0.115
  },
  "lines": [
   {
@@ -3560,6 +3561,20 @@
        "fov": 46
       },
       {
+       "t": 2.2,
+       "pos": [
+        0.9,
+        14.7,
+        24.0
+       ],
+       "target": [
+        0.9,
+        14.4,
+        0
+       ],
+       "fov": 46
+      },
+      {
        "t": 4.5,
        "pos": [
         0.9,
@@ -4627,6 +4642,9 @@
    "gain": -2
   }
  ],
+ "mix": {
+  "ceiling_db": -3.4
+ },
  "metadata": {
   "title": "Asansörün Halatı Koparsa Ne Olur? 🛗 Gerçekten Serbest Düşer mi?",
   "title_alternatives": [
