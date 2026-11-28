@@ -4696,11 +4696,7 @@
    ]
   }
  },
- "sources": [
-  {
-   "text": "Genel asansör güvenliği ilkeleri (çoklu halat, karşı ağırlık, hız regülatörü, kama tipi güvenlik freni) — şematik anlatım; ayrıntılar standart ve modele göre değişir."
-  }
- ],
+ "sources": [],
  "assets_credits": [
   "3D sahneler, asansör sistemi ve dokular: VAYYMATİK motorunda koddan üretilmiş özgün içerik (Three.js, MIT).",
   "Seslendirme: ElevenLabs (Furkan - Bilingual Turkish Narrator).",

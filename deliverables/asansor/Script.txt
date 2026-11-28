@@ -1,0 +1,44 @@
+Asansörün Halatı Koparsa Ne Olur? 🛗 Gerçekten Serbest Düşer mi?
+VAYYMATİK · Türkçe · 1080×1920 · 30 fps · 41.9 sn
+
+SENARYO (zaman kodlu, seslendirme ile birebir)
+============================================================
+[00:00.12 – 00:02.31]  Asansörün halatı koparsa ne olur?
+      sahne: hook — Yüksek katlı binada yükselen asansör; halatlar gerilir, kopar (alçak açı, kabin + halatlar)
+[00:02.51 – 00:06.05]  Çoğu insan kabinin doğrudan zemine çakılacağını düşünür.
+      sahne: dusus — Serbest düşüş algısı: kırmızı alarm, hız çizgileri, kamera düşen kabini izler
+[00:06.25 – 00:10.55]  Ama modern asansörlerde sistem bundan çok daha farklı çalışır.
+      sahne: sistem — Kesit görünüm: kabin, çoklu halat, karşı ağırlık, raylar (mavi teknik aydınlatma)
+[00:10.75 – 00:14.16]  Asansör kabini yalnızca bir halata emanet değildir.
+      sahne: halat — Kasnak ve çoklu çelik halat yakın plan; halatlar sırayla vurgulanır
+[00:14.36 – 00:18.35]  Aşırı hız algılanırsa güvenlik frenleri raylara kilitlenebilir.
+      sahne: regulator — Hız regülatörü: kasnak hızlanır, ağırlıklar açılır, aşırı hız lambası kırmızıya döner
+[00:18.55 – 00:23.23]  Ayrıca karşı ağırlık sistemi ve çoklu çelik halatlar da riski azaltır.
+      sahne: karsi — Karşı ağırlık kabinle ters yönde hareket eder; halatlar yükü paylaşır
+[00:23.43 – 00:27.74]  Yani filmlerde gördüğün gibi serbest düşüş her zaman yaşanmaz.
+      sahne: karsilastir — Sol: filmlerdeki serbest düşüş; sağ: gerçekte frenin tuttuğu kabin
+[00:27.94 – 00:33.20]  Asıl amaç, halat kopsa bile kabinin kontrolsüz şekilde düşmesini engellemektir.
+      sahne: tutuldu — Kabin güvenlik freniyle raylarda tutulur; sinematik yörünge
+[00:33.40 – 00:36.35]  Kısacası korkutucu olan, düşüş fikridir.
+      sahne: final — Sakin yükseliş: çok katmanlı güvenlik, vinç çekimi, geniş plan
+[00:36.55 – 00:40.64]  Ama mühendislik, bunu önlemek için çoktan çözüm geliştirmiştir.
+      sahne: final — Sakin yükseliş: çok katmanlı güvenlik, vinç çekimi, geniş plan
+
+SAHNE LİSTESİ
+============================================================
+00:00.00 – 00:02.70  hook            [world3d]  geçiş: cut  Yüksek katlı binada yükselen asansör; halatlar gerilir, kopar (alçak açı, kabin + halatlar)
+00:02.50 – 00:06.53  dusus           [world3d]  geçiş: whip  Serbest düşüş algısı: kırmızı alarm, hız çizgileri, kamera düşen kabini izler
+00:06.27 – 00:10.97  sistem          [world3d]  geçiş: flash  Kesit görünüm: kabin, çoklu halat, karşı ağırlık, raylar (mavi teknik aydınlatma)
+00:10.77 – 00:14.37  halat           [world3d]  geçiş: whip  Kasnak ve çoklu çelik halat yakın plan; halatlar sırayla vurgulanır
+00:14.37 – 00:16.00  regulator       [world3d]  geçiş: cut  Hız regülatörü: kasnak hızlanır, ağırlıklar açılır, aşırı hız lambası kırmızıya döner
+00:15.87 – 00:18.77  fren            [world3d]  geçiş: flash  Güvenlik freni: kamalar raya kenetlenir, kıvılcım, kabin yavaşlayıp durur
+00:18.57 – 00:23.63  karsi           [world3d]  geçiş: whip  Karşı ağırlık kabinle ters yönde hareket eder; halatlar yükü paylaşır
+00:23.43 – 00:28.13  karsilastir     [world3d]  geçiş: flash  Sol: filmlerdeki serbest düşüş; sağ: gerçekte frenin tuttuğu kabin
+00:27.93 – 00:33.70  tutuldu         [world3d]  geçiş: whip  Kabin güvenlik freniyle raylarda tutulur; sinematik yörünge
+00:33.40 – 00:41.87  final           [world3d]  geçiş: blur  Sakin yükseliş: çok katmanlı güvenlik, vinç çekimi, geniş plan
+
+SES
+============================================================
+Anlatıcı: Piper TTS · tr_TR-fahrettin-medium (CC0) · length 1.0 · noise 0.667 · noise_w 0.8
+Müzik: özgün prosedürel kompozisyon · 96 BPM · Re minör
+Miks: {"integrated_lufs": -14.0, "true_peak_dbtp": -1.64, "voice_lufs": -16.0, "music_under_voice_db": 10.1}

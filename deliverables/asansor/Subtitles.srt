@@ -1,0 +1,47 @@
+1
+00:00:00,120 --> 00:00:02,490
+Asansörün halatı koparsa ne olur?
+
+2
+00:00:02,510 --> 00:00:06,231
+Çoğu insan kabinin doğrudan
+zemine çakılacağını düşünür.
+
+3
+00:00:06,251 --> 00:00:10,735
+Ama modern asansörlerde sistem
+bundan çok daha farklı çalışır.
+
+4
+00:00:10,755 --> 00:00:14,336
+Asansör kabini yalnızca
+bir halata emanet değildir.
+
+5
+00:00:14,356 --> 00:00:18,535
+Aşırı hız algılanırsa güvenlik
+frenleri raylara kilitlenebilir.
+
+6
+00:00:18,555 --> 00:00:23,414
+Ayrıca karşı ağırlık sistemi ve çoklu
+çelik halatlar da riski azaltır.
+
+7
+00:00:23,434 --> 00:00:27,917
+Yani filmlerde gördüğün gibi
+serbest düşüş her zaman yaşanmaz.
+
+8
+00:00:27,937 --> 00:00:33,384
+Asıl amaç, halat kopsa bile kabinin
+kontrolsüz şekilde düşmesini engellemektir.
+
+9
+00:00:33,404 --> 00:00:36,527
+Kısacası korkutucu olan, düşüş fikridir.
+
+10
+00:00:36,547 --> 00:00:40,942
+Ama mühendislik, bunu önlemek
+için çoktan çözüm geliştirmiştir.
