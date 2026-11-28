@@ -100,3 +100,30 @@ def srt(lines: list[LineAudio], max_chars: int = 42) -> str:
             text = " ".join(ws[:best]) + "\n" + " ".join(ws[best:])
         out.append(f"{i}\n{_ts(a)} --> {_ts(b2)}\n{text}\n")
     return "\n".join(out)
+
+
+def event_vtt(events, fps, total):
+    """Optional Turkish sound descriptions timed from baked or planted contacts."""
+    labels = {"ball_contact": "Top sekiyor", "footstep": "Adım", "water_baffle": "Su engele çarpıyor",
+              "ignition": "Alev tutuşuyor", "tile_impact": "Karo zemine çarpıyor"}
+    cues = []
+    for event in sorted(events, key=lambda e: e["visual_frame"]):
+        start = event["visual_frame"] / fps
+        label = labels.get(event["type"])
+        if not label or start >= total:
+            continue
+        if cues and label == cues[-1][2] and start <= cues[-1][1]:
+            cues[-1][1] = min(total, start + .45)
+        else:
+            if cues:
+                cues[-1][1] = min(cues[-1][1], start)
+            cues.append([start, min(total, start + .45), label])
+
+    def stamp(seconds):
+        hours, rest = divmod(round(seconds * 1000), 3600000)
+        minutes, rest = divmod(rest, 60000)
+        sec, ms = divmod(rest, 1000)
+        return f"{hours:02}:{minutes:02}:{sec:02}.{ms:03}"
+
+    return "WEBVTT\n\n" + "\n\n".join(f"{stamp(a)} --> {stamp(b)}\n[{label}]"
+                                      for a,b,label in cues if b > a) + "\n"

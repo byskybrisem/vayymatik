@@ -144,28 +144,28 @@ def _motion_profile(path: Path, fps: int) -> dict:
             "windows_below_0.6": int(sum(1 for x in lows if x < 0.6)), "windows": len(lows)}
 
 
-def _frame_at(path: Path, t: float, last: bool = False) -> np.ndarray:
+def _frame_at(path: Path, t: float, last: bool = False, size=(270,480)) -> np.ndarray:
     if last:  # son kare: dosya sonundan 0,4 sn içindeki karelerin sonuncusu
-        cmd = ["ffmpeg", "-v", "error", "-sseof", "-0.4", "-i", str(path), "-vf", "scale=270:480", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
+        cmd = ["ffmpeg", "-v", "error", "-sseof", "-0.4", "-i", str(path), "-vf", f"scale={size[0]}:{size[1]}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
     else:
-        cmd = ["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", str(path), "-frames:v", "1", "-vf", "scale=270:480", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
+        cmd = ["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", str(path), "-frames:v", "1", "-vf", f"scale={size[0]}:{size[1]}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"]
     r = subprocess.run(cmd, capture_output=True)
     buf = np.frombuffer(r.stdout, np.uint8)
-    n = 480 * 270 * 3
-    return buf[-n:].reshape(480, 270, 3).astype(np.float32)
+    n = size[0] * size[1] * 3
+    return buf[-n:].reshape(size[1], size[0], 3).astype(np.float32)
 
 
-def _contact_sheet(path: Path, dur: float, out: Path, n: int = 18) -> list[float]:
+def _contact_sheet(path: Path, dur: float, out: Path, n: int = 18, size=(270,480)) -> list[float]:
     from PIL import Image, ImageDraw
 
     ts = [round(dur * (i + 0.5) / n, 2) for i in range(n)]
     cols = 6
     rows = (n + cols - 1) // cols
-    sheet = Image.new("RGB", (cols * 276, rows * 506), (20, 20, 20))
+    sheet = Image.new("RGB", (cols * (size[0]+6), rows * (size[1]+26)), (20, 20, 20))
     d = ImageDraw.Draw(sheet)
     for k, t in enumerate(ts):
-        im = Image.fromarray(_frame_at(path, t).astype(np.uint8))
-        x, y = (k % cols) * 276 + 3, (k // cols) * 506 + 22
+        im = Image.fromarray(_frame_at(path, t, size=size).astype(np.uint8))
+        x, y = (k % cols) * (size[0]+6) + 3, (k // cols) * (size[1]+26) + 22
         sheet.paste(im, (x, y))
         d.text((x + 4, y - 18), f"{t:.1f} sn", fill=(255, 220, 0))
     sheet.save(out)
@@ -200,7 +200,11 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     else:
         lo, hi = topic.get("qa", {}).get("duration_range", [45, 55])
         add(f"Süre {lo}–{hi} sn", lo <= dur <= hi, {"seconds": round(dur, 3)})
-    add("FPS 30 veya 60", round(num / den, 3) in (30.0, 60.0), {"fps": round(num / den, 3)})
+    add("FPS konu ayarıyla eşleşiyor", num == fps * den, {"fps": round(num / den, 3)})
+    expected_frames = round(meta["total"] * fps)
+    add("Beklenen kare sayısı ve ortalama FPS", int(v.get("nb_frames", 0)) == expected_frames
+        and abs(float(v["duration"]) - expected_frames / fps) < .5/fps,
+        {"expected": expected_frames, "encoded": v.get("nb_frames"), "duration_s": v.get("duration")})
     add("Video codec H.264 yuv420p", v["codec_name"] == "h264" and v.get("pix_fmt") == "yuv420p", {"codec": v["codec_name"], "pix_fmt": v.get("pix_fmt"), "profile": v.get("profile")})
     add("Ses akışı AAC 48 kHz stereo", bool(a) and a["codec_name"] == "aac" and a["sample_rate"] == "48000" and a["channels"] == 2,
         {"codec": a and a["codec_name"], "sample_rate": a and a["sample_rate"], "channels": a and a["channels"]})
@@ -299,7 +303,7 @@ def run_qa(topic_id: str, asr_model: str = "medium") -> bool:
     add("Tekrar izleme döngüsü (ilk/son kare benzerliği)", mad < 28, {"mean_abs_diff": round(mad, 2)}, crit=False)
 
     sheet = bdir / "qa_frames.png"
-    ts = _contact_sheet(video, dur, sheet)
+    ts = _contact_sheet(video, dur, sheet, size=(480,270) if v["width"] > v["height"] else (270,480))
 
     ok = all(c["pass"] for c in checks if c["critical"])
     report = {

@@ -5,12 +5,12 @@ import * as THREE from 'three';
 import {useCurrentFrame, useVideoConfig} from 'remotion';
 import {noise2D} from '@remotion/noise';
 import {mat, PALETTE} from '../core/materials';
-import {StateKey, stateWeights, VecKey, vec} from '../core/math';
+import {StateKey, stateWeights, VecKey, vec, NumKey, num} from '../core/math';
 import {applyWalk, blendExpr, blendPose, blink, talkAmount, TalkWord, WalkSpec} from './rig';
 
 import {gait, solve} from './contact';
 
-export type ContactMotion = {steps: number; stepTime: number; stride: number; hand: VecKey[]};
+export type ContactMotion = {steps: number; stepTime: number; stride: number; hand: VecKey[]; grip?: NumKey[]};
 export type Outfit = {skin?: string; hair?: string; suit?: string; shirt?: string; tie?: string; pants?: string; shoes?: string; beard?: boolean};
 
 export type CharacterProps = {
@@ -128,7 +128,12 @@ export const Character: React.FC<CharacterProps> = ({pose = 'stand', expr = 'neu
 		const wrist = vec(frame, contact.hand, [.215, 1.02, .15]);
 		[p.shLX, p.elLX] = solve(p.rootY + .54 - wrist[1], wrist[2] - root, .29, .26, -1);
 		p.shLZ = p.shLY = p.elLY = p.spineX = p.spineY = p.chestX = p.chestY = 0;
-		p.fingerL = .72;
+		p.fingerL = num(frame, contact.grip, .72);
+		if (contact.grip) {
+		    // Keep the palm upright for a grasp or a fingertip contact.
+		    p.wrLX = Math.max(-1.4, Math.min(1.4, -p.shLX - p.elLX));
+		    p.wrLZ = 0;
+		}
 	}
 	const e = blendExpr(stateWeights(frame, expr, 'neutral', 8));
 	const t = talkAmount(frame, talk);

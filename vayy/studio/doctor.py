@@ -23,7 +23,24 @@ def inventory():
     cgroup = Path("/sys/fs/cgroup")
     limits = {name: (cgroup / name).read_text().strip()
               for name in ("memory.max", "cpu.max") if (cgroup / name).is_file()}
-    return {"os": platform.platform(), "python": platform.python_version(),
+    meminfo = Path("/proc/meminfo")
+    memory = {}
+    if meminfo.is_file():
+        for line in meminfo.read_text().splitlines():
+            key, _, value = line.partition(":")
+            if key in ("MemTotal", "MemAvailable"):
+                memory[key] = int(value.split()[0]) * 1024
+    devices = None
+    if tools["blender"]:
+        probe = "import bpy,json; p=bpy.context.preferences.addons['cycles'].preferences; p.refresh_devices(); print('VAYY_DEV='+json.dumps([(d.name,d.type) for d in p.devices]))"
+        try:
+            result = subprocess.run([tools["blender"]["path"], "-b", "--factory-startup",
+                                     "--python-expr", probe], capture_output=True, text=True, timeout=25)
+            devices = next((json.loads(line[9:]) for line in result.stdout.splitlines()
+                            if line.startswith("VAYY_DEV=")), None)
+        except subprocess.TimeoutExpired:
+            pass
+    return {"memory_bytes": memory, "cycles_devices": devices, "os": platform.platform(), "python": platform.python_version(),
             "logical_cpus": os.cpu_count(), "limits": limits, "disk_free": shutil.disk_usage(ROOT).free,
             "tools": tools, "configured_browser": os.getenv("REMOTION_BROWSER"),
             "blender_backend": "cycles-cpu", "webgl_probe_performed": False}

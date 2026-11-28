@@ -95,7 +95,9 @@ jobs:
           python -m vayy.studio.doctor > "deliverables/$TOPIC/Environment.json"
 
       - name: Render cache regression
-        run: PYTHONPATH=. python tests/checkpoint_regression.py
+        run: |
+          PYTHONPATH=. python tests/checkpoint_regression.py
+          node --experimental-strip-types tests/contacts.mjs
 
       - name: Önceki kare aralıklarını geri al
         if: startsWith(env.TOPIC, 'atolye')

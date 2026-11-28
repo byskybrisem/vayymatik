@@ -143,3 +143,8 @@ Zack D. Films kanalının üç erişilebilir arşiv kopyasında iki saniye aral�
 - Bake sonrası su yüzeyinin engele ulaşması (7. kare), gaz alanında alevin ilk görülmesi (0. kare) ve karonun zemin temasından Foley olayları çıkarılıyor. Manifest kayıtları sıfır tabanlıdır. Kareler ve olay JSON'ları cache'de birlikte doğrulanır. Ham Mantaflow alanları geçicidir; kamera değişimi yeniden bake gerektirir.
 - Güncellenmiş 23 sn AAC'yi ilk teslimin H.264 görüntüsüyle yerelde mux ettik. Kodlanmış AAC'de 6 adım ve 5 sekme, 11/11 dalga biçimi eşleşmesi; kareye göre en büyük ölçülen kayma 0 ms. Olayın görüntü zamanı bake/rig karesinden gelir, pikselden otomatik hareket takibi yapılmadı.
 - Tam yatay/dikey paket ve Blender test paketi CI sonuçları ayrı kaydedilecek. Claude çalışma ortamında doğrudan koşum yapılmadı.
+
+### Karakter temasının son kadrajı
+- İlk kadraj incelemesine göre düşüş tarafına geçildi. 210, 375 ve 540. kareler 1080×1920 yerel PNG olarak tekrar incelendi: top avuç yanında, ilk sekme kadrajda görünür, uzanan parmak uçları tabla hizasında. Kavrama/bırakma için parmak kapanışı ve bilek telafisi JSON'a bağlandı. İlk iki saniye yürüyüş sırasında karaktere ayrılıyor.
+- 90 yürüyüş karesinde ileri kinematik testi destek ayağında 0 m kayma ve azami 1,6×10⁻¹⁶ m hedef hatası ölçtü. Bu test zemin düz ve hareket tek eksenli iken geçerli. Rig diz/dirsekte 2,55 radyan bükülme sınırı kullanıyor. Omurga temas sırasında dik tutuluyor; genel amaçlı anatomik çözücü bulunmuyor.
+- QA kodlanan kare sayısını doğrular. İsteğe bağlı Event-captions.vtt, bake ve adım olaylarından Türkçe ses açıklaması üretir. doctor RAM ve Cycles aygıt envanterini raporlar.

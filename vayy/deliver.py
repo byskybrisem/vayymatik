@@ -43,8 +43,11 @@ def deliver(topic_id: str, thumbnail: bool = True) -> None:
     out += ["", "SAHNE LİSTESİ", "=" * 60]
     for s in scenes:
         out.append(f"{_ts(s['from'] / fps)} – {_ts((s['from'] + s['dur']) / fps)}  {s['id']:<15} [{s['type']}]  geçiş: {s['transitionIn'].get('type')}  {notes.get(s['id'], '')}")
+    v = topic["voice"]
+    narrator = (v.get("name", "external") if v.get("provider") == "external" else
+                f"Piper TTS · {v['model']} · length {v['length_scale']} · noise {v['noise_scale']} · noise_w {v['noise_w']}")
     out += ["", "SES", "=" * 60,
-            f"Anlatıcı: Piper TTS · {topic['voice']['model']} (CC0) · length {topic['voice']['length_scale']} · noise {topic['voice']['noise_scale']} · noise_w {topic['voice']['noise_w']}",
+            f"Anlatıcı: {narrator}",
             f"Müzik: özgün prosedürel kompozisyon · {topic['music'].get('bpm', 120)} BPM · Re minör",
             f"Miks: {json.dumps(meta['audio'], ensure_ascii=False)}"]
     (ddir / "Script.txt").write_text("\n".join(out) + "\n", encoding="utf-8")
@@ -59,7 +62,7 @@ def deliver(topic_id: str, thumbnail: bool = True) -> None:
            "| # | Videodaki bilgi | Kaynak | Erişim |", "|---|---|---|---|"]
     for i, s in enumerate(topic.get("sources", []), 1):
         src.append(f"| {i} | {s['claim']} | [{s['title']}]({s['url']}) | {s['accessed']} |")
-    if topic_id == "redbull":
+    if topic["id"] == "redbull":
         src += ["", "## Notlar", "",
                 "- **Ciro ≠ kâr:** 12,196 milyar € Red Bull'un 2025 *grup cirosudur (gelir)*; net kâr olarak sunulmamıştır. Videoda bu açıkça yazılıdır.",
                 "- **\"8 milyondan fazla\":** YouTube resmî blogu zirvede *\"more than 8 million concurrent livestreams\"* ifadesini kullanır; videoda \"eş zamanlı canlı yayın akışı\" olarak aktarılmıştır.",
@@ -70,7 +73,7 @@ def deliver(topic_id: str, thumbnail: bool = True) -> None:
                 ]
     src += ["", "## Görsel, ses ve yazı tipi lisansları", ""]
     src += ["- " + c for c in topic.get("assets_credits", [])]
-    if topic_id == "redbull":
+    if topic["id"] == "redbull":
         src += ["", "Temsili sahneler (stratosfer POV, kapsül, F1 pisti, otoyol, ürün kutusu, spor siluetleri, izleyici noktaları) videoda **\"TEMSİLİ\"** etiketiyle işaretlenmiştir; gerçek arşiv görüntüsü olarak sunulmamıştır. Red Bull logosu veya ticari görselleri kullanılmamıştır.", ""]
     (ddir / "Sources.md").write_text("\n".join(src), encoding="utf-8")
 
@@ -78,6 +81,11 @@ def deliver(topic_id: str, thumbnail: bool = True) -> None:
     manifest_file = bdir / "scene-manifest.json"
     if manifest_file.exists():
         shutil.copyfile(manifest_file, ddir / "Scene-manifest.json")
+
+    if meta.get("event_sync"):
+        from .captions import event_vtt
+        (ddir / "Event-captions.vtt").write_text(
+            event_vtt(meta["event_sync"], fps, meta["total"]), encoding="utf-8")
 
     if thumbnail:
         props = {"topic": "current", "thumb": md.get("thumbnail")}
