@@ -43,6 +43,10 @@ def render(props, width, height, fps, frames):
                samples=int(props.get("samples", 16)), seed=int(props.get("seed", 7)))
     if min(width, height, frames, fps, job["samples"]) < 1 or width % 2 or height % 2:
         raise ValueError("Boyutlar pozitif ve çift, örnek ve kare sayıları pozitif olmalı")
+    profile = props.get("cameraProfile", "original")
+    if profile not in {"original", "short-orbit", "dolly", "handheld"}:
+        raise ValueError(f"Bilinmeyen kamera profili: {profile}")
+    job["cameraProfile"] = profile
     job["template"] = template
     for name, limits in catalog[template]["parameters"].items():
         value = props.get(name, limits["default"])
@@ -55,8 +59,10 @@ def render(props, width, height, fps, frames):
     cache = CACHE / "cinema"
     cache.mkdir(parents=True, exist_ok=True)
     clip = cache / (key + ".mp4")
-    if clip.exists():
+    beats = clip.with_suffix(".json")
+    if clip.exists() and beats.exists():
         try:
+            json.loads(beats.read_text())
             check_clip(clip, job)
             return clip
         except (ValueError, KeyError, IndexError, subprocess.CalledProcessError):
@@ -69,6 +75,7 @@ def render(props, width, height, fps, frames):
                                    "--python", str(SCRIPT), "--", json.dumps(job)],
                                   stdout=log, stderr=subprocess.STDOUT)
             if proc.returncode:
+                shutil.copyfile(root / "render.log", cache / (key + ".error.log"))
                 log.seek(0)
                 from collections import deque
                 raise RuntimeError("".join(deque(log, maxlen=14)))
@@ -77,6 +84,7 @@ def render(props, width, height, fps, frames):
                         "-i", str(root / "frame%04d.png"), "-c:v", "libx264", "-crf", "17",
                         "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(out)], check=True)
         check_clip(out, job)
+        (root / "frame.json").replace(beats)
         out.replace(clip)
     return clip
 
@@ -91,6 +99,7 @@ def prepare(timeline, current):
             width = 2 * round(timeline["width"] * scale / 2)
             height = 2 * round(timeline["height"] * scale / 2)
             clip = render(props, width, height, timeline["fps"], scene["dur"])
+            props["bakedEvents"] = json.loads(clip.with_suffix(".json").read_text())
             props["sourceSize"] = [width, height]
             shutil.copyfile(clip, current / clip.name)
             scene["props"]["src"] = "current/" + clip.name

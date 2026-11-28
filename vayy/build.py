@@ -147,6 +147,17 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
         "foreignWords": topic.get("foreign_words", []),
     }
 
+    ensure_public()
+    cur = ENGINE_PUBLIC / "current"
+    if cur.exists():
+        shutil.rmtree(cur)
+    cur.mkdir(parents=True)
+    physics = {"fracture", "water-baffle", "fire-plume"}
+    if any(s["type"] == "cinematic" and
+           (render or stills or s["props"].get("template") in physics) for s in scenes):
+        from .studio import prepare
+        prepare(timeline, cur)
+
     # 3) Müzik
     log("3/8 Müzik (prosedürel, özgün)")
     m = topic["music"]
@@ -161,6 +172,11 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
     from .studio.drop import expand
     for scene, source in zip(scenes, scenes_src):
         expand(scene, fps, events, source.get("drop"))
+        for beat in scene["props"].get("bakedEvents", []):
+            frame = beat["frame"]
+            scene["props"].setdefault("beats", []).append(frame)
+            events.append({"type": beat["type"], "t": (scene["from"] + frame) / fps,
+                           "seed": frame + 42, "gain": -16})
     baked_events = list(events)
     for e in topic.get("sfx", []):
         e = dict(e)
@@ -181,14 +197,6 @@ def build(topic_id: str, render: bool = True, stills: list[int] | None = None, c
 
     # 6) Motor girdileri
     log("6/8 Motor girdileri (engine/public/current)")
-    ensure_public()
-    cur = ENGINE_PUBLIC / "current"
-    if cur.exists():
-        shutil.rmtree(cur)
-    cur.mkdir(parents=True)
-    if (render or stills) and any(s["type"] == "cinematic" for s in scenes):
-        from .studio import prepare
-        prepare(timeline, cur)
     geo = topic.get("geo", {})
     make_mask(cur / "geo_mask.png", geo.get("highlight_a"), geo.get("highlight_b"))
     shutil.copy2(bdir / "mix.wav", cur / "mix.wav")

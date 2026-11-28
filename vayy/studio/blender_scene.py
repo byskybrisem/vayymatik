@@ -29,15 +29,19 @@ steel = alloy("Machined steel", (.33, .41, .48), .91, .23)
 slate = alloy("Graphite", (.025, .044, .058), .35, .38)
 
 
+events = []
 if job["template"] == "underground-section":
     from underground import build
     build()
+elif job["template"] == "factory-bay":
+    from factory import build
+    build(job["bays"])
 elif job["template"] == "fracture":
     from experiment import fracture
-    fracture(scene, brass)
+    events = fracture(scene, brass)
 elif job["template"] in ("water-baffle", "fire-plume"):
     from experiment import fluid
-    fluid(scene, job, job["template"] == "water-baffle", alloy("Water", (.03,.30,.51),.08,.16))
+    events = fluid(scene, job, job["template"] == "water-baffle", alloy("Water", (.03,.30,.51),.08,.16))
 else:
     ring("Sectioned housing", 1.36, 1.18, .87, .12, slate, arc=math.pi*1.23)
     ring("Lower bearing", 1.22, .31, .13, .06, steel)
@@ -52,6 +56,8 @@ else:
         rotor.keyframe_insert(data_path="rotation_euler", frame=scene.frame_end)
         rotor.keyframe_insert(data_path="location", frame=scene.frame_end)
     ring("Hollow shaft", .39, .24, 1.45, .07, steel)
+Path(job["prefix"]).with_suffix(".json").write_text(json.dumps(events))
+scene.frame_set(1)
 bpy.ops.mesh.primitive_plane_add(size=200)
 bpy.context.object.data.materials.append(slate)
 
@@ -68,11 +74,15 @@ for loc, energy, color, size in [((1,-4,6),570,(1,.78,.55),4),((-4,1,3),410,(.38
 bpy.ops.object.camera_add()
 cam = scene.camera = bpy.context.object
 cam.data.lens = 47
-for frame, loc in [(1,(3,-5,3.3)),(scene.frame_end,(2,-5,3.5))]:
-    cam.location = Vector(loc) * max(1, job["size"][1]/job["size"][0])
-    aim(cam,(0,0,.73))
-    cam.keyframe_insert(data_path="location",frame=frame)
-    cam.keyframe_insert(data_path="rotation_euler",frame=frame)
+if job.get("cameraProfile") == "original":
+    for frame, loc in [(1, (3,-5,3.3)), (scene.frame_end, (2,-5,3.5))]:
+        cam.location = Vector(loc) * max(1, job["size"][1]/job["size"][0])
+        aim(cam, (0,0,.73))
+        cam.keyframe_insert(data_path="location", frame=frame)
+        cam.keyframe_insert(data_path="rotation_euler", frame=frame)
+else:
+    from cinematography import place
+    place(scene, cam, job)
 scene.render.filepath = job["prefix"]
 scene.render.image_settings.file_format = "PNG"
 bpy.ops.render.render(animation=True)

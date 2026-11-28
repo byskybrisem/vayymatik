@@ -76,3 +76,7 @@ Yayın kaynak kalitesi için `renderScale` varsayılanı 1'dir.
 Karakter kabul konusu: `python -m vayy build atolye`. Normal teslim kanalı
 GitHub Actions render.yml çalışmasının konu isimli artifact'idir. MP4, altyazı,
 kapak, ortam ve QA kayıtları aynı arşivdedir. İndirme GitHub oturumu gerektirebilir.
+
+Yatay kopya için `python -m vayy build atolye@wide` aynı konunun 1920×1080 paketini ayrı bir dizine yazar. Dikey komut `python -m vayy build atolye` olarak kalır. Aynı çalışma kopyasında iki build sırayla çalışmalı (engine/public/current ortaktır). CI ayrı runner kullanır. Kesilen karakter render'ını aynı komutla sürdür. Sonuçta Video-QA.json içinde hem ASR hem teslim AAC’sindeki temas farklarına bak.
+
+Blender sahnesinde props.template için fracture, water-baffle, fire-plume, underground-section, factory-bay veya rotor-section seçilebilir. cameraProfile seçenekleri original, short-orbit, dolly ve handheld. Fabrikanın bays değeri 1–6. Kırılma hazır eklem çizgileri olan karo, su ve yanma kaba çözünürlüklü Mantaflow örnekleridir. Render workflow'unda konu olarak studio-benchmarks seçildiğinde sabitlenmiş Blender LTS kurulur, altı kısa test ve ölçüm raporu artifact olarak teslim edilir.

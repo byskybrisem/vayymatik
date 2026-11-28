@@ -1,5 +1,6 @@
 """Headless Blender benchmark scenes. SI scale, illustrative material constants."""
 import math
+from pathlib import Path
 import bpy
 from mathutils import Vector
 
@@ -50,22 +51,19 @@ def fracture(scene, material):
                 joint.use_breaking, joint.breaking_threshold = True, .05
     scene.rigidbody_world.point_cache.frame_end = scene.frame_end
     bpy.ops.ptcache.bake_all(bake=True)
+    if not scene.rigidbody_world.point_cache.is_baked:
+        raise RuntimeError("Rigid body bake incomplete")
+    for frame in range(1, scene.frame_end + 1):
+        scene.frame_set(frame)
+        if any(min((obj.matrix_world @ Vector(v)).z for v in obj.bound_box) < .01
+               for obj in pieces.values()):
+            return [{"frame": frame - 1, "type": "tile_impact"}]
+    return []
 
 
 def fluid(scene, job, liquid, material):
     """Mantaflow grid solve with either a liquid obstacle or a fire/smoke inflow."""
-    domain = box("Simulation domain", (2.8,1.5,2.3), (0,0,1.15))
-    modifier = domain.modifiers.new("Mantaflow","FLUID")
-    modifier.fluid_type = "DOMAIN"
-    settings = modifier.domain_settings
-    settings.domain_type = "LIQUID" if liquid else "GAS"
-    settings.resolution_max = 40
-    settings.cache_directory = str(__import__('pathlib').Path(job['prefix']).parent / 'fluid-cache')
-    settings.cache_frame_end = scene.frame_end
-    settings.cache_type = "ALL"
     if liquid:
-        settings.use_mesh = True
-        domain.data.materials.append(material)
         obstacle = box("Baffle", (.22,1.3,.55), (.15,0,.275))
         mod = obstacle.modifiers.new("Obstacle","FLUID")
         mod.fluid_type = "EFFECTOR"
@@ -80,14 +78,41 @@ def fluid(scene, job, liquid, material):
         volume.inputs["Density"].default_value = 2
         volume.inputs["Blackbody Intensity"].default_value = 1
         tree.links.new(volume.outputs["Volume"], output.inputs["Volume"])
-        domain.data.materials.append(mat)
         source = box("Burner", (.46,.44,.18), (0,0,.19))
     source.hide_render = True
     flow = source.modifiers.new("Source", "FLUID")
     flow.fluid_type = "FLOW"
     flow.flow_settings.flow_type = "LIQUID" if liquid else "BOTH"
     flow.flow_settings.flow_behavior = "GEOMETRY" if liquid else "INFLOW"
+    domain = box("Simulation domain", (2.8,1.5,2.3), (0,0,1.15))
+    modifier = domain.modifiers.new("Mantaflow","FLUID")
+    modifier.fluid_type = "DOMAIN"
+    settings = modifier.domain_settings
+    settings.domain_type = "LIQUID" if liquid else "GAS"
+    settings.resolution_max = 40
+    settings.cache_directory = str(Path(job['prefix']).parent / 'fluid-cache')
+    settings.cache_frame_end = scene.frame_end
+    settings.cache_type = "ALL"
+    if liquid:
+        settings.use_mesh = True
+    domain.data.materials.append(material if liquid else mat)
+    scene.frame_set(1)
     bpy.context.view_layer.objects.active = domain
     result = bpy.ops.fluid.bake_all()
     if 'FINISHED' not in result or not settings.has_cache_baked_data:
         raise RuntimeError("Mantaflow bake did not finish")
+    for frame in range(1, scene.frame_end + 1):
+        scene.frame_set(frame)
+        evaluated = domain.evaluated_get(bpy.context.evaluated_depsgraph_get())
+        if liquid:
+            vertices = evaluated.data.vertices
+            # Baffle upstream face is x=.04; allow half a simulation grid cell.
+            active = len(vertices) > 8 and any(
+                (evaluated.matrix_world @ v.co).x >= .04 - .5 * 2.8 / settings.resolution_max
+                for v in vertices)
+        else:
+            field = evaluated.modifiers["Mantaflow"].domain_settings.flame_grid
+            active = any(value > .02 for value in field)
+        if active:
+            return [{"frame": frame - 1, "type": "water_baffle" if liquid else "ignition"}]
+    return []

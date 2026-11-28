@@ -213,7 +213,27 @@ def footstep(seed=20):
     return dsp.stereo(.36 * sole + .46 * heel)
 
 
+def tile_impact(seed=42):
+    n = n_of(.25)
+    grit = dsp.bp(dsp.noise(n, seed), 600, 6100) * dsp.expdec(n, .024)
+    ring = dsp.sine(1840, n) * dsp.expdec(n, .05)
+    return dsp.stereo(.45 * grit + .13 * ring)
+
+
+def water_baffle(seed=42):
+    n = n_of(.32)
+    water = dsp.bp(dsp.noise(n, seed), 400, 4400) * dsp.expdec(n, .07)
+    return dsp.stereo(.38 * water)
+
+
+def ignition(seed=42):
+    n = n_of(.46)
+    flame = dsp.bp(dsp.noise(n, seed), 250, 3600)
+    return dsp.stereo(.35 * flame * dsp.expdec(n, .10))
+
+
 SFX = {
+    "tile_impact": tile_impact, "water_baffle": water_baffle, "ignition": ignition,
     "footstep": footstep,
     "ball_contact": ball_contact,
     "whoosh": whoosh, "impact": impact, "riser": riser, "wind": wind, "engine": engine_flyby,

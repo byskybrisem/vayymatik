@@ -18,7 +18,8 @@
     },
     "dependencies": [
       "mechanical.py",
-      "blender_scene.py"
+      "blender_scene.py",
+      "cinematography.py"
     ]
   },
   "underground-section": {
@@ -35,7 +36,8 @@
     "dependencies": [
       "underground.py",
       "mechanical.py",
-      "blender_scene.py"
+      "blender_scene.py",
+      "cinematography.py"
     ]
   },
   "fracture": {
@@ -45,7 +47,8 @@
     "dependencies": [
       "experiment.py",
       "mechanical.py",
-      "blender_scene.py"
+      "blender_scene.py",
+      "cinematography.py"
     ]
   },
   "water-baffle": {
@@ -55,7 +58,8 @@
     "dependencies": [
       "experiment.py",
       "mechanical.py",
-      "blender_scene.py"
+      "blender_scene.py",
+      "cinematography.py"
     ]
   },
   "fire-plume": {
@@ -65,7 +69,26 @@
     "dependencies": [
       "experiment.py",
       "mechanical.py",
-      "blender_scene.py"
+      "blender_scene.py",
+      "cinematography.py"
+    ]
+  },
+  "factory-bay": {
+    "version": 1,
+    "units": "metres",
+    "parameters": {
+      "bays": {
+        "default": 3,
+        "min": 1,
+        "max": 6
+      }
+    },
+    "dependencies": [
+      "factory.py",
+      "experiment.py",
+      "mechanical.py",
+      "blender_scene.py",
+      "cinematography.py"
     ]
   }
 }
